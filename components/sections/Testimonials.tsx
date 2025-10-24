@@ -40,7 +40,7 @@ export default function Testimonials() {
 
               <div className="flex justify-center mb-4">
                 <img
-                  src={testimonial.image}
+                  src={testimonial.avatar}
                   alt={testimonial.name}
                   className="w-20 h-20 rounded-full object-cover border-4 border-gold"
                 />
@@ -53,9 +53,6 @@ export default function Testimonials() {
               <div className="text-center">
                 <p className="font-bold text-navy">{testimonial.name}</p>
                 <p className="text-sm text-navy-light">{testimonial.location}</p>
-                <span className="inline-block mt-2 px-3 py-1 bg-primary text-white text-xs rounded-full">
-                  {testimonial.service}
-                </span>
               </div>
             </motion.div>
           ))}
