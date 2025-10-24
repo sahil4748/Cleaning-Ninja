@@ -35,7 +35,7 @@ export default function ServicesSection() {
                 <div className="bg-white rounded-2xl overflow-hidden shadow-elegant hover:shadow-gold transition-all duration-300 group">
                   <div className="relative h-48 overflow-hidden">
                     <img
-                      src={service.image}
+                      src={service.fallback}
                       alt={service.name}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
