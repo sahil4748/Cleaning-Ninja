@@ -26,15 +26,37 @@ export default function Header() {
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="text-4xl transform group-hover:scale-110 transition-transform">🥷</div>
-            <div>
-              <span className="font-display font-bold text-2xl bg-gradient-royal bg-clip-text text-transparent">
-                Cleaning Ninja
-              </span>
-              <p className="text-xs text-gold font-elegant">Premium Australian Service</p>
+          {/* Logo - Animated and Perfect */}
+          <Link href="/" className="flex items-center space-x-3 group relative">
+            {/* Animated Ninja Icon */}
+            <div className="relative">
+              <div className="text-5xl transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-500 ease-out filter group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,0.6)]">
+                🥷
+              </div>
+              {/* Floating sparkle effect on hover */}
+              <div className="absolute -top-1 -right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <span className="text-xl animate-ping">✨</span>
+              </div>
             </div>
+
+            {/* Brand Text */}
+            <div className="flex flex-col">
+              <div className="flex items-center space-x-2">
+                <span className="font-display font-bold text-2xl lg:text-3xl bg-gradient-royal bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                  Cleaning Ninja
+                </span>
+                {/* Premium badge that appears on hover */}
+                <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:translate-x-1 text-gold text-xs font-bold px-2 py-0.5 bg-gold/10 rounded-full border border-gold/20">
+                  PRO
+                </span>
+              </div>
+              <p className="text-xs text-gold font-elegant tracking-wide group-hover:tracking-wider transition-all duration-300">
+                Premium Australian Service
+              </p>
+            </div>
+
+            {/* Shine effect on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-in-out pointer-events-none" />
           </Link>
 
           {/* Desktop Navigation */}
