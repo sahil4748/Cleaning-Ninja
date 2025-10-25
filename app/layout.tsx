@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import './globals.css'
-import CNHeader from '@/components/CNHeader'
+import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import FloatingCTA from '@/components/layout/FloatingCTA'
 
@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="theme-royal-beige">
-        <CNHeader />
-        <main id="main">{children}</main>
+      <body>
+        <Header />
+        <main>{children}</main>
         <Footer />
         <FloatingCTA />
       </body>
