@@ -22,7 +22,7 @@ export default function CNHeader() {
           <span className={styles.badge} aria-hidden="true">🥷</span>
           <span className={styles.wordmark}>
             <strong>Cleaning Ninja</strong>
-            <span className={styles.tagline}>Premium Australian Service</span>
+            <span className={styles.tagline}>Your mess, our mission.</span>
           </span>
         </a>
 
