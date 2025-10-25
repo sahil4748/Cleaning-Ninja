@@ -34,6 +34,7 @@ export default function CNHeader() {
             <li><a className={styles.link} href="/services">Services</a></li>
             <li><a className={styles.link} href="/gallery">Gallery</a></li>
             <li><a className={styles.link} href="/special-offers">Special Offers</a></li>
+            <li><a className={styles.link} href="/become-a-cleaner">Become a Cleaner</a></li>
           </ul>
         </nav>
 
@@ -42,7 +43,7 @@ export default function CNHeader() {
           <a className={styles.phone} href="tel:1300000123" aria-label="Call 1300 000 123">
             <span aria-hidden>📞</span>&nbsp;1300 000 123
           </a>
-          <a className={styles.cta} href="/quote" aria-label="Get a Quote">Get a Quote</a>
+          <a className={styles.cta} href="/quote" aria-label="Get your free quote">Get your free quote</a>
           <button
             className={styles.menuBtn}
             aria-label="Toggle navigation"
