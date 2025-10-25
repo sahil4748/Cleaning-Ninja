@@ -70,8 +70,9 @@ export default function CNHeader() {
           <li><a onClick={() => setOpen(false)} href="/services">Services</a></li>
           <li><a onClick={() => setOpen(false)} href="/gallery">Gallery</a></li>
           <li><a onClick={() => setOpen(false)} href="/special-offers">Special Offers</a></li>
+          <li><a onClick={() => setOpen(false)} href="/become-a-cleaner">Become a Cleaner</a></li>
           <li><a onClick={() => setOpen(false)} className={styles.mobilePhone} href="tel:1300000123">📞 1300 000 123</a></li>
-          <li><a onClick={() => setOpen(false)} className={styles.mobileCta} href="/quote">Get a Quote</a></li>
+          <li><a onClick={() => setOpen(false)} className={styles.mobileCta} href="/quote">Get your free quote</a></li>
         </ul>
       </div>
     </header>
