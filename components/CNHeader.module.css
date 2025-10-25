@@ -1,21 +1,22 @@
 /* Royal Neutral Header: Charcoal base, Gold accent, Ivory text */
 :root{
-  /* LIGHT Premium: clean white header, slate text, muted gold accents */
-  --header-bg:#FFFFFF;
-  --header-line:#E9EEF3;          /* subtle divider */
-  --text-strong:#1B2B3A;          /* slate for high legibility */
-  --text-muted:#5B6B79;           /* secondary labels */
-  --soft:#F7F9FB;                 /* light surfaces / pills */
-  --ring:rgba(0,0,0,.08);
-  --gold:#C8A44D;                 /* muted champagne gold */
+  /* LIGHT CHARCOAL LUXE — royal, calm, not black, not white */
+  --header-bg:#252B31;            /* soft charcoal */
+  --header-line:rgba(255,255,255,.10);
+  --text-strong:#F5F6F8;          /* ivory on dark */
+  --text-muted:#C7CFD6;           /* cool mist */
+  --soft:rgba(255,255,255,.06);   /* gentle pill on dark */
+  --ring:rgba(255,255,255,.24);
+  --gold:#C8A44D;                 /* champagne gold */
   --gold-700:#B4913F;             /* hover */
+  --badge-disc:#2B3137;           /* subtle inner contrast */
 }
 
 .header{
   position:sticky; top:0; z-index:50;
-  background:var(--header-bg);
+  background:linear-gradient(180deg,#252B31 0%, #1F252A 100%);
   border-bottom:1px solid var(--header-line);
-  box-shadow:0 6px 16px rgba(15,23,42,.05);   /* soft separation from page */
+  box-shadow:0 1px 0 rgba(0,0,0,.25) inset;
 }
 .skip{position:absolute;left:-9999px;}
 .skip:focus{left:12px;top:12px;background:var(--gold);color:#111;padding:8px 12px;border-radius:8px;}
@@ -33,8 +34,8 @@
 .tagline{font-size:.76rem;color:var(--text-muted)}
 .badge{
   display:grid;place-items:center;width:40px;height:40px;border-radius:999px;
-  background:#F2F4F7; color:#7A5C17; font-size:22px; line-height:1;
-  box-shadow:0 2px 6px rgba(0,0,0,.08);       /* very light shadow on white */
+  background:var(--badge-disc); color:#FFD979; font-size:22px; line-height:1;
+  box-shadow:0 6px 16px rgba(0,0,0,.28);
   border:1.5px solid var(--gold);             /* thin muted gold ring */
 }
 
