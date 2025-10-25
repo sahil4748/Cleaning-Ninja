@@ -10,16 +10,16 @@
 :root,
 :root.theme-royal-beige,
 body.theme-royal-beige {
-  --header-bg-1:#E5D9C5;          /* top fade */
-  --header-bg-2:#D9CBB5;          /* main beige base */
-  --header-line:#CFC2A8;          /* gentle divider */
-  --text-strong:#2A2A2A;          /* strong contrast */
-  --text-muted:#5E5546;           /* subtle secondary */
-  --soft:#EEE6D5;                 /* for phone pill */
-  --gold:#B8923A;                 /* rich champagne gold */
-  --gold-700:#A47E2C;             /* hover */
-  --badge-disc:#E0D5BF;           /* blends with header */
-  --shadow-ambient:0 2px 6px rgba(80,60,20,.15);
+  --header-bg-1:#DAD7D0;          /* top fade */
+  --header-bg-2:#D2CEC6;          /* main beige base */
+  --header-line:#CFCBC3;          /* gentle divider */
+  --text-strong:#1F2428;          /* strong contrast */
+  --text-muted:#5F676E;           /* subtle secondary */
+  --soft:#ECEAE5;                 /* for phone pill */
+  --gold:#B8A066;                 /* rich champagne gold */
+  --gold-700:#A18C58;             /* hover */
+  --badge-disc:#E6E2DA;           /* blends with header */
+  --shadow-ambient:0 1px 0 rgba(0,0,0,.06) inset;
 }
 
 /* Beige Royal (warm mid-beige bar) */
@@ -72,8 +72,8 @@ body.theme-charcoal {
 .tagline{font-size:.76rem;color:var(--text-muted)}
 .badge{
   display:grid;place-items:center;width:40px;height:40px;border-radius:999px;
-  background:var(--badge-disc); color:#FFD979; font-size:22px; line-height:1;
-  box-shadow:0 6px 16px rgba(0,0,0,.28);
+  background:var(--badge-disc); color:#7C661E; font-size:22px; line-height:1;
+  box-shadow:0 3px 8px rgba(0,0,0,.12);
   border:1.5px solid var(--gold);             /* thin muted gold ring */
 }
 
@@ -104,7 +104,7 @@ body.theme-charcoal {
   text-decoration:none; color:#111;
   padding:10px 16px; border-radius:12px; font-weight:800;
   background:var(--gold); border:1px solid var(--gold);
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
 }
 .cta:hover{
   background:var(--gold-700); border-color:var(--gold-700);
