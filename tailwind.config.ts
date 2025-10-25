@@ -9,27 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          DEFAULT: '#1e3a5f',
-          dark: '#0f1f3d',
-          light: '#2d5f8d',
-        },
-        accent: {
-          DEFAULT: '#F7F5DC',
-          dark: '#e8e5c8',
-        },
-        gold: {
-          DEFAULT: '#D4AF37',
-          light: '#F4D03F',
-          dark: '#B8941F',
-          shine: '#F4E5A0',
-        },
-        navy: {
-          DEFAULT: '#0f1f3d',
-          light: '#1a2942',
-          900: '#0f1f3d',
-          800: '#1a2942',
-        },
+        primary: '#1e3a5f',
+        navy: '#0f2942',
+        gold: '#D4AF37',
+        accent: '#f8f9fa',
         coral: '#FF6B6B',
       },
       fontFamily: {
