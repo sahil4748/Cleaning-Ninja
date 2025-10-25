@@ -1,22 +1,58 @@
 /* Royal Neutral Header: Charcoal base, Gold accent, Ivory text */
-:root{
-  /* LIGHT CHARCOAL LUXE — royal, calm, not black, not white */
-  --header-bg:#252B31;            /* soft charcoal */
+/* ============================================================
+   THEME TOKENS (choose by setting a class on <body>)
+   .theme-graphite (default), .theme-beige-royal, .theme-charcoal
+   ============================================================ */
+
+/* Default: Graphite Mist (premium, mid-dark, calm) */
+:root,
+:root.theme-graphite,
+body.theme-graphite {
+  --header-bg-1:#2E343A;          /* top */
+  --header-bg-2:#262B31;          /* bottom */
   --header-line:rgba(255,255,255,.10);
-  --text-strong:#F5F6F8;          /* ivory on dark */
-  --text-muted:#C7CFD6;           /* cool mist */
-  --soft:rgba(255,255,255,.06);   /* gentle pill on dark */
-  --ring:rgba(255,255,255,.24);
+  --text-strong:#F5F6F8;
+  --text-muted:#C7CFD6;
+  --soft:rgba(255,255,255,.06);
   --gold:#C8A44D;                 /* champagne gold */
-  --gold-700:#B4913F;             /* hover */
-  --badge-disc:#2B3137;           /* subtle inner contrast */
+  --gold-700:#B4913F;
+  --badge-disc:#30363D;
+  --shadow-ambient:0 1px 0 rgba(0,0,0,.28) inset;
+}
+
+/* Beige Royal (warm mid-beige bar) */
+body.theme-beige-royal {
+  --header-bg-1:#E7DFD0;
+  --header-bg-2:#E2D8C6;
+  --header-line:#D8CEBB;
+  --text-strong:#1F2A32;
+  --text-muted:#58636E;
+  --soft:#F2ECE1;
+  --gold:#C4A14B;
+  --gold-700:#B08E3E;
+  --badge-disc:#F5EFE5;
+  --shadow-ambient:0 1px 0 rgba(70,60,45,.10) inset;
+}
+
+/* Charcoal Luxe (deeper night mode) */
+body.theme-charcoal {
+  --header-bg-1:#1F2428;
+  --header-bg-2:#181C20;
+  --header-line:rgba(255,255,255,.12);
+  --text-strong:#F5F6F8;
+  --text-muted:#C7CFD6;
+  --soft:rgba(255,255,255,.06);
+  --gold:#C8A44D;
+  --gold-700:#B4913F;
+  --badge-disc:#242A30;
+  --shadow-ambient:0 1px 0 rgba(0,0,0,.32) inset;
 }
 
 .header{
   position:sticky; top:0; z-index:50;
-  background:linear-gradient(180deg,#252B31 0%, #1F252A 100%);
+  background:linear-gradient(180deg,var(--header-bg-1) 0%, var(--header-bg-2) 100%);
   border-bottom:1px solid var(--header-line);
-  box-shadow:0 1px 0 rgba(0,0,0,.25) inset;
+  box-shadow:var(--shadow-ambient);
 }
 .skip{position:absolute;left:-9999px;}
 .skip:focus{left:12px;top:12px;background:var(--gold);color:#111;padding:8px 12px;border-radius:8px;}
@@ -101,3 +137,5 @@
 /* Breakpoints */
 @media (min-width:1024px){ .nav{display:block} .menuBtn{display:none} }
 @media (max-width:1023px){ .phone, .cta { display:none } }
+
+
