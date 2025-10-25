@@ -6,7 +6,7 @@ import FloatingCTA from '@/components/layout/FloatingCTA'
 
 export const metadata: Metadata = {
   title: 'Cleaning Ninja | Premium Cleaning Services Australia',
-  description: 'Fair dinkum professional cleaning services across Australia. Carpet, upholstery, tile & grout cleaning with 100% satisfaction guarantee.',
+  description: 'Professional cleaning services across Australia. Carpet, upholstery, tile & grout cleaning.',
 }
 
 export default function RootLayout({
@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en">
       <body>
         <Header />
         <main>{children}</main>
