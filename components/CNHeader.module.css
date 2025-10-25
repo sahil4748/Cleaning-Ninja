@@ -1,25 +1,29 @@
 /* Royal Neutral Header: Charcoal base, Gold accent, Ivory text */
 :root{
-  --charcoal:#181C20;         /* header base */
-  --charcoal-2:#121518;       /* deeper edge for glaze */
-  --ivory:#F7F8FA;            /* primary text */
-  --mist:#C9D0D6;             /* muted text */
-  --soft:rgba(255,255,255,.06);/* soft surfaces */
-  --gold:#D9B24C;             /* CTA / accent */
-  --gold-700:#C9A138;         /* CTA hover */
+  /* Royal Minimal */
+  --charcoal:#121518;         /* flatter, calmer base */
+  --charcoal-2:#101417;       /* light depth only */
+  --ivory:#F5F6F8;            /* primary text (softer than pure white) */
+  --mist:#C6CED6;             /* muted text */
+  --line:rgba(255,255,255,.10);
+  --soft:rgba(255,255,255,.04);/* gentle surfaces */
+  --gold:#C8A44D;             /* muted champagne gold */
+  --gold-700:#B4913F;         /* hover */
 }
 
 .header{
   position:sticky; top:0; z-index:50;
-  background:linear-gradient(180deg,var(--charcoal) 0%, var(--charcoal-2) 100%);
-  border-bottom:1px solid rgba(255,255,255,.08);
+  background:var(--charcoal);                 /* flat, no glossy fade */
+  border-bottom:1px solid var(--line);        /* calmer hairline */
+  box-shadow:0 1px 0 rgba(255,255,255,.02) inset;
 }
 .skip{position:absolute;left:-9999px;}
 .skip:focus{left:12px;top:12px;background:var(--gold);color:#111;padding:8px 12px;border-radius:8px;}
 
 .container{
-  max-width:1200px; margin:0 auto; padding:12px 16px;
-  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:16px;
+  max-width:1200px; margin:0 auto; padding:10px 16px; /* slightly tighter */
+  display:grid; grid-template-columns:auto 1fr auto; align-items:center; gap:20px;
+  min-height:72px;                                   /* consistent header height */
 }
 
 /* Brand */
@@ -28,41 +32,51 @@
 .wordmark strong{font-size:1.18rem;letter-spacing:.2px}
 .tagline{font-size:.76rem;color:var(--mist)}
 .badge{
-  display:grid;place-items:center;width:44px;height:44px;border-radius:999px;
-  background:#14181D; color:#FFE07A; font-size:24px; line-height:1;
-  box-shadow:0 10px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.08), inset 0 -6px 12px rgba(0,0,0,.35);
-  outline:2px solid rgba(255,255,255,.08);
-  border:2px solid var(--gold); /* thin gold ring (subtle) */
+  display:grid;place-items:center;width:40px;height:40px;border-radius:999px;
+  background:#14181D; color:#FFD979; font-size:22px; line-height:1;
+  box-shadow:0 6px 16px rgba(0,0,0,.28);      /* lighter shadow */
+  border:1.5px solid var(--gold);             /* thinner ring */
 }
 
 /* Nav (center) */
 .nav{display:none;}
-.navList{list-style:none;margin:0;padding:0;display:flex;gap:28px;justify-content:center;}
+.navList{list-style:none;margin:0;padding:0;display:flex;gap:26px;justify-content:center;}
 .link{
   color:var(--mist); text-decoration:none; font-size:1rem;
-  padding:10px 6px; border-radius:8px; transition:color .18s ease, background .2s ease;
+  padding:8px 4px; border-radius:6px; transition:color .18s ease, background .2s ease, box-shadow .2s ease;
+  border-bottom:2px solid transparent;        /* elegant hover underline */
 }
-.link:hover,.link:focus-visible{color:var(--ivory); background:var(--soft); outline:2px solid transparent;}
+.link:hover,.link:focus-visible{
+  color:var(--ivory);
+  background:transparent;
+  border-bottom-color:var(--gold);
+  outline:2px solid transparent;
+}
 
 /* Actions (right) */
-.actions{display:flex;align-items:center;gap:12px;}
+.actions{display:flex;align-items:center;gap:14px;}
 .phone{
+  display:inline-flex;align-items:center;gap:8px;
   color:var(--ivory); text-decoration:none;
-  background:var(--soft); padding:10px 12px; border-radius:12px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);
+  padding:8px 10px; border-radius:10px;
+  box-shadow:inset 0 0 0 1px var(--line);
+  background:transparent;                      /* remove dark pill */
 }
 .cta{
-  text-decoration:none; color:#111; background:var(--gold);
-  padding:10px 14px; border-radius:12px; font-weight:800;
-  box-shadow:0 8px 18px rgba(0,0,0,.28);
+  text-decoration:none; color:var(--ivory);
+  padding:9px 14px; border-radius:12px; font-weight:800;
+  border:1.5px solid var(--gold); background:transparent;  /* outline by default */
+  box-shadow:none;
 }
-.cta:hover{ background:var(--gold-700); }
+.cta:hover{
+  color:#111; background:var(--gold); border-color:var(--gold-700);
+}
 
 /* Hamburger (shows <1024px) */
 .menuBtn{
   display:inline-flex;align-items:center;justify-content:center;
   width:44px;height:44px;border:0;background:transparent;border-radius:10px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.08);cursor:pointer
+  box-shadow:inset 0 0 0 1px var(--line);cursor:pointer
 }
 .menuIcon,.menuIcon::before,.menuIcon::after{
   content:"";display:block;width:22px;height:2px;background:var(--ivory);position:relative;transition:transform .2s ease
@@ -74,16 +88,16 @@
 .open{opacity:1;pointer-events:auto}
 .mobileList{
   list-style:none;margin:0;padding:16px;position:absolute;top:0;right:0;width:min(88vw,380px);height:100%;
-  background:linear-gradient(180deg,var(--charcoal),var(--charcoal-2));
-  box-shadow:-12px 0 30px rgba(0,0,0,.5); display:grid; gap:8px; padding-top:76px
+  background:var(--charcoal);
+  box-shadow:-12px 0 24px rgba(0,0,0,.45); display:grid; gap:8px; padding-top:72px
 }
 .mobileList a{
   display:block;text-decoration:none;color:var(--ivory);
-  padding:14px 12px;border-radius:10px;background:var(--soft)
+  padding:13px 12px;border-radius:10px;background:var(--soft)
 }
 .mobilePhone{background:var(--soft)}
 .mobileCta{
-  background:linear-gradient(180deg,#E1C065 0%,#D0A73E 100%); color:#111; font-weight:800
+  background:var(--gold); color:#111; font-weight:800
 }
 
 /* Breakpoints */
