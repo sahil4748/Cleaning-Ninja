@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="theme-graphite">
+      <body className="theme-royal-beige">
         <CNHeader />
         <main id="main">{children}</main>
         <Footer />
