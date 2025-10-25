@@ -1,10 +1,11 @@
 /* Royal Neutral Header: Charcoal base, Gold accent, Ivory text */
 /* ============================================================
-   THEME TOKENS (choose by setting a class on <body>)
-   .theme-graphite (default), .theme-beige-royal, .theme-charcoal
+   THEME TOKENS
+   Set the DEFAULT to "Royal Beige" so it always applies.
+   (No body class required.)
    ============================================================ */
 
-/* Default: Graphite Mist (premium, mid-dark, calm) */
+/* Default: Royal Beige (warm, premium, not bright) */
 /* Royal Beige – warm premium aesthetic */
 :root,
 :root.theme-royal-beige,
