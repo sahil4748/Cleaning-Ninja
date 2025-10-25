@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import Button from '@/components/ui/Button'
-import { PHONE_NUMBER, PHONE_LINK } from '@/lib/constants'
+import { PHONE_NUMBER, PHONE_LINK, SERVICES } from '@/lib/constants'
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
@@ -54,13 +54,13 @@ export default function Header() {
               </button>
               <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-royal opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 border border-gold/20">
                 <div className="py-2">
-                  {['Carpet Cleaning', 'Upholstery Cleaning', 'Tile & Grout', 'Leather Cleaning', 'End of Lease'].map((service) => (
+                  {SERVICES.map((service) => (
                     <Link
-                      key={service}
-                      href="#services"
+                      key={service.id}
+                      href={`/services/${service.slug}`}
                       className="block px-6 py-3 text-navy hover:bg-accent hover:text-gold transition-colors"
                     >
-                      {service}
+                      {service.name}
                     </Link>
                   ))}
                 </div>
@@ -103,7 +103,19 @@ export default function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden py-4 space-y-3 border-t border-gold/20 mt-2 animate-slide-up">
             <Link href="/" className="block py-2 text-navy hover:text-gold transition-colors">Home</Link>
-            <Link href="#services" className="block py-2 text-navy hover:text-gold transition-colors">Services</Link>
+            <div className="space-y-2">
+              <p className="text-sm font-semibold text-navy/70 px-2">Services</p>
+              {SERVICES.map((service) => (
+                <Link
+                  key={service.id}
+                  href={`/services/${service.slug}`}
+                  className="block py-2 pl-4 text-navy hover:text-gold transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {service.name}
+                </Link>
+              ))}
+            </div>
             <Link href="#offers" className="block py-2 text-navy hover:text-gold transition-colors">Special Offers</Link>
             <a href={PHONE_LINK} className="block py-2 text-gold font-semibold">{PHONE_NUMBER}</a>
             <Button className="w-full">Get a Quote</Button>

@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
+import Link from 'next/link'
 import { SERVICES } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
 
@@ -42,40 +43,42 @@ export default function Services() {
               transition={{ delay: index * 0.15, duration: 0.6 }}
               className="group"
             >
-              <div className="bg-white rounded-3xl overflow-hidden shadow-elegant hover:shadow-royal transition-all duration-500 transform hover:-translate-y-2">
-                {/* Service GIF/Image */}
-                <div className="relative h-64 overflow-hidden">
-                  {/* Try to load GIF, fallback to image */}
-                  <img
-                    src={service.fallback}
-                    alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                  />
+              <Link href={`/services/${service.slug}`} className="block">
+                <div className="bg-white rounded-3xl overflow-hidden shadow-elegant hover:shadow-royal transition-all duration-500 transform hover:-translate-y-2 cursor-pointer">
+                  {/* Service GIF/Image */}
+                  <div className="relative h-64 overflow-hidden">
+                    {/* Try to load GIF, fallback to image */}
+                    <img
+                      src={service.fallback}
+                      alt={service.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
 
-                  {/* Gold Overlay on Hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-gold/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Gold Overlay on Hover */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-gold/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                  {/* Premium Badge */}
-                  <div className="absolute top-4 right-4 bg-gradient-gold text-navy px-4 py-2 rounded-full font-bold text-sm shadow-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    Premium
+                    {/* Premium Badge */}
+                    <div className="absolute top-4 right-4 bg-gradient-gold text-navy px-4 py-2 rounded-full font-bold text-sm shadow-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      Premium
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-8">
+                    <h3 className="font-display font-bold text-2xl text-navy mb-3 group-hover:text-gold transition-colors">
+                      {service.name}
+                    </h3>
+                    <p className="text-navy/70 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+
+                    <div className="flex items-center space-x-2 text-gold font-semibold group-hover:translate-x-2 transition-transform">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
                   </div>
                 </div>
-
-                {/* Content */}
-                <div className="p-8">
-                  <h3 className="font-display font-bold text-2xl text-navy mb-3 group-hover:text-gold transition-colors">
-                    {service.name}
-                  </h3>
-                  <p className="text-navy/70 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <button className="flex items-center space-x-2 text-gold font-semibold group-hover:translate-x-2 transition-transform">
-                    <span>Learn More</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>
