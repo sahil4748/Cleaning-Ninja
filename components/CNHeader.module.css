@@ -8,18 +8,18 @@
 /* Default: Royal Beige (warm, premium, not bright) */
 /* Royal Beige – warm premium aesthetic */
 :root,
-:root.theme-royal-beige,
-body.theme-royal-beige {
-  --header-bg-1:#DAD7D0;          /* top fade */
-  --header-bg-2:#D2CEC6;          /* main beige base */
-  --header-line:#CFCBC3;          /* gentle divider */
-  --text-strong:#1F2428;          /* strong contrast */
-  --text-muted:#5F676E;           /* subtle secondary */
-  --soft:#ECEAE5;                 /* for phone pill */
-  --gold:#B8A066;                 /* rich champagne gold */
-  --gold-700:#A18C58;             /* hover */
-  --badge-disc:#E6E2DA;           /* blends with header */
-  --shadow-ambient:0 1px 0 rgba(0,0,0,.06) inset;
+:root.theme-graphite,
+body.theme-graphite {
+  --header-bg-1:#4A544E;
+  --header-bg-2:#3D4741;
+  --header-line:rgba(255,255,255,.10);
+  --text-strong:#F4F6F5;
+  --text-muted:#C9D1CC;
+  --soft:rgba(255,255,255,.07);
+  --gold:#C8A44D;
+  --gold-700:#B4913F;
+  --badge-disc:#49524C;
+  --shadow-ambient:0 1px 0 rgba(0,0,0,.22) inset;
 }
 
 /* Beige Royal (warm mid-beige bar) */
@@ -72,8 +72,8 @@ body.theme-charcoal {
 .tagline{font-size:.76rem;color:var(--text-muted)}
 .badge{
   display:grid;place-items:center;width:40px;height:40px;border-radius:999px;
-  background:var(--badge-disc); color:#7C661E; font-size:22px; line-height:1;
-  box-shadow:0 3px 8px rgba(0,0,0,.12);
+  background:var(--badge-disc); color:#FFD979; font-size:22px; line-height:1;
+  box-shadow:0 4px 10px rgba(0,0,0,.16);
   border:1.5px solid var(--gold);             /* thin muted gold ring */
 }
 
@@ -104,7 +104,7 @@ body.theme-charcoal {
   text-decoration:none; color:#111;
   padding:10px 16px; border-radius:12px; font-weight:800;
   background:var(--gold); border:1px solid var(--gold);
-  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  box-shadow:0 8px 18px rgba(0,0,0,.22);
 }
 .cta:hover{
   background:var(--gold-700); border-color:var(--gold-700);
@@ -139,5 +139,6 @@ body.theme-charcoal {
 /* Breakpoints */
 @media (min-width:1024px){ .nav{display:block} .menuBtn{display:none} }
 @media (max-width:1023px){ .phone, .cta { display:none } }
+
 
 
