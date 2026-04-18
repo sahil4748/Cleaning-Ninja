@@ -11,7 +11,7 @@ export default function NinjaClubRedesign() {
       {/* Background Subtle Pattern */}
       <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-3xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export default function NinjaClubRedesign() {
             transition={{ duration: 0.5 }}
             className="bg-white rounded-3xl p-8 sm:p-10 flex flex-col relative overflow-hidden group border border-gray-100"
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-accent rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-surface rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
             
             <div className="relative z-10 flex-grow">
               <h3 className="text-2xl font-bold text-navy mb-4">For Homeowners</h3>
@@ -70,7 +70,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-accent rounded-3xl p-8 sm:p-10 flex flex-col relative overflow-hidden group border border-gold/20"
+            className="bg-surface rounded-3xl p-8 sm:p-10 flex flex-col relative overflow-hidden group border border-gold/20 shadow-lg"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
             <Users className="absolute top-6 right-6 w-8 h-8 text-gold/50" />

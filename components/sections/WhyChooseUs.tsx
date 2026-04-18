@@ -29,7 +29,7 @@ const reasons = [
 export default function WhyChooseUs() {
   return (
     <section className="py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           <motion.div 
@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
                 const Icon = reason.icon
                 return (
                   <div key={index} className="flex flex-col">
-                    <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mb-4">
+                    <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center mb-4 border border-gray-100 shadow-sm">
                       <Icon className="w-6 h-6 text-gold" />
                     </div>
                     <h3 className="text-xl font-bold text-navy mb-2">{reason.title}</h3>

@@ -20,7 +20,7 @@ export default function QuoteFormSection() {
 
   return (
     <section id="quote" className="py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
           
           {/* Left Column: Copy & Trust */}
@@ -34,7 +34,7 @@ export default function QuoteFormSection() {
 
             <div className="space-y-6 mb-10">
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mr-4 border border-gray-100 shadow-sm">
                   <CheckCircle2 className="w-6 h-6 text-gold" />
                 </div>
                 <div>
@@ -43,7 +43,7 @@ export default function QuoteFormSection() {
                 </div>
               </div>
               <div className="flex items-center">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center mr-4">
+                <div className="w-12 h-12 bg-surface rounded-full flex items-center justify-center mr-4 border border-gray-100 shadow-sm">
                   <CheckCircle2 className="w-6 h-6 text-gold" />
                 </div>
                 <div>
@@ -67,7 +67,7 @@ export default function QuoteFormSection() {
           </div>
 
           {/* Right Column: The Form */}
-          <div className="bg-accent rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100">
+          <div className="bg-surface rounded-3xl p-8 sm:p-10 shadow-lg border border-gray-100">
             <form onSubmit={handleSubmit} className="space-y-5">
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

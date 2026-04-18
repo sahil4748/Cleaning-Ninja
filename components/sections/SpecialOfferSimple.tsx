@@ -7,7 +7,7 @@ export default function SpecialOfferSimple() {
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '32px 32px' }}></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-8 sm:p-12 text-center">
           <span className="inline-block bg-gold text-navy text-sm font-bold px-4 py-1.5 rounded-full mb-6 uppercase tracking-wider">
             Limited Time Offer

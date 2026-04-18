@@ -3,7 +3,7 @@ import { Star, ShieldCheck, Leaf } from 'lucide-react'
 export default function TrustBar() {
   return (
     <div className="bg-white border-b border-gray-100 py-6 relative z-20 shadow-sm">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 md:gap-24">
           
           <div className="flex items-center gap-3">

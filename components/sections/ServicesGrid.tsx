@@ -4,18 +4,30 @@ import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { SERVICES } from '@/lib/constants'
 import { ArrowRight } from 'lucide-react'
+import Card from '@/components/ui/Card'
 
 export default function ServicesGrid() {
   return (
-    <section className="py-24 bg-accent">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-24 bg-surface">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-navy mb-6">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            className="text-4xl sm:text-5xl font-bold text-navy mb-6 tracking-tight"
+          >
             Expert Cleaning Services
-          </h2>
-          <p className="text-lg text-gray-600">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ delay: 0.1 }}
+            className="text-lg text-gray-600"
+          >
             Professional solutions tailored for Australian homes. Every service is delivered with precision, care, and guaranteed results.
-          </p>
+          </motion.p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -28,12 +40,12 @@ export default function ServicesGrid() {
               transition={{ delay: index * 0.1, duration: 0.5 }}
             >
               <Link href={`/services/${service.slug}`} className="group block h-full">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-300 h-full flex flex-col border border-gray-100">
+                <Card hoverable className="p-0 overflow-hidden h-full flex flex-col border-none shadow-sm hover:shadow-lg">
                   <div className="relative h-60 overflow-hidden">
                     <img
                       src={service.fallback}
                       alt={service.name}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -49,7 +61,7 @@ export default function ServicesGrid() {
                       <ArrowRight className="w-5 h-5 ml-2 transition-transform group-hover:translate-x-1" />
                     </div>
                   </div>
-                </div>
+                </Card>
               </Link>
             </motion.div>
           ))}
