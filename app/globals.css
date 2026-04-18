@@ -1,15 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-navy: #0B132B;
-  --color-navy-light: #1A2644;
-  --color-gold: #C5A028;
-  --color-gold-light: #D4AF37;
-  --color-surface: #F8F9FA;
+  --color-olive-900: #3D4A1E;
+  --color-olive-700: #5A6B2F;
+  --color-olive-500: #7A8450;
+  --color-olive-300: #A8B58A;
+  --color-olive-100: #E8ECE0;
+  
+  --color-beige-900: #8C7B64;
+  --color-beige-700: #B5A48E;
+  --color-beige-500: #D4C5B0;
+  --color-beige-300: #E8DFD5;
+  --color-beige-100: #F5F1EB;
+  
+  --color-cream: #FAF8F5;
   --color-white: #FFFFFF;
   
-  --font-display: 'Outfit', sans-serif;
+  --font-display: 'Playfair Display', serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -21,8 +29,8 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-white);
-  color: var(--color-navy);
+  background-color: var(--color-beige-100);
+  color: var(--color-beige-900);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -40,14 +48,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-surface);
+  background: var(--color-beige-100);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: var(--color-beige-500);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: var(--color-beige-700);
 }
