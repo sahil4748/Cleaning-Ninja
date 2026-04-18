@@ -1,79 +1,102 @@
 'use client'
 
-import { PHONE_NUMBER, PHONE_LINK } from '@/lib/constants'
-import { Phone } from 'lucide-react'
-import Button from '@/components/ui/Button'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Link from 'next/link'
 
 export default function HeroRedesign() {
+  // Stagger children animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
-      },
-    },
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' as const } },
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        duration: 0.6, 
+        ease: [0.4, 0, 0.2, 1] 
+      }
+    }
   }
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden bg-navy">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1920&q=90"
-          alt="Professional cleaning service"
-          className="w-full h-full object-cover opacity-40"
-          loading="eager"
+    <section className="relative w-full h-screen min-h-[600px] overflow-hidden flex items-center">
+      {/* Background Image with Ken Burns Effect */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        initial={{ scale: 1.05 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 20, ease: "easeOut" }}
+      >
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ 
+            backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop')",
+          }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/80 to-navy" />
-      </div>
+        {/* Dark Olive Overlay */}
+        <div 
+          className="absolute inset-0" 
+          style={{ backgroundColor: 'rgba(45, 55, 25, 0.4)' }}
+        />
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10 w-full text-center lg:text-left">
-        <motion.div
+      {/* Content Container */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 mt-16 md:mt-0">
+        <motion.div 
+          className="max-w-[640px] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-3xl mx-auto lg:mx-0"
         >
-          <motion.div variants={itemVariants} className="mb-8 flex justify-center lg:justify-start">
-            <div className="inline-flex items-center bg-white/5 backdrop-blur-md border border-white/10 text-white px-5 py-2.5 rounded-full shadow-lg">
-              <span className="text-sm font-semibold tracking-widest uppercase text-gold">Australia's Premium Cleaning Service</span>
-            </div>
-          </motion.div>
+          {/* Eyebrow */}
+          <motion.span 
+            variants={itemVariants}
+            className="font-body text-beige-300 text-sm uppercase tracking-widest mb-4"
+          >
+            PREMIUM CLEANING SERVICES
+          </motion.span>
 
-          <motion.div variants={itemVariants}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight mb-6 tracking-tight">
-              Spotless Results, <br />
-              <span className="text-gold">Guaranteed.</span>
-            </h1>
-          </motion.div>
+          {/* Headline */}
+          <motion.h1 
+            variants={itemVariants}
+            className="font-display font-semibold text-white text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6"
+          >
+            Expert Cleaning with a Personal Touch
+          </motion.h1>
 
-          <motion.div variants={itemVariants}>
-            <p className="text-lg sm:text-xl text-gray-300 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Professional carpet, upholstery, and end-of-lease cleaning. Fully insured, eco-friendly, and trusted by over 5,000 Australian families.
-            </p>
-          </motion.div>
+          {/* Subheadline */}
+          <motion.p 
+            variants={itemVariants}
+            className="font-body text-beige-100 text-lg md:text-xl leading-relaxed max-w-xl mb-10"
+          >
+            Professional carpet, upholstery, and end-of-lease cleaning across Australia. Fully insured, eco-friendly products, and a bond-back guarantee.
+          </motion.p>
 
-          <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+          {/* CTAs */}
+          <motion.div 
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          >
             <Link href="#quote" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full">
-                Get Your Free Quote
-              </Button>
+              <button className="w-full sm:w-auto bg-olive-700 text-white font-body font-semibold px-8 py-4 rounded-lg hover:bg-olive-900 transition-all duration-300 hover:-translate-y-0.5 ease-out">
+                Get Free Quote
+              </button>
             </Link>
-            <a href={PHONE_LINK} className="w-full sm:w-auto">
-              <Button variant="outline" size="lg" className="w-full border-white/30 text-white hover:bg-white hover:text-navy hover:border-white">
-                <Phone className="w-5 h-5 mr-2" />
-                Call {PHONE_NUMBER}
-              </Button>
-            </a>
+            <Link href="#services" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-transparent border border-white text-white font-body font-semibold px-8 py-4 rounded-lg hover:bg-white hover:text-olive-900 transition-all duration-300 ease-out">
+                Our Services
+              </button>
+            </Link>
           </motion.div>
         </motion.div>
       </div>
