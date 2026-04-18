@@ -1,101 +1,90 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Sparkles, Users, ArrowRight } from 'lucide-react'
-import Button from '@/components/ui/Button'
 import Link from 'next/link'
 
 export default function NinjaClubRedesign() {
+  const contentVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
+  const imageVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: { duration: 0.8, ease: "easeOut", delay: 0.2 }
+    }
+  }
+
   return (
-    <section className="py-24 bg-navy relative overflow-hidden">
-      {/* Background Subtle Pattern */}
-      <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(#D4AF37 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-      
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center justify-center p-3 bg-white/10 rounded-2xl mb-6 backdrop-blur-sm border border-white/10"
-          >
-            <Sparkles className="w-8 h-8 text-gold" />
-          </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-            Join the <span className="text-gold">Ninja Club</span>
-          </h2>
-          <p className="text-lg text-gray-300">
-            Whether you&apos;re looking for premium, recurring cleaning services at a discount, or you&apos;re a professional cleaner looking to join our elite team—there&apos;s a place for you.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+    <section className="w-full bg-beige-100 py-20 md:py-24 overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           
-          {/* Customer Card */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl p-8 sm:p-10 flex flex-col relative overflow-hidden group border border-gray-100"
+          {/* Content Side */}
+          <motion.div 
+            className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left"
+            variants={contentVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-surface rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-            
-            <div className="relative z-10 flex-grow">
-              <h3 className="text-2xl font-bold text-navy mb-4">For Homeowners</h3>
-              <p className="text-gray-600 mb-8">
-                Become a VIP member to unlock exclusive discounts on recurring cleans, priority booking, and free specialized spot treatments.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['15% off all recurring cleans', 'Priority scheduling', 'Free annual carpet refresh'].map((benefit, i) => (
-                  <li key={i} className="flex items-center text-navy font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold mr-3"></span>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
+            <span className="font-body text-sm text-olive-500 uppercase tracking-widest font-semibold mb-4">
+              JOIN THE CLUB
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6">
+              Join the Ninja Club
+            </h2>
+            <p className="font-body text-lg text-beige-700 leading-relaxed max-w-xl mb-10">
+              Whether you're looking for premium, recurring cleaning services at a discount, or you're a professional cleaner looking to join our elite team—there's a place for you.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              {/* Homeowner CTA */}
+              <Link href="#homeowner-club" className="w-full sm:w-auto flex-1">
+                <button className="w-full bg-olive-700 hover:bg-olive-900 text-white px-8 py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 flex flex-col items-center justify-center group h-full">
+                  <span className="font-body font-bold text-lg mb-1">For Homeowners</span>
+                  <span className="font-body text-xs text-olive-100 font-medium">Save 15% on recurring cleans</span>
+                </button>
+              </Link>
+
+              {/* Cleaner CTA */}
+              <Link href="#cleaner-club" className="w-full sm:w-auto flex-1">
+                <button className="w-full bg-transparent hover:bg-olive-100 border-2 border-olive-700 text-olive-700 px-8 py-4 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 flex flex-col items-center justify-center group h-full">
+                  <span className="font-body font-bold text-lg mb-1">For Cleaners</span>
+                  <span className="font-body text-xs text-olive-700/80 font-medium group-hover:text-olive-700 transition-colors">Join our elite team</span>
+                </button>
+              </Link>
             </div>
-            
-            <Link href="#quote" className="relative z-10 mt-auto">
-              <Button className="w-full justify-between group-hover:bg-navy group-hover:text-white">
-                <span>Become a Member</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
           </motion.div>
 
-          {/* Cleaner Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-surface rounded-3xl p-8 sm:p-10 flex flex-col relative overflow-hidden group border border-gold/20 shadow-lg"
+          {/* Image Side */}
+          <motion.div 
+            className="w-full lg:w-1/2 relative"
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
           >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
-            <Users className="absolute top-6 right-6 w-8 h-8 text-gold/50" />
-
-            <div className="relative z-10 flex-grow">
-              <h3 className="text-2xl font-bold text-navy mb-4">For Professionals</h3>
-              <p className="text-gray-600 mb-8">
-                Are you a meticulous, experienced cleaner? Join our network to access premium clientele, flexible hours, and top-tier rates.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {['Competitive, reliable payouts', 'Flexible scheduling', 'Supportive network & training'].map((benefit, i) => (
-                  <li key={i} className="flex items-center text-navy font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gold mr-3"></span>
-                    {benefit}
-                  </li>
-                ))}
-              </ul>
+            <div className="relative rounded-xl overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-auto lg:h-[500px] w-full">
+              <img 
+                src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" 
+                alt="Professional cleaning team"
+                className="w-full h-full object-cover"
+              />
+              {/* Subtle Olive Overlay */}
+              <div className="absolute inset-0 bg-olive-900/10 mix-blend-multiply pointer-events-none" />
             </div>
             
-            <Link href="/become-a-cleaner" className="relative z-10 mt-auto">
-              <Button variant="outline" className="w-full justify-between bg-white hover:bg-gold hover:text-navy hover:border-gold">
-                <span>Apply Now</span>
-                <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+            {/* Decorative Element */}
+            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-olive-300/30 rounded-full -z-10 blur-2xl" />
+            <div className="absolute -top-6 -left-6 w-32 h-32 bg-olive-300/30 rounded-full -z-10 blur-2xl" />
           </motion.div>
 
         </div>
