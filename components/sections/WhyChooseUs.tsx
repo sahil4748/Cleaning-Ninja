@@ -1,82 +1,100 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle2, Clock, ShieldCheck, Sparkles } from 'lucide-react'
+import { Cog, BadgeCheck, Clock, ShieldCheck } from 'lucide-react'
 
-const reasons = [
+const PILLARS = [
   {
-    icon: Sparkles,
     title: 'Hospital-Grade Equipment',
-    description: 'We invest in industry-leading machinery that extracts deep-seated dirt and allergens DIY machines leave behind.'
+    description: 'We invest in industry-leading machinery that extracts deep-seated dirt and allergens DIY machines leave behind.',
+    icon: Cog
   },
   {
-    icon: CheckCircle2,
     title: 'Transparent Pricing',
-    description: 'No hidden fees or surprise upsells. The quote you receive is the price you pay, guaranteed.'
+    description: 'No hidden fees or surprise upsells. The quote you receive is the price you pay, guaranteed.',
+    icon: BadgeCheck
   },
   {
-    icon: Clock,
     title: 'Punctual Professionals',
-    description: 'We respect your time. Our teams arrive exactly when scheduled and work efficiently without cutting corners.'
+    description: 'We respect your time. Our teams arrive exactly when scheduled and work efficiently without cutting corners.',
+    icon: Clock
   },
   {
-    icon: ShieldCheck,
     title: 'Bond Back Guarantee',
-    description: 'For end-of-lease cleans, we use REA-approved checklists. If the agent isn\'t happy, we return for free.'
+    description: "For end-of-lease cleans, we use REA-approved checklists. If the agent isn't happy, we return for free.",
+    icon: ShieldCheck
   }
 ]
 
 export default function WhyChooseUs() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  }
+
+  const pillarVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl sm:text-5xl font-bold text-navy mb-6">
-              Why Aussies Trust <br/>Cleaning Ninja
-            </h2>
-            <p className="text-lg text-gray-600 mb-8">
-              We don't just clean; we restore. Our commitment to premium service means you get reliable, high-quality results every single time, without the hassle.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-              {reasons.map((reason, index) => {
-                const Icon = reason.icon
-                return (
-                  <div key={index} className="flex flex-col">
-                    <div className="w-12 h-12 bg-surface rounded-xl flex items-center justify-center mb-4 border border-gray-100 shadow-sm">
-                      <Icon className="w-6 h-6 text-gold" />
-                    </div>
-                    <h3 className="text-xl font-bold text-navy mb-2">{reason.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{reason.description}</p>
-                  </div>
-                )
-              })}
-            </div>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative h-[600px] rounded-3xl overflow-hidden"
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80" 
-              alt="Professional cleaning" 
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </motion.div>
-
+    <section className="w-full bg-cream py-20 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="font-body text-sm text-olive-500 uppercase tracking-widest font-semibold block mb-3">
+            Why Choose Us
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-4">
+            Why Aussies Trust Cleaning Ninja
+          </h2>
+          <p className="font-body text-beige-700 text-lg leading-relaxed">
+            We don't just clean; we restore. Our commitment to premium service means you get reliable, high-quality results every single time, without the hassle.
+          </p>
         </div>
+
+        {/* Pillars Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          {PILLARS.map((pillar, index) => {
+            const Icon = pillar.icon
+            return (
+              <motion.div 
+                key={index}
+                variants={pillarVariants}
+                className="flex flex-col items-center md:items-start text-center md:text-left group cursor-default"
+              >
+                <div className="mb-6 flex items-center justify-center w-20 h-20 bg-olive-100 rounded-full group-hover:scale-105 transition-transform duration-300 ease-out">
+                  <Icon className="w-10 h-10 text-olive-500" strokeWidth={1.5} />
+                </div>
+                
+                <h3 className="font-display text-xl text-olive-900 font-semibold mb-3">
+                  {pillar.title}
+                </h3>
+                
+                <p className="font-body text-base text-beige-700 leading-relaxed">
+                  {pillar.description}
+                </p>
+              </motion.div>
+            )
+          })}
+        </motion.div>
+        
       </div>
     </section>
   )
