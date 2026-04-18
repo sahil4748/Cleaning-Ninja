@@ -2,56 +2,114 @@
 
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
-import { TESTIMONIALS } from '@/lib/constants'
+
+const TESTIMONIALS = [
+  {
+    name: 'Sarah M.',
+    location: 'Sydney',
+    quote: "Thought I'd lose my bond for sure - these legends had my place looking better than when I moved in! Got the full deposit back, no dramas.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop"
+  },
+  {
+    name: 'James T.',
+    location: 'Melbourne',
+    quote: "Our office in the CBD gets a proper clean every fortnight. They're in and out like ninjas - never disrupt the team.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150&auto=format&fit=crop"
+  },
+  {
+    name: 'Emily R.',
+    location: 'Brisbane',
+    quote: "Best investment we made! The tiles in our ensuite haven't looked this good since we built the house. Fair dinkum professionals.",
+    rating: 5,
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150&auto=format&fit=crop"
+  }
+]
 
 export default function TestimonialsRefined() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15
+      }
+    }
+  }
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  }
+
   return (
-    <section className="py-24 bg-surface">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-16 max-w-2xl mx-auto">
-          <h2 className="text-4xl sm:text-5xl font-bold text-navy mb-6">
+    <section className="w-full bg-beige-100 py-20 md:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="font-body text-sm text-olive-500 uppercase tracking-widest font-semibold block mb-3">
+            TESTIMONIALS
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-4">
             Loved by Aussies
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="font-body text-beige-700 text-lg leading-relaxed">
             Don't just take our word for it. Here's what real homeowners have to say about our premium cleaning services.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonials Grid */}
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+        >
           {TESTIMONIALS.map((testimonial, index) => (
-            <motion.div
+            <motion.div 
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col"
+              variants={cardVariants}
+              className="bg-white border border-beige-300 rounded-xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col h-full"
             >
-              <div className="flex items-center space-x-1 mb-6">
+              {/* Stars */}
+              <div className="flex gap-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-gold text-gold" />
+                  <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
               
-              <p className="text-gray-700 text-lg leading-relaxed mb-8 flex-grow">
-                "{testimonial.text}"
+              {/* Quote */}
+              <p className="font-display text-lg text-olive-900 italic leading-relaxed mb-8 flex-grow">
+                "{testimonial.quote}"
               </p>
               
-              <div className="flex items-center mt-auto">
+              {/* Author */}
+              <div className="flex items-center gap-4 mt-auto">
                 <img 
                   src={testimonial.avatar} 
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
-                  loading="lazy"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-olive-100 shadow-sm"
                 />
-                <div>
-                  <h4 className="font-bold text-navy">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500">{testimonial.location}</p>
+                <div className="flex flex-col">
+                  <span className="font-body font-semibold text-olive-900">
+                    {testimonial.name}
+                  </span>
+                  <span className="font-body text-sm text-beige-700">
+                    {testimonial.location}
+                  </span>
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
+        
       </div>
     </section>
   )
