@@ -44,36 +44,41 @@ export default function ServicesGrid() {
 
   const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
-      transition: { 
-        duration: 0.6, 
-        ease: [0.21, 0.47, 0.32, 0.98] 
+      transition: {
+        duration: 0.6,
+        ease: [0.21, 0.47, 0.32, 0.98]
       }
     }
   }
 
   return (
-    <section id="services" className="py-16 md:py-20 bg-beige-50">
-      <div className="max-w-6xl mx-auto px-5">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
+    // ✅ FIX: more breathing space top & bottom
+    <section id="services" className="py-20 md:py-24 bg-beige-50">
+
+      {/* ✅ FIX: better side spacing */}
+      <div className="max-w-6xl mx-auto px-8 md:px-14 lg:px-20">
+
+        {/* Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <span className="text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6">
+
+          <h2 className="text-3xl md:text-4xl text-olive-900 font-bold mb-5">
             Expert Cleaning Services
           </h2>
-          <p className="font-body text-beige-700 font-light">
+
+          <p className="text-beige-700 leading-relaxed">
             Professional solutions tailored for premium Australian homes.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <motion.div 
-          className="grid md:grid-cols-2 gap-6"
+        {/* Grid */}
+        <motion.div
+          className="grid md:grid-cols-2 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -82,38 +87,40 @@ export default function ServicesGrid() {
           {SERVICES.map((service, index) => {
             const Icon = service.icon
             return (
-              <motion.div 
+              <motion.div
                 key={index}
                 variants={cardVariants}
-                className="group/card bg-white border border-beige-100 rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col items-center text-center h-full relative overflow-hidden"
-              >
-                {/* Subtle Hover Background Effect */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-olive-50 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover/card:scale-150 ease-out" />
 
-                <div className="relative z-10 w-14 h-14 bg-olive-100 rounded-xl mb-6 flex items-center justify-center text-olive-900 group-hover/card:bg-olive-900 group-hover/card:text-white transition-colors duration-500">
-                  <Icon className="w-7 h-7" strokeWidth={1.5} />
+                // ✅ FIX: card padding + shadow improved
+                className="group bg-white border border-beige-100 rounded-2xl p-7 md:p-8 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center h-full relative overflow-hidden"
+              >
+                {/* hover bg */}
+                <div className="absolute top-0 right-0 w-28 h-28 bg-olive-50 rounded-bl-full -mr-14 -mt-14 transition-transform duration-500 group-hover:scale-150" />
+
+                <div className="relative z-10 w-14 h-14 bg-olive-100 rounded-xl mb-6 flex items-center justify-center text-olive-900 group-hover:bg-olive-900 group-hover:text-white transition-colors duration-300">
+                  <Icon className="w-6 h-6" strokeWidth={1.5} />
                 </div>
-                
-                <h3 className="relative z-10 font-display text-xl text-olive-900 font-bold mb-3">
+
+                <h3 className="relative z-10 text-lg text-olive-900 font-semibold mb-3">
                   {service.title}
                 </h3>
-                
-                <p className="relative z-10 font-body text-sm text-beige-700 mb-6 font-light flex-grow leading-relaxed">
+
+                <p className="relative z-10 text-sm text-beige-700 mb-6 leading-relaxed flex-grow">
                   {service.description}
                 </p>
-                
-                <Link 
+
+                <Link
                   href={service.link}
-                  className="relative z-10 inline-flex items-center gap-2 font-body font-semibold text-olive-900 hover:text-olive-700 transition-colors group/link mt-auto"
+                  className="relative z-10 inline-flex items-center gap-2 font-semibold text-olive-900 hover:text-olive-700 transition-colors mt-auto"
                 >
-                  <span className="border-b-2 border-transparent group-hover/link:border-olive-700 transition-colors pb-0.5">Learn More</span>
-                  <ArrowRight className="w-5 h-5 transform group-hover/link:translate-x-1 transition-transform duration-300" />
+                  Learn More
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </motion.div>
             )
           })}
         </motion.div>
-        
+
       </div>
     </section>
   )
