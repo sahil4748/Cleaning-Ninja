@@ -29,12 +29,12 @@ export default function HeroRedesign() {
 
   return (
     <section className="py-20 md:py-28 lg:py-32 overflow-hidden bg-beige-50">
-      <div className="max-w-6xl mx-auto px-5">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16">
+        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-10 lg:gap-14 items-center">
           
           {/* Left: Content */}
           <motion.div 
-            className="flex flex-col items-start pt-10"
+            className="flex flex-col items-start"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -77,14 +77,14 @@ export default function HeroRedesign() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Image */}
+          {/* Right: Image — offset slightly right */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative"
+            className="relative lg:translate-x-4"
           >
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-square w-full">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[4/5] w-full">
               <img 
                 src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=2070&auto=format&fit=crop" 
                 alt="Professional cleaning service"
@@ -93,7 +93,7 @@ export default function HeroRedesign() {
               <div className="absolute inset-0 bg-olive-900/5 mix-blend-multiply pointer-events-none" />
             </div>
             {/* Decorative background shape */}
-            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-olive-100 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
+            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-olive-100 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
           </motion.div>
 
         </div>
