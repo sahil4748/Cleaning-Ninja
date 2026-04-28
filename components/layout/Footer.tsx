@@ -5,7 +5,7 @@ import { PHONE_NUMBER, PHONE_LINK, EMAIL } from '@/lib/constants'
 export default function Footer() {
   return (
     <footer className="bg-olive-900 text-beige-300 py-16 lg:py-20">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-[1100px] mx-auto px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           
           {/* Column 1: Logo, About, Socials */}

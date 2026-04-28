@@ -50,15 +50,14 @@ export default function ServicesGrid() {
   }
 
   return (
-    <section id="services" className="pt-20 pb-20 lg:pt-[120px] lg:pb-[120px] bg-beige-50">
-      <div className="max-w-6xl mx-auto px-8">
+    <section id="services" className="py-24 bg-beige-50">
+      <div className="max-w-[1100px] mx-auto px-8">
 
-        {/* Section Header */}
         <div className="flex flex-col items-center text-center mx-auto mb-16">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-5 max-w-[600px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-4 max-w-[600px] mx-auto">
             Expert Cleaning Services
           </h2>
           <p className="font-body text-beige-700 leading-relaxed max-w-[500px] mx-auto">

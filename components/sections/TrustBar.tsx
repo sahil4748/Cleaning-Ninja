@@ -45,7 +45,7 @@ const STATS = [
 export default function TrustBar() {
   return (
     <section className="py-10 md:py-12 bg-olive-900 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5">
+      <div className="max-w-[1100px] mx-auto px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

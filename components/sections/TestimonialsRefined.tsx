@@ -42,11 +42,10 @@ const TESTIMONIALS = [
 
 export default function TestimonialsRefined() {
   return (
-    <section className="py-16 md:py-20 bg-beige-50 overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="py-24 bg-beige-50 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
+        <div className="flex flex-col items-center text-center mx-auto mb-12">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +59,7 @@ export default function TestimonialsRefined() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6"
+            className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-4 max-w-[600px] mx-auto"
           >
             Loved by Aussies
           </motion.h2>
@@ -69,7 +68,7 @@ export default function TestimonialsRefined() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-body text-beige-700 font-light"
+            className="font-body text-beige-700 font-light max-w-[500px] mx-auto"
           >
             Don't just take our word for it. Here's what real homeowners have to say about our premium cleaning services.
           </motion.p>

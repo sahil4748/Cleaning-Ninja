@@ -52,10 +52,10 @@ export default function WhyChooseUs() {
   }
 
   return (
-    <section className="py-16 md:py-20 bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-5">
+    <section className="py-24 bg-white overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-8">
         
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           
           {/* Image Column */}
           <motion.div 

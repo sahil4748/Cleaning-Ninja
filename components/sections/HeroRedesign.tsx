@@ -28,37 +28,34 @@ export default function HeroRedesign() {
   }
 
   return (
-    <section className="py-20 md:py-28 lg:py-32 bg-beige-50 overflow-hidden">
+    <section className="py-24 bg-beige-50 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-8">
+        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
 
-      {/* ✅ Container spacing FIX */}
-      <div className="max-w-7xl mx-auto px-8 md:px-14 lg:px-24">
-
-        <div className="grid lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-16 items-center">
-
-          {/* LEFT CONTENT */}
+          {/* Left: Content */}
           <motion.div
-            className="flex flex-col items-start max-w-xl lg:ml-4"
+            className="flex flex-col items-start"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             <motion.span
               variants={itemVariants}
-              className="text-olive-700 text-sm md:text-base font-bold uppercase tracking-[0.2em] mb-4"
+              className="font-body text-olive-700 text-sm font-bold uppercase tracking-[0.2em] mb-4"
             >
               Premium Australian Cleaning
             </motion.span>
 
             <motion.h1
               variants={itemVariants}
-              className="text-olive-900 font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6"
+              className="font-display text-olive-900 font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6"
             >
               Professional Cleaning Services You Can Trust
             </motion.h1>
 
             <motion.p
               variants={itemVariants}
-              className="text-beige-700 text-lg md:text-xl leading-relaxed mb-10"
+              className="font-body text-beige-700 text-lg leading-relaxed mb-10 max-w-lg"
             >
               Expert carpet, upholstery, and end-of-lease cleaning. Fully insured, eco-friendly, and dedicated to flawless results.
             </motion.p>
@@ -68,25 +65,24 @@ export default function HeroRedesign() {
               className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
             >
               <Link href="#quote" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-olive-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-olive-900 transition-all duration-300">
+                <button className="w-full sm:w-auto bg-olive-700 text-white font-body font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl hover:bg-olive-900 transition-all duration-300">
                   Get Free Quote
                 </button>
               </Link>
-
               <Link href="#services" className="w-full sm:w-auto">
-                <button className="w-full sm:w-auto bg-white border-2 border-beige-300 text-olive-900 font-bold px-8 py-4 rounded-xl hover:bg-beige-100 hover:border-olive-300 transition-all duration-300">
+                <button className="w-full sm:w-auto bg-white border-2 border-beige-300 text-olive-900 font-body font-bold px-8 py-4 rounded-xl hover:bg-beige-100 hover:border-olive-300 transition-all duration-300">
                   View Services
                 </button>
               </Link>
             </motion.div>
           </motion.div>
 
-          {/* RIGHT IMAGE */}
+          {/* Right: Image */}
           <motion.div
-            initial={{ opacity: 0, x: 60 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative lg:translate-x-12"
+            className="relative"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[4/5] w-full">
               <img
@@ -96,9 +92,7 @@ export default function HeroRedesign() {
               />
               <div className="absolute inset-0 bg-olive-900/5 pointer-events-none" />
             </div>
-
-            {/* Decorative background */}
-            <div className="absolute -bottom-10 -right-10 w-72 h-72 bg-olive-100 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
+            <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-olive-100 rounded-full -z-10 blur-3xl opacity-60 pointer-events-none" />
           </motion.div>
 
         </div>

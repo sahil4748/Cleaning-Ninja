@@ -35,18 +35,17 @@ export default function QuoteFormSection() {
   }
 
   return (
-    <section id="quote" className="py-16 md:py-24 bg-white overflow-hidden">
-      <div className="max-w-4xl mx-auto px-5">
+    <section id="quote" className="py-24 bg-white overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-8">
         
-        {/* Header */}
-        <div className="text-center mb-12">
+        <div className="flex flex-col items-center text-center mx-auto mb-12">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
             GET IN TOUCH
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-6 leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-4 leading-tight max-w-[600px] mx-auto">
             Get Your Free Quote
           </h2>
-          <p className="font-body text-beige-700 font-light max-w-2xl mx-auto">
+          <p className="font-body text-beige-700 font-light max-w-[500px] mx-auto">
             Fill out the form and our team will get back to you within 2 hours with a transparent, no-obligation quote.
           </p>
         </div>
