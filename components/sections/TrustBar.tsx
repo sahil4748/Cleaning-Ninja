@@ -28,7 +28,7 @@ function Counter({ from = 0, to, suffix = '', duration = 2 }: CounterProps) {
   }, [inView, count, to, duration])
 
   return (
-    <span ref={ref} className="font-display font-bold text-4xl md:text-5xl text-white flex items-center justify-center mb-2">
+    <span ref={ref} className="font-display font-bold text-3xl md:text-4xl text-white flex items-center justify-center mb-2">
       <motion.span>{rounded}</motion.span>
       <span className="text-olive-300 ml-1">{suffix}</span>
     </span>
