@@ -44,14 +44,14 @@ const STATS = [
 
 export default function TrustBar() {
   return (
-    <section className="w-full bg-olive-900 py-16 md:py-20 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+    <section className="section bg-olive-900 overflow-hidden">
+      <div className="container">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex md:grid md:grid-cols-4 gap-8 md:gap-0 overflow-x-auto snap-x snap-mandatory pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto snap-x snap-mandatory pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         >
           {STATS.map((stat, index) => (
             <div key={index} className="flex-none w-[80vw] sm:w-[45vw] md:w-auto md:flex-1 snap-center flex flex-col items-center justify-center relative">
@@ -62,7 +62,7 @@ export default function TrustBar() {
               
               {/* Desktop Divider */}
               {index < STATS.length - 1 && (
-                <div className="hidden md:block absolute -right-[1px] top-1/2 -translate-y-1/2 w-[1px] h-16 bg-olive-700" />
+                <div className="hidden md:block absolute -right-[12px] top-1/2 -translate-y-1/2 w-[1px] h-16 bg-olive-700" />
               )}
             </div>
           ))}

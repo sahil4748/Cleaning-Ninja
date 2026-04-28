@@ -52,14 +52,14 @@ export default function WhyChooseUs() {
   }
 
   return (
-    <section className="w-full bg-white py-24 lg:py-32 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <section className="section bg-white overflow-hidden">
+      <div className="container">
         
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20">
+        <div className="grid lg:grid-cols-2 items-center">
           
           {/* Image Column */}
           <motion.div 
-            className="w-full lg:w-1/2 relative"
+            className="relative"
             variants={slideLeftVariants}
             initial="hidden"
             whileInView="visible"
@@ -88,7 +88,7 @@ export default function WhyChooseUs() {
           </motion.div>
 
           {/* Content Column */}
-          <div className="w-full lg:w-1/2">
+          <div className="flex flex-col justify-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

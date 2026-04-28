@@ -35,9 +35,9 @@ export default function QuoteFormSection() {
   }
 
   return (
-    <section id="quote" className="w-full bg-white py-24 lg:py-32 overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+    <section id="quote" className="section bg-white overflow-hidden">
+      <div className="container">
+        <div className="grid lg:grid-cols-2 items-center">
           
           {/* Left Column: Content */}
           <motion.div 

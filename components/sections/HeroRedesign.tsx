@@ -29,7 +29,7 @@ export default function HeroRedesign() {
   }
 
   return (
-    <section className="relative w-full h-screen min-h-[600px] overflow-hidden flex items-center">
+    <section className="section relative h-screen min-h-[600px] overflow-hidden flex items-center">
       {/* Background Image with Slow Zoom Effect */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -48,7 +48,7 @@ export default function HeroRedesign() {
       </motion.div>
 
       {/* Content Container */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container relative z-10">
         <motion.div 
           className="max-w-[720px] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left pt-20"
           variants={containerVariants}
