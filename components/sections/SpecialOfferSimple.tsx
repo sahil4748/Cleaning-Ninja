@@ -33,12 +33,12 @@ export default function SpecialOfferSimple() {
           </div>
 
           {/* Headline */}
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
             Get $50 Off Your First Clean
           </h2>
 
           {/* Subheadline */}
-          <p className="font-body text-lg md:text-xl text-beige-100 mb-12 leading-relaxed font-light">
+          <p className="font-body text-beige-100 mb-12 font-light">
             Experience the Cleaning Ninja difference. Book any service over $150 and claim your exclusive first-time customer discount today before our schedule fills up.
           </p>
 

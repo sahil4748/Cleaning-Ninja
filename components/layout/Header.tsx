@@ -28,18 +28,17 @@ export default function Header() {
         scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
     >
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-[64px] lg:h-[80px] transition-all duration-300">
+      <nav className="container flex items-center justify-between px-6 py-4 transition-all duration-300">
           
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-display font-bold text-xl lg:text-3xl text-olive-900 transition-all duration-300">
-              Cleaning Ninja
-            </span>
-          </Link>
+        {/* Logo */}
+        <Link href="/" className="flex items-center gap-2 group">
+          <span className="font-display font-bold text-xl lg:text-3xl text-olive-900 transition-all duration-300">
+            Cleaning Ninja
+          </span>
+        </Link>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-8">
+        {/* Desktop Nav */}
+        <div className="hidden lg:flex items-center gap-6">
             {NAV_LINKS.map((link) => (
               link.isDropdown ? (
                 <div key={link.name} className="relative group">
@@ -93,7 +92,6 @@ export default function Header() {
           >
             <Menu className="w-6 h-6" />
           </button>
-        </div>
       </nav>
 
       {/* Mobile Drawer Overlay */}

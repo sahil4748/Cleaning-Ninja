@@ -29,7 +29,7 @@ export default function HeroRedesign() {
   }
 
   return (
-    <section className="section relative h-screen min-h-[600px] overflow-hidden flex items-center">
+    <section className="hero-section h-screen min-h-[600px] overflow-hidden flex items-center">
       {/* Background Image with Slow Zoom Effect */}
       <motion.div
         className="absolute inset-0 z-0"
@@ -50,7 +50,7 @@ export default function HeroRedesign() {
       {/* Content Container */}
       <div className="container relative z-10">
         <motion.div 
-          className="max-w-[720px] mx-auto md:mx-0 flex flex-col items-center md:items-start text-center md:text-left pt-20"
+          className="max-w-[800px] mx-auto flex flex-col items-center text-center pt-20"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -66,7 +66,7 @@ export default function HeroRedesign() {
           {/* Headline */}
           <motion.h1 
             variants={itemVariants}
-            className="font-display font-bold text-white text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-6 md:mb-8"
+            className="font-display font-bold text-white leading-[1.1] mb-6 md:mb-8"
           >
             Expert Cleaning Services You Can Trust
           </motion.h1>
@@ -74,7 +74,7 @@ export default function HeroRedesign() {
           {/* Subheadline */}
           <motion.p 
             variants={itemVariants}
-            className="font-body text-beige-100 text-lg md:text-xl font-light leading-relaxed max-w-xl mb-10 md:mb-12"
+            className="font-body text-beige-100 font-light max-w-xl mb-10 md:mb-12"
           >
             Professional carpet, upholstery, and end-of-lease cleaning. Fully insured, eco-friendly, and dedicated to flawless results.
           </motion.p>
@@ -82,7 +82,7 @@ export default function HeroRedesign() {
           {/* CTAs */}
           <motion.div 
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center gap-4 md:gap-6 w-full sm:w-auto"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full sm:w-auto"
           >
             <Link href="#quote" className="w-full sm:w-auto">
               <button className="w-full sm:w-auto bg-olive-700 text-white font-body font-semibold px-8 md:px-10 py-4 md:py-4 rounded-lg hover:bg-olive-900 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ease-out text-lg">

@@ -47,13 +47,13 @@ export default function QuoteFormSection() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="flex flex-col"
           >
-            <span className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4">
+            <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
               GET IN TOUCH
             </span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-olive-900 mb-6 leading-tight">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-6 leading-tight">
               Get Your Free Quote
             </h2>
-            <p className="font-body text-lg md:text-xl text-beige-700 mb-12 leading-relaxed font-light max-w-lg">
+            <p className="font-body text-beige-700 mb-12 font-light max-w-lg">
               Fill out the form and our team will get back to you within 2 hours with a transparent, no-obligation quote.
             </p>
 
@@ -105,7 +105,7 @@ export default function QuoteFormSection() {
                     <CheckCircle2 className="w-12 h-12" />
                   </motion.div>
                   <h3 className="font-display text-3xl font-bold text-olive-900 mb-4">Request Received!</h3>
-                  <p className="font-body text-lg text-beige-700 mb-10 font-light leading-relaxed">
+                  <p className="font-body text-beige-700 mb-10 font-light">
                     Thank you for reaching out. Our team is reviewing your request and will contact you shortly with your custom quote.
                   </p>
                   <button 

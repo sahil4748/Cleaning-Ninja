@@ -88,21 +88,21 @@ export default function WhyChooseUs() {
           </motion.div>
 
           {/* Content Column */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center text-left">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className="mb-12 text-center lg:text-left"
+              className="mb-12"
             >
-              <span className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4">
+              <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-display text-4xl md:text-5xl text-olive-900 font-bold mb-6">
+              <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6">
                 Why Aussies Trust Cleaning Ninja
               </h2>
-              <p className="font-body text-beige-700 text-lg md:text-xl font-light leading-relaxed">
+              <p className="font-body text-beige-700 font-light">
                 We don't just clean; we restore. Our commitment to premium service means you get reliable, high-quality results every single time, without the hassle.
               </p>
             </motion.div>

@@ -34,7 +34,7 @@ export default function NinjaClubRedesign() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4"
+            className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4"
           >
             JOIN THE CLUB
           </motion.span>
@@ -43,7 +43,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl text-olive-900 font-bold mb-6"
+            className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6"
           >
             Welcome to the Ninja Club
           </motion.h2>
@@ -52,7 +52,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-body text-beige-700 text-lg md:text-xl font-light leading-relaxed"
+            className="font-body text-beige-700 font-light"
           >
             Whether you're looking for premium, recurring cleaning services at a discount, or you're a professional cleaner looking to join our elite team—there's a place for you.
           </motion.p>
@@ -80,7 +80,7 @@ export default function NinjaClubRedesign() {
             <h3 className="font-display text-3xl font-bold text-white mb-4">
               For Homeowners
             </h3>
-            <p className="font-body text-olive-100 text-lg mb-8 leading-relaxed font-light">
+            <p className="font-body text-olive-100 mb-8 font-light">
               Subscribe to recurring cleans and never worry about a dirty home again. Members save up to 15% on every visit.
             </p>
 
@@ -114,7 +114,7 @@ export default function NinjaClubRedesign() {
             <h3 className="font-display text-3xl font-bold text-olive-900 mb-4">
               For Cleaners
             </h3>
-            <p className="font-body text-beige-700 text-lg mb-8 leading-relaxed font-light">
+            <p className="font-body text-beige-700 mb-8 font-light">
               Join Australia's fastest-growing premium cleaning platform. Set your own hours, earn top rates, and build your career.
             </p>
 

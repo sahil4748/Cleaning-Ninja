@@ -51,7 +51,7 @@ export default function TestimonialsRefined() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4"
+            className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4"
           >
             TESTIMONIALS
           </motion.span>
@@ -60,7 +60,7 @@ export default function TestimonialsRefined() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl text-olive-900 font-bold mb-6"
+            className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6"
           >
             Loved by Aussies
           </motion.h2>
@@ -69,7 +69,7 @@ export default function TestimonialsRefined() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-body text-beige-700 text-lg md:text-xl font-light leading-relaxed"
+            className="font-body text-beige-700 font-light"
           >
             Don't just take our word for it. Here's what real homeowners have to say about our premium cleaning services.
           </motion.p>

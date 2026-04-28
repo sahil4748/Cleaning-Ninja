@@ -59,21 +59,21 @@ export default function ServicesGrid() {
       <div className="container">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-4xl md:text-5xl text-olive-900 font-bold mb-6">
+          <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-6">
             Expert Cleaning Services
           </h2>
-          <p className="font-body text-beige-700 text-lg md:text-xl font-light">
+          <p className="font-body text-beige-700 font-light">
             Professional solutions tailored for premium Australian homes.
           </p>
         </div>
 
         {/* Services Grid */}
         <motion.div 
-          className="grid md:grid-cols-2"
+          className="grid md:grid-cols-2 text-left"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -98,7 +98,7 @@ export default function ServicesGrid() {
                   {service.title}
                 </h3>
                 
-                <p className="relative z-10 font-body text-base md:text-lg text-beige-700 leading-relaxed mb-8 font-light flex-grow">
+                <p className="relative z-10 font-body text-beige-700 mb-8 font-light flex-grow">
                   {service.description}
                 </p>
                 
