@@ -73,14 +73,14 @@ export default function NinjaClubRedesign() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-olive-700 rounded-full blur-3xl opacity-30 -mr-20 -mt-20 pointer-events-none" />
             
-            <div className="w-16 h-16 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-8">
-              <Home className="w-8 h-8 text-white" />
+            <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-2xl flex items-center justify-center mb-6 mx-auto">
+              <Home className="w-7 h-7 text-white" />
             </div>
 
-            <h3 className="font-display text-3xl font-bold text-white mb-4">
+            <h3 className="font-display text-2xl font-bold text-white mb-3 text-center">
               For Homeowners
             </h3>
-            <p className="font-body text-olive-100 mb-8 font-light">
+            <p className="font-body text-olive-100 mb-8 font-light text-center text-sm">
               Subscribe to recurring cleans and never worry about a dirty home again. Members save up to 15% on every visit.
             </p>
 
@@ -107,14 +107,14 @@ export default function NinjaClubRedesign() {
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-beige-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none" />
             
-            <div className="w-16 h-16 bg-olive-50 rounded-2xl flex items-center justify-center mb-8">
-              <SprayCan className="w-8 h-8 text-olive-900" />
+            <div className="w-14 h-14 bg-olive-50 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+              <SprayCan className="w-7 h-7 text-olive-900" />
             </div>
 
-            <h3 className="font-display text-3xl font-bold text-olive-900 mb-4">
+            <h3 className="font-display text-2xl font-bold text-olive-900 mb-3 text-center">
               For Cleaners
             </h3>
-            <p className="font-body text-beige-700 mb-8 font-light">
+            <p className="font-body text-beige-700 mb-8 font-light text-center text-sm">
               Join Australia's fastest-growing premium cleaning platform. Set your own hours, earn top rates, and build your career.
             </p>
 
