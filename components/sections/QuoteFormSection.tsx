@@ -35,14 +35,14 @@ export default function QuoteFormSection() {
   }
 
   return (
-    <section id="quote" className="py-20 md:py-24 bg-white overflow-hidden">
+    <section id="quote" className="py-24 md:py-32 bg-beige-50 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="flex flex-col items-center text-center mx-auto mb-12">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
             GET IN TOUCH
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-4 leading-tight max-w-[600px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-900 mb-5 leading-tight max-w-[600px] mx-auto">
             Get Your Free Quote
           </h2>
           <p className="font-body text-beige-700 font-light max-w-[500px] mx-auto">
@@ -56,7 +56,7 @@ export default function QuoteFormSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-white border-2 border-beige-50 rounded-[2rem] p-8 md:p-12 shadow-2xl relative overflow-hidden mb-16 max-w-3xl mx-auto"
+          className="bg-white border border-beige-100 rounded-[2rem] p-8 md:p-12 shadow-xl shadow-beige-900/8 relative overflow-hidden mb-16 max-w-3xl mx-auto"
         >
           <div className="absolute top-0 right-0 w-64 h-64 bg-olive-50 rounded-bl-full -mr-16 -mt-16 pointer-events-none" />
 
@@ -182,7 +182,7 @@ export default function QuoteFormSection() {
                   whileTap={{ scale: 0.99 }}
                   disabled={isSubmitting}
                   type="submit"
-                  className="w-full bg-olive-700 text-white font-body font-bold py-5 rounded-xl shadow-lg hover:bg-olive-900 hover:shadow-xl transition-all duration-300 disabled:opacity-80 disabled:cursor-not-allowed mt-4 flex items-center justify-center text-lg"
+                  className="w-full bg-olive-700 text-white font-body font-bold py-5 rounded-xl shadow-lg shadow-olive-700/25 hover:bg-olive-900 hover:shadow-xl hover:shadow-olive-900/30 transition-all duration-300 disabled:opacity-80 disabled:cursor-not-allowed mt-4 flex items-center justify-center text-lg"
                 >
                   {isSubmitting ? (
                     <>
@@ -209,8 +209,8 @@ export default function QuoteFormSection() {
             { icon: Clock, text: "Fast Response", desc: "We guarantee a response within 2 hours." },
             { icon: Lock, text: "Secure & Private", desc: "Your details are encrypted." }
           ].map((badge, idx) => (
-            <div key={idx} className="flex flex-col items-center text-center group cursor-default">
-              <div className="w-12 h-12 bg-olive-50 rounded-2xl flex items-center justify-center text-olive-700 group-hover:scale-110 group-hover:bg-olive-100 transition-all duration-300 mb-4">
+            <div key={idx} className="flex flex-col items-center text-center group cursor-default bg-white rounded-2xl p-6 border border-beige-100 shadow-sm hover:shadow-md transition-all duration-300">
+              <div className="w-14 h-14 bg-olive-50 rounded-2xl flex items-center justify-center text-olive-700 group-hover:scale-110 group-hover:bg-olive-100 transition-all duration-300 mb-4 shadow-sm">
                 <badge.icon className="w-6 h-6" />
               </div>
               <h4 className="font-display text-lg font-bold text-olive-900 mb-2">{badge.text}</h4>

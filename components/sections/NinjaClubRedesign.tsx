@@ -25,7 +25,7 @@ export default function NinjaClubRedesign() {
   }
 
   return (
-    <section className="py-20 md:py-24 bg-cream overflow-hidden">
+    <section className="py-24 md:py-32 bg-olive-50/50 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="flex flex-col items-center text-center mx-auto mb-12">
@@ -42,7 +42,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl text-olive-900 font-bold mb-4 max-w-[600px] mx-auto"
+            className="font-display text-3xl md:text-4xl lg:text-5xl text-olive-900 font-bold mb-5 max-w-[600px] mx-auto leading-tight"
           >
             Welcome to the Ninja Club
           </motion.h2>
@@ -51,7 +51,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-body text-beige-700 font-light max-w-[500px] mx-auto"
+            className="font-body text-beige-700 font-light max-w-[500px] mx-auto text-base md:text-lg"
           >
             Whether you're looking for premium, recurring cleaning services at a discount, or you're a professional cleaner looking to join our elite team—there's a place for you.
           </motion.p>
@@ -67,7 +67,7 @@ export default function NinjaClubRedesign() {
           {/* Homeowner Card (Primary) */}
           <motion.div 
             variants={cardVariants}
-            className="bg-olive-900 rounded-3xl p-8 lg:p-12 shadow-2xl relative overflow-hidden group hover:-translate-y-2 transition-transform duration-500 ease-out flex flex-col"
+            className="bg-olive-900 rounded-[2rem] p-8 lg:p-12 shadow-2xl shadow-olive-900/30 relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 ease-out flex flex-col"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-olive-700 rounded-full blur-3xl opacity-30 -mr-20 -mt-20 pointer-events-none" />
             
@@ -101,7 +101,7 @@ export default function NinjaClubRedesign() {
           {/* Cleaner Card (Secondary) */}
           <motion.div 
             variants={cardVariants}
-            className="bg-white border-2 border-beige-100 rounded-3xl p-8 lg:p-12 shadow-lg relative overflow-hidden group hover:-translate-y-2 transition-all duration-500 hover:shadow-2xl hover:border-olive-300 ease-out flex flex-col"
+            className="bg-white border-2 border-beige-100 rounded-[2rem] p-8 lg:p-12 shadow-lg relative overflow-hidden group hover:-translate-y-3 transition-all duration-500 hover:shadow-2xl hover:border-olive-200 ease-out flex flex-col"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-beige-50 rounded-full blur-3xl opacity-50 -mr-20 -mt-20 pointer-events-none" />
             

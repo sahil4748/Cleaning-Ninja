@@ -2,19 +2,21 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Timer } from 'lucide-react'
+import { Timer, Sparkles } from 'lucide-react'
 
 export default function SpecialOfferSimple() {
   return (
-    <section className="py-20 md:py-24 bg-olive-900 overflow-hidden relative">
+    <section className="py-24 md:py-32 bg-olive-900 overflow-hidden relative">
       {/* Dynamic Background Pattern */}
       <div 
-        className="absolute inset-0 opacity-10 pointer-events-none" 
+        className="absolute inset-0 opacity-[0.04] pointer-events-none" 
         style={{ 
           backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")` 
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-tr from-olive-900/80 to-transparent" />
+      {/* Gradient overlays for depth */}
+      <div className="absolute inset-0 bg-gradient-to-br from-olive-900 via-olive-900/95 to-olive-700/90" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-olive-500/10 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-[1100px] mx-auto px-5 md:px-8 relative z-10 text-center">
         <motion.div 
@@ -25,7 +27,7 @@ export default function SpecialOfferSimple() {
           className="max-w-[720px] mx-auto"
         >
           {/* Eyebrow with Urgency */}
-          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full mb-8 border border-white/20">
+          <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-5 py-2.5 rounded-full mb-10 border border-white/15 shadow-lg shadow-black/10">
             <Timer className="w-4 h-4 text-amber-400" />
             <span className="font-body text-xs md:text-sm font-semibold text-white uppercase tracking-[0.15em]">
               Limited Slots Available This Week
@@ -33,28 +35,29 @@ export default function SpecialOfferSimple() {
           </div>
 
           {/* Headline */}
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-            Get $50 Off Your First Clean
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            Get <span className="text-olive-300">$50 Off</span> Your First Clean
           </h2>
 
           {/* Subheadline */}
-          <p className="font-body text-beige-100 mb-12 font-light">
-            Experience the Cleaning Ninja difference. Book any service over $150 and claim your exclusive first-time customer discount today before our schedule fills up.
+          <p className="font-body text-beige-100/90 mb-12 font-light text-base md:text-lg leading-relaxed max-w-[560px] mx-auto">
+            Experience the Cleaning Ninja difference. Book any service over $150 and claim your exclusive first-time customer discount today.
           </p>
 
           {/* CTA */}
           <Link href="#quote" className="inline-block w-full sm:w-auto">
             <motion.button 
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              className="w-full sm:w-auto bg-white text-olive-900 font-body font-bold px-10 md:px-12 py-4 md:py-5 rounded-lg shadow-xl hover:bg-beige-50 hover:shadow-2xl transition-all duration-300 text-lg"
+              whileHover={{ scale: 1.03, y: -3 }}
+              whileTap={{ scale: 0.97 }}
+              className="w-full sm:w-auto bg-white text-olive-900 font-body font-bold px-12 py-5 rounded-xl shadow-xl shadow-black/15 hover:shadow-2xl hover:shadow-black/20 transition-all duration-300 text-lg inline-flex items-center justify-center gap-2"
             >
-              Book Cleaning Now
+              <Sparkles className="w-5 h-5" />
+              Claim Your $50 Off
             </motion.button>
           </Link>
 
           {/* Terms */}
-          <p className="font-body text-sm text-olive-300/80 mt-8 font-light">
+          <p className="font-body text-sm text-olive-300/60 mt-8 font-light">
             *Terms and conditions apply. Valid for new customers only.
           </p>
         </motion.div>
