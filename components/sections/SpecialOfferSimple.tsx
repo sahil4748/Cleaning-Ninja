@@ -6,7 +6,7 @@ import { Timer } from 'lucide-react'
 
 export default function SpecialOfferSimple() {
   return (
-    <section className="section bg-olive-900 overflow-hidden">
+    <section className="py-16 md:py-20 bg-olive-900 overflow-hidden relative">
       {/* Dynamic Background Pattern */}
       <div 
         className="absolute inset-0 opacity-10 pointer-events-none" 
@@ -16,7 +16,7 @@ export default function SpecialOfferSimple() {
       />
       <div className="absolute inset-0 bg-gradient-to-tr from-olive-900/80 to-transparent" />
       
-      <div className="container relative z-10 text-center">
+      <div className="max-w-6xl mx-auto px-5 relative z-10 text-center">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

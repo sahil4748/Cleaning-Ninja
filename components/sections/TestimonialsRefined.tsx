@@ -42,8 +42,8 @@ const TESTIMONIALS = [
 
 export default function TestimonialsRefined() {
   return (
-    <section className="section bg-beige-50 overflow-hidden">
-      <div className="container">
+    <section className="py-16 md:py-20 bg-beige-50 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-5">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">

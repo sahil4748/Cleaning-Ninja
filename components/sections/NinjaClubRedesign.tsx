@@ -25,8 +25,8 @@ export default function NinjaClubRedesign() {
   }
 
   return (
-    <section className="section bg-cream overflow-hidden">
-      <div className="container">
+    <section className="py-16 md:py-20 bg-cream overflow-hidden">
+      <div className="max-w-6xl mx-auto px-5">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16 md:mb-20">
@@ -60,7 +60,7 @@ export default function NinjaClubRedesign() {
 
         {/* 2-Card Layout */}
         <motion.div 
-          className="grid md:grid-cols-2"
+          className="grid md:grid-cols-2 gap-6 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

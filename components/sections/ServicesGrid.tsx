@@ -55,8 +55,8 @@ export default function ServicesGrid() {
   }
 
   return (
-    <section id="services" className="section bg-beige-50">
-      <div className="container">
+    <section id="services" className="py-16 md:py-20 bg-beige-50">
+      <div className="max-w-6xl mx-auto px-5">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
@@ -73,7 +73,7 @@ export default function ServicesGrid() {
 
         {/* Services Grid */}
         <motion.div 
-          className="grid md:grid-cols-2 text-left"
+          className="grid md:grid-cols-2 gap-6 text-left"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
