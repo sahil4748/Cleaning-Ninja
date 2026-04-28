@@ -30,7 +30,7 @@ export default function FloatingCTA() {
         >
           {/* Pulsing Ring */}
           <motion.div
-            className="absolute inset-0 bg-gold rounded-full"
+            className="absolute inset-0 bg-olive-700 rounded-full"
             animate={{
               scale: [1, 1.5, 1],
               opacity: [0.5, 0, 0.5],
@@ -42,20 +42,20 @@ export default function FloatingCTA() {
           />
 
           {/* Main Button */}
-          <div className="relative w-16 h-16 bg-gradient-gold rounded-full shadow-gold-lg flex items-center justify-center">
+          <div className="relative w-16 h-16 bg-olive-700 rounded-full shadow-xl flex items-center justify-center">
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 0.5, repeat: Infinity, repeatDelay: 2 }}
             >
-              <Phone className="w-8 h-8 text-navy" />
+              <Phone className="w-8 h-8 text-white" />
             </motion.div>
           </div>
 
           {/* Tooltip */}
-          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-navy text-white px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+          <div className="absolute right-full mr-4 top-1/2 -translate-y-1/2 bg-olive-900 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
             <span className="font-semibold">Call Now!</span>
             <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-full">
-              <div className="w-0 h-0 border-t-8 border-t-transparent border-l-8 border-l-navy border-b-8 border-b-transparent" />
+              <div className="w-0 h-0 border-t-8 border-t-transparent border-l-8 border-l-olive-900 border-b-8 border-b-transparent" />
             </div>
           </div>
         </motion.a>
