@@ -50,8 +50,8 @@ export default function ServicesGrid() {
   }
 
   return (
-    <section id="services" className="py-24 bg-beige-50">
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section id="services" className="py-20 md:py-24 bg-beige-50">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
 
         <div className="flex flex-col items-center text-center mx-auto mb-16">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] mb-4">

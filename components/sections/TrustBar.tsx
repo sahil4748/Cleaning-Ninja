@@ -44,25 +44,24 @@ const STATS = [
 
 export default function TrustBar() {
   return (
-    <section className="py-10 md:py-12 bg-olive-900 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section className="py-12 md:py-14 bg-olive-900 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex md:grid md:grid-cols-4 gap-6 overflow-x-auto snap-x snap-mandatory pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
         >
           {STATS.map((stat, index) => (
-            <div key={index} className="flex-none w-[80vw] sm:w-[45vw] md:w-auto md:flex-1 snap-center flex flex-col items-center justify-center relative">
+            <div key={index} className="flex flex-col items-center justify-center relative py-4 md:py-0">
               <Counter to={stat.value} suffix={stat.suffix} />
-              <span className="font-body text-sm md:text-base text-beige-300 uppercase tracking-[0.15em] text-center font-medium">
+              <span className="font-body text-xs md:text-sm text-beige-300 uppercase tracking-[0.15em] text-center font-medium">
                 {stat.label}
               </span>
-              
               {/* Desktop Divider */}
               {index < STATS.length - 1 && (
-                <div className="hidden md:block absolute -right-[12px] top-1/2 -translate-y-1/2 w-[1px] h-16 bg-olive-700" />
+                <div className="hidden md:block absolute -right-[16px] top-1/2 -translate-y-1/2 w-[1px] h-12 bg-olive-700" />
               )}
             </div>
           ))}

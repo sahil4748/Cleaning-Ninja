@@ -28,13 +28,13 @@ export default function HeroRedesign() {
   }
 
   return (
-    <section className="py-24 bg-beige-50 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-8">
-        <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-16 items-center">
+    <section className="py-20 md:py-24 bg-beige-50 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
 
-          {/* Left: Content */}
+          {/* Left: Content — centered on mobile, left on desktop */}
           <motion.div
-            className="flex flex-col items-start"
+            className="flex flex-col items-center text-center lg:items-start lg:text-left"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -55,7 +55,7 @@ export default function HeroRedesign() {
 
             <motion.p
               variants={itemVariants}
-              className="font-body text-beige-700 text-lg leading-relaxed mb-10 max-w-lg"
+              className="font-body text-beige-700 text-lg leading-relaxed mb-8 max-w-lg"
             >
               Expert carpet, upholstery, and end-of-lease cleaning. Fully insured, eco-friendly, and dedicated to flawless results.
             </motion.p>
@@ -77,12 +77,12 @@ export default function HeroRedesign() {
             </motion.div>
           </motion.div>
 
-          {/* Right: Image */}
+          {/* Right: Image — hidden on very small, visible from sm */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="relative"
+            className="relative hidden sm:block"
           >
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/3] lg:aspect-[4/5] w-full">
               <img

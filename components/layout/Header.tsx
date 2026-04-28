@@ -28,7 +28,7 @@ export default function Header() {
         scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
     >
-      <nav className="max-w-[1100px] mx-auto px-8 w-full h-16 md:h-20 flex items-center justify-between">
+      <nav className="max-w-[1100px] mx-auto px-5 md:px-8 w-full h-16 md:h-20 flex items-center justify-between">
           
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">

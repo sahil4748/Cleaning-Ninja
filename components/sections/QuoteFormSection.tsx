@@ -35,8 +35,8 @@ export default function QuoteFormSection() {
   }
 
   return (
-    <section id="quote" className="py-24 bg-white overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section id="quote" className="py-20 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="flex flex-col items-center text-center mx-auto mb-12">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
@@ -203,7 +203,7 @@ export default function QuoteFormSection() {
         </motion.div>
 
         {/* Trust Badges */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8">
           {[
             { icon: ShieldCheck, text: "No Hidden Fees", desc: "The price we quote is the exact price you pay." },
             { icon: Clock, text: "Fast Response", desc: "We guarantee a response within 2 hours." },

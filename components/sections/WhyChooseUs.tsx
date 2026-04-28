@@ -52,8 +52,8 @@ export default function WhyChooseUs() {
   }
 
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section className="py-20 md:py-24 bg-white overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           

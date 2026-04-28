@@ -42,8 +42,8 @@ const TESTIMONIALS = [
 
 export default function TestimonialsRefined() {
   return (
-    <section className="py-24 bg-beige-50 overflow-hidden">
-      <div className="max-w-[1100px] mx-auto px-8">
+    <section className="py-20 md:py-24 bg-beige-50 overflow-hidden">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="flex flex-col items-center text-center mx-auto mb-12">
           <motion.span 
