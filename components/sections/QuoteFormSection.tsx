@@ -35,14 +35,14 @@ export default function QuoteFormSection() {
   }
 
   return (
-    <section id="quote" className="py-24 md:py-32 bg-beige-50 overflow-hidden">
+    <section id="quote" className="py-16 md:py-20 lg:py-24 bg-beige-50 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
-        <div className="flex flex-col items-center text-center mx-auto mb-12">
+        <div className="flex flex-col items-center text-center mx-auto mb-14 md:mb-16">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
             GET IN TOUCH
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-900 mb-5 leading-tight max-w-[600px] mx-auto">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-900 mb-6 leading-tight max-w-[600px] mx-auto">
             Get Your Free Quote
           </h2>
           <p className="font-body text-beige-700 font-light max-w-[500px] mx-auto">
@@ -95,10 +95,10 @@ export default function QuoteFormSection() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 onSubmit={handleSubmit(onSubmit)} 
-                className="space-y-5 relative z-10"
+                className="space-y-6 relative z-10"
               >
                 {/* Full Name & Phone Row */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <input
                       {...register("fullName", { required: "Full name is required" })}

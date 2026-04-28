@@ -54,14 +54,14 @@ export default function ServicesGrid() {
   }
 
   return (
-    <section id="services" className="py-24 md:py-32 bg-white">
+    <section id="services" className="py-16 md:py-20 lg:py-24 bg-white">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
 
-        <div className="flex flex-col items-center text-center mx-auto mb-16 md:mb-20">
+        <div className="flex flex-col items-center text-center mx-auto mb-14 md:mb-16">
           <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-900 mb-5 max-w-[600px] mx-auto leading-tight">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-olive-900 mb-6 max-w-[600px] mx-auto leading-tight">
             Expert Cleaning Services
           </h2>
           <p className="font-body text-beige-700 leading-relaxed max-w-[500px] mx-auto text-base md:text-lg">
@@ -70,7 +70,7 @@ export default function ServicesGrid() {
         </div>
 
         <motion.div
-          className="grid md:grid-cols-2 gap-6 md:gap-8"
+          className="grid md:grid-cols-2 gap-8 md:gap-10"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

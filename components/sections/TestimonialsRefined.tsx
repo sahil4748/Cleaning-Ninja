@@ -41,7 +41,7 @@ const TESTIMONIALS = [
 
 export default function TestimonialsRefined() {
   return (
-    <section className="py-24 md:py-32 bg-white overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="flex flex-col items-center text-center mx-auto mb-14 md:mb-16">
@@ -58,7 +58,7 @@ export default function TestimonialsRefined() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl lg:text-5xl text-olive-900 font-bold mb-5 max-w-[600px] mx-auto leading-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl text-olive-900 font-bold mb-6 max-w-[600px] mx-auto leading-tight"
           >
             Loved by Aussies
           </motion.h2>

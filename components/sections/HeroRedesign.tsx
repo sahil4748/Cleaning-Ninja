@@ -29,7 +29,7 @@ export default function HeroRedesign() {
   }
 
   return (
-    <section className="relative py-20 md:py-28 lg:py-36 bg-gradient-to-b from-beige-50 via-beige-50 to-beige-100/50 overflow-hidden">
+    <section className="relative py-16 md:py-20 lg:py-28 bg-gradient-to-b from-beige-50 via-beige-50 to-beige-100/50 overflow-hidden">
       {/* Decorative background shapes */}
       <div className="absolute top-20 left-0 w-[500px] h-[500px] bg-olive-100/30 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-beige-300/20 rounded-full blur-[80px] pointer-events-none" />

@@ -25,10 +25,10 @@ export default function NinjaClubRedesign() {
   }
 
   return (
-    <section className="py-24 md:py-32 bg-olive-50/50 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-olive-50/50 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
-        <div className="flex flex-col items-center text-center mx-auto mb-12">
+        <div className="flex flex-col items-center text-center mx-auto mb-14 md:mb-16">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -42,7 +42,7 @@ export default function NinjaClubRedesign() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-3xl md:text-4xl lg:text-5xl text-olive-900 font-bold mb-5 max-w-[600px] mx-auto leading-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl text-olive-900 font-bold mb-6 max-w-[600px] mx-auto leading-tight"
           >
             Welcome to the Ninja Club
           </motion.h2>
@@ -58,7 +58,7 @@ export default function NinjaClubRedesign() {
         </div>
 
         <motion.div 
-          className="grid md:grid-cols-2 gap-8 items-stretch"
+          className="grid md:grid-cols-2 gap-8 md:gap-10 items-stretch"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

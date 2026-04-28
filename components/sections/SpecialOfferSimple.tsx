@@ -6,7 +6,7 @@ import { Timer, Sparkles } from 'lucide-react'
 
 export default function SpecialOfferSimple() {
   return (
-    <section className="py-24 md:py-32 bg-olive-900 overflow-hidden relative">
+    <section className="py-16 md:py-20 lg:py-24 bg-olive-900 overflow-hidden relative">
       {/* Dynamic Background Pattern */}
       <div 
         className="absolute inset-0 opacity-[0.04] pointer-events-none" 
@@ -35,12 +35,12 @@ export default function SpecialOfferSimple() {
           </div>
 
           {/* Headline */}
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Get <span className="text-olive-300">$50 Off</span> Your First Clean
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-tight">
+            Get <span className="text-amber-300">$50 Off</span> Your First Clean
           </h2>
 
           {/* Subheadline */}
-          <p className="font-body text-beige-100/90 mb-12 font-light text-base md:text-lg leading-relaxed max-w-[560px] mx-auto">
+          <p className="font-body text-white/80 mb-12 font-light text-base md:text-lg leading-relaxed max-w-[560px] mx-auto">
             Experience the Cleaning Ninja difference. Book any service over $150 and claim your exclusive first-time customer discount today.
           </p>
 

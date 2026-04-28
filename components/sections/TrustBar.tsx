@@ -43,29 +43,27 @@ const STATS = [
 
 export default function TrustBar() {
   return (
-    <section className="relative -mt-6 md:-mt-8 z-10 px-5 md:px-8">
-      <div className="max-w-[1100px] mx-auto">
+    <section className="py-12 md:py-16 bg-olive-900">
+      <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-olive-900 rounded-2xl md:rounded-3xl shadow-2xl shadow-olive-900/30 py-10 md:py-12 px-6 md:px-10"
+          className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
         >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-            {STATS.map((stat, index) => (
-              <div key={index} className="flex flex-col items-center justify-center relative py-2 md:py-0">
-                <Counter to={stat.value} suffix={stat.suffix} />
-                <span className="font-body text-xs md:text-sm text-beige-300 uppercase tracking-[0.15em] text-center font-medium">
-                  {stat.label}
-                </span>
-                {/* Desktop Divider */}
-                {index < STATS.length - 1 && (
-                  <div className="hidden md:block absolute -right-[16px] top-1/2 -translate-y-1/2 w-[1px] h-12 bg-olive-700/50" />
-                )}
-              </div>
-            ))}
-          </div>
+          {STATS.map((stat, index) => (
+            <div key={index} className="flex flex-col items-center justify-center relative py-3 md:py-0">
+              <Counter to={stat.value} suffix={stat.suffix} />
+              <span className="font-body text-xs md:text-sm text-beige-300 uppercase tracking-[0.15em] text-center font-medium">
+                {stat.label}
+              </span>
+              {/* Desktop Divider */}
+              {index < STATS.length - 1 && (
+                <div className="hidden md:block absolute -right-[16px] top-1/2 -translate-y-1/2 w-[1px] h-12 bg-olive-700/50" />
+              )}
+            </div>
+          ))}
         </motion.div>
       </div>
     </section>

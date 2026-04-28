@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
   }
 
   return (
-    <section className="py-24 md:py-32 bg-beige-50 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 bg-beige-50 overflow-hidden">
       <div className="max-w-[1100px] mx-auto px-5 md:px-8">
         
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
@@ -105,7 +105,7 @@ export default function WhyChooseUs() {
               <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] block mb-4">
                 Why Choose Us
               </span>
-              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] text-olive-900 font-bold mb-6 leading-tight">
+              <h2 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] text-olive-900 font-bold mb-6 leading-[1.15]">
                 Why Aussies Trust Cleaning Ninja
               </h2>
               <p className="font-body text-beige-700 font-light text-base md:text-lg leading-relaxed">
