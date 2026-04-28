@@ -73,7 +73,7 @@ export default function ServicesGrid() {
 
         {/* Services Grid */}
         <motion.div 
-          className="grid md:grid-cols-2 gap-6 text-left"
+          className="grid md:grid-cols-2 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -85,20 +85,20 @@ export default function ServicesGrid() {
               <motion.div 
                 key={index}
                 variants={cardVariants}
-                className="group/card bg-white border border-beige-100 rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full relative overflow-hidden"
+                className="group/card bg-white border border-beige-100 rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col items-center text-center h-full relative overflow-hidden"
               >
                 {/* Subtle Hover Background Effect */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-olive-50 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover/card:scale-150 ease-out" />
 
-                <div className="relative z-10 w-16 h-16 bg-olive-100 rounded-xl mb-8 flex items-center justify-center text-olive-900 group-hover/card:bg-olive-900 group-hover/card:text-white transition-colors duration-500">
-                  <Icon className="w-8 h-8" strokeWidth={1.5} />
+                <div className="relative z-10 w-14 h-14 bg-olive-100 rounded-xl mb-6 flex items-center justify-center text-olive-900 group-hover/card:bg-olive-900 group-hover/card:text-white transition-colors duration-500">
+                  <Icon className="w-7 h-7" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="relative z-10 font-display text-2xl text-olive-900 font-bold mb-4">
+                <h3 className="relative z-10 font-display text-xl text-olive-900 font-bold mb-3">
                   {service.title}
                 </h3>
                 
-                <p className="relative z-10 font-body text-beige-700 mb-8 font-light flex-grow">
+                <p className="relative z-10 font-body text-sm text-beige-700 mb-6 font-light flex-grow leading-relaxed">
                   {service.description}
                 </p>
                 
