@@ -50,27 +50,20 @@ export default function ServicesGrid() {
   }
 
   return (
-    // ✅ FIX: more top spacing + breathing
-    <section id="services" className="pt-28 pb-20 md:pt-32 md:pb-24 bg-beige-50">
+    <section id="services" className="pt-20 pb-20 lg:pt-[120px] lg:pb-[120px] bg-beige-50">
+      <div className="max-w-6xl mx-auto px-8">
 
-      {/* ✅ FIX: proper centered container */}
-      <div className="max-w-6xl mx-auto px-8 md:px-14 lg:px-20">
-
-        {/* HEADER */}
-        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-16">
-
-          <span className="text-sm font-bold text-olive-700 uppercase tracking-[0.2em] mb-4">
+        {/* Section Header */}
+        <div className="flex flex-col items-center text-center mx-auto mb-16">
+          <span className="font-body text-sm font-bold text-olive-700 uppercase tracking-[0.2em] mb-4">
             Our Services
           </span>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-olive-900 mb-5 max-w-lg">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-olive-900 mb-5 max-w-[600px] mx-auto">
             Expert Cleaning Services
           </h2>
-
-          <p className="text-beige-700 leading-relaxed max-w-md">
+          <p className="font-body text-beige-700 leading-relaxed max-w-[500px] mx-auto">
             Professional solutions tailored for premium Australian homes.
           </p>
-
         </div>
 
         {/* GRID */}
