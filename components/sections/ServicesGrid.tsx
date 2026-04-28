@@ -1,6 +1,6 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import Link from 'next/link'
 import { Wind, ClipboardCheck, Sofa, Building2, ArrowRight } from 'lucide-react'
 
@@ -32,52 +32,52 @@ const SERVICES = [
 ]
 
 export default function ServicesGrid() {
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15
       }
     }
   }
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: 0.5, 
-        ease: "easeOut" 
+        duration: 0.6, 
+        ease: [0.21, 0.47, 0.32, 0.98] 
       }
     }
   }
 
   return (
-    <section id="services" className="w-full bg-beige-100 py-20 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="w-full bg-beige-50 py-24 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="font-body text-sm text-olive-500 uppercase tracking-widest font-semibold block mb-3">
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <span className="font-body text-sm md:text-base text-olive-700 uppercase tracking-[0.2em] font-medium block mb-4">
             Our Services
           </span>
-          <h2 className="font-display text-3xl md:text-4xl text-olive-900 font-semibold mb-4">
+          <h2 className="font-display text-4xl md:text-5xl text-olive-900 font-bold mb-6">
             Expert Cleaning Services
           </h2>
-          <p className="font-body text-beige-700 text-lg">
-            Professional solutions tailored for Australian homes
+          <p className="font-body text-beige-700 text-lg md:text-xl font-light">
+            Professional solutions tailored for premium Australian homes.
           </p>
         </div>
 
         {/* Services Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10 max-w-5xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           {SERVICES.map((service, index) => {
             const Icon = service.icon
@@ -85,26 +85,29 @@ export default function ServicesGrid() {
               <motion.div 
                 key={index}
                 variants={cardVariants}
-                className="group/card bg-cream border border-beige-300 rounded-xl p-8 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 ease-out flex flex-col h-full"
+                className="group/card bg-white border border-beige-100 rounded-2xl p-8 lg:p-10 shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500 ease-out flex flex-col h-full relative overflow-hidden"
               >
-                <div className="w-12 h-12 text-olive-500 mb-6 transform group-hover/card:scale-110 transition-transform duration-300 ease-out">
-                  <Icon className="w-full h-full" strokeWidth={1.5} />
+                {/* Subtle Hover Background Effect */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-olive-50 rounded-bl-full -mr-16 -mt-16 transition-transform duration-500 group-hover/card:scale-150 ease-out" />
+
+                <div className="relative z-10 w-16 h-16 bg-olive-100 rounded-xl mb-8 flex items-center justify-center text-olive-900 group-hover/card:bg-olive-900 group-hover/card:text-white transition-colors duration-500">
+                  <Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="font-display text-xl text-olive-900 font-semibold mb-3">
+                <h3 className="relative z-10 font-display text-2xl text-olive-900 font-bold mb-4">
                   {service.title}
                 </h3>
                 
-                <p className="font-body text-base text-beige-700 leading-relaxed mb-8 flex-grow">
+                <p className="relative z-10 font-body text-base md:text-lg text-beige-700 leading-relaxed mb-8 font-light flex-grow">
                   {service.description}
                 </p>
                 
                 <Link 
                   href={service.link}
-                  className="inline-flex items-center gap-2 font-body font-semibold text-olive-700 hover:text-olive-900 transition-colors group/link mt-auto"
+                  className="relative z-10 inline-flex items-center gap-2 font-body font-semibold text-olive-900 hover:text-olive-700 transition-colors group/link mt-auto"
                 >
-                  Learn More 
-                  <ArrowRight className="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform duration-300" />
+                  <span className="border-b-2 border-transparent group-hover/link:border-olive-700 transition-colors pb-0.5">Learn More</span>
+                  <ArrowRight className="w-5 h-5 transform group-hover/link:translate-x-1 transition-transform duration-300" />
                 </Link>
               </motion.div>
             )

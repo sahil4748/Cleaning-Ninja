@@ -6,7 +6,7 @@ import FloatingCTA from '@/components/layout/FloatingCTA'
 
 export const metadata: Metadata = {
   title: 'Cleaning Ninja | Premium Cleaning Services Australia',
-  description: 'Professional cleaning services across Australia. Carpet, upholstery, tile & grout cleaning.',
+  description: 'Professional carpet, upholstery, and end-of-lease cleaning across Australia. Fully insured, eco-friendly, and trusted by over 5,000 Australian families.',
 }
 
 export default function RootLayout({
@@ -16,9 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-body antialiased text-beige-900 bg-beige-100">
+      <body className="font-body antialiased text-beige-900 bg-beige-50">
         <Header />
-        <main>{children}</main>
+        <main className="pt-16 lg:pt-20">{children}</main>
         <Footer />
         <FloatingCTA />
       </body>

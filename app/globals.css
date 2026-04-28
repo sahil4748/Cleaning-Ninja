@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-olive-900: #3D4A1E;
-  --color-olive-700: #5A6B2F;
-  --color-olive-500: #7A8450;
-  --color-olive-300: #A8B58A;
-  --color-olive-100: #E8ECE0;
+  /* LIGHTER OLIVE — less muddy, more fresh */
+  --color-olive-900: #4A5D2A;
+  --color-olive-700: #6B7C3F;
+  --color-olive-500: #8B9A5E;
+  --color-olive-300: #B5C49A;
+  --color-olive-100: #E8EEDF;
+  --color-olive-50: #F3F6EE;
   
-  --color-beige-900: #8C7B64;
-  --color-beige-700: #B5A48E;
-  --color-beige-500: #D4C5B0;
-  --color-beige-300: #E8DFD5;
+  /* WARMER BEIGE — less gray, more cream */
+  --color-beige-900: #5C5346;
+  --color-beige-700: #8A7D6B;
+  --color-beige-500: #B5A894;
+  --color-beige-300: #DDD5C8;
   --color-beige-100: #F5F1EB;
+  --color-beige-50: #FAF8F5;
   
-  --color-cream: #FAF8F5;
+  --color-cream: #FDFCFA;
   --color-white: #FFFFFF;
   
   --font-display: 'Playfair Display', serif;
@@ -27,24 +31,55 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-body);
-  background-color: var(--color-beige-100);
-  color: var(--color-beige-900);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-}
-
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-beige-50);
+  color: var(--color-beige-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  color: var(--color-olive-900);
+}
+
+/* Section spacing rhythm */
+section {
+  position: relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Smooth scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -52,10 +87,10 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-beige-500);
-  border-radius: 5px;
+  background: var(--color-beige-300);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-beige-700);
+  background: var(--color-beige-500);
 }

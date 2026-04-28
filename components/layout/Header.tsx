@@ -24,8 +24,8 @@ export default function Header() {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        scrolled ? 'bg-white shadow-md' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out bg-white/95 backdrop-blur-md border-b border-beige-300 ${
+        scrolled ? 'shadow-md' : 'shadow-sm'
       }`}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,7 +33,7 @@ export default function Header() {
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="font-display font-bold text-2xl lg:text-3xl text-olive-900">
+            <span className="font-display font-bold text-xl lg:text-3xl text-olive-900 transition-all duration-300">
               Cleaning Ninja
             </span>
           </Link>
@@ -87,8 +87,9 @@ export default function Header() {
           {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-            className="lg:hidden p-2 text-olive-900 hover:bg-beige-100 rounded-md transition-colors duration-200"
+            className="lg:hidden p-3 -mr-2 text-olive-900 hover:bg-beige-100 rounded-md transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
           >
             <Menu className="w-6 h-6" />
           </button>
@@ -112,7 +113,7 @@ export default function Header() {
         <div className="p-4 flex justify-end">
           <button 
             onClick={() => setMobileMenuOpen(false)} 
-            className="p-2 text-olive-900 hover:bg-beige-300 rounded-md transition-colors"
+            className="p-3 text-olive-900 hover:bg-beige-300 rounded-md transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
             <X className="w-6 h-6" />
           </button>
