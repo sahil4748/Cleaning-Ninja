@@ -158,7 +158,7 @@ export default function PricingPage() {
                 <h3 className="font-display font-semibold text-[20px] text-charcoal tracking-tight mb-2">
                   {item.title}
                 </h3>
-                <p className="font-body text-[14.5px] text-charcoal/70 leading-relaxed">
+                <p className="font-body text-[14.5px] text-charcoal/75 leading-relaxed">
                   {item.body}
                 </p>
               </div>
@@ -182,7 +182,7 @@ export default function PricingPage() {
                   >
                     Common questions. <span className="text-olive italic">Direct answers.</span>
                   </Heading>
-                  <Body variant="body" className="text-charcoal/70">
+                  <Body variant="body" className="text-charcoal/75">
                     Still uncertain? Ring the team on 1300 NINJAS or send
                     through your enquiry — we respond within one business
                     day.
@@ -221,7 +221,7 @@ export default function PricingPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Book today</Eyebrow>
+                <Eyebrow tone="bone">Book today</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

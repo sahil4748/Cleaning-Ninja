@@ -250,7 +250,7 @@ export default async function SuburbPage({
 
             <aside className="lg:col-span-4 space-y-6">
               <div className="border border-border bg-surface-muted rounded-[4px] p-6">
-                <Caption className="font-body text-charcoal/55 uppercase tracking-widest">
+                <Caption className="font-body text-charcoal/75 uppercase tracking-widest">
                   {suburb} prices
                 </Caption>
                 <ul className="mt-4 divide-y divide-border">
@@ -299,13 +299,13 @@ export default async function SuburbPage({
 
               {namedNinja ? (
                 <div className="border border-border bg-cream rounded-[4px] p-6">
-                  <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-2">
+                  <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-2">
                     Your {suburb} Ninja
                   </Caption>
                   <h3 className="font-display font-semibold text-[20px] text-charcoal tracking-tight">
                     {namedNinja.name}
                   </h3>
-                  <p className="font-body text-[13px] text-charcoal/65 mt-1">
+                  <p className="font-body text-[13px] text-charcoal/75 mt-1">
                     {namedNinja.role} · {namedNinja.yearsWithUs} years
                   </p>
                   <blockquote className="mt-4 font-display italic text-[14px] text-charcoal/80 leading-snug border-l-2 border-olive pl-3">
@@ -322,7 +322,7 @@ export default async function SuburbPage({
               ) : null}
 
               <div className="border border-border bg-cream rounded-[4px] p-6">
-                <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-2">
+                <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-2">
                   Nearby suburbs
                 </Caption>
                 <ul className="mt-3 space-y-2 font-body text-[14px]">
@@ -381,7 +381,7 @@ export default async function SuburbPage({
                     <p className="font-display font-semibold text-[14px] text-charcoal">
                       {r.customerFirstName} — {r.suburb}
                     </p>
-                    <Caption className="font-body text-charcoal/55 mt-0.5">
+                    <Caption className="font-body text-charcoal/75 mt-0.5">
                       {r.service} · cleaned by {r.cleanerName}
                     </Caption>
                   </div>
@@ -398,7 +398,7 @@ export default async function SuburbPage({
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Book {suburb}</Eyebrow>
+                <Eyebrow tone="bone">Book {suburb}</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

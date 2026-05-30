@@ -74,7 +74,7 @@ export function LegalLayout({
             <Body variant="body-l" className="text-charcoal/75 leading-relaxed">
               {intro}
             </Body>
-            <Caption className="mt-6 font-body text-charcoal/55">
+            <Caption className="mt-6 font-body text-charcoal/75">
               Last updated · {updated}
             </Caption>
           </FadeUp>
@@ -90,8 +90,8 @@ export function LegalLayout({
                 href={n.href}
                 className={`rounded-full border px-4 py-1.5 font-body text-[13px] font-semibold transition-colors ${
                   current === n.id
-                    ? 'border-olive bg-olive text-cream'
-                    : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal hover:text-charcoal'
+                    ? 'border-olive-deep bg-olive-deep text-cream'
+                    : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal hover:text-charcoal'
                 }`}
               >
                 {n.label}

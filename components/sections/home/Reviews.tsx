@@ -54,7 +54,7 @@ export default function Reviews() {
                         <Star key={s} className="h-4 w-4 fill-current" />
                       ))}
                     </div>
-                    <span className="text-[13px] text-charcoal/65">
+                    <span className="text-[13px] text-charcoal/75">
                       across <CountUp to={stats.aggregateCount} /> reviews
                     </span>
                   </div>
@@ -62,7 +62,7 @@ export default function Reviews() {
               </Stack>
             </div>
             <div className="md:col-span-6 md:col-start-7">
-              <Body variant="body-l" className="text-charcoal/72 max-w-[52ch]">
+              <Body variant="body-l" className="text-charcoal/80 max-w-[52ch]">
                 Every review attributes to the named cleaner who did the job. Real first names, real suburbs, real services. Sample shown; the full feed is at <a href="/reviews" className="text-olive underline decoration-olive-deep underline-offset-4 transition-colors hover:text-olive-deep">/reviews</a>.
               </Body>
               <div className="mt-6 flex items-center gap-3">
@@ -131,17 +131,17 @@ export default function Reviews() {
                   <div className="border-t border-[color:var(--color-border)] pt-4">
                     <div className="flex items-baseline justify-between">
                       <span className="font-semibold text-charcoal">{review.customerFirstName}</span>
-                      <span className="text-[12px] text-charcoal/55">
+                      <span className="text-[12px] text-charcoal/75">
                         {new Date(review.date).toLocaleDateString('en-AU', { month: 'short', year: 'numeric' })}
                       </span>
                     </div>
-                    <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-charcoal/65">
+                    <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-charcoal/75">
                       <span>{review.suburb}, {review.city}</span>
                       <span className="text-charcoal/30">·</span>
                       <span>{review.service}</span>
                     </div>
-                    <div className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-olive">
-                      <span className="inline-block h-1 w-1 rounded-full bg-olive" />
+                    <div className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] text-olive-deep">
+                      <span className="inline-block h-1 w-1 rounded-full bg-olive-deep" />
                       Cleaned by {review.cleanerName}
                     </div>
                   </div>

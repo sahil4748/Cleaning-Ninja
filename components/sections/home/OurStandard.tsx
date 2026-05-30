@@ -66,7 +66,7 @@ export default function OurStandard() {
           <div className="lg:col-span-6">
             <FadeUp>
               <Stack gap="6">
-                <Eyebrow tone="champagne" withRule>
+                <Eyebrow tone="bone" withRule>
                   The standard
                 </Eyebrow>
                 <Heading
@@ -111,13 +111,6 @@ export default function OurStandard() {
         </div>
       </Container>
 
-      {/* Oversized watermark */}
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute -bottom-6 left-1/2 -translate-x-1/2 select-none font-display text-[clamp(120px,30vw,360px)] font-bold leading-none tracking-[-0.06em] text-cream/[0.04]"
-      >
-        Standard
-      </span>
     </Section>
   )
 }

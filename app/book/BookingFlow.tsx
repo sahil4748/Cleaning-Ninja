@@ -193,10 +193,10 @@ export function BookingFlow({ defaults }: BookingFlowProps) {
         {/* Progress bar */}
         <div className="mb-8">
           <div className="flex items-center justify-between mb-3">
-            <Caption className="font-body text-charcoal/55 uppercase tracking-widest">
+            <Caption className="font-body text-charcoal/75 uppercase tracking-widest">
               Step {step} of {totalSteps}
             </Caption>
-            <Caption className="font-body text-charcoal/55">
+            <Caption className="font-body text-charcoal/75">
               {Math.round((step / totalSteps) * 100)}% complete
             </Caption>
           </div>
@@ -327,7 +327,7 @@ function ServiceStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         What needs cleaning?
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         Pick the closest match — if it's a combination job (e.g. end-of-lease + carpet),
         choose the headline service and add notes at the end.
       </p>
@@ -352,11 +352,11 @@ function ServiceStep({
                 <span className="font-display font-semibold text-[17px] text-charcoal tracking-tight">
                   {s.name}
                 </span>
-                <span className="font-mono text-[11px] uppercase tracking-widest text-charcoal/55">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-charcoal/75">
                   From ${s.fromPrice}
                 </span>
               </div>
-              <p className="font-body text-[13.5px] text-charcoal/65 leading-snug">
+              <p className="font-body text-[13.5px] text-charcoal/75 leading-snug">
                 {s.tagline}
               </p>
               {active ? (
@@ -391,7 +391,7 @@ function SizeStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         How big is the property?
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         {isPriceDriven
           ? 'Bedrooms × bathrooms determine the flat-rate price. Pick the closest match.'
           : 'Size helps us schedule — the price for this service is per room/piece/m², not per property.'}
@@ -416,7 +416,7 @@ function SizeStep({
               <p className="font-display font-semibold text-[17px] text-charcoal tracking-tight">
                 {p.label}
               </p>
-              <p className="font-body text-[12.5px] text-charcoal/60 mt-1">
+              <p className="font-body text-[12.5px] text-charcoal/75 mt-1">
                 {p.rooms}
               </p>
             </button>
@@ -459,13 +459,13 @@ function LocationStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         Which city and suburb?
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         We cover six metros and hundreds of suburbs across them. Type to filter.
       </p>
 
       <div className="space-y-6">
         <div>
-          <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-3">
+          <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-3">
             City
           </Caption>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -486,7 +486,7 @@ function LocationStep({
                   <p className="font-display font-semibold text-[15px] text-charcoal tracking-tight">
                     {c.city}
                   </p>
-                  <Caption className="font-body text-charcoal/55 mt-0.5">
+                  <Caption className="font-body text-charcoal/75 mt-0.5">
                     {c.state} · {c.suburbs.length} suburbs
                   </Caption>
                 </button>
@@ -497,7 +497,7 @@ function LocationStep({
 
         {cityData ? (
           <div>
-            <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-3">
+            <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-3">
               Suburb
             </Caption>
             <div className="relative">
@@ -532,7 +532,7 @@ function LocationStep({
                 <Check className="h-3.5 w-3.5" /> {suburb}, {cityData.city}
               </p>
             ) : (
-              <p className="mt-3 font-body text-[13px] text-charcoal/55">
+              <p className="mt-3 font-body text-[13px] text-charcoal/75">
                 Or pick from popular: {cityData.suburbs.slice(0, 5).map((s) => (
                   <button
                     key={s}
@@ -598,7 +598,7 @@ function DateStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         Pick a date and time.
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         Same-day bookings still possible — just call us. For online booking, choose any
         date from tomorrow.
       </p>
@@ -673,7 +673,7 @@ function DateStep({
 
         {/* Time slots */}
         <div>
-          <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-4">
+          <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-4">
             {date ? 'Arrival window' : 'Select a date first'}
           </Caption>
           <div className="grid grid-cols-2 gap-2">
@@ -688,7 +688,7 @@ function DateStep({
                   className={cn(
                     'border rounded-[4px] py-3 font-display font-medium text-[14px] tracking-tight transition-colors',
                     !date && 'text-charcoal/30 cursor-not-allowed',
-                    date && active && 'border-olive bg-olive text-cream cursor-pointer',
+                    date && active && 'border-olive-deep bg-olive-deep text-cream cursor-pointer',
                     date && !active && 'border-border bg-cream text-charcoal hover:border-olive cursor-pointer',
                   )}
                 >
@@ -731,7 +731,7 @@ function CleanerStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         Pick a Ninja.
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         Or let us auto-assign the best fit for your suburb and job — we send a senior cleaner with the matching specialty.
       </p>
 
@@ -754,10 +754,10 @@ function CleanerStep({
               <p className="font-display font-semibold text-[16px] text-charcoal tracking-tight">
                 Auto-assign
               </p>
-              <Caption className="font-body text-charcoal/55">Recommended</Caption>
+              <Caption className="font-body text-charcoal/75">Recommended</Caption>
             </div>
           </div>
-          <p className="font-body text-[13.5px] text-charcoal/65 leading-relaxed">
+          <p className="font-body text-[13.5px] text-charcoal/75 leading-relaxed">
             We pick the senior cleaner in your suburb with the right specialty.
           </p>
         </button>
@@ -790,12 +790,12 @@ function CleanerStep({
                   <p className="font-display font-semibold text-[16px] text-charcoal tracking-tight">
                     {m.name}
                   </p>
-                  <Caption className="font-body text-charcoal/55">
+                  <Caption className="font-body text-charcoal/75">
                     {m.role} · {m.yearsWithUs}y
                   </Caption>
                 </div>
               </div>
-              <p className="font-body text-[13px] text-charcoal/65 leading-snug">
+              <p className="font-body text-[13px] text-charcoal/75 leading-snug">
                 {m.specialty}
               </p>
             </button>
@@ -820,7 +820,7 @@ function ContactStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         Who do we contact?
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         We send SMS confirmation and arrival ETA on the day. We do not share these details with anyone outside the assigned Ninja.
       </p>
 
@@ -885,7 +885,7 @@ function SummaryStep({
       <h2 className="font-display font-semibold text-[28px] sm:text-[34px] text-charcoal tracking-tight mt-3 mb-2 leading-tight">
         Looks right?
       </h2>
-      <p className="font-body text-[16px] text-charcoal/70 mb-8 leading-relaxed">
+      <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
         Final check. The price below is your real, GST-inclusive booking total.
       </p>
 
@@ -918,7 +918,7 @@ function SummaryStep({
             key={row.label}
             className="flex items-start justify-between gap-6 px-5 py-4"
           >
-            <dt className="font-body text-[12px] uppercase tracking-widest text-charcoal/55 flex-shrink-0">
+            <dt className="font-body text-[12px] uppercase tracking-widest text-charcoal/75 flex-shrink-0">
               {row.label}
             </dt>
             <dd className="font-display text-[15px] text-charcoal text-right">
@@ -937,7 +937,7 @@ function SummaryStep({
         </div>
       </dl>
 
-      <p className="mt-4 font-body text-[13px] text-charcoal/55 leading-relaxed">
+      <p className="mt-4 font-body text-[13px] text-charcoal/75 leading-relaxed">
         By confirming you agree to the{' '}
         <Link href="/legal/terms" className="text-olive underline decoration-olive-deep">
           Terms of Service
@@ -969,7 +969,7 @@ function BookingSummary({
 
   return (
     <div className="border border-border bg-cream rounded-[4px] p-6 space-y-5">
-      <Caption className="font-body text-charcoal/55 uppercase tracking-widest">
+      <Caption className="font-body text-charcoal/75 uppercase tracking-widest">
         Your booking
       </Caption>
 
@@ -1013,19 +1013,19 @@ function BookingSummary({
 
       {service ? (
         <div className="pt-5 border-t border-border">
-          <p className="font-body text-[12px] uppercase tracking-widest text-charcoal/55 mb-1">
+          <p className="font-body text-[12px] uppercase tracking-widest text-charcoal/75 mb-1">
             {state.size && state.city ? 'Booking total' : 'Estimated from'}
           </p>
           <p className="font-display font-bold text-[36px] text-charcoal tracking-tight tabular-nums">
             ${estimatedPrice}
           </p>
-          <Caption className="font-body text-charcoal/55 mt-1">
+          <Caption className="font-body text-charcoal/75 mt-1">
             GST included. No surprise charges.
           </Caption>
         </div>
       ) : null}
 
-      <div className="pt-5 border-t border-border space-y-2 font-body text-[13px] text-charcoal/70">
+      <div className="pt-5 border-t border-border space-y-2 font-body text-[13px] text-charcoal/75">
         <div className="flex items-start gap-2">
           <Check className="h-3.5 w-3.5 text-olive flex-shrink-0 mt-1" />
           <span>Police-checked, insured Ninja</span>
@@ -1040,7 +1040,7 @@ function BookingSummary({
         </div>
       </div>
 
-      <p className="font-body text-[12px] text-charcoal/55 leading-relaxed pt-3 border-t border-border">
+      <p className="font-body text-[12px] text-charcoal/75 leading-relaxed pt-3 border-t border-border">
         Need a hand? Ring{' '}
         <a
           href={`tel:${BUSINESS.phoneRaw}`}
@@ -1089,7 +1089,7 @@ function SuccessScreen({
       </p>
 
       <div className="mt-8 border border-border bg-surface-muted/40 rounded-[4px] p-5">
-        <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-1">
+        <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-1">
           Booking reference
         </Caption>
         <p className="font-display font-bold text-[28px] text-charcoal tracking-tight tabular-nums">
@@ -1122,7 +1122,7 @@ function SuccessScreen({
           },
         ].map((row) => (
           <div key={row.label}>
-            <Caption className="font-body text-charcoal/55 uppercase tracking-widest">
+            <Caption className="font-body text-charcoal/75 uppercase tracking-widest">
               {row.label}
             </Caption>
             <p className="font-display text-[15px] text-charcoal mt-0.5">
@@ -1141,7 +1141,7 @@ function SuccessScreen({
         </Button>
       </div>
 
-      <p className="mt-8 font-body text-[12px] text-charcoal/55 leading-relaxed">
+      <p className="mt-8 font-body text-[12px] text-charcoal/75 leading-relaxed">
         Need to make changes? Ring{' '}
         <a
           href={`tel:${BUSINESS.phoneRaw}`}

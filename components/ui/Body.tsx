@@ -23,9 +23,9 @@ const variantClass: Record<BodyVariant, string> = {
 
 const toneClass: Record<BodyTone, string> = {
   ink: 'text-ink',
-  'ink-muted': 'text-ink/70',
+  'ink-muted': 'text-ink/80',
   bone: 'text-bone',
-  'bone-muted': 'text-bone/70',
+  'bone-muted': 'text-bone/75',
 }
 
 const Body = forwardRef<HTMLElement, BodyProps>(

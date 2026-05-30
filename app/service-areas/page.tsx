@@ -170,7 +170,7 @@ export default function ServiceAreasPage() {
                       <h3 className="font-display font-semibold text-[26px] text-charcoal tracking-tight mb-3 group-hover:text-olive-deep transition-colors">
                         {city.city}
                       </h3>
-                      <p className="font-body text-[14px] text-charcoal/72 leading-relaxed line-clamp-3 mb-5">
+                      <p className="font-body text-[14px] text-charcoal/80 leading-relaxed line-clamp-3 mb-5">
                         {city.blurb}
                       </p>
                       <div className="flex items-center gap-x-4 gap-y-2 flex-wrap text-charcoal/75">
@@ -178,10 +178,10 @@ export default function ServiceAreasPage() {
                           <MapPin className="h-3.5 w-3.5 text-olive" />
                           {city.suburbs.length} suburbs
                         </span>
-                        <span className="font-body text-[12px] uppercase tracking-[0.12em] text-charcoal/55">
+                        <span className="font-body text-[12px] uppercase tracking-[0.12em] text-charcoal/75">
                           From ${city.benchmarkPrice}
                         </span>
-                        <span className="font-body text-[12px] uppercase tracking-[0.12em] text-charcoal/55">
+                        <span className="font-body text-[12px] uppercase tracking-[0.12em] text-charcoal/75">
                           {city.cleansCompleted.toLocaleString()} cleans
                         </span>
                       </div>
@@ -220,7 +220,7 @@ export default function ServiceAreasPage() {
                   <h3 className="font-display font-semibold text-[20px] text-charcoal tracking-tight group-hover:text-olive transition-colors">
                     {city.city}
                   </h3>
-                  <Caption className="font-body text-charcoal/55">
+                  <Caption className="font-body text-charcoal/75">
                     {city.suburbs.length} suburbs
                   </Caption>
                 </Link>
@@ -248,7 +248,7 @@ export default function ServiceAreasPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Not sure?</Eyebrow>
+                <Eyebrow tone="bone">Not sure?</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

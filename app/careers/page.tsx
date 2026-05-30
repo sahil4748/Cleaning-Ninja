@@ -163,7 +163,7 @@ export default function CareersPage() {
                     <h3 className="font-display font-semibold text-[22px] text-charcoal tracking-tight">
                       {p.title}
                     </h3>
-                    <p className="font-body text-[15px] text-charcoal/72 leading-relaxed">
+                    <p className="font-body text-[15px] text-charcoal/80 leading-relaxed">
                       {p.body}
                     </p>
                   </div>
@@ -209,7 +209,7 @@ export default function CareersPage() {
                     <p className="font-display font-semibold text-[15px] text-charcoal tracking-tight">
                       {t.name}
                     </p>
-                    <Caption className="font-body text-charcoal/55">
+                    <Caption className="font-body text-charcoal/75">
                       {t.role} · {t.yearsWithUs}y
                     </Caption>
                   </div>
@@ -238,7 +238,7 @@ export default function CareersPage() {
                   >
                     Tell us about you.
                   </Heading>
-                  <Body variant="body" className="text-charcoal/70">
+                  <Body variant="body" className="text-charcoal/75">
                     Six fields, ninety seconds. We respond within two business
                     days. If your application progresses we'll arrange a paid
                     trial clean.

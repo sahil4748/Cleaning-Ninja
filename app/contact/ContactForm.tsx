@@ -52,7 +52,7 @@ export function ContactForm() {
         <Heading as="h3" variant="h3" className="mb-3 text-charcoal">
           Thanks. We'll be in touch.
         </Heading>
-        <Body variant="body" className="text-charcoal/70 max-w-md mx-auto" measure>
+        <Body variant="body" className="text-charcoal/75 max-w-md mx-auto" measure>
           We respond within one business day. If your enquiry is bookable, the
           fastest path is the booking flow.
         </Body>

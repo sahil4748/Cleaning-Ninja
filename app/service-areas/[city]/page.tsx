@@ -135,7 +135,7 @@ export default async function CityPage({
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
                     {city.cleansCompleted.toLocaleString()}
                   </div>
-                  <Caption className="text-charcoal/55 mt-1">
+                  <Caption className="text-charcoal/75 mt-1">
                     Cleans completed
                   </Caption>
                 </div>
@@ -143,13 +143,13 @@ export default async function CityPage({
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
                     {city.suburbs.length}
                   </div>
-                  <Caption className="text-charcoal/55 mt-1">Suburbs covered</Caption>
+                  <Caption className="text-charcoal/75 mt-1">Suburbs covered</Caption>
                 </div>
                 <div>
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
                     ${city.benchmarkPrice}
                   </div>
-                  <Caption className="text-charcoal/55 mt-1">
+                  <Caption className="text-charcoal/75 mt-1">
                     3-br {city.bondTerm.toLowerCase()}
                   </Caption>
                 </div>
@@ -157,7 +157,7 @@ export default async function CityPage({
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
                     {cityTeam.length || 1}
                   </div>
-                  <Caption className="text-charcoal/55 mt-1">
+                  <Caption className="text-charcoal/75 mt-1">
                     Named Ninjas on the {city.city} roster
                   </Caption>
                 </div>
@@ -194,7 +194,7 @@ export default async function CityPage({
               >
                 Top {city.suburbs.length} {city.city} suburbs.
               </Heading>
-              <Body variant="body" className="text-charcoal/70" measure>
+              <Body variant="body" className="text-charcoal/75" measure>
                 Each suburb has its own dedicated page with local pricing notes
                 and the named Ninja assigned to that area. Tap any suburb to
                 see who'll be cleaning your place.
@@ -236,7 +236,7 @@ export default async function CityPage({
                   >
                     Local rates. <span className="text-olive italic">No phone runaround.</span>
                   </Heading>
-                  <Body variant="body" className="text-charcoal/70">
+                  <Body variant="body" className="text-charcoal/75">
                     {city.city} prices reflect local wages, insurance and
                     supplies. Every figure here is GST-included and is the price
                     on the booking. See the full pricing matrix for all
@@ -283,13 +283,13 @@ export default async function CityPage({
                   href={row.href}
                   className="block border border-border bg-cream rounded-[4px] p-5 hover:border-olive transition-colors"
                 >
-                  <Caption className="text-charcoal/55 mb-1 font-body">
+                  <Caption className="text-charcoal/75 mb-1 font-body">
                     {row.label}
                   </Caption>
                   <div className="font-display text-[32px] font-bold tabular-nums text-charcoal tracking-tight">
                     ${row.price}
                   </div>
-                  <p className="font-body text-[13px] text-charcoal/65 mt-1">
+                  <p className="font-body text-[13px] text-charcoal/75 mt-1">
                     {row.note}
                   </p>
                 </Link>
@@ -330,7 +330,7 @@ export default async function CityPage({
                   <h3 className="font-display font-semibold text-[19px] text-charcoal tracking-tight mb-2">
                     {item.title}
                   </h3>
-                  <p className="font-body text-[14.5px] text-charcoal/72 leading-relaxed">
+                  <p className="font-body text-[14.5px] text-charcoal/80 leading-relaxed">
                     {item.body}
                   </p>
                 </div>
@@ -372,11 +372,11 @@ export default async function CityPage({
                     />
                   </div>
                   <div className="p-5">
-                    <Caption className="font-body text-charcoal/55">{m.role}</Caption>
+                    <Caption className="font-body text-charcoal/75">{m.role}</Caption>
                     <h3 className="font-display font-semibold text-[19px] text-charcoal tracking-tight mt-1">
                       {m.name}
                     </h3>
-                    <p className="font-body text-[13.5px] text-charcoal/70 mt-2 leading-snug">
+                    <p className="font-body text-[13.5px] text-charcoal/75 mt-2 leading-snug">
                       {m.specialty}
                     </p>
                   </div>
@@ -422,7 +422,7 @@ export default async function CityPage({
                     <p className="font-display font-semibold text-[14px] text-charcoal">
                       {r.customerFirstName} — {r.suburb}
                     </p>
-                    <Caption className="font-body text-charcoal/55 mt-0.5">
+                    <Caption className="font-body text-charcoal/75 mt-0.5">
                       {r.service} · cleaned by {r.cleanerName}
                     </Caption>
                   </div>
@@ -439,7 +439,7 @@ export default async function CityPage({
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Book in {city.city}</Eyebrow>
+                <Eyebrow tone="bone">Book in {city.city}</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

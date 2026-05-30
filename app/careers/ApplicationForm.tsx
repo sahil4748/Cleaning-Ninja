@@ -54,7 +54,7 @@ export function ApplicationForm() {
         <Heading as="h3" variant="h3" className="mb-3 text-charcoal">
           Application received.
         </Heading>
-        <Body variant="body" className="text-charcoal/70 max-w-md mx-auto" measure>
+        <Body variant="body" className="text-charcoal/75 max-w-md mx-auto" measure>
           Saima or one of the regional leads will be in touch within two
           business days. If your application progresses we'll send a Working
           With Children Check link and a federal police clearance request next.

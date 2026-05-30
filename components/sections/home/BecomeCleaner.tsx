@@ -62,7 +62,7 @@ export default function BecomeCleaner() {
                   <SplitText delay={0.3}>at Cleaning Ninja.</SplitText>
                 </Heading>
 
-                <Body variant="body-l" className="text-charcoal/72 max-w-[58ch]">
+                <Body variant="body-l" className="text-charcoal/80 max-w-[58ch]">
                   No gig-economy piece rates. We pay above-award, with super, sick leave, and ongoing training built in. Police checks and insurance covered by us.
                 </Body>
 
@@ -89,18 +89,18 @@ export default function BecomeCleaner() {
                       <div key={p.title} className="rounded-[6px] border border-[color:var(--color-border)] bg-cream-warm p-5 transition-colors duration-300 hover:border-olive" style={{ background: 'var(--color-surface-muted)' }}>
                         <Icon className="h-6 w-6 text-olive" strokeWidth={2.25} />
                         <h3 className="mt-4 font-display text-[17px] font-bold tracking-[-0.015em] text-charcoal">{p.title}</h3>
-                        <p className="mt-2 text-[13px] leading-[1.5] text-charcoal/70">{p.desc}</p>
+                        <p className="mt-2 text-[13px] leading-[1.5] text-charcoal/75">{p.desc}</p>
                       </div>
                     )
                   })}
                 </div>
 
                 <div className="flex flex-wrap items-center gap-4 pt-2">
-                  <Button as={Link} href="/careers" variant="primary-light" data-magnetic className="bg-olive border-olive text-cream hover:bg-olive-deep hover:border-olive-deep">
+                  <Button as={Link} href="/careers" variant="primary-light" data-magnetic className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive">
                     Apply now
                     <ArrowRight className="h-4 w-4" />
                   </Button>
-                  <span className="text-[13px] text-charcoal/60 max-w-xs">
+                  <span className="text-[13px] text-charcoal/75 max-w-xs">
                     Full-time and part-time roles open across all six cities. Career progression to Regional Lead in 18 months.
                   </span>
                 </div>

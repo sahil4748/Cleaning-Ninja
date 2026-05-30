@@ -37,8 +37,8 @@ export function TeamGrid() {
               className={cn(
                 'rounded-full border px-4 py-1.5 font-body text-[13px] font-semibold transition-colors duration-200 cursor-pointer',
                 active
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal hover:text-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal hover:text-charcoal',
               )}
             >
               {c.label}
@@ -103,7 +103,7 @@ export function TeamGrid() {
                 <Caption className="font-body text-[11px] uppercase tracking-[0.14em] text-charcoal/50">
                   Suburbs
                 </Caption>
-                <span className="font-body text-[12px] text-charcoal/70 text-right max-w-[60%] leading-tight">
+                <span className="font-body text-[12px] text-charcoal/75 text-right max-w-[60%] leading-tight">
                   {m.cityCovered.join(' · ')}
                 </span>
               </div>
@@ -121,7 +121,7 @@ export function TeamGrid() {
       </div>
 
       {visible.length === 0 ? (
-        <p className="text-center py-12 font-body text-charcoal/60">
+        <p className="text-center py-12 font-body text-charcoal/75">
           No team members in this city yet. Try another filter or browse all.
         </p>
       ) : null}

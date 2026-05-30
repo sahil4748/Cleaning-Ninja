@@ -132,13 +132,13 @@ export default function ContactPage() {
                   className="group block border border-border bg-cream rounded-[4px] p-6 hover:border-olive transition-colors"
                 >
                   <Icon className="h-7 w-7 text-olive mb-4" />
-                  <Caption className="font-body text-charcoal/55 uppercase tracking-widest mb-1">
+                  <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-1">
                     {item.label}
                   </Caption>
                   <p className="font-display font-semibold text-[18px] text-charcoal tracking-tight break-words">
                     {item.value}
                   </p>
-                  <p className="font-body text-[13px] text-charcoal/60 mt-2">
+                  <p className="font-body text-[13px] text-charcoal/75 mt-2">
                     {item.note}
                   </p>
                 </a>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                   <Heading as="h2" variant="h2" className="tracking-tight text-charcoal">
                     Six fields. <span className="text-olive italic">Ninety seconds.</span>
                   </Heading>
-                  <Body variant="body" className="text-charcoal/70">
+                  <Body variant="body" className="text-charcoal/75">
                     If you're after a booking, the booking flow is faster — but for
                     everything else (NDIS, commercial, complaints, custom scopes),
                     this is the path.
@@ -185,7 +185,7 @@ export default function ContactPage() {
                           <MapPin className="h-4 w-4 text-olive" />
                           {c.city}
                         </p>
-                        <Caption className="font-body text-charcoal/55 mt-1 ml-6">
+                        <Caption className="font-body text-charcoal/75 mt-1 ml-6">
                           {c.hours}
                         </Caption>
                       </div>
@@ -198,7 +198,7 @@ export default function ContactPage() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-6 text-[13px] font-body text-charcoal/55 leading-relaxed">
+                <p className="mt-6 text-[13px] font-body text-charcoal/75 leading-relaxed">
                   Outside business hours, the main 1300 number routes to overnight
                   on-call (urgent escalations only). For non-urgent enquiries,
                   email gets the fastest response in the morning.

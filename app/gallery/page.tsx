@@ -105,7 +105,7 @@ export default function GalleryPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Your turn</Eyebrow>
+                <Eyebrow tone="bone">Your turn</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

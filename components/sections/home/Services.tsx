@@ -250,7 +250,7 @@ export default function Services() {
               </Stack>
             </div>
             <div className="md:col-span-5">
-              <Body variant="body-l" className="text-charcoal/72 max-w-[44ch]">
+              <Body variant="body-l" className="text-charcoal/80 max-w-[44ch]">
                 Every service has a flat from-price visible up front. No quote runaround, no "depends on the day". What you see is what you pay.
               </Body>
             </div>

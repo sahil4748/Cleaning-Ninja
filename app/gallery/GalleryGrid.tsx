@@ -250,7 +250,7 @@ function CompareSlider({ item }: { item: GalleryItem }) {
       <div className="px-2 pb-1">
         <div className="flex items-baseline justify-between mb-2">
           <Eyebrow tone="champagne">{item.serviceLabel}</Eyebrow>
-          <Caption className="font-body text-charcoal/55">
+          <Caption className="font-body text-charcoal/75">
             {item.suburb}, {item.city}
           </Caption>
         </div>
@@ -295,8 +295,8 @@ export function GalleryGrid() {
               className={cn(
                 'rounded-full border px-4 py-1.5 font-body text-[13px] font-semibold transition-colors duration-200 cursor-pointer',
                 active
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal hover:text-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal hover:text-charcoal',
               )}
             >
               {f.label}
@@ -309,7 +309,7 @@ export function GalleryGrid() {
       <div className="mb-10 flex flex-wrap items-center gap-3 border-b border-border pb-6">
         <label
           htmlFor="suburb-filter"
-          className="font-body text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal/55"
+          className="font-body text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal/75"
         >
           Suburb
         </label>
@@ -325,7 +325,7 @@ export function GalleryGrid() {
             </option>
           ))}
         </select>
-        <Caption className="ml-auto font-body text-charcoal/55">
+        <Caption className="ml-auto font-body text-charcoal/75">
           Showing {visible.length} of {GALLERY.length}
         </Caption>
       </div>
@@ -337,7 +337,7 @@ export function GalleryGrid() {
       </div>
 
       {visible.length === 0 ? (
-        <p className="text-center py-12 font-body text-charcoal/60">
+        <p className="text-center py-12 font-body text-charcoal/75">
           No matches for that combination. Reset the filters or try a different
           service.
         </p>

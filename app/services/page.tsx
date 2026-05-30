@@ -148,7 +148,7 @@ export default function ServicesPage() {
 
                       <Body
                         variant="body"
-                        className="text-charcoal/72 !text-[14.5px] leading-relaxed"
+                        className="text-charcoal/80 !text-[14.5px] leading-relaxed"
                       >
                         {s.description}
                       </Body>
@@ -192,7 +192,7 @@ export default function ServicesPage() {
                 >
                   Auxiliary services. <span className="text-olive italic">Same standard.</span>
                 </Heading>
-                <Body variant="body" className="text-charcoal/72 mt-4" measure>
+                <Body variant="body" className="text-charcoal/80 mt-4" measure>
                   Not headline disciplines, but bookable any time through our team.
                 </Body>
               </div>
@@ -203,13 +203,13 @@ export default function ServicesPage() {
                   key={s.slug}
                   className="border border-border rounded-[4px] p-5 hover:border-olive transition-colors"
                 >
-                  <Caption className="font-body text-[11px] uppercase tracking-[0.14em] text-charcoal/55 mb-2">
+                  <Caption className="font-body text-[11px] uppercase tracking-[0.14em] text-charcoal/75 mb-2">
                     From ${s.fromPrice}
                   </Caption>
                   <h3 className="font-display font-semibold text-[18px] text-charcoal tracking-tight">
                     {s.name}
                   </h3>
-                  <p className="font-body text-[13px] text-charcoal/65 mt-2 leading-snug">
+                  <p className="font-body text-[13px] text-charcoal/75 mt-2 leading-snug">
                     {s.tagline}
                   </p>
                 </div>
@@ -232,7 +232,7 @@ export default function ServicesPage() {
             <FadeUp>
               <div className="text-center">
                 <Stack gap="6" align="center">
-                  <Eyebrow tone="champagne">Next step</Eyebrow>
+                  <Eyebrow tone="bone">Next step</Eyebrow>
                   <Heading
                     as="h2"
                     variant="display-l"

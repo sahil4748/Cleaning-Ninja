@@ -119,15 +119,15 @@ export default function JournalPage() {
                 <h2 className="font-display font-semibold text-[28px] sm:text-[32px] lg:text-[36px] tracking-tight text-charcoal mt-3 mb-4 leading-tight group-hover:text-olive-deep transition-colors">
                   {featured.title}
                 </h2>
-                <Body variant="body-l" className="text-charcoal/72 mb-5">
+                <Body variant="body-l" className="text-charcoal/80 mb-5">
                   {featured.dek}
                 </Body>
                 <div className="flex items-center gap-4 mb-6">
-                  <Caption className="font-body text-charcoal/55 inline-flex items-center gap-1.5">
+                  <Caption className="font-body text-charcoal/75 inline-flex items-center gap-1.5">
                     <Clock className="h-3.5 w-3.5" />
                     {featured.readMinutes} min read
                   </Caption>
-                  <Caption className="font-body text-charcoal/55">
+                  <Caption className="font-body text-charcoal/75">
                     By {featured.author}
                   </Caption>
                 </div>
@@ -165,18 +165,18 @@ export default function JournalPage() {
                   <div className="flex flex-1 flex-col gap-3 p-6">
                     <div className="flex items-center gap-3">
                       <Eyebrow tone="champagne">{entry.category}</Eyebrow>
-                      <Caption className="font-body text-charcoal/55 inline-flex items-center gap-1.5">
+                      <Caption className="font-body text-charcoal/75 inline-flex items-center gap-1.5">
                         <Clock className="h-3 w-3" /> {entry.readMinutes} min
                       </Caption>
                     </div>
                     <h3 className="font-display font-semibold text-[20px] text-charcoal tracking-tight leading-snug group-hover:text-olive-deep transition-colors">
                       {entry.title}
                     </h3>
-                    <p className="font-body text-[14px] text-charcoal/72 leading-relaxed line-clamp-3">
+                    <p className="font-body text-[14px] text-charcoal/80 leading-relaxed line-clamp-3">
                       {entry.dek}
                     </p>
                     <div className="mt-auto pt-4 border-t border-border flex items-center justify-between">
-                      <Caption className="font-body text-charcoal/55">
+                      <Caption className="font-body text-charcoal/75">
                         By {entry.author}
                       </Caption>
                       <ArrowUpRight className="h-4 w-4 text-charcoal/40 group-hover:text-olive transition-colors" />

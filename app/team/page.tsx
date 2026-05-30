@@ -93,7 +93,7 @@ export default function TeamPage() {
                     <div className="font-display text-[36px] sm:text-[44px] font-bold text-charcoal tracking-tight tabular-nums">
                       {stat.value}+
                     </div>
-                    <div className="font-body text-[12px] uppercase tracking-[0.14em] text-charcoal/55 mt-1">
+                    <div className="font-body text-[12px] uppercase tracking-[0.14em] text-charcoal/75 mt-1">
                       {stat.label}
                     </div>
                   </div>
@@ -125,7 +125,7 @@ export default function TeamPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Become a Ninja</Eyebrow>
+                <Eyebrow tone="bone">Become a Ninja</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

@@ -46,7 +46,7 @@ export default function PricingPreview() {
               </Stack>
             </div>
             <div className="md:col-span-5">
-              <Body variant="body-l" className="text-charcoal/72">
+              <Body variant="body-l" className="text-charcoal/80">
                 What you see is what you pay. No mystery surcharges, no quote runaround, no "depends on the day". Prices in <span className="font-semibold text-charcoal">AUD, GST included</span>.
               </Body>
             </div>
@@ -67,7 +67,7 @@ export default function PricingPreview() {
                   'relative -mb-px cursor-pointer rounded-t-[6px] border border-b-0 px-5 py-3 text-[14px] font-medium tracking-[0.01em] transition-all duration-200',
                   active
                     ? 'border-[color:var(--color-border)] bg-cream text-charcoal shadow-[0_-2px_0_0_var(--color-olive)_inset]'
-                    : 'border-transparent text-charcoal/55 hover:text-charcoal',
+                    : 'border-transparent text-charcoal/75 hover:text-charcoal',
                 )}
               >
                 {t.label}
@@ -90,7 +90,7 @@ export default function PricingPreview() {
               >
                 <thead>
                   <tr className="bg-cream-warm" style={{ background: 'var(--color-surface-muted)' }}>
-                    <th className="sticky left-0 z-10 border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-5 py-4 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal/60">
+                    <th className="sticky left-0 z-10 border-b border-[color:var(--color-border)] bg-[color:var(--color-surface-muted)] px-5 py-4 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal/75">
                       Property size
                     </th>
                     {COVERAGE.map((city) => (
@@ -99,7 +99,7 @@ export default function PricingPreview() {
                         onMouseEnter={() => setCityHover(city.slug)}
                         onMouseLeave={() => setCityHover(null)}
                         className={cn(
-                          'border-b border-[color:var(--color-border)] px-4 py-4 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal/60 transition-colors',
+                          'border-b border-[color:var(--color-border)] px-4 py-4 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal/75 transition-colors',
                           cityHover === city.slug && 'text-olive',
                         )}
                       >
@@ -150,7 +150,7 @@ export default function PricingPreview() {
         </div>
 
         <div className="mt-12 flex flex-wrap items-center justify-between gap-4">
-          <Body variant="body" className="text-charcoal/65">
+          <Body variant="body" className="text-charcoal/75">
             Need a price for a 6+ bed, post-build, or commercial clean?
           </Body>
           <div className="flex flex-wrap gap-3">
@@ -162,7 +162,7 @@ export default function PricingPreview() {
               href="/book"
               variant="primary-light"
               data-magnetic
-              className="bg-olive border-olive text-cream hover:bg-olive-deep hover:border-olive-deep"
+              className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive"
             >
               Book at this price
               <ArrowRight className="h-4 w-4" />

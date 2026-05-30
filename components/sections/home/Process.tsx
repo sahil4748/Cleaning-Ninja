@@ -175,7 +175,7 @@ export default function Process() {
           <div className="mb-16 grid grid-cols-1 gap-10 md:grid-cols-12">
             <div className="md:col-span-7">
               <Stack gap="4">
-                <Eyebrow tone="champagne" withRule>
+                <Eyebrow tone="bone" withRule>
                   How it works
                 </Eyebrow>
                 <Heading as="h2" id="process-heading" variant="display-xl" tone="bone" balance>

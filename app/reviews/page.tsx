@@ -106,7 +106,7 @@ export default function ReviewsPage() {
                   ))}
                 </div>
               </div>
-              <Caption className="text-charcoal/55 mt-1">
+              <Caption className="text-charcoal/75 mt-1">
                 Average rating
               </Caption>
             </div>
@@ -114,19 +114,19 @@ export default function ReviewsPage() {
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
                 {BUSINESS.reviewCount.toLocaleString()}+
               </div>
-              <Caption className="text-charcoal/55 mt-1">Verified reviews</Caption>
+              <Caption className="text-charcoal/75 mt-1">Verified reviews</Caption>
             </div>
             <div>
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
                 97%
               </div>
-              <Caption className="text-charcoal/55 mt-1">5-star reviews</Caption>
+              <Caption className="text-charcoal/75 mt-1">5-star reviews</Caption>
             </div>
             <div>
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
                 6
               </div>
-              <Caption className="text-charcoal/55 mt-1">
+              <Caption className="text-charcoal/75 mt-1">
                 Cities, all rated 4.8+
               </Caption>
             </div>
@@ -147,7 +147,7 @@ export default function ReviewsPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Your turn</Eyebrow>
+                <Eyebrow tone="bone">Your turn</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

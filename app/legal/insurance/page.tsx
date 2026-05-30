@@ -53,13 +53,13 @@ export default function InsurancePage() {
               className="border border-border bg-cream rounded-[4px] p-6"
             >
               <Icon className="h-7 w-7 text-olive mb-4" />
-              <p className="font-body text-[11px] uppercase tracking-widest text-charcoal/55 mb-1">
+              <p className="font-body text-[11px] uppercase tracking-widest text-charcoal/75 mb-1">
                 {item.title}
               </p>
               <p className="font-display font-bold text-[22px] text-charcoal tracking-tight">
                 {item.value}
               </p>
-              <p className="font-body text-[13.5px] text-charcoal/70 mt-2 leading-relaxed">
+              <p className="font-body text-[13.5px] text-charcoal/75 mt-2 leading-relaxed">
                 {item.note}
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function InsurancePage() {
             <span className="font-display font-medium text-[15px] text-charcoal tracking-tight">
               {doc.label}
             </span>
-            <span className="inline-flex items-center gap-2 font-body text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal/70 group-hover:text-olive transition-colors">
+            <span className="inline-flex items-center gap-2 font-body text-[12px] font-semibold uppercase tracking-[0.14em] text-charcoal/75 group-hover:text-olive transition-colors">
               <Download className="h-3.5 w-3.5" />
               Download PDF
             </span>
@@ -97,7 +97,7 @@ export default function InsurancePage() {
         ))}
       </div>
 
-      <p className="italic text-charcoal/55 mt-2 text-[14px]">
+      <p className="italic text-charcoal/75 mt-2 text-[14px]">
         PDFs are placeholders pending final document review — link targets will go live before the certified launch. Email {BUSINESS.email} if you need a copy in the meantime; we send the formal certificate within one business day.
       </p>
 

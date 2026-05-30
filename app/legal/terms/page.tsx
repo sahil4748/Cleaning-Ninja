@@ -96,7 +96,7 @@ export default function TermsPage() {
         and the parties submit to the non-exclusive jurisdiction of its courts.
       </p>
 
-      <p className="italic text-charcoal/55 pt-4 border-t border-border">
+      <p className="italic text-charcoal/75 pt-4 border-t border-border">
         Placeholder draft — these terms are honest, plain-English summaries pending
         formal legal review by our solicitors before the certified launch. The
         commercial commitments (cancellation, bond-back guarantee, insurance cap)

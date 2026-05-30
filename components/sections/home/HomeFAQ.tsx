@@ -47,11 +47,11 @@ export default function HomeFAQ() {
                 <Heading as="h2" id="faq-heading" variant="display-xl" balance>
                   <SplitText>Questions, answered.</SplitText>
                 </Heading>
-                <Body variant="body-l" className="text-charcoal/72 max-w-[44ch]">
+                <Body variant="body-l" className="text-charcoal/80 max-w-[44ch]">
                   The questions we get most often. If yours isn't here, message the team — every booking has a free-text field and we read every one.
                 </Body>
                 <div className="hidden pt-2 lg:block">
-                  <Button as={Link} href="/book" variant="primary-light" data-magnetic className="bg-olive border-olive text-cream hover:bg-olive-deep hover:border-olive-deep">
+                  <Button as={Link} href="/book" variant="primary-light" data-magnetic className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive">
                     See my price
                   </Button>
                 </div>
@@ -71,7 +71,7 @@ export default function HomeFAQ() {
                         </span>
                       }
                     >
-                      <Body variant="body" className="text-charcoal/72" measure>
+                      <Body variant="body" className="text-charcoal/80" measure>
                         {f.answer}
                       </Body>
                     </AccordionItem>
@@ -83,7 +83,7 @@ export default function HomeFAQ() {
         </FadeUp>
 
         <div className="mt-10 flex justify-center lg:hidden">
-          <Button as={Link} href="/book" variant="primary-light" className="bg-olive border-olive text-cream hover:bg-olive-deep hover:border-olive-deep">
+          <Button as={Link} href="/book" variant="primary-light" className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive">
             See my price
           </Button>
         </div>

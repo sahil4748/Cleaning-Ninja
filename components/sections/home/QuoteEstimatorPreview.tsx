@@ -79,13 +79,13 @@ export default function QuoteEstimatorPreview() {
               </Eyebrow>
               <Heading as="h2" id="estimator-heading" variant="display-xl" balance>
                 Three answers. <span className="text-olive">Real price.</span>{' '}
-                <span className="block text-charcoal/65">60 seconds.</span>
+                <span className="block text-charcoal/75">60 seconds.</span>
               </Heading>
               <Body variant="body-l" className="text-charcoal/75 max-w-[44ch]">
                 Service, property, city. You get a real flat-rate number on the next screen — not a quote-callback purgatory.
               </Body>
               <div className="border-t border-[color:var(--color-border)] pt-5">
-                <Caption className="text-charcoal/60">
+                <Caption className="text-charcoal/75">
                   Prices shown are flat-rate, GST included. Final invoice matches the quote you book at.
                 </Caption>
               </div>
@@ -158,7 +158,7 @@ export default function QuoteEstimatorPreview() {
                       >
                         <Stack gap="6">
                           <Stack gap="2">
-                            <Eyebrow tone="champagne">Step 1</Eyebrow>
+                            <Eyebrow tone="bone">Step 1</Eyebrow>
                             <Heading as="h3" variant="h3" tone="bone" className="tracking-tight">
                               What surface or service?
                             </Heading>
@@ -230,7 +230,7 @@ export default function QuoteEstimatorPreview() {
                       >
                         <Stack gap="6">
                           <Stack gap="2">
-                            <Eyebrow tone="champagne">Step 2</Eyebrow>
+                            <Eyebrow tone="bone">Step 2</Eyebrow>
                             <Heading as="h3" variant="h3" tone="bone" className="tracking-tight">
                               What kind of property?
                             </Heading>
@@ -306,7 +306,7 @@ export default function QuoteEstimatorPreview() {
                       >
                         <Stack gap="6">
                           <Stack gap="2">
-                            <Eyebrow tone="champagne">Step 3</Eyebrow>
+                            <Eyebrow tone="bone">Step 3</Eyebrow>
                             <Heading as="h3" variant="h3" tone="bone">
                               Which Australian city?
                             </Heading>

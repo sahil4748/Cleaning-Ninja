@@ -91,7 +91,7 @@ export default function PrivacyPage() {
         <a className="text-olive underline decoration-olive-deep" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>.
       </p>
 
-      <p className="italic text-charcoal/55 pt-4 border-t border-border">
+      <p className="italic text-charcoal/75 pt-4 border-t border-border">
         Placeholder copy — these terms are honest, plain-English drafts pending
         a formal legal review. The bond-back guarantee and insurance commitments
         are real; the precise legal language will be ratified by our solicitors

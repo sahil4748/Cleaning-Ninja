@@ -58,7 +58,7 @@ export default function FinalCta() {
           <div className="lg:col-span-10 lg:col-start-2">
             <FadeUp>
               <Stack gap="8" className="text-center">
-                <Eyebrow tone="champagne" className="mx-auto" withRule>
+                <Eyebrow tone="bone" className="mx-auto" withRule>
                   Stop scrolling
                 </Eyebrow>
                 <Heading

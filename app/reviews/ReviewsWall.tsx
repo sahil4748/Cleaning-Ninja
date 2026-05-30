@@ -29,7 +29,7 @@ export function ReviewsWall() {
       {/* Filter row */}
       <div className="space-y-4 border-b border-border pb-6 mb-10">
         <div className="flex flex-wrap items-center gap-2">
-          <Caption className="font-body text-charcoal/55 mr-2 uppercase tracking-widest">
+          <Caption className="font-body text-charcoal/75 mr-2 uppercase tracking-widest">
             City
           </Caption>
           {CITY_FILTERS.map((c) => (
@@ -41,8 +41,8 @@ export function ReviewsWall() {
               className={cn(
                 'rounded-full border px-3 py-1 font-body text-[12px] font-semibold transition-colors cursor-pointer',
                 city === c
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal',
               )}
             >
               {c}
@@ -50,7 +50,7 @@ export function ReviewsWall() {
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Caption className="font-body text-charcoal/55 mr-2 uppercase tracking-widest">
+          <Caption className="font-body text-charcoal/75 mr-2 uppercase tracking-widest">
             Service
           </Caption>
           {SERVICE_FILTERS.map((s) => (
@@ -62,8 +62,8 @@ export function ReviewsWall() {
               className={cn(
                 'rounded-full border px-3 py-1 font-body text-[12px] font-semibold transition-colors cursor-pointer',
                 service === s
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal',
               )}
             >
               {s}
@@ -71,7 +71,7 @@ export function ReviewsWall() {
           ))}
         </div>
         <div className="flex flex-wrap items-center gap-2">
-          <Caption className="font-body text-charcoal/55 mr-2 uppercase tracking-widest">
+          <Caption className="font-body text-charcoal/75 mr-2 uppercase tracking-widest">
             Rating
           </Caption>
           {RATING_FILTERS.map((r) => (
@@ -83,14 +83,14 @@ export function ReviewsWall() {
               className={cn(
                 'rounded-full border px-3 py-1 font-body text-[12px] font-semibold transition-colors cursor-pointer',
                 rating === r
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal',
               )}
             >
               {r === 0 ? 'All' : `${r}+ stars`}
             </button>
           ))}
-          <Caption className="ml-auto font-body text-charcoal/55">
+          <Caption className="ml-auto font-body text-charcoal/75">
             Showing {visible.length} of {REVIEWS.length}
           </Caption>
         </div>
@@ -119,7 +119,7 @@ export function ReviewsWall() {
               <p className="font-display font-semibold text-[14px] text-charcoal">
                 {r.customerFirstName} — {r.suburb}, {r.city}
               </p>
-              <Caption className="font-body text-charcoal/55 mt-0.5">
+              <Caption className="font-body text-charcoal/75 mt-0.5">
                 {r.service} · cleaned by {r.cleanerName} ·{' '}
                 {new Date(r.date).toLocaleDateString('en-AU', {
                   month: 'short',
@@ -132,7 +132,7 @@ export function ReviewsWall() {
       </div>
 
       {visible.length === 0 ? (
-        <p className="text-center py-12 font-body text-charcoal/60">
+        <p className="text-center py-12 font-body text-charcoal/75">
           No reviews match that combination. Try resetting a filter.
         </p>
       ) : null}

@@ -143,8 +143,8 @@ export function PricingMatrices() {
               className={cn(
                 'rounded-full border px-4 py-2 font-body text-[13px] font-semibold transition-colors duration-200 cursor-pointer',
                 active
-                  ? 'border-olive bg-olive text-cream'
-                  : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal hover:text-charcoal',
+                  ? 'border-olive-deep bg-olive-deep text-cream'
+                  : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal hover:text-charcoal',
               )}
             >
               {t.label}
@@ -225,7 +225,7 @@ export function PricingMatrices() {
         </div>
       )}
 
-      <Caption className="mt-3 text-charcoal/55">
+      <Caption className="mt-3 text-charcoal/75">
         Prices include GST. Cleans run by a named, police-checked Ninja from your local team.
       </Caption>
 
@@ -255,7 +255,7 @@ export function PricingMatrices() {
             {INCLUSIONS[tab].excluded.map((line) => (
               <li
                 key={line}
-                className="flex items-start gap-3 font-body text-[14.5px] text-charcoal/70 leading-snug"
+                className="flex items-start gap-3 font-body text-[14.5px] text-charcoal/75 leading-snug"
               >
                 <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-charcoal/40" />
                 <span>{line}</span>

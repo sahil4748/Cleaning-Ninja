@@ -15,7 +15,9 @@ interface EyebrowProps extends HTMLAttributes<HTMLElement> {
 const toneClass: Record<EyebrowTone, string> = {
   ink: 'text-ink',
   bone: 'text-bone',
-  champagne: 'text-champagne',
+  // champagne maps to olive; at 12px the mid-olive failed AA on light surfaces
+  // (~3.8:1). olive-deep clears it. On dark surfaces use tone="bone" instead.
+  champagne: 'text-olive-deep',
 }
 
 const Eyebrow = forwardRef<HTMLElement, EyebrowProps>(

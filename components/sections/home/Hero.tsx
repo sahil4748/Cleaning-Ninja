@@ -87,7 +87,7 @@ export default function Hero() {
                 variant="primary-light"
                 size="lg"
                 data-magnetic
-                className="group bg-olive border-olive text-cream hover:bg-olive-deep hover:border-olive-deep shadow-[0_18px_44px_-18px_rgba(74,86,40,0.55)] hover:-translate-y-[1px] transition-all duration-200"
+                className="group bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive shadow-[0_18px_44px_-18px_rgba(74,86,40,0.55)] hover:-translate-y-[1px] transition-all duration-200"
               >
                 See my price (60 sec)
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
@@ -108,7 +108,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.7, delay: reduced ? 0 : 1.55 }}
-              className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-charcoal/70 lg:mt-16"
+              className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-charcoal/75 lg:mt-16"
             >
               <div className="flex items-center gap-2">
                 <span className="font-mono text-charcoal text-[12px] tracking-[0.08em]">ABN {BUSINESS.abn}</span>

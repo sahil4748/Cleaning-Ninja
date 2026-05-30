@@ -243,7 +243,7 @@ export default function BeforeAfter() {
               </Stack>
             </div>
             <div className="md:col-span-5">
-              <Body variant="body-l" className="text-charcoal/72 max-w-[44ch]">
+              <Body variant="body-l" className="text-charcoal/80 max-w-[44ch]">
                 Drag the slider on any card. Each pair is the same room, same camera, same time of day — only the work changed.
               </Body>
             </div>
@@ -263,8 +263,8 @@ export default function BeforeAfter() {
                 className={cn(
                   'rounded-full border px-4 py-1.5 font-body text-[13px] font-semibold transition-all duration-200 cursor-pointer',
                   active
-                    ? 'border-olive bg-olive text-cream'
-                    : 'border-charcoal/20 bg-cream text-charcoal/70 hover:border-charcoal hover:text-charcoal',
+                    ? 'border-olive-deep bg-olive-deep text-cream'
+                    : 'border-charcoal/20 bg-cream text-charcoal/75 hover:border-charcoal hover:text-charcoal',
                 )}
               >
                 {c.label}
@@ -287,8 +287,8 @@ export default function BeforeAfter() {
         </Stagger>
 
         <div className="mt-10 text-center md:mt-14">
-          <Caption className="text-charcoal/60 text-[12px] uppercase tracking-[0.16em] font-medium font-body">
-            More pairs at <a href="/gallery" className="text-olive hover:text-olive-deep transition-colors underline decoration-olive-deep underline-offset-4">/gallery</a> — filtered by service and suburb
+          <Caption className="text-charcoal/75 text-[12px] uppercase tracking-[0.16em] font-medium font-body">
+            More pairs at <a href="/gallery" className="text-olive-deep hover:text-charcoal transition-colors underline decoration-olive-deep underline-offset-4">/gallery</a> — filtered by service and suburb
           </Caption>
         </div>
       </Container>

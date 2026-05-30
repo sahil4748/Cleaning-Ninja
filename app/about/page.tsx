@@ -173,7 +173,7 @@ export default function AboutPage() {
               >
                 Four pillars. <span className="text-olive italic">No exceptions.</span>
               </Heading>
-              <Body variant="body-l" className="text-charcoal/70" measure>
+              <Body variant="body-l" className="text-charcoal/75" measure>
                 Everything we do is checked against these four lines. If a job,
                 a hire, or a process can't pass them, we don't run it.
               </Body>
@@ -199,7 +199,7 @@ export default function AboutPage() {
                     <h3 className="font-display font-semibold text-[24px] text-charcoal tracking-tight">
                       {p.title}
                     </h3>
-                    <p className="font-body text-[15px] text-charcoal/72 leading-relaxed">
+                    <p className="font-body text-[15px] text-charcoal/80 leading-relaxed">
                       {p.body}
                     </p>
                   </div>
@@ -223,7 +223,7 @@ export default function AboutPage() {
               >
                 Real people. <span className="text-olive italic">Real work.</span>
               </Heading>
-              <Body variant="body" className="text-charcoal/70 mt-4">
+              <Body variant="body" className="text-charcoal/75 mt-4">
                 A glimpse of the day-to-day — week 6 of the rebuild we replace these
                 with our own shoot.
               </Body>
@@ -272,7 +272,7 @@ export default function AboutPage() {
           <FadeUp>
             <div className="text-center">
               <Stack gap="6" align="center">
-                <Eyebrow tone="champagne">Meet the team</Eyebrow>
+                <Eyebrow tone="bone">Meet the team</Eyebrow>
                 <Heading
                   as="h2"
                   variant="display-l"

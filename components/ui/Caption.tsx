@@ -9,8 +9,10 @@ interface CaptionProps extends HTMLAttributes<HTMLElement> {
 }
 
 const toneClass: Record<CaptionTone, string> = {
-  'ink-muted': 'text-ink/60',
-  'bone-muted': 'text-bone/60',
+  // /60 failed WCAG AA on light surfaces (~3.3:1). /75 clears 4.5:1 while
+  // staying visually muted.
+  'ink-muted': 'text-ink/75',
+  'bone-muted': 'text-bone/70',
 }
 
 const Caption = forwardRef<HTMLElement, CaptionProps>(

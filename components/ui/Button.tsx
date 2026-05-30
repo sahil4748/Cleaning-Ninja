@@ -54,7 +54,7 @@ const legacyMap: Record<LegacyVariant, BlueprintVariant> = {
 const variantClass: Record<BlueprintVariant, string> = {
   // PRIMARY — solid olive on cream. No shadow, no gradient, no scale.
   'primary-light':
-    'bg-olive text-cream border border-olive hover:bg-olive-deep hover:border-olive-deep transition-colors duration-200',
+    'bg-olive-deep text-cream border border-olive-deep hover:bg-olive hover:border-olive transition-colors duration-200',
   // PRIMARY — solid cream on charcoal. Hover shifts to olive.
   'primary-dark':
     'bg-cream text-charcoal border border-cream hover:bg-olive hover:text-cream hover:border-olive transition-colors duration-200',

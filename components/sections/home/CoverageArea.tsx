@@ -41,7 +41,7 @@ export default function CoverageArea() {
               </Stack>
             </div>
             <div className="md:col-span-5">
-              <Body variant="body-l" className="text-charcoal/72 max-w-[44ch]">
+              <Body variant="body-l" className="text-charcoal/80 max-w-[44ch]">
                 From Bondi to Burleigh, Carlton to Cottesloe — Cleaning Ninja teams operate in every major Australian metro. Pick your city for local pricing, suburb pages, and the cleaners who work near you.
               </Body>
             </div>
@@ -170,7 +170,7 @@ export default function CoverageArea() {
                                 {city.state}
                               </span>
                             </div>
-                            <p className="mt-1 truncate text-[12.5px] text-charcoal/65">
+                            <p className="mt-1 truncate text-[12.5px] text-charcoal/75">
                               {city.bondTerm} · from ${city.benchmarkPrice}
                             </p>
                           </div>

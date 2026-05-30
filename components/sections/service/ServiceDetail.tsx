@@ -107,14 +107,14 @@ export default function ServiceDetail({
 
                   <div className="flex flex-wrap items-center gap-x-8 gap-y-3 pt-2">
                     <div className="flex items-baseline gap-2">
-                      <span className="font-display text-[14px] uppercase tracking-[0.14em] text-charcoal/60">
+                      <span className="font-display text-[14px] uppercase tracking-[0.14em] text-charcoal/75">
                         From
                       </span>
                       <span className="font-display text-[32px] font-bold text-charcoal tracking-tight">
                         ${service.fromPrice}
                       </span>
                     </div>
-                    <div className="flex items-center gap-2 text-charcoal/70">
+                    <div className="flex items-center gap-2 text-charcoal/75">
                       <Clock className="h-4 w-4" />
                       <span className="font-body text-[14px]">
                         {service.durationHours} hours typical
@@ -196,7 +196,7 @@ export default function ServiceDetail({
                   >
                     Every booking. <span className="text-olive italic">No upsells.</span>
                   </Heading>
-                  <Body variant="body-l" className="text-charcoal/70" measure>
+                  <Body variant="body-l" className="text-charcoal/75" measure>
                     A flat-rate {service.name.toLowerCase()} from Cleaning Ninja includes every line below. If we missed a spot, we come back free — that's the deal.
                   </Body>
                 </Stack>
@@ -234,7 +234,7 @@ export default function ServiceDetail({
               >
                 How we do it. <span className="text-olive italic">Step by step.</span>
               </Heading>
-              <Body variant="body-l" className="text-charcoal/72" measure>
+              <Body variant="body-l" className="text-charcoal/80" measure>
                 Every clean follows the same documented sequence. No shortcuts.
                 Each step is signed off before we move to the next.
               </Body>
@@ -282,7 +282,7 @@ export default function ServiceDetail({
                     >
                       {pricingMatrixLabel ?? 'Flat-rate by city.'}
                     </Heading>
-                    <Body variant="body" className="text-charcoal/70">
+                    <Body variant="body" className="text-charcoal/75">
                       Every figure on this site is a real booking price. No
                       "starting from" trick, no surprise additions on arrival.
                       Pricing varies by city — Melbourne, Brisbane and Adelaide
@@ -342,7 +342,7 @@ export default function ServiceDetail({
                       </tbody>
                     </table>
                   </div>
-                  <Caption className="mt-3 text-charcoal/55 font-body">
+                  <Caption className="mt-3 text-charcoal/75 font-body">
                     Prices include GST. Cleans run by a named, police-checked
                     Ninja from your local team.
                   </Caption>
@@ -368,7 +368,7 @@ export default function ServiceDetail({
                     >
                       {pricingMatrixLabel ?? 'Flat rates. No surprises.'}
                     </Heading>
-                    <Body variant="body" className="text-charcoal/70">
+                    <Body variant="body" className="text-charcoal/75">
                       Pricing is set by the unit (room, seater, square metre)
                       — same rate across all six cities. Add-ons (sealing,
                       stain treatment) priced separately and quoted upfront.
@@ -400,7 +400,7 @@ export default function ServiceDetail({
                         <span className="font-display text-[20px] font-bold tabular-nums text-charcoal">
                           ${row.price}
                           {row.unit ? (
-                            <span className="font-body text-[13px] font-normal text-charcoal/55 ml-1">
+                            <span className="font-body text-[13px] font-normal text-charcoal/75 ml-1">
                               {row.unit}
                             </span>
                           ) : null}
@@ -434,7 +434,7 @@ export default function ServiceDetail({
             <div className="lg:col-span-5">
               <FadeUp>
                 <Stack gap="6">
-                  <Eyebrow tone="champagne">Standards</Eyebrow>
+                  <Eyebrow tone="bone">Standards</Eyebrow>
                   <Heading
                     as="h2"
                     variant="display-l"
@@ -507,7 +507,7 @@ export default function ServiceDetail({
               >
                 {service.name} in your suburb.
               </Heading>
-              <Body variant="body" className="text-charcoal/70 mt-3" measure>
+              <Body variant="body" className="text-charcoal/75 mt-3" measure>
                 Local Ninjas, six metros, hundreds of suburbs. We list the most-booked below — but if your suburb isn't here, we still likely cover it. Just check the booking flow.
               </Body>
             </div>
@@ -564,7 +564,7 @@ export default function ServiceDetail({
                 </Heading>
                 <Body
                   variant="body-l"
-                  className="text-charcoal/72 max-w-2xl"
+                  className="text-charcoal/80 max-w-2xl"
                   measure
                 >
                   Pick a date, a property size, and a Ninja. We confirm by SMS,

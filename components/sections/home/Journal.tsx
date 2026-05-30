@@ -71,7 +71,7 @@ export default function Journal() {
             <div className="md:col-span-6 md:col-start-7">
               <Body
                 variant="body-l"
-                className="text-charcoal/72 !text-[16px] sm:!text-[18px]"
+                className="text-charcoal/80 !text-[16px] sm:!text-[18px]"
                 measure
               >
                 No marketing slogans. We share our internal technical findings, surface compositions, and chemical safety guidelines. Read how the correct method preserves your home.
@@ -116,7 +116,7 @@ export default function Journal() {
                     {art.title}
                   </h3>
 
-                  <Body variant="body" className="text-charcoal/70 !text-[14px] leading-relaxed line-clamp-3">
+                  <Body variant="body" className="text-charcoal/75 !text-[14px] leading-relaxed line-clamp-3">
                     {art.excerpt}
                   </Body>
 

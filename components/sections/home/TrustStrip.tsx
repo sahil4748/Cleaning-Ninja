@@ -36,7 +36,7 @@ const PILLS = [
       <span className="inline-flex items-baseline gap-1.5">
         <span className="text-olive font-semibold">{BUSINESS.rating}★</span>
         <CountUp to={BUSINESS.reviewCount} className="text-charcoal" />
-        <span className="text-charcoal/70 text-[13px]">reviews</span>
+        <span className="text-charcoal/75 text-[13px]">reviews</span>
       </span>
     ),
   },
@@ -62,7 +62,7 @@ export default function TrustStrip() {
                   <Icon className="h-4 w-4" strokeWidth={2.25} />
                 </span>
                 <span className="flex min-w-0 flex-col leading-tight">
-                  <span className="text-[10.5px] font-medium uppercase tracking-[0.14em] text-charcoal/55">
+                  <span className="text-[10.5px] font-medium uppercase tracking-[0.14em] text-charcoal/75">
                     {pill.label}
                   </span>
                   <span

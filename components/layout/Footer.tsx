@@ -56,7 +56,7 @@ export default function Footer() {
 
           <div className="col-span-1 md:col-span-2 md:col-start-6">
             <Stack gap="4">
-              <Eyebrow tone="champagne" withRule>
+              <Eyebrow tone="bone" withRule>
                 Services
               </Eyebrow>
               <ul className="flex flex-col gap-3">
@@ -76,7 +76,7 @@ export default function Footer() {
 
           <div className="col-span-1 md:col-span-2">
             <Stack gap="4">
-              <Eyebrow tone="champagne" withRule>
+              <Eyebrow tone="bone" withRule>
                 Areas
               </Eyebrow>
               <ul className="flex flex-col gap-3">
@@ -96,7 +96,7 @@ export default function Footer() {
 
           <div className="col-span-1 md:col-span-2">
             <Stack gap="4">
-              <Eyebrow tone="champagne" withRule>
+              <Eyebrow tone="bone" withRule>
                 Company
               </Eyebrow>
               <ul className="flex flex-col gap-3">

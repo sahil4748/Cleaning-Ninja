@@ -84,7 +84,7 @@ export default async function JournalEntryPage({
           <FadeUp>
             <Link
               href="/journal"
-              className="inline-flex items-center gap-1.5 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-charcoal/60 hover:text-olive transition-colors mb-8"
+              className="inline-flex items-center gap-1.5 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-charcoal/75 hover:text-olive transition-colors mb-8"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               All articles
@@ -104,13 +104,13 @@ export default async function JournalEntryPage({
             </Body>
             <div className="mt-8 flex items-center gap-6 border-t border-border pt-6">
               <div>
-                <Caption className="font-body text-charcoal/55">By</Caption>
+                <Caption className="font-body text-charcoal/75">By</Caption>
                 <p className="font-display font-semibold text-[15px] text-charcoal mt-1">
                   {entry.author}
                 </p>
               </div>
               <div>
-                <Caption className="font-body text-charcoal/55">Published</Caption>
+                <Caption className="font-body text-charcoal/75">Published</Caption>
                 <p className="font-display font-semibold text-[15px] text-charcoal mt-1">
                   {new Date(entry.publishedAt).toLocaleDateString('en-AU', {
                     day: 'numeric',
@@ -120,7 +120,7 @@ export default async function JournalEntryPage({
                 </p>
               </div>
               <div>
-                <Caption className="font-body text-charcoal/55">Read time</Caption>
+                <Caption className="font-body text-charcoal/75">Read time</Caption>
                 <p className="font-display font-semibold text-[15px] text-charcoal mt-1 inline-flex items-center gap-1.5">
                   <Clock className="h-3.5 w-3.5 text-olive" />
                   {entry.readMinutes} min
@@ -250,7 +250,7 @@ export default async function JournalEntryPage({
                   <h3 className="font-display font-semibold text-[18px] text-charcoal tracking-tight mt-2 mb-2 leading-snug group-hover:text-olive-deep transition-colors">
                     {r.title}
                   </h3>
-                  <Caption className="font-body text-charcoal/55">
+                  <Caption className="font-body text-charcoal/75">
                     {r.readMinutes} min · {r.author}
                   </Caption>
                 </div>
