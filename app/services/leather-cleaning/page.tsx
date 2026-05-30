@@ -1,52 +1,57 @@
-import { Metadata } from 'next'
-import Button from '@/components/ui/Button'
-import QuoteFormSection from '@/components/sections/QuoteFormSection'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import ServiceDetail from '@/components/sections/service/ServiceDetail'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SERVICES } from '@/content/services'
+import { housekeepingServiceSchema, breadcrumbSchema } from '@/lib/schema'
+
+const SLUG = 'leather-cleaning'
+const service = SERVICES.find((s) => s.slug === SLUG)
+const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
 export const metadata: Metadata = {
-  title: 'Leather Cleaning & Restoration | Cleaning Ninja Australia',
-  description: 'Specialist leather furniture cleaning and conditioning. Restore, protect, and maintain your leather furniture.',
+  title: 'Leather Cleaning & Conditioning — From $149',
+  description:
+    'pH-balanced cleaning, deep conditioning, and protective top-coat for aniline, semi-aniline and pigmented leather. Manufacturer-safe products. Six cities, named cleaners.',
+  keywords: [
+    'leather cleaning sydney',
+    'leather sofa cleaning melbourne',
+    'leather restoration brisbane',
+    'leather conditioning perth',
+    'aniline leather cleaning',
+    'leather couch repair',
+  ],
+  alternates: { canonical: '/services/leather-cleaning' },
 }
 
 export default function LeatherCleaningPage() {
+  if (!service) notFound()
+
   return (
-    <div className="pt-20">
-      <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display font-bold text-5xl mb-6">
-            Leather Cleaning & <span className="text-gold">Restoration</span>
-          </h1>
-          <p className="text-xl text-accent mb-8 max-w-3xl mx-auto">
-            Specialist leather care and conditioning for all furniture types. Professional cleaning, restoration, and protection services.
-          </p>
-          <Button size="lg">Get Free Quote</Button>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-6xl mb-6">🪑</div>
-            <h2 className="font-display font-bold text-3xl text-navy mb-4">
-              Detailed Content Coming Soon
-            </h2>
-            <p className="text-xl text-navy/70 mb-8">
-              Expert leather care information is being prepared. Get a free quote for your leather furniture today!
-            </p>
-            <div className="bg-accent rounded-2xl p-8">
-              <h3 className="font-bold text-2xl text-navy mb-4">Our Services:</h3>
-              <ul className="text-left text-lg text-navy/80 space-y-2 max-w-md mx-auto">
-                <li>✓ Deep leather cleaning</li>
-                <li>✓ Conditioning & protection</li>
-                <li>✓ Color restoration</li>
-                <li>✓ Crack repair</li>
-                <li>✓ Stain removal</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <QuoteFormSection />
-    </div>
+    <>
+      <JsonLd
+        data={[
+          housekeepingServiceSchema(service),
+          breadcrumbSchema([
+            { name: 'Home', href: '/' },
+            { name: 'Services', href: '/services' },
+            { name: service.name, href: service.href },
+          ]),
+        ]}
+      />
+      <ServiceDetail
+        service={service}
+        index={index}
+        simplePricing={[
+          { label: 'Leather armchair', price: 149 },
+          { label: 'Leather 2-seater', price: 219 },
+          { label: 'Leather 3-seater', price: 289 },
+          { label: 'Leather sectional', price: 389 },
+          { label: 'Conditioning only', price: 99 },
+          { label: 'Protective top-coat', price: 79 },
+        ]}
+        pricingMatrixLabel="By piece. Same rate, six cities."
+      />
+    </>
   )
 }

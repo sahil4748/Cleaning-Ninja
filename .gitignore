@@ -39,3 +39,9 @@ cleaning-ninja/
 node_modules/
 .next/
 .env.local
+
+# build/test artifacts
+build.log
+/playwright-report/
+/test-results/
+/tsconfig.tsbuildinfo

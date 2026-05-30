@@ -1,71 +1,345 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+/* =============================================================================
+   Cleaning Ninja — Global Stylesheet
+   Phase 3 Redevelopment — Draftly-grade kinetic premium build.
+
+   Source of truth:
+   - Palette is locked at cream / olive / olive-deep / charcoal.
+   - Display: Plus Jakarta Sans (drop-in for Satoshi). Body: Inter.
+   - Type scale uses clamp() responsive sizing — every section consumes
+     the scale via the Heading primitive, no more inline !text overrides.
+   ============================================================================= */
+
 @import "tailwindcss";
 
 @theme {
-  /* LIGHTER OLIVE — less muddy, more fresh */
-  --color-olive-900: #4A5D2A;
-  --color-olive-700: #6B7C3F;
-  --color-olive-500: #8B9A5E;
+  /* ============================================================
+     LOCKED PALETTE — Source of Truth
+     ============================================================ */
+
+  --color-cream: #F5F0E8;
+  --color-olive: #6B7C3A;
+  --color-olive-deep: #4A5628;
+  --color-charcoal: #2C2C2C;
+
+  /* Semantic surfaces */
+  --color-surface: #F5F0E8;
+  --color-surface-muted: #EFE8DA;
+  --color-text: #2C2C2C;
+  --color-text-inverse: #F5F0E8;
+  --color-primary: #6B7C3A;
+  --color-primary-dark: #4A5628;
+  --color-border: rgba(44, 44, 44, 0.12);
+  --color-border-strong: rgba(44, 44, 44, 0.24);
+  --color-border-dark: rgba(245, 240, 232, 0.14);
+  --color-border-dark-strong: rgba(245, 240, 232, 0.24);
+
+  /* Charcoal variants for dark sections */
+  --color-charcoal-soft: #3A3A3A;
+  --color-charcoal-deep: #1F1F1F;
+
+  /* Olive variants for hover, accents, glows */
+  --color-olive-soft: #8B9C5A;
+  --color-olive-pale: #E8EEDF;
+  --color-olive-glow: rgba(107, 124, 58, 0.32);
+
+  /* Form-only semantics */
+  --color-success: #4A6B3F;
+  --color-warning: #8C6A2A;
+  --color-error: #8C2A2A;
+
+  /* ============================================================
+     LEGACY ALIASES — remapped to recovery palette
+     ============================================================ */
+
+  --color-ink: #2C2C2C;
+  --color-graphite: #2C2C2C;
+  --color-graphite-soft: #3A3A3A;
+  --color-bone: #F5F0E8;
+  --color-bone-soft: #EFE8DA;
+  --color-ivory: #F5F0E8;
+  --color-champagne: #6B7C3A;
+  --color-champagne-soft: #8B9C5A;
+  --color-emerald-deep: #4A5628;
+  --color-line: rgba(44, 44, 44, 0.12);
+  --color-line-dark: rgba(245, 240, 232, 0.14);
+
+  --color-olive-900: #4A5628;
+  --color-olive-700: #6B7C3A;
+  --color-olive-500: #8B9C5A;
   --color-olive-300: #B5C49A;
   --color-olive-100: #E8EEDF;
   --color-olive-50: #F3F6EE;
-  
-  /* WARMER BEIGE — less gray, more cream */
-  --color-beige-900: #5C5346;
-  --color-beige-700: #8A7D6B;
+
+  --color-beige-900: #2C2C2C;
+  --color-beige-700: #5C5346;
   --color-beige-500: #B5A894;
   --color-beige-300: #DDD5C8;
-  --color-beige-100: #F5F1EB;
-  --color-beige-50: #FAF8F5;
-  
-  --color-cream: #FDFCFA;
+  --color-beige-100: #EFE8DA;
+  --color-beige-50: #F5F0E8;
+
   --color-white: #FFFFFF;
-  
-  --font-display: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
+
+  /* ============================================================
+     Typography Stack
+     Display = Plus Jakarta Sans (swap to Satoshi via next/font/local)
+     Body    = Inter Variable
+     Mono    = JetBrains Mono fallback (data, ABN, postcodes)
+     ============================================================ */
+
+  --font-display: var(--font-display-sans), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+
+  /* Legacy alias — old components reference --font-fraunces */
+  --font-fraunces: var(--font-display);
+
+  /* ============================================================
+     Type Scale — clamp() responsive, consumed by Heading primitive
+     ============================================================ */
+
+  --type-display-xxl-size: clamp(64px, 8vw, 120px);
+  --type-display-xl-size: clamp(48px, 6vw, 88px);
+  --type-display-lg-size: clamp(36px, 4.5vw, 64px);
+  --type-h1-size: clamp(32px, 4vw, 48px);
+  --type-h2-size: clamp(24px, 2.4vw, 32px);
+  --type-h3-size: clamp(18px, 1.5vw, 22px);
+
+  /* ============================================================
+     Motion Easing — single curve everywhere: ninja-precision
+     ============================================================ */
+
+  --ease-ninja: cubic-bezier(0.65, 0.05, 0.36, 1);
+  --ease-out-long: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-out-soft: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --duration-micro: 200ms;
+  --duration-content: 500ms;
+  --duration-cinematic: 800ms;
+
+  /* ============================================================
+     Radius
+     ============================================================ */
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-pill: 9999px;
+
+  /* ============================================================
+     Container — 1440px max, 12-col grid
+     ============================================================ */
+
+  --container-max: 1440px;
+  --gutter-mobile: 16px;
+  --gutter-tablet: 24px;
+  --gutter-desktop: 80px;
+
+  /* ============================================================
+     Z-index scale
+     ============================================================ */
+
+  --z-base: 1;
+  --z-card: 10;
+  --z-sticky: 20;
+  --z-nav: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-cursor: 60;
+  --z-loader: 70;
 }
 
-* {
+/* =============================================================================
+   Resets + base
+   =============================================================================
+
+   IMPORTANT — these rules live inside `@layer base`. Tailwind v4 emits all
+   utilities into `@layer utilities`, and in the CSS cascade ANY unlayered rule
+   beats ANY layered rule regardless of specificity. A previous unlayered
+   `* { margin: 0; padding: 0 }` reset here silently overrode every spacing and
+   centering utility (px-*, py-*, mx-auto, gap-via-margin, etc.), which is what
+   caused the site to render left-aligned, uncentered and non-responsive.
+   Keeping the reset/base styles in `@layer base` lets utilities win as intended.
+   ============================================================================= */
+
+@layer base {
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+/* Disable native smooth-scroll when Lenis takes over on desktop */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+html.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+html.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
 }
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-beige-50);
-  color: var(--color-beige-900);
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
+  font-feature-settings: 'kern', 'liga', 'calt', 'ss01';
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  line-height: 1.2;
-  color: var(--color-olive-900);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-charcoal);
+  font-weight: 700;
 }
 
+::selection {
+  background-color: var(--color-olive);
+  color: var(--color-cream);
+}
 
+:focus-visible {
+  outline: 2px solid var(--color-olive);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
 
-/* Smooth scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-beige-100);
+  background: var(--color-cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-beige-300);
-  border-radius: 4px;
+  background: var(--color-surface-muted);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-beige-500);
+  background: var(--color-border);
+}
+
+} /* end @layer base */
+
+/* =============================================================================
+   Utility — magnetic cursor hides native cursor on hover surfaces
+   ============================================================================= */
+
+@media (hover: hover) and (pointer: fine) {
+  body.has-sparkle-cursor {
+    cursor: none;
+  }
+  body.has-sparkle-cursor a,
+  body.has-sparkle-cursor button,
+  body.has-sparkle-cursor [role="button"],
+  body.has-sparkle-cursor input,
+  body.has-sparkle-cursor textarea,
+  body.has-sparkle-cursor select {
+    cursor: none;
+  }
+}
+
+/* =============================================================================
+   Section colour-band utility classes
+   ============================================================================= */
+
+.section-cream { background-color: var(--color-cream); color: var(--color-charcoal); }
+.section-cream-warm { background-color: var(--color-surface-muted); color: var(--color-charcoal); }
+.section-charcoal { background-color: var(--color-charcoal); color: var(--color-cream); }
+.section-charcoal-deep { background-color: var(--color-charcoal-deep); color: var(--color-cream); }
+
+/* =============================================================================
+   Mask-reveal animation (used by SplitText fallback + initial reveals)
+   ============================================================================= */
+
+.mask-line {
+  overflow: hidden;
+  display: inline-block;
+}
+.mask-line > * {
+  display: inline-block;
+  transform: translateY(110%);
+  will-change: transform;
+}
+
+.mask-reveal > * {
+  animation: maskWipeIn var(--duration-cinematic) var(--ease-ninja) forwards;
+}
+
+@keyframes maskWipeIn {
+  from { transform: translateY(110%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes sparkleTrail {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.85; }
+  100% { transform: translate(var(--tx, 0), var(--ty, 0)) scale(0); opacity: 0; }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--dash-length, 1000); }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-surface-muted) 0%, var(--color-cream) 50%, var(--color-surface-muted) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s linear infinite;
+}
+
+/* =============================================================================
+   prefers-reduced-motion — three-level fallback
+   1. CSS-driven animations zeroed here
+   2. Framer Motion gates via useReducedMotion()
+   3. GSAP gates via gsap.matchMedia('(prefers-reduced-motion: no-preference)')
+   ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .skeleton {
+    animation: none;
+    background: var(--color-surface-muted);
+  }
 }

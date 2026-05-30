@@ -1,52 +1,53 @@
-import { Metadata } from 'next'
-import Button from '@/components/ui/Button'
-import QuoteFormSection from '@/components/sections/QuoteFormSection'
+import type { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import ServiceDetail from '@/components/sections/service/ServiceDetail'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { SERVICES } from '@/content/services'
+import { END_OF_LEASE_MATRIX } from '@/content/pricing'
+import { housekeepingServiceSchema, breadcrumbSchema } from '@/lib/schema'
+
+const SLUG = 'end-of-lease-cleaning'
+const service = SERVICES.find((s) => s.slug === SLUG)
+const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
 export const metadata: Metadata = {
-  title: 'End of Lease Cleaning | Bond Back Guarantee | Cleaning Ninja',
-  description: 'Get your bond back guaranteed! Professional end of lease cleaning across Australia. REA-approved checklist.',
+  title: 'End-of-Lease & Bond Cleaning — Bond Back Guaranteed',
+  description:
+    'REIQ / REINSW / REIV-trained exit cleans from $295. Documented checklist, date-stamped photos, 72-hour re-clean guarantee if the property manager flags anything. Sydney, Melbourne, Brisbane, Perth, Adelaide, Gold Coast.',
+  keywords: [
+    'end of lease cleaning sydney',
+    'bond cleaning brisbane',
+    'vacate cleaning perth',
+    'end of lease melbourne',
+    'bond back guarantee',
+    'REIQ bond clean',
+    'exit cleaning',
+    'move out cleaning',
+  ],
+  alternates: { canonical: '/services/end-of-lease-cleaning' },
 }
 
 export default function EndOfLeaseCleaningPage() {
+  if (!service) notFound()
+
   return (
-    <div className="pt-20">
-      <section className="py-20 bg-primary text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-display font-bold text-5xl mb-6">
-            End of Lease Cleaning - <span className="text-gold">Bond Back Guarantee</span>
-          </h1>
-          <p className="text-xl text-accent mb-8 max-w-3xl mx-auto">
-            Get your full bond back with our comprehensive exit cleaning service. REA-approved checklist. We'll return for free if needed!
-          </p>
-          <Button size="lg">Get Free Quote</Button>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-2xl mx-auto">
-            <div className="text-6xl mb-6">🏠</div>
-            <h2 className="font-display font-bold text-3xl text-navy mb-4">
-              Detailed Content Coming Soon
-            </h2>
-            <p className="text-xl text-navy/70 mb-8">
-              Complete bond cleaning information is being prepared. Book now to secure your moving date!
-            </p>
-            <div className="bg-accent rounded-2xl p-8">
-              <h3 className="font-bold text-2xl text-navy mb-4">Included in Service:</h3>
-              <ul className="text-left text-lg text-navy/80 space-y-2 max-w-md mx-auto">
-                <li>✓ Full property deep clean</li>
-                <li>✓ Carpet steam cleaning</li>
-                <li>✓ Oven & appliances</li>
-                <li>✓ Windows & blinds</li>
-                <li>✓ Bond back guarantee</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <QuoteFormSection />
-    </div>
+    <>
+      <JsonLd
+        data={[
+          housekeepingServiceSchema(service),
+          breadcrumbSchema([
+            { name: 'Home', href: '/' },
+            { name: 'Services', href: '/services' },
+            { name: service.name, href: service.href },
+          ]),
+        ]}
+      />
+      <ServiceDetail
+        service={service}
+        index={index}
+        pricingMatrix={END_OF_LEASE_MATRIX}
+        pricingMatrixLabel="End-of-lease rates by city."
+      />
+    </>
   )
 }

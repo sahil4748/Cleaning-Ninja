@@ -4,34 +4,43 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 8000",
+    "dev": "next dev -p 8001",
     "build": "next build",
-    "start": "next start -p 8000",
-    "lint": "next lint"
+    "start": "next start -p 8001",
+    "lint": "next lint",
+    "check:content": "tsx scripts/check-banned-content.ts",
+    "prebuild": "npm run check:content",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@hookform/resolvers": "^3.10.0",
+    "@lottiefiles/dotlottie-react": "^0.13.0",
     "@tailwindcss/postcss": "^4.1.15",
     "@types/node": "^24.9.1",
     "@types/react": "^19.2.2",
+    "@types/three": "^0.171.0",
     "autoprefixer": "^10.4.21",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
+    "gsap": "^3.13.0",
+    "lenis": "^1.1.18",
     "lucide-react": "^0.546.0",
     "next": "^16.0.0",
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-hook-form": "^7.65.0",
-    "react-hot-toast": "^2.6.0",
-    "react-intersection-observer": "^9.16.0",
-    "swiper": "^12.0.3",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.15",
+    "three": "^0.171.0",
     "typescript": "^5.9.3",
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "prettier": "^3.6.2",
-    "prettier-plugin-tailwindcss": "^0.7.1"
+    "prettier-plugin-tailwindcss": "^0.7.1",
+    "tsx": "^4.19.2"
   }
 }
