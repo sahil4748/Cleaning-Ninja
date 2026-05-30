@@ -43,7 +43,7 @@ const SLOTS = [
     id: 's1', 
     category: 'carpet', 
     label: 'Wool stair runner',
-    image: 'https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg',
+    image: 'https://images.pexels.com/photos/4176298/pexels-photo-4176298.jpeg',
     beforeFilter: 'brightness-[0.72] saturate-[0.5] contrast-[0.9] sepia-[15%]'
   },
   { 
@@ -57,14 +57,14 @@ const SLOTS = [
     id: 's3', 
     category: 'tile-grout', 
     label: 'Travertine ensuite tiles',
-    image: 'https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg',
+    image: 'https://images.pexels.com/photos/6175107/pexels-photo-6175107.jpeg',
     beforeFilter: 'brightness-[0.68] saturate-[0.4] contrast-[0.95] sepia-[20%] hue-rotate-15'
   },
   { 
     id: 's4', 
     category: 'leather', 
     label: 'Aniline leather armchair',
-    image: 'https://images.pexels.com/photos/154161/pexels-photo-154161.jpeg',
+    image: 'https://images.pexels.com/photos/4577116/pexels-photo-4577116.jpeg',
     beforeFilter: 'brightness-[0.65] saturate-[0.55] contrast-[0.9] sepia-[12%]'
   },
 ]

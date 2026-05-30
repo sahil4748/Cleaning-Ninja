@@ -84,7 +84,7 @@ export const SERVICES: Service[] = [
     trustSignals: ['Safe for wool + synthetics', '95%+ moisture extraction'],
     aliases: ['carpet steam cleaning', 'carpet shampoo', 'rug cleaning'],
     bentoSize: 'small',
-    image: 'https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg',
+    image: 'https://images.pexels.com/photos/4176298/pexels-photo-4176298.jpeg',
     href: '/services/carpet-cleaning',
   },
   {
@@ -129,7 +129,7 @@ export const SERVICES: Service[] = [
     trustSignals: ['Porcelain + ceramic + stone', 'No acid on stone'],
     aliases: ['grout cleaning', 'tile restoration'],
     bentoSize: 'small',
-    image: 'https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg',
+    image: 'https://images.pexels.com/photos/7641000/pexels-photo-7641000.jpeg',
     href: '/services/tile-grout-cleaning',
   },
   {
@@ -151,7 +151,7 @@ export const SERVICES: Service[] = [
     trustSignals: ['Manufacturer-safe', 'Conditioner included'],
     aliases: ['leather sofa cleaning', 'leather restoration'],
     bentoSize: 'small',
-    image: 'https://images.pexels.com/photos/154161/pexels-photo-154161.jpeg',
+    image: 'https://images.pexels.com/photos/6480707/pexels-photo-6480707.jpeg',
     href: '/services/leather-cleaning',
   },
 ]

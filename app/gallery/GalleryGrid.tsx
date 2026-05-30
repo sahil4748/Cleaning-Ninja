@@ -42,7 +42,7 @@ const GALLERY: GalleryItem[] = [
     id: 'g2', service: 'carpet', serviceLabel: 'Carpet steam',
     city: 'Melbourne', suburb: 'Fitzroy',
     description: 'Wool stair runner — red wine stain, 2y old.',
-    image: 'https://images.pexels.com/photos/276514/pexels-photo-276514.jpeg',
+    image: 'https://images.pexels.com/photos/4107257/pexels-photo-4107257.jpeg',
     beforeFilter: 'brightness-[0.7] saturate-[0.55] contrast-[0.85] sepia-[18%]',
   },
   {
@@ -56,14 +56,14 @@ const GALLERY: GalleryItem[] = [
     id: 'g4', service: 'tile-grout', serviceLabel: 'Tile & grout',
     city: 'Perth', suburb: 'Cottesloe',
     description: 'Travertine ensuite floor, grout heavily soiled.',
-    image: 'https://images.pexels.com/photos/1034584/pexels-photo-1034584.jpeg',
+    image: 'https://images.pexels.com/photos/6175107/pexels-photo-6175107.jpeg',
     beforeFilter: 'brightness-[0.68] saturate-[0.4] contrast-[0.95] sepia-[20%]',
   },
   {
     id: 'g5', service: 'leather', serviceLabel: 'Leather care',
     city: 'Adelaide', suburb: 'Norwood',
     description: 'Aniline armchair, 15y of neglect. Conditioned + top-coated.',
-    image: 'https://images.pexels.com/photos/154161/pexels-photo-154161.jpeg',
+    image: 'https://images.pexels.com/photos/4577116/pexels-photo-4577116.jpeg',
     beforeFilter: 'brightness-[0.65] saturate-[0.55] contrast-[0.9] sepia-[12%]',
   },
   {
@@ -84,14 +84,14 @@ const GALLERY: GalleryItem[] = [
     id: 'g8', service: 'carpet', serviceLabel: 'Carpet steam',
     city: 'Brisbane', suburb: 'Paddington',
     description: 'Synthetic broadloom, high traffic hallway.',
-    image: 'https://images.pexels.com/photos/1571463/pexels-photo-1571463.jpeg',
+    image: 'https://images.pexels.com/photos/4107278/pexels-photo-4107278.jpeg',
     beforeFilter: 'brightness-[0.7] saturate-[0.5] contrast-[0.88] sepia-[16%]',
   },
   {
     id: 'g9', service: 'tile-grout', serviceLabel: 'Tile & grout',
     city: 'Sydney', suburb: 'Surry Hills',
     description: 'Ceramic kitchen splashback, oil saturation.',
-    image: 'https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg',
+    image: 'https://images.pexels.com/photos/7641000/pexels-photo-7641000.jpeg',
     beforeFilter: 'brightness-[0.7] saturate-[0.5] contrast-[0.85] sepia-[16%]',
   },
   {
@@ -112,7 +112,7 @@ const GALLERY: GalleryItem[] = [
     id: 'g12', service: 'leather', serviceLabel: 'Leather care',
     city: 'Sydney', suburb: 'Mosman',
     description: 'Chesterfield sofa, dye transfer + body oils.',
-    image: 'https://images.pexels.com/photos/280475/pexels-photo-280475.jpeg',
+    image: 'https://images.pexels.com/photos/4740494/pexels-photo-4740494.jpeg',
     beforeFilter: 'brightness-[0.68] saturate-[0.55] contrast-[0.9] sepia-[14%]',
   },
   {
@@ -126,7 +126,7 @@ const GALLERY: GalleryItem[] = [
     id: 'g14', service: 'carpet', serviceLabel: 'Carpet steam',
     city: 'Sydney', suburb: 'Manly',
     description: 'Berber carpet, pet stains. Pet-specific treatment.',
-    image: 'https://images.pexels.com/photos/2746187/pexels-photo-2746187.jpeg',
+    image: 'https://images.pexels.com/photos/4107275/pexels-photo-4107275.jpeg',
     beforeFilter: 'brightness-[0.7] saturate-[0.5] contrast-[0.85] sepia-[18%]',
   },
   {
@@ -161,14 +161,14 @@ const GALLERY: GalleryItem[] = [
     id: 'g19', service: 'leather', serviceLabel: 'Leather care',
     city: 'Adelaide', suburb: 'Burnside',
     description: 'Recliner suite, conditioner only — no over-clean.',
-    image: 'https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg',
+    image: 'https://images.pexels.com/photos/5942731/pexels-photo-5942731.jpeg',
     beforeFilter: 'brightness-[0.7] saturate-[0.55] contrast-[0.9] sepia-[14%]',
   },
   {
     id: 'g20', service: 'carpet', serviceLabel: 'Carpet steam',
     city: 'Gold Coast', suburb: 'Mermaid Beach',
     description: 'Holiday rental turnaround. Sand + sunscreen marks.',
-    image: 'https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg',
+    image: 'https://images.pexels.com/photos/4176298/pexels-photo-4176298.jpeg',
     beforeFilter: 'brightness-[0.72] saturate-[0.55] contrast-[0.88] sepia-[12%]',
   },
 ]
