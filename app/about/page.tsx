@@ -236,7 +236,7 @@ export default function AboutPage() {
               'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg',
               'https://images.pexels.com/photos/4239035/pexels-photo-4239035.jpeg',
               'https://images.pexels.com/photos/5025639/pexels-photo-5025639.jpeg',
-              'https://images.pexels.com/photos/4239121/pexels-photo-4239121.jpeg',
+              'https://images.pexels.com/photos/279607/pexels-photo-279607.jpeg',
               'https://images.pexels.com/photos/4239111/pexels-photo-4239111.jpeg',
               'https://images.pexels.com/photos/4239091/pexels-photo-4239091.jpeg',
             ].map((src, i) => (

@@ -64,7 +64,7 @@ export const JOURNAL: JournalEntry[] = [
     readMinutes: 9,
     publishedAt: '2026-03-11',
     author: 'Priya Sharma',
-    image: 'https://images.pexels.com/photos/6196250/pexels-photo-6196250.jpeg',
+    image: 'https://images.pexels.com/photos/4239035/pexels-photo-4239035.jpeg',
     bodyMarkdown:
       '*Full article — published in week 2 of the redev.* Household Tasks under the NDIS price guide...',
   },
