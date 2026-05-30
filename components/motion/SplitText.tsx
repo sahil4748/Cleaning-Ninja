@@ -83,8 +83,11 @@ export function SplitText({
       animate={whileInView ? undefined : 'visible'}
       whileInView={whileInView ? 'visible' : undefined}
       viewport={whileInView ? { once: true, margin: '-15% 0px' } : undefined}
-      aria-label={children}
     >
+      {/* Screen-reader copy: the per-unit visual spans below are aria-hidden, so
+          assistive tech reads this single uninterrupted string. (aria-label on a
+          generic span is prohibited by ARIA — this is the accessible pattern.) */}
+      <span className="sr-only">{children}</span>
       {units.map((u, i) => {
         if (/^\s+$/.test(u)) return <span key={i}>{u}</span>
         return (

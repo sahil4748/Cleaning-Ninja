@@ -56,7 +56,7 @@ export default function Header() {
               <span className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cream transition-colors duration-200 group-hover:text-olive-soft lg:text-[22px]">
                 Cleaning <span className="text-olive group-hover:text-cream transition-colors duration-200">Ninja</span>
               </span>
-              <span className="mt-1 hidden font-body text-[9.5px] font-semibold uppercase tracking-[0.18em] text-olive-soft/90 sm:block">
+              <span className="mt-1 hidden font-body text-[10px] font-semibold uppercase tracking-[0.18em] text-cream/80 sm:block">
                 {BUSINESS.tagline}
               </span>
             </span>
