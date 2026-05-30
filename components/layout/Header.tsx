@@ -42,10 +42,15 @@ export default function Header() {
             data-magnetic
             className="group inline-flex items-center gap-2.5"
           >
-            <span className="grid h-8 w-8 place-items-center rounded-full bg-olive transition-colors duration-200 group-hover:bg-olive-soft lg:h-9 lg:w-9">
-              <svg viewBox="0 0 24 24" className="h-4 w-4 lg:h-5 lg:w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M5 6h14M5 12h14M5 18h7" className="text-cream" />
-              </svg>
+            <span className="grid place-items-center rounded-lg bg-cream p-1 shadow-sm transition-transform duration-200 group-hover:scale-[1.03]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-mark.png"
+                alt="Cleaning Ninja"
+                width={480}
+                height={394}
+                className="h-8 w-auto lg:h-9"
+              />
             </span>
             <span className="flex flex-col leading-none">
               <span className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cream transition-colors duration-200 group-hover:text-olive-soft lg:text-[22px]">

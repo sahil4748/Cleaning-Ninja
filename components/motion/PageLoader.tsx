@@ -46,12 +46,24 @@ export function PageLoader() {
             transition={{ duration: 0.9, ease: [0.65, 0.05, 0.36, 1] }}
           />
           <motion.div
-            className="relative font-display font-bold tracking-[-0.03em] text-[clamp(40px,7vw,88px)]"
+            className="relative flex flex-col items-center gap-6"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.65, 0.05, 0.36, 1] }}
           >
-            Cleaning <span className="text-olive">Ninja</span>
+            <span className="rounded-2xl bg-cream p-3 shadow-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logo-mark.png"
+                alt=""
+                width={480}
+                height={394}
+                className="h-20 w-auto sm:h-24"
+              />
+            </span>
+            <span className="font-display font-bold tracking-[-0.03em] text-[clamp(36px,6vw,72px)]">
+              Cleaning <span className="text-olive">Ninja</span>
+            </span>
           </motion.div>
         </motion.div>
       )}

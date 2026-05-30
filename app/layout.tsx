@@ -54,11 +54,9 @@ export const metadata: Metadata = {
     'flat rate cleaning',
   ],
   icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-    ],
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     type: 'website',
@@ -70,7 +68,7 @@ export const metadata: Metadata = {
       'Flat-rate cleans from $129. Police-checked teams in six cities. ABN-verified, fully insured, bond-back guarantee.',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Cleaning Ninja — Spotless. On time. Bond back.',
@@ -82,7 +80,7 @@ export const metadata: Metadata = {
     title: 'Cleaning Ninja — Spotless. On time. Bond back.',
     description:
       'Flat-rate cleans from $129. Police-checked. Fully insured. Bond-back guaranteed.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   robots: {
     index: true,

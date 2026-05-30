@@ -24,19 +24,19 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-y-12 py-20 md:grid-cols-12 md:gap-10 lg:py-28">
           <div className="col-span-2 md:col-span-4">
             <Stack gap="6">
-              <div className="flex items-center gap-3">
-                <span className="grid h-10 w-10 place-items-center rounded-full bg-olive">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M5 6h14M5 12h14M5 18h7" className="text-cream" />
-                  </svg>
+              <div className="flex flex-col gap-4">
+                <span className="inline-flex w-fit rounded-2xl bg-cream p-3 shadow-md">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/logo-wordmark.png"
+                    alt="Cleaning Ninja"
+                    width={640}
+                    height={640}
+                    className="h-24 w-auto"
+                  />
                 </span>
-                <span className="flex flex-col gap-1.5">
-                  <span className="font-display text-[28px] font-bold leading-none tracking-[-0.02em] text-cream">
-                    Cleaning <span className="text-olive">Ninja</span>
-                  </span>
-                  <span className="font-display text-[14px] font-semibold italic tracking-tight text-olive-soft">
-                    {BUSINESS.tagline}
-                  </span>
+                <span className="font-display text-[15px] font-semibold italic tracking-tight text-olive-soft">
+                  {BUSINESS.tagline}
                 </span>
               </div>
               <Body variant="body-l" className="text-cream/75" measure>
