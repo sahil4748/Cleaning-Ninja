@@ -37,12 +37,13 @@ export default function MobileStickyCta() {
     >
       <Link
         href="/book"
+        tabIndex={visible ? undefined : -1}
         className={cn(
           'flex h-12 w-full items-center justify-center rounded-[4px]',
-          'bg-olive text-cream border border-olive',
+          'bg-olive-deep text-cream border border-olive-deep',
           'font-body text-[15px] font-medium',
           'transition-colors duration-200',
-          'hover:bg-olive-deep hover:border-olive-deep',
+          'hover:bg-olive hover:border-olive',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal',
         )}
       >
