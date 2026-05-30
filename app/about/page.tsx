@@ -136,10 +136,10 @@ export default function AboutPage() {
             </div>
             <div className="lg:col-span-7 space-y-6">
               <Body variant="body-l" className="text-charcoal/75" measure>
-                Grace O'Brien started Cleaning Ninja after losing $1,800 of her
+                Saima Imtiyaz started Cleaning Ninja after losing $1,800 of her
                 own bond to a property manager who flagged a smudge on a window
                 track. The cleaner had insisted the job was finished. There were
-                no photos, no checklist, no comeback. Grace decided to build the
+                no photos, no checklist, no comeback. Saima decided to build the
                 cleaning company she'd wanted to hire.
               </Body>
               <Body variant="body" className="text-charcoal/75" measure>
@@ -153,7 +153,7 @@ export default function AboutPage() {
                 We are now an NDIS-registered provider (provider {BUSINESS.ndisProvider}),
                 cover {BUSINESS.publicLiability} in public liability through{' '}
                 {BUSINESS.insurer}, and have processed {BUSINESS.reviewCount.toLocaleString()}+
-                verified reviews. Still a Grace-and-team operation. Still answering the phone.
+                verified reviews. Still a Saima-and-team operation. Still answering the phone.
               </Body>
             </div>
           </div>

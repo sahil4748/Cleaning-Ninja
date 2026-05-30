@@ -55,7 +55,7 @@ export function ApplicationForm() {
           Application received.
         </Heading>
         <Body variant="body" className="text-charcoal/70 max-w-md mx-auto" measure>
-          Grace or one of the regional leads will be in touch within two
+          Saima or one of the regional leads will be in touch within two
           business days. If your application progresses we'll send a Working
           With Children Check link and a federal police clearance request next.
         </Body>

@@ -110,8 +110,8 @@ export const TEAM: TeamMember[] = [
     quote: 'Old houses need a gentle hand. Steam, microfibre, and patience.',
   },
   {
-    id: 'tm-grace',
-    name: 'Grace O\'Brien',
+    id: 'tm-saima',
+    name: 'Saima Imtiyaz',
     role: 'Operations + Quality Lead',
     city: 'Sydney',
     cityCovered: ['Nationwide oversight'],

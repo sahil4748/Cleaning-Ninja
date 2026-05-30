@@ -27,7 +27,7 @@ export const JOURNAL: JournalEntry[] = [
     category: 'Pricing',
     readMinutes: 7,
     publishedAt: '2026-04-22',
-    author: 'Grace O\'Brien',
+    author: 'Saima Imtiyaz',
     image: 'https://images.pexels.com/photos/4239031/pexels-photo-4239031.jpeg',
     bodyMarkdown:
       '*Full article — published in week 2 of the redev.* Sydney end-of-lease pricing in 2026 sits roughly 18% higher than Melbourne and 25% higher than Brisbane for the same property size...',

@@ -30,8 +30,13 @@ export default function Footer() {
                     <path d="M5 6h14M5 12h14M5 18h7" className="text-cream" />
                   </svg>
                 </span>
-                <span className="font-display text-[28px] font-bold leading-none tracking-[-0.02em] text-cream">
-                  Cleaning <span className="text-olive">Ninja</span>
+                <span className="flex flex-col gap-1.5">
+                  <span className="font-display text-[28px] font-bold leading-none tracking-[-0.02em] text-cream">
+                    Cleaning <span className="text-olive">Ninja</span>
+                  </span>
+                  <span className="font-display text-[14px] font-semibold italic tracking-tight text-olive-soft">
+                    {BUSINESS.tagline}
+                  </span>
                 </span>
               </div>
               <Body variant="body-l" className="text-cream/75" measure>

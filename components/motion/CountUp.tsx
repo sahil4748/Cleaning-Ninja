@@ -25,7 +25,11 @@ export function CountUp({
   className,
 }: CountUpProps) {
   const ref = useRef<HTMLSpanElement>(null)
-  const inView = useInView(ref, { once: true, margin: '-15% 0px' })
+  // Bottom-only trigger inset: counters that are already above-the-fold (e.g. the
+  // hero trust strip) fire on mount instead of sitting at 0, while below-fold
+  // counters still animate as they scroll into view. A symmetric -15% inset
+  // created a bottom deadzone that left fold-edge stats stuck at zero.
+  const inView = useInView(ref, { once: true, margin: '0px 0px -80px 0px' })
   const reduced = useReducedMotion()
   const [value, setValue] = useState(reduced ? to : 0)
 

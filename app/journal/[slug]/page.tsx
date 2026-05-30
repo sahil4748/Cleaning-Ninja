@@ -166,7 +166,7 @@ export default async function JournalEntryPage({
             </h2>
             <p>
               The piece is being written by {entry.author}, who has{' '}
-              {entry.author === "Grace O'Brien"
+              {entry.author === "Saima Imtiyaz"
                 ? 'seven years of operations'
                 : 'five-plus years of fieldwork'}{' '}
               behind it. It will run through:

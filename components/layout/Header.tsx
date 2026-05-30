@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Button from '@/components/ui/Button'
-import { PRIMARY_NAV } from '@/content/navigation'
+import { PRIMARY_NAV, BUSINESS } from '@/content/navigation'
 
 /**
  * Charcoal national header. Wide max (1440px), olive accent, magnetic CTA.
@@ -47,8 +47,13 @@ export default function Header() {
                 <path d="M5 6h14M5 12h14M5 18h7" className="text-cream" />
               </svg>
             </span>
-            <span className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cream transition-colors duration-200 group-hover:text-olive-soft lg:text-[22px]">
-              Cleaning <span className="text-olive group-hover:text-cream transition-colors duration-200">Ninja</span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cream transition-colors duration-200 group-hover:text-olive-soft lg:text-[22px]">
+                Cleaning <span className="text-olive group-hover:text-cream transition-colors duration-200">Ninja</span>
+              </span>
+              <span className="mt-1 hidden font-body text-[9.5px] font-semibold uppercase tracking-[0.18em] text-olive-soft/90 sm:block">
+                {BUSINESS.tagline}
+              </span>
             </span>
           </Link>
         </div>

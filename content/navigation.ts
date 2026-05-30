@@ -52,6 +52,7 @@ export const FOOTER_LEGAL: NavItem[] = [
 /** Business identity, surfaced everywhere trust matters. */
 export const BUSINESS = {
   name: 'Cleaning Ninja',
+  tagline: 'Your Mess, Our Mission!',
   abn: '12 345 678 901',
   phone: '1300 NINJAS',
   phoneRaw: '1300646527',
