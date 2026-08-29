@@ -63,11 +63,7 @@ export default function TrustStrip() {
                       ('mono' in pill && pill.mono ? ' font-mono tracking-[0.04em]' : '')
                     }
                   >
-                    {'valueNode' in pill && pill.valueNode
-                      ? pill.valueNode
-                      : 'value' in pill
-                        ? pill.value
-                        : null}
+                    {pill.value}
                   </span>
                 </span>
               </motion.li>
