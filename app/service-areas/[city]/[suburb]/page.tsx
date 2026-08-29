@@ -36,7 +36,7 @@ export async function generateMetadata({
 
   return {
     title: `${city.bondTerm} ${suburb} — Cleaning Ninja ${city.city}`,
-    description: `Professional ${city.bondTerm.toLowerCase()} and house cleaning in ${suburb}, ${city.city}. Named local cleaners, bond-back guarantee, flat-rate pricing. From $${REGULAR_CLEAN_MATRIX[0].prices[city.slug]}.`,
+    description: `${city.bondTerm} and house cleaning services in ${suburb}, ${city.city}. Flat-rate pricing from $${REGULAR_CLEAN_MATRIX[0].prices[city.slug]}.`,
     keywords: [
       `${city.bondTerm.toLowerCase()} ${suburb.toLowerCase()}`,
       `house cleaning ${suburb.toLowerCase()}`,
@@ -143,7 +143,9 @@ export default async function SuburbPage({
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                Local cleaners, flat-rate pricing, and a 72-hour bond-back guarantee — for every {suburb} address. Whether you're in a terrace off the main strip, an apartment near the station, or a family home further out, we send a named Ninja from the {city.city} roster who already knows the suburb.
+                Cleaning services for {suburb}, with flat-rate pricing shown
+                before you submit a booking request. Choose the service, date,
+                property size, and preferred cleaner in the booking flow.
               </Body>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Button
@@ -185,41 +187,29 @@ export default async function SuburbPage({
               </FadeUp>
 
               <Body variant="body-l" className="text-charcoal/80" measure>
-                {suburb} sits inside {city.city}'s broader rental and residential
-                market, and the cleans we run here look different from the inner-CBD
-                jobs. Apartments tend to be smaller-footprint with tighter
-                inspection standards, family homes carry more carpet and tile
-                surface area, and short-stay properties demand same-day
-                turnarounds with linen changes. We assign each booking to a
-                Ninja with the specialty that matches — never a one-size cleaner
-                for every job.
+                {suburb} is one of the listed {city.city} service suburbs.
+                Available services include regular home cleaning, move-out
+                cleaning, carpet steam cleaning, upholstery, tile and grout,
+                and leather care.
               </Body>
 
               <Body variant="body-l" className="text-charcoal/80" measure>
-                For end-of-lease and bond cleans in {suburb}, our team works to
-                the RE
-                {city.state === 'QLD' ? 'IQ' : city.state === 'NSW' ? 'INSW' : city.state === 'VIC' ? 'IV' : city.state === 'WA' ? 'IWA' : 'ISA'}{' '}
-                checklist — the same one the property manager will be inspecting
-                against. We document every room with date-stamped photos and
-                stake the bond-back guarantee on it. If your PM flags anything
-                on the final inspection, we return within 72 hours and re-clean
-                whatever was missed. No charge, no negotiation.
+                For end-of-lease, bond, or vacate cleans in {suburb}, the
+                booking is based on a room-by-room move-out checklist. Kitchens,
+                bathrooms, floors, skirting boards, tracks, cupboards, and
+                agreed extras are handled according to the selected scope.
               </Body>
 
               <Body variant="body-l" className="text-charcoal/80" measure>
-                For regular cleans in {suburb}, you get the same Ninja each
-                visit. They learn your home — where the kettle goes, which dog
-                hates the vacuum, which mat is hand-wash only — and the work
-                gets noticeably better month-on-month. Bookings are fortnightly,
-                weekly, or four-weekly; pause whenever you need without a fee.
+                For regular cleans in {suburb}, choose the frequency that suits
+                the home. The booking summary keeps the service, date, property
+                size, and price visible before you submit.
               </Body>
 
               <Body variant="body-l" className="text-charcoal/80" measure>
-                Specialty work — carpet steam extraction, leather conditioning,
-                tile and grout deep-cleans, upholstery method-matched to the
-                fabric code — is booked through the same channel and runs on the
-                same flat-rate pricing. No "starts from" trickery on this site;
-                what you see is what you pay.
+                Specialty work — carpet steam cleaning, leather care, tile and
+                grout cleaning, and upholstery cleaning — is booked through the
+                same flow with flat-rate pricing shown upfront.
               </Body>
 
               <Heading as="h3" variant="h3" className="mt-12 mb-4 text-charcoal">
@@ -228,13 +218,12 @@ export default async function SuburbPage({
 
               <ul className="space-y-3">
                 {[
-                  `A named, police-checked ${city.city} Ninja — same one every visit for regular bookings`,
-                  '$20M public liability cover through Allianz Australia',
-                  'Eco-certified products (Koh, Ecologic, Murchison-Hume) — no caustic chemistry indoors',
-                  'Photo documentation on bond cleans, sent within an hour of finishing',
-                  '72-hour re-clean guarantee on end-of-lease work',
+                  `A selected service and cleaner preference recorded in the booking`,
+                  'Flat-rate pricing shown before submission',
+                  'Products and equipment matched to the booked service',
+                  'Move-out checklist for end-of-lease, bond, and vacate cleans',
                   'GST included on every price — no surprise additions',
-                  'SMS confirmation 24 hours before the booking and arrival ETA on the day',
+                  'Contact details captured for booking follow-up',
                   'Pause or cancel any regular booking 24+ hours ahead with no fee',
                 ].map((line) => (
                   <li

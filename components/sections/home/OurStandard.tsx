@@ -1,6 +1,6 @@
 'use client'
 
-import { Users, Sparkles, Droplets, ShieldCheck } from 'lucide-react'
+import { ClipboardCheck, Sparkles, TimerReset, Users } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import Section from '@/components/ui/Section'
 import Container from '@/components/ui/Container'
@@ -37,14 +37,14 @@ const TENETS = [
     body: 'Koh, Ecologic, Murchison-Hume, and our own pH-balanced formulations. No toxic surfactants, no mystery sprays.',
   },
   {
-    icon: Droplets,
-    title: '95% moisture extraction.',
-    body: 'Truck-mounted Rotovac, calibrated weekly. Your carpet dries in 2–4 hours, not 2 days.',
+    icon: TimerReset,
+    title: 'Clear scope before we start.',
+    body: 'We confirm the rooms, surfaces, and extras before the clean begins so the job matches the booking.',
   },
   {
-    icon: ShieldCheck,
-    title: 'Bond-back guarantee in writing.',
-    body: 'If your property manager rejects the clean, we redo whatever was flagged within 72 hours. Free.',
+    icon: ClipboardCheck,
+    title: 'Checklist-based work.',
+    body: 'Move-out cleans follow a room-by-room list so the important details do not rely on memory.',
   },
 ]
 
@@ -79,7 +79,7 @@ export default function OurStandard() {
                   <SplitText>How we clean differently.</SplitText>
                 </Heading>
                 <Body variant="body-l" className="text-cream/72 max-w-[52ch]">
-                  Four non-negotiables every cleaner on the team signs in writing. The work is the same whether it's a Brisbane terrace or a Surry Hills apartment — only the suburb changes.
+                  Four simple standards guide every booking. The service changes by room, surface, and property type, but the expectation stays clear.
                 </Body>
               </Stack>
             </FadeUp>

@@ -19,7 +19,7 @@ import { ApplicationForm } from './ApplicationForm'
 export const metadata: Metadata = {
   title: 'Become a Cleaning Ninja — Cleaner Jobs Australia',
   description:
-    "We're hiring cleaners across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Above-award pay, full insurance, paid training, no subcontractor contracts.",
+    "We're hiring cleaners across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Submit your city, experience and preferred work type.",
   keywords: [
     'cleaner jobs australia',
     'cleaning jobs sydney',
@@ -38,13 +38,13 @@ const PILLARS = [
   },
   {
     icon: ShieldCheck,
-    title: 'Insurance + super',
-    body: 'Workers compensation, $20M public liability, and 11.5% super on every hour worked.',
+    title: 'Clear engagement terms',
+    body: 'We explain pay, roster expectations, and work requirements before an applicant accepts a role.',
   },
   {
     icon: GraduationCap,
-    title: 'Paid training',
-    body: 'Two-week onboarding paid at full rate. Specialty courses (fabric care, fibre science) all paid.',
+    title: 'Practical onboarding',
+    body: 'New team members are shown the Cleaning Ninja process before taking customer bookings.',
   },
   {
     icon: Users,
@@ -107,10 +107,9 @@ export default function CareersPage() {
                   className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                   measure
                 >
-                  Above-award pay. Full insurance and super on every hour. Paid
-                  training. A roster you can plan around. No subcontractor
-                  contracts, no piece rates, no surprises. We hire only employees,
-                  and we hire from the suburb you live in.
+                  Tell us your city, cleaning experience, and preferred work
+                  type. The team will review your application and explain the
+                  role requirements before the next step.
                 </Body>
               </FadeUp>
             </div>
@@ -143,7 +142,7 @@ export default function CareersPage() {
                 variant="h2"
                 className="mt-4 mb-4 tracking-tight text-charcoal"
               >
-                Four things <span className="text-olive italic">we promise on the contract.</span>
+                Four things <span className="text-olive italic">we explain clearly.</span>
               </Heading>
             </div>
           </FadeUp>

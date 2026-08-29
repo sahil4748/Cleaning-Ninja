@@ -100,7 +100,7 @@ export default function Header() {
               data-magnetic
               className="h-10 px-5 text-[14px] bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive shadow-md hover:shadow-lg hover:-translate-y-[1px] transition-all duration-200"
             >
-              See my price
+              Get a Quote
             </Button>
           </div>
 

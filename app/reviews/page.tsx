@@ -12,14 +12,13 @@ import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/motion/FadeUp'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { REVIEWS, reviewStats } from '@/content/reviews'
-import { BUSINESS } from '@/content/navigation'
 import { breadcrumbSchema, reviewSchema } from '@/lib/schema'
 import { ReviewsWall } from './ReviewsWall'
 
 export const metadata: Metadata = {
-  title: 'Cleaning Ninja Reviews — 4.9★ from 1,200+ Customers',
+  title: 'Cleaning Ninja Reviews — Customer Feedback',
   description:
-    'Read verified reviews from Cleaning Ninja customers across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Filter by city, service or rating.',
+    'Read current Cleaning Ninja review samples across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Filter by city, service or rating.',
   keywords: [
     'cleaning ninja reviews',
     'cleaning service reviews australia',
@@ -31,6 +30,7 @@ export const metadata: Metadata = {
 
 export default function ReviewsPage() {
   const stats = reviewStats()
+  const fiveStarCount = REVIEWS.filter((review) => review.rating === 5).length
 
   return (
     <>
@@ -78,17 +78,16 @@ export default function ReviewsPage() {
                 variant="display-l"
                 className="mt-4 mb-6 tracking-tight text-charcoal leading-none !text-[44px] sm:!text-[56px] lg:!text-[68px]"
               >
-                Trusted by{' '}
-                <span className="text-olive italic">{BUSINESS.reviewCount.toLocaleString()}+ Australians.</span>
+                Customer feedback.{' '}
+                <span className="text-olive italic">Sorted by service.</span>
               </Heading>
               <Body
                 variant="body-l"
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                Real customers. Verified reviews. Every one attributes to the
-                named Ninja who actually did the work. Filter by city, service,
-                or rating below to see the work from your area.
+                Browse the current review samples by city, service, or rating.
+                Live review-source integration should be verified before launch.
               </Body>
             </div>
           </FadeUp>
@@ -98,7 +97,7 @@ export default function ReviewsPage() {
             <div>
               <div className="flex items-center gap-2">
                 <span className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight">
-                  {BUSINESS.rating}
+                  {stats.avgRating}
                 </span>
                 <div className="flex items-center gap-0.5">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -107,27 +106,27 @@ export default function ReviewsPage() {
                 </div>
               </div>
               <Caption className="text-charcoal/75 mt-1">
-                Average rating
+                Average in current sample
               </Caption>
             </div>
             <div>
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
-                {BUSINESS.reviewCount.toLocaleString()}+
+                {stats.count}
               </div>
-              <Caption className="text-charcoal/75 mt-1">Verified reviews</Caption>
+              <Caption className="text-charcoal/75 mt-1">Sample reviews</Caption>
             </div>
             <div>
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
-                97%
+                {fiveStarCount}
               </div>
-              <Caption className="text-charcoal/75 mt-1">5-star reviews</Caption>
+              <Caption className="text-charcoal/75 mt-1">5-star samples</Caption>
             </div>
             <div>
               <div className="font-display text-[40px] sm:text-[48px] font-bold text-charcoal tracking-tight tabular-nums">
                 6
               </div>
               <Caption className="text-charcoal/75 mt-1">
-                Cities, all rated 4.8+
+                Cities with sample reviews
               </Caption>
             </div>
           </div>
@@ -161,11 +160,11 @@ export default function ReviewsPage() {
                 </Body>
                 <div className="pt-4">
                   <Button as={Link} href="/book" variant="primary-dark" size="lg">
-                    Book my clean
+                    Get a Quote
                   </Button>
                 </div>
                 <Caption className="font-body text-cream/55">
-                  Sample of {stats.count} reviews shown — full {BUSINESS.reviewCount.toLocaleString()}+ aggregated on Google Business Profile.
+                  Sample of {stats.count} reviews shown from the current site data.
                 </Caption>
               </Stack>
             </div>

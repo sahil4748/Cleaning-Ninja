@@ -75,14 +75,14 @@ export default function QuoteEstimatorPreview() {
           <div className="lg:col-span-5">
             <Stack gap="6">
               <Eyebrow tone="champagne" withRule>
-                Build a quote
+                Get a quote
               </Eyebrow>
               <Heading as="h2" id="estimator-heading" variant="display-xl" balance>
-                Three answers. <span className="text-olive">Real price.</span>{' '}
-                <span className="block text-charcoal/75">60 seconds.</span>
+                Three answers. <span className="text-olive">Clear price.</span>{' '}
+                <span className="block text-charcoal/75">90 seconds.</span>
               </Heading>
               <Body variant="body-l" className="text-charcoal/75 max-w-[44ch]">
-                Service, property, city. You get a real flat-rate number on the next screen — not a quote-callback purgatory.
+                Service, property, city. You get a flat-rate estimate on the next screen before you choose a date.
               </Body>
               <div className="border-t border-[color:var(--color-border)] pt-5">
                 <Caption className="text-charcoal/75">
@@ -363,7 +363,7 @@ export default function QuoteEstimatorPreview() {
                                 'group/btn'
                               )}
                             >
-                              Continue to build your quote
+                              Get a Quote
                               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5" aria-hidden="true" />
                             </Button>
                           </Cluster>

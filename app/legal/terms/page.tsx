@@ -27,8 +27,8 @@ export default function TermsPage() {
       <h2 className="text-[24px] font-semibold pt-4">2. Pricing and payment</h2>
       <ul className="list-disc pl-6 space-y-2">
         <li>Quotes displayed on the website are real booking prices and include GST.</li>
-        <li>Payment is taken on the day the work is completed via Stripe.</li>
-        <li>For recurring bookings, the saved card is charged within 24 hours of each clean.</li>
+        <li>Payment terms are confirmed with the customer before work begins.</li>
+        <li>For recurring bookings, payment timing is confirmed when the recurring schedule is accepted.</li>
         <li>If the scope changes on arrival (e.g. larger property than booked), we will call you before proceeding. You may decline.</li>
       </ul>
 
@@ -40,12 +40,12 @@ export default function TermsPage() {
         <li>Rescheduling 24+ hours ahead: free, subject to availability.</li>
       </ul>
 
-      <h2 className="text-[24px] font-semibold pt-4">4. Bond-back guarantee (end-of-lease only)</h2>
+      <h2 className="text-[24px] font-semibold pt-4">4. End-of-lease follow-up</h2>
       <p>
         For end-of-lease cleans, if your property manager notifies us within
         seven (7) days of the clean that the property failed inspection on a
-        cleaning issue, we will return within 72 hours and re-clean the items
-        flagged, at no cost. The guarantee assumes:
+        cleaning issue, contact us with the inspection notes and supporting
+        photos. We will review the issue against the booked scope. This assumes:
       </p>
       <ul className="list-disc pl-6 space-y-2">
         <li>The property was substantially empty when we cleaned it.</li>
@@ -55,15 +55,14 @@ export default function TermsPage() {
       </ul>
       <p>
         Mould, structural damage, pest infestations, paint touch-ups, and items
-        outside the cleaning checklist are not covered by the guarantee.
+        outside the cleaning checklist are outside the standard scope.
       </p>
 
       <h2 className="text-[24px] font-semibold pt-4">5. Limitation of liability</h2>
       <p>
         Our liability for damage caused during a clean is limited to the
-        replacement value of the affected item, capped at the amount of our
-        Public Liability cover ({BUSINESS.publicLiability} through{' '}
-        {BUSINESS.insurer}). We are not liable for: pre-existing damage,
+        replacement value of the affected item, subject to the terms confirmed
+        for the booking. We are not liable for: pre-existing damage,
         cosmetic wear, items not declared as fragile or valuable, or
         consequential losses.
       </p>
@@ -99,8 +98,7 @@ export default function TermsPage() {
       <p className="italic text-charcoal/75 pt-4 border-t border-border">
         Placeholder draft — these terms are honest, plain-English summaries pending
         formal legal review by our solicitors before the certified launch. The
-        commercial commitments (cancellation, bond-back guarantee, insurance cap)
-        are real and binding from the date you book.
+        commercial commitments are subject to final legal review before launch.
       </p>
     </LegalLayout>
   )

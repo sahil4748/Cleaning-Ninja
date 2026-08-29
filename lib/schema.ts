@@ -25,7 +25,7 @@ export function organizationSchema() {
     telephone: `+61${BUSINESS.phoneRaw.replace(/^0/, '')}`,
     email: BUSINESS.email,
     description:
-      'Flat-rate residential and commercial cleaning across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Police-checked, ABN-verified, fully insured.',
+      'Flat-rate residential and commercial cleaning across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast.',
     address: {
       '@type': 'PostalAddress',
       addressCountry: 'AU',
@@ -95,7 +95,7 @@ export function localBusinessSchema(citySlug: string) {
     '@type': 'LocalBusiness',
     '@id': `${SITE_URL}/service-areas/${city.slug}#localbusiness`,
     name: `${BUSINESS.name} — ${city.city}`,
-    description: `Flat-rate cleaning services across ${city.city} suburbs. Police-checked, fully insured, bond-back guaranteed.`,
+    description: `Flat-rate cleaning services across ${city.city} suburbs, including regular home cleans, move-out cleaning, carpets, upholstery, tile and grout, and leather care.`,
     url: `${SITE_URL}/service-areas/${city.slug}`,
     image: `${SITE_URL}/og-image.svg`,
     telephone: `+61${BUSINESS.phoneRaw.replace(/^0/, '')}`,

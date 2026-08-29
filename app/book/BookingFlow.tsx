@@ -821,7 +821,7 @@ function ContactStep({
         Who do we contact?
       </h2>
       <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
-        We send SMS confirmation and arrival ETA on the day. We do not share these details with anyone outside the assigned Ninja.
+        We use these details to contact you about the booking request. We do not share them outside the assigned service team.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -886,7 +886,7 @@ function SummaryStep({
         Looks right?
       </h2>
       <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
-        Final check. The price below is your real, GST-inclusive booking total.
+        Final check. The price below is the GST-inclusive booking estimate.
       </p>
 
       <dl className="divide-y divide-border border border-border rounded-[4px] bg-surface-muted/40">
@@ -949,8 +949,7 @@ function SummaryStep({
         >
           Privacy Policy
         </Link>
-        . Payment is taken on the day the work is completed, via Stripe. Cancel
-        24+ hours ahead for no fee.
+        . Cancel 24+ hours ahead for no fee.
       </p>
     </div>
   )
@@ -1028,11 +1027,11 @@ function BookingSummary({
       <div className="pt-5 border-t border-border space-y-2 font-body text-[13px] text-charcoal/75">
         <div className="flex items-start gap-2">
           <Check className="h-3.5 w-3.5 text-olive flex-shrink-0 mt-1" />
-          <span>Police-checked, insured Ninja</span>
+          <span>Cleaner assigned to the booking</span>
         </div>
         <div className="flex items-start gap-2">
           <Check className="h-3.5 w-3.5 text-olive flex-shrink-0 mt-1" />
-          <span>SMS confirmation + arrival ETA</span>
+          <span>Contact details captured for follow-up</span>
         </div>
         <div className="flex items-start gap-2">
           <Check className="h-3.5 w-3.5 text-olive flex-shrink-0 mt-1" />
@@ -1077,15 +1076,15 @@ function SuccessScreen({
         <CheckCircle className="h-8 w-8 text-olive-deep" />
       </div>
       <Eyebrow tone="champagne" withRule>
-        Booking confirmed
+        Booking request received
       </Eyebrow>
       <h2 className="font-display font-semibold text-[36px] sm:text-[44px] text-charcoal tracking-tight mt-4 mb-4 leading-tight">
-        You're booked in.
+        Thanks. We have your request.
       </h2>
       <p className="font-body text-[16px] text-charcoal/75 leading-relaxed max-w-md mx-auto">
-        Confirmation SMS has gone to <strong>{state.phone}</strong> and email to{' '}
-        <strong>{state.email}</strong>. We send the arrival ETA on the morning of
-        the booking.
+        We have recorded the contact details for <strong>{state.phone}</strong>{' '}
+        and <strong>{state.email}</strong>. Keep the reference below for any
+        follow-up with the team.
       </p>
 
       <div className="mt-8 border border-border bg-surface-muted/40 rounded-[4px] p-5">

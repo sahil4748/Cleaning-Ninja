@@ -140,7 +140,7 @@ export default function PricingPreview() {
           {[
             'Same cleaner every time, where you book regular.',
             '72-hour re-clean guarantee on end-of-lease.',
-            'No lock-in contracts, ever.',
+            'Cancel or reschedule 24+ hours ahead.',
           ].map((line) => (
             <p key={line} className="flex items-start gap-2 text-[14px] text-charcoal/75">
               <CheckCircle className="h-4 w-4 shrink-0 text-olive" />
@@ -164,7 +164,7 @@ export default function PricingPreview() {
               data-magnetic
               className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive"
             >
-              Book at this price
+              Get a Quote
               <ArrowRight className="h-4 w-4" />
             </Button>
           </div>

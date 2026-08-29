@@ -52,7 +52,7 @@ export default function HomeFAQ() {
                 </Body>
                 <div className="hidden pt-2 lg:block">
                   <Button as={Link} href="/book" variant="primary-light" data-magnetic className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive">
-                    See my price
+                    Get a Quote
                   </Button>
                 </div>
               </Stack>
@@ -84,7 +84,7 @@ export default function HomeFAQ() {
 
         <div className="mt-10 flex justify-center lg:hidden">
           <Button as={Link} href="/book" variant="primary-light" className="bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive">
-            See my price
+            Get a Quote
           </Button>
         </div>
       </Container>

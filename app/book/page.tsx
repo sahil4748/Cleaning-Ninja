@@ -11,7 +11,7 @@ import { BookingFlow } from './BookingFlow'
 export const metadata: Metadata = {
   title: 'Book a Cleaning Ninja — 90-Second Booking, Flat-Rate Price',
   description:
-    'Book a flat-rate cleaning service in 90 seconds. Pick the service, the date, your Ninja. SMS confirmation, no quote runaround, no surprise charges.',
+    'Request a flat-rate cleaning service in 90 seconds. Pick the service, date, city, property size and preferred cleaner.',
   alternates: { canonical: '/book' },
 }
 
@@ -59,9 +59,9 @@ export default async function BookPage({
               className="text-charcoal/75 !text-[16px] sm:!text-[18px] leading-relaxed"
               measure
             >
-              Pick a service, a date, and a Ninja. SMS confirmation in real time.
-              Payment is taken on the day, after the work. The price you see in
-              the sidebar is the final, GST-inclusive total.
+              Pick a service, date, city, property size and preferred cleaner.
+              The price you see in the sidebar is the GST-inclusive booking
+              estimate before you submit.
             </Body>
           </div>
         </Container>

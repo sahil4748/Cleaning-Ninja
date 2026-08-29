@@ -17,17 +17,17 @@ import { ContactForm } from './ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Cleaning Ninja — Phone, Email, City Offices',
-  description: `Speak to the Cleaning Ninja team. ${BUSINESS.phone}, ${BUSINESS.email}, ABN ${BUSINESS.abn}. Local hours by city.`,
+  description: `Speak to the Cleaning Ninja team. ${BUSINESS.phone}, ${BUSINESS.email}, ABN ${BUSINESS.abn}.`,
   alternates: { canonical: '/contact' },
 }
 
 const CITY_HOURS = [
-  { city: 'Sydney', hours: 'Mon-Sat · 7am-7pm', phone: '02 8000 0001' },
-  { city: 'Melbourne', hours: 'Mon-Sat · 7am-7pm', phone: '03 9000 0002' },
-  { city: 'Brisbane', hours: 'Mon-Sat · 7am-6pm', phone: '07 3000 0003' },
-  { city: 'Perth', hours: 'Mon-Sat · 7am-6pm', phone: '08 6000 0004' },
-  { city: 'Adelaide', hours: 'Mon-Sat · 7am-6pm', phone: '08 7000 0005' },
-  { city: 'Gold Coast', hours: 'Every day · 7am-7pm', phone: '07 5000 0006' },
+  { city: 'Sydney', hours: 'Service enquiries', phone: '02 8000 0001' },
+  { city: 'Melbourne', hours: 'Service enquiries', phone: '03 9000 0002' },
+  { city: 'Brisbane', hours: 'Service enquiries', phone: '07 3000 0003' },
+  { city: 'Perth', hours: 'Service enquiries', phone: '08 6000 0004' },
+  { city: 'Adelaide', hours: 'Service enquiries', phone: '08 7000 0005' },
+  { city: 'Gold Coast', hours: 'Service enquiries', phone: '07 5000 0006' },
 ]
 
 export default function ContactPage() {
@@ -81,9 +81,9 @@ export default function ContactPage() {
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                You can book directly through the website (recommended — fastest) or
-                speak to the team during business hours. Email enquiries are responded
-                to within one business day.
+                You can request a quote through the website or contact the team
+                by phone or email. Include your suburb, property size, and the
+                service you need so we can respond clearly.
               </Body>
             </div>
           </FadeUp>
@@ -100,14 +100,14 @@ export default function ContactPage() {
                 label: 'Phone',
                 value: BUSINESS.phone,
                 href: `tel:${BUSINESS.phoneRaw}`,
-                note: 'Mon-Sat business hours',
+                note: 'Main contact number',
               },
               {
                 icon: Mail,
                 label: 'Email',
                 value: BUSINESS.email,
                 href: `mailto:${BUSINESS.email}`,
-                note: 'Reply within 1 business day',
+                note: 'For quote and service enquiries',
               },
               {
                 icon: FileText,
@@ -119,9 +119,9 @@ export default function ContactPage() {
               {
                 icon: Clock,
                 label: 'Response time',
-                value: '< 1 business day',
+                value: 'Enquiry received',
                 href: '/contact',
-                note: 'Or instant via /book',
+                note: 'Use /book for quote requests',
               },
             ].map((item) => {
               const Icon = item.icon
@@ -174,7 +174,7 @@ export default function ContactPage() {
                 <Stack gap="4" className="mb-6">
                   <Eyebrow tone="champagne">By city</Eyebrow>
                   <Heading as="h2" variant="h2" className="tracking-tight text-charcoal">
-                    Local hours.
+                    City contacts.
                   </Heading>
                 </Stack>
                 <ul className="divide-y divide-border border border-border rounded-[4px] bg-cream">
@@ -199,9 +199,9 @@ export default function ContactPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-[13px] font-body text-charcoal/75 leading-relaxed">
-                  Outside business hours, the main 1300 number routes to overnight
-                  on-call (urgent escalations only). For non-urgent enquiries,
-                  email gets the fastest response in the morning.
+                  These city numbers are currently listed as contact placeholders
+                  and should be verified before launch. Use the main 1300 number
+                  or email for customer enquiries.
                 </p>
               </FadeUp>
             </div>

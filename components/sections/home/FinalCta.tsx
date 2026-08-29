@@ -75,7 +75,7 @@ export default function FinalCta() {
                   className="mx-auto text-cream/75 text-[17px] sm:text-[19px] lg:text-[21px]"
                   measure
                 >
-                  Flat-rate from <span className="text-olive font-semibold">$129</span>. Bond back, or we re-clean free. Pick a time — we'll do the rest.
+                  Flat-rate cleaning from <span className="text-olive font-semibold">$129</span>. Choose a service, share the property details, and request your preferred time.
                 </Body>
 
                 <Cluster gap="4" justify="center" align="center" className="pt-4">
@@ -87,7 +87,7 @@ export default function FinalCta() {
                     data-magnetic
                     className="group"
                   >
-                    See my price (60 sec)
+                    Get a Quote
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </Button>
                   <Button as="a" href={`tel:${BUSINESS.phoneRaw}`} variant="secondary-dark" size="lg" data-magnetic>

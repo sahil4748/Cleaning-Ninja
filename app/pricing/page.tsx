@@ -43,7 +43,7 @@ const PRICING_FAQ = [
   {
     question: 'Why is Sydney more expensive than Adelaide?',
     answer:
-      'Pricing reflects local wages, public liability rates, and supplies cost. Sydney, Perth and the Gold Coast sit highest; Melbourne and Brisbane mid-range; Adelaide ~20% under Sydney. The work itself is the same — police-checked Ninjas, eco-only products, full insurance.',
+      'Pricing reflects local labour and supply costs. Sydney, Perth and the Gold Coast sit highest; Melbourne and Brisbane mid-range; Adelaide ~20% under Sydney. The service scope stays the same.',
   },
   {
     question: 'Can I get a custom quote?',
@@ -58,7 +58,7 @@ const PRICING_FAQ = [
   {
     question: 'What if the clean is rejected on the bond inspection?',
     answer:
-      'We re-clean whatever the property manager flagged, free, within 72 hours. Documented in our terms (see /legal/insurance for the certificate of currency and the bond-back terms PDF).',
+      'Contact us with the inspection notes and photos. We will review the issue against the booked scope and explain the next step.',
   },
 ]
 
@@ -118,7 +118,7 @@ export default function PricingPage() {
               >
                 Every figure on this page is a real booking price. Pick your
                 service, see the rate in your city, book online in 90 seconds.
-                Add-ons (oven, windows, sealing) priced separately and quoted
+                Add-ons such as oven or window cleaning are priced separately and quoted
                 upfront — never on arrival.
               </Body>
             </div>
@@ -230,11 +230,11 @@ export default function PricingPage() {
                   Same price online, <span className="text-olive-soft italic">no haggling.</span>
                 </Heading>
                 <Body variant="body-l" className="text-cream/70 max-w-2xl">
-                  The figure you see is the figure you pay. Pick a date, pick a Ninja, done.
+                  The figure you see is the figure in your booking summary. Pick a service, date, and cleaner.
                 </Body>
                 <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                   <Button as={Link} href="/book" variant="primary-dark" size="lg">
-                    Book my clean
+                    Get a Quote
                   </Button>
                   <Button as={Link} href="/services" variant="secondary-dark" size="lg">
                     Browse services

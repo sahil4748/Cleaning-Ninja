@@ -13,7 +13,7 @@ const index = SERVICES.findIndex((s) => s.slug === SLUG)
 export const metadata: Metadata = {
   title: 'Carpet Steam Cleaning Australia — From $49/room',
   description:
-    'Professional hot-water extraction carpet cleaning across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Truck-mounted Rotovac, dry in 2–4 hours, safe for wool and synthetics. Flat-rate $49 per room.',
+    'Carpet steam cleaning across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Fibre check, spot pre-treatment and flat-rate $49 per room pricing.',
   keywords: [
     'carpet cleaning sydney',
     'carpet steam cleaning melbourne',

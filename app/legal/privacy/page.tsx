@@ -31,7 +31,7 @@ export default function PrivacyPage() {
       <ul className="list-disc pl-6 space-y-2">
         <li><strong>Identity</strong>: name, address, phone number, email, date of birth (only if required for an NDIS booking).</li>
         <li><strong>Service detail</strong>: property type, suburb, scope of work, access instructions, photos taken during the clean.</li>
-        <li><strong>Payment</strong>: handled by our PCI-DSS-compliant payment processor (Stripe). We do not store full card numbers.</li>
+        <li><strong>Payment</strong>: payment details only where required to complete a booking.</li>
         <li><strong>Device data</strong>: IP address, browser, pages viewed (analytics only — see §7).</li>
       </ul>
 
@@ -39,7 +39,7 @@ export default function PrivacyPage() {
       <p>
         Your information is used to: deliver the cleaning service, route the
         correct cleaner to your property, communicate booking details, process
-        payment, document the work for the bond-back guarantee, respond to
+        payment, communicate booking details, respond to
         enquiries and complaints, and improve our service. We do not sell
         personal information to third parties.
       </p>
@@ -48,7 +48,7 @@ export default function PrivacyPage() {
       <p>We share information only with:</p>
       <ul className="list-disc pl-6 space-y-2">
         <li>The named cleaner assigned to your booking.</li>
-        <li>Stripe (payments) and Twilio (SMS) — both APP-bound.</li>
+        <li>Service providers needed to operate bookings, communications, payments, or support.</li>
         <li>Plan managers (NDIS only, at your direction).</li>
         <li>Law-enforcement or government authorities where legally required.</li>
       </ul>
@@ -93,9 +93,7 @@ export default function PrivacyPage() {
 
       <p className="italic text-charcoal/75 pt-4 border-t border-border">
         Placeholder copy — these terms are honest, plain-English drafts pending
-        a formal legal review. The bond-back guarantee and insurance commitments
-        are real; the precise legal language will be ratified by our solicitors
-        before the certified launch.
+        a formal legal review before launch.
       </p>
     </LegalLayout>
   )

@@ -13,7 +13,7 @@ const index = SERVICES.findIndex((s) => s.slug === SLUG)
 export const metadata: Metadata = {
   title: 'Sofa & Upholstery Cleaning Australia — From $89',
   description:
-    'Method-matched fabric care for boucle, linen, velvet and microfibre. We identify the fabric code (W, S, WS, X) before we touch it. 3-seater from $129. Safe for delicate textiles. Six cities, named cleaners.',
+    'Upholstery cleaning for sofas, armchairs, dining chairs and mattresses. Fabric check first, careful testing, and 3-seater pricing from $129 across six cities.',
   keywords: [
     'sofa cleaning sydney',
     'upholstery cleaning melbourne',

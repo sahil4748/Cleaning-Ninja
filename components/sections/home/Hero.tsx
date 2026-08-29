@@ -71,7 +71,7 @@ export default function Hero() {
               className="mt-8 max-w-[58ch]"
             >
               <Body variant="body-l" className="text-charcoal/80">
-                Flat-rate cleans from <span className="font-semibold text-charcoal">$129</span>. Police-checked teams in Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. ABN-verified, fully insured, no nasty surprises.
+                Flat-rate cleaning services from <span className="font-semibold text-charcoal">$129</span> across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Choose the service, city, and date online.
               </Body>
             </motion.div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
                 data-magnetic
                 className="group bg-olive-deep border-olive-deep text-cream hover:bg-olive hover:border-olive shadow-[0_18px_44px_-18px_rgba(74,86,40,0.55)] hover:-translate-y-[1px] transition-all duration-200"
               >
-                See my price (60 sec)
+                Get a Quote
                 <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
               </Button>
               <Button
@@ -113,12 +113,6 @@ export default function Hero() {
               <div className="flex items-center gap-2">
                 <span className="font-mono text-charcoal text-[12px] tracking-[0.08em]">ABN {BUSINESS.abn}</span>
               </div>
-              <span className="text-charcoal/30">·</span>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-charcoal">{BUSINESS.publicLiability}</span>
-                <span>Public Liability</span>
-              </div>
-              <span className="text-charcoal/30">·</span>
               <div className="flex items-center gap-2">
                 <span className="font-semibold text-olive">{BUSINESS.rating}★</span>
                 <CountUp to={BUSINESS.reviewCount} className="font-semibold text-charcoal" />

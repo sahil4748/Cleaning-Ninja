@@ -19,7 +19,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'Cleaning Services Australia — Bond, Carpet, Upholstery, Tile, Leather',
   description:
-    'Cleaning Ninja delivers five core cleaning disciplines across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. End-of-lease, carpet steam, upholstery, tile & grout, leather care. Flat-rate, fully insured, bond-back guaranteed.',
+    'Cleaning Ninja offers end-of-lease, carpet steam, upholstery, tile and grout, and leather care across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Flat-rate pricing, GST included.',
   keywords: [
     'cleaning services australia',
     'house cleaning sydney',
@@ -90,7 +90,7 @@ export default function ServicesPage() {
                 </Body>
                 <div className="flex flex-wrap gap-4 pt-6">
                   <Button as={Link} href="/book" variant="primary-light" size="lg">
-                    Book now
+                    Get a Quote
                   </Button>
                   <Button as={Link} href="/pricing" variant="secondary-light" size="lg">
                     See all pricing
@@ -241,8 +241,8 @@ export default function ServicesPage() {
                     One booking. <span className="text-olive-soft italic">Any discipline.</span>
                   </Heading>
                   <Body variant="body-l" className="text-cream/70 max-w-2xl">
-                    Pick the service, the date, the suburb. We confirm by SMS and show up on
-                    time with the right cleaner for the job. Six cities, hundreds of suburbs.
+                    Pick the service, date, and suburb. The booking summary shows
+                    the price before you submit. Six cities, hundreds of suburbs.
                   </Body>
                   <div className="pt-4">
                     <Button
@@ -251,7 +251,7 @@ export default function ServicesPage() {
                       variant="primary-dark"
                       size="lg"
                     >
-                      Build my quote
+                      Get a Quote
                     </Button>
                   </div>
                 </Stack>

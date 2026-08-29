@@ -33,8 +33,6 @@ export const metadata: Metadata = {
 
 export default function ServiceAreasPage() {
   const totalSuburbs = COVERAGE.reduce((a, c) => a + c.suburbs.length, 0)
-  const totalCleans = COVERAGE.reduce((a, c) => a + c.cleansCompleted, 0)
-
   return (
     <>
       <JsonLd
@@ -85,10 +83,9 @@ export default function ServiceAreasPage() {
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                Every Ninja lives in the city they service. No travel charges,
-                no convoys, no depot 90 minutes away. Find your city below, then
-                drill down to your suburb. {totalCleans.toLocaleString()}+ cleans
-                already completed across our service footprint.
+                Choose your city below, then open a suburb page for local
+                service options and flat-rate pricing. The listed suburbs are
+                the current website coverage set.
               </Body>
             </div>
           </FadeUp>
@@ -182,7 +179,7 @@ export default function ServiceAreasPage() {
                           From ${city.benchmarkPrice}
                         </span>
                         <span className="font-body text-[12px] uppercase tracking-[0.12em] text-charcoal/75">
-                          {city.cleansCompleted.toLocaleString()} cleans
+                          Listed area
                         </span>
                       </div>
                     </Link>

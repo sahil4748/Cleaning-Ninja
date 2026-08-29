@@ -115,11 +115,11 @@ export default function GalleryPage() {
                   <span className="text-olive-soft italic">Pick a date.</span>
                 </Heading>
                 <Body variant="body-l" className="text-cream/70 max-w-2xl">
-                  Book online in 90 seconds. We document every clean with date-stamped photos.
+                  Request a quote online in 90 seconds and review the service details before you submit.
                 </Body>
                 <div className="pt-4">
                   <Button as={Link} href="/book" variant="primary-dark" size="lg">
-                    Book my clean
+                    Get a Quote
                   </Button>
                 </div>
               </Stack>

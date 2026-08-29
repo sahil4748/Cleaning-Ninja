@@ -130,7 +130,7 @@ function ServiceCard({
 
           <div className="mt-auto flex items-center justify-between border-t border-[color:var(--color-border)] pt-5">
             <span className="inline-flex items-center gap-1.5 font-body text-[13px] font-semibold uppercase tracking-[0.14em] text-charcoal transition-colors duration-200 group-hover:text-olive">
-              Book this clean
+              Get a Quote
               <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </span>
             <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-charcoal/45">

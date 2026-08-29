@@ -39,9 +39,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'end-of-lease-cleaning',
     name: 'End-of-Lease Clean',
-    tagline: 'Bond back. Or we re-clean free, within 72 hours.',
+    tagline: 'Move-out cleaning with a room-by-room checklist.',
     description:
-      'A room-by-room exit clean built to the exact checklist your property manager inspects against. We document every room with date-stamped photos and stake our reputation on you getting the full deposit back. Standard QLD bond clean, NSW/VIC end-of-lease, WA vacate clean — same job, three names.',
+      'A detailed move-out clean for renters, owners, and property handovers. We work through the kitchen, bathrooms, living areas, bedrooms, floors, tracks, skirting boards, and other agreed items so the property is ready for final inspection.',
     fromPrice: 295,
     durationHours: '4–8',
     steps: [
@@ -53,11 +53,11 @@ export const SERVICES: Service[] = [
       'Final walkthrough + signed checklist',
     ],
     inclusions: [
-      'REA-approved checklist',
-      '72-hour re-clean guarantee',
-      'Photo documentation',
+      'Room-by-room checklist',
+      'Kitchen and bathroom detail',
+      'Final walkthrough',
     ],
-    trustSignals: ['Bond-back guaranteed', 'REIQ / REINSW / REIV compliant'],
+    trustSignals: ['Move-out focused', 'Checklist-based'],
     aliases: ['bond cleaning', 'vacate cleaning', 'move out cleaning'],
     bentoSize: 'large',
     image: 'https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg',
@@ -66,9 +66,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'carpet-cleaning',
     name: 'Carpet Steam Clean',
-    tagline: 'Hot-water extraction. Dry in 2–4 hours.',
+    tagline: 'Steam cleaning for everyday carpet wear.',
     description:
-      'Truck-mounted Rotovac extraction lifts embedded grit, recovers colour, and dissolves the oils that hold dirt in place. We pre-condition, agitate, extract at 90°C, then pH-rinse so nothing sticky stays behind to attract dirt back.',
+      'Carpet cleaning for bedrooms, living areas, hallways, rugs, and rental handovers. We inspect the fibres, pre-treat common marks, clean with hot-water extraction where suitable, and leave the carpet ready to air dry.',
     fromPrice: 49,
     durationHours: '1–3',
     steps: [
@@ -76,12 +76,12 @@ export const SERVICES: Service[] = [
       'Dry vacuum extraction',
       'Pre-conditioner + dwell time',
       'Spot stain pre-treatment',
-      'Hot-water extraction pass at 90°C',
+      'Hot-water extraction pass where suitable',
       'pH-neutral rinse',
-      'Speed-dry fan setup',
+      'Final grooming',
     ],
-    inclusions: ['$49/room flat rate', 'Pet-stain treatment', 'Speed-dry fans'],
-    trustSignals: ['Safe for wool + synthetics', '95%+ moisture extraction'],
+    inclusions: ['$49/room flat rate', 'Spot pre-treatment', 'Final grooming'],
+    trustSignals: ['Fibre checked first', 'Clear room pricing'],
     aliases: ['carpet steam cleaning', 'carpet shampoo', 'rug cleaning'],
     bentoSize: 'small',
     image: 'https://images.pexels.com/photos/4176298/pexels-photo-4176298.jpeg',
@@ -90,9 +90,9 @@ export const SERVICES: Service[] = [
   {
     slug: 'upholstery-cleaning',
     name: 'Upholstery Care',
-    tagline: 'Method matched to fabric. No water marks.',
+    tagline: 'Careful cleaning for lounges and soft furniture.',
     description:
-      'Boucle, linen, velvet, microfibre — every fabric needs a different hand. We identify the fabric code (W, S, WS, X) and pick the right method so you never get water-marking, shrinkage, or dye bleed.',
+      'Upholstery cleaning for sofas, armchairs, dining chairs, and mattresses. We check the care label or fabric type first, then choose a suitable cleaning method and test carefully before treating the full piece.',
     fromPrice: 89,
     durationHours: '1–2',
     steps: [
@@ -103,8 +103,8 @@ export const SERVICES: Service[] = [
       'Deodorise',
       'Groom + dry',
     ],
-    inclusions: ['3-seater from $129', 'Fabric-safe', 'Stain-block top-coat'],
-    trustSignals: ['All fabric codes', 'No over-wetting'],
+    inclusions: ['3-seater from $129', 'Fabric check first', 'Deodorise'],
+    trustSignals: ['Care-label guided', 'Tested first'],
     aliases: ['sofa cleaning', 'lounge cleaning', 'mattress cleaning'],
     bentoSize: 'small',
     image: 'https://images.pexels.com/photos/276566/pexels-photo-276566.jpeg',
@@ -115,7 +115,7 @@ export const SERVICES: Service[] = [
     name: 'Tile & Grout',
     tagline: 'Where the mop never reaches.',
     description:
-      'Mopping moves dirt from tile to grout, and grout absorbs everything. We alkaline-pre-spray, rotary-extract at high pressure, then pH-neutral rinse — and optionally seal the grout so it stays clean.',
+      'Deep cleaning for tiled kitchens, bathrooms, laundries, and living areas. We assess the surface, loosen soil from the tile and grout lines, clean the area, and rinse so the finish looks fresher without harsh stone-damaging methods.',
     fromPrice: 9,
     durationHours: '2–4',
     steps: [
@@ -123,9 +123,9 @@ export const SERVICES: Service[] = [
       'Alkaline pre-spray + dwell',
       'High-pressure rotary extraction',
       'pH-neutral rinse',
-      'Optional penetrating sealer',
+      'Final surface check',
     ],
-    inclusions: ['From $9/m²', 'Grout sealing add-on', 'Stone-safe option'],
+    inclusions: ['From $9/m²', 'Grout-line cleaning', 'Stone-safe option'],
     trustSignals: ['Porcelain + ceramic + stone', 'No acid on stone'],
     aliases: ['grout cleaning', 'tile restoration'],
     bentoSize: 'small',
@@ -164,6 +164,6 @@ export const AUXILIARY_SERVICES = [
   { slug: 'pressure-washing', name: 'Pressure Washing', fromPrice: 189, tagline: 'Driveways, decks, paths.' },
   { slug: 'window-cleaning', name: 'Window Cleaning', fromPrice: 89, tagline: 'Streak-free, inside and out.' },
   { slug: 'oven-cleaning', name: 'Oven Deep Clean', fromPrice: 99, tagline: 'Caustic-free, fully degreased.' },
-  { slug: 'airbnb-turnaround', name: 'Airbnb Turnaround', fromPrice: 119, tagline: 'Same-day turnover. Fresh linen.' },
+  { slug: 'airbnb-turnaround', name: 'Airbnb Turnaround', fromPrice: 119, tagline: 'Short-stay cleaning between guests.' },
   { slug: 'regular-home', name: 'Regular Home Clean', fromPrice: 129, tagline: 'Same cleaner. Every visit.' },
 ] as const

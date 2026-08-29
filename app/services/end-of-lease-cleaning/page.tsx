@@ -11,16 +11,16 @@ const service = SERVICES.find((s) => s.slug === SLUG)
 const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
 export const metadata: Metadata = {
-  title: 'End-of-Lease & Bond Cleaning — Bond Back Guaranteed',
+  title: 'End-of-Lease & Bond Cleaning — Move-Out Cleaning',
   description:
-    'REIQ / REINSW / REIV-trained exit cleans from $295. Documented checklist, date-stamped photos, 72-hour re-clean guarantee if the property manager flags anything. Sydney, Melbourne, Brisbane, Perth, Adelaide, Gold Coast.',
+    'Move-out cleaning from $295 with a room-by-room checklist for kitchens, bathrooms, living areas, bedrooms, floors and tracks. Sydney, Melbourne, Brisbane, Perth, Adelaide, Gold Coast.',
   keywords: [
     'end of lease cleaning sydney',
     'bond cleaning brisbane',
     'vacate cleaning perth',
     'end of lease melbourne',
-    'bond back guarantee',
-    'REIQ bond clean',
+    'move out cleaning',
+    'rental cleaning',
     'exit cleaning',
     'move out cleaning',
   ],

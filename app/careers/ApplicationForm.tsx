@@ -55,9 +55,8 @@ export function ApplicationForm() {
           Application received.
         </Heading>
         <Body variant="body" className="text-charcoal/75 max-w-md mx-auto" measure>
-          Saima or one of the regional leads will be in touch within two
-          business days. If your application progresses we'll send a Working
-          With Children Check link and a federal police clearance request next.
+          Saima or one of the regional leads will review your details and get
+          in touch if your experience matches an open role in your city.
         </Body>
         <Button
           type="button"

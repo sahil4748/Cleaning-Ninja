@@ -36,11 +36,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://cleaningninja.com.au'),
   title: {
-    default: 'Cleaning Ninja — Spotless. On time. Bond back.',
+    default: 'Cleaning Ninja — Flat-Rate Cleaning Services',
     template: '%s | Cleaning Ninja',
   },
   description:
-    'Flat-rate cleans from $129. Police-checked teams in Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. ABN-verified, fully insured, bond-back guarantee.',
+    'Flat-rate cleaning services from $129 across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Regular home cleans, move-out cleaning, carpet, upholstery, tile and grout, and leather care.',
   keywords: [
     'cleaning service Australia',
     'end of lease cleaning Sydney',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     'house cleaning Melbourne',
     'carpet cleaning Perth',
     'NDIS cleaning provider',
-    'police-checked cleaners',
+    'professional cleaners',
     'Airbnb cleaning Gold Coast',
     'eco-friendly cleaning Adelaide',
     'flat rate cleaning',
@@ -63,23 +63,23 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     url: 'https://cleaningninja.com.au',
     siteName: 'Cleaning Ninja',
-    title: 'Cleaning Ninja — Spotless. On time. Bond back.',
+    title: 'Cleaning Ninja — Flat-Rate Cleaning Services',
     description:
-      'Flat-rate cleans from $129. Police-checked teams in six cities. ABN-verified, fully insured, bond-back guarantee.',
+      'Flat-rate cleaning services from $129 across six Australian cities.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Cleaning Ninja — Spotless. On time. Bond back.',
+        alt: 'Cleaning Ninja — Flat-rate cleaning services',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cleaning Ninja — Spotless. On time. Bond back.',
+    title: 'Cleaning Ninja — Flat-Rate Cleaning Services',
     description:
-      'Flat-rate cleans from $129. Police-checked. Fully insured. Bond-back guaranteed.',
+      'Flat-rate cleaning services from $129 across six Australian cities.',
     images: ['/og-image.png'],
   },
   robots: {

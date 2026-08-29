@@ -33,9 +33,9 @@ export const JOURNAL: JournalEntry[] = [
       '*Full article — published in week 2 of the redev.* Sydney end-of-lease pricing in 2026 sits roughly 18% higher than Melbourne and 25% higher than Brisbane for the same property size...',
   },
   {
-    slug: 'bond-back-guarantee-qld-tenants',
-    title: 'Bond-back guarantee: what every QLD tenant should demand',
-    dek: 'The four exact phrases your bond-clean contract must include, or the guarantee is a marketing word.',
+    slug: 'end-of-lease-cleaning-qld-tenants',
+    title: 'End-of-lease cleaning: what QLD tenants should check',
+    dek: 'A simple checklist for comparing move-out cleaning quotes before final inspection.',
     category: 'Bond',
     readMinutes: 6,
     publishedAt: '2026-04-08',

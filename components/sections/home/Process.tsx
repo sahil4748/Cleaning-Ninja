@@ -16,7 +16,7 @@ const STEPS = [
   {
     icon: Calculator,
     title: 'Get a price',
-    body: '60 seconds, no obligation. Three questions and a real number.',
+    body: '90 seconds, no obligation. Three questions and a clear estimate.',
   },
   {
     icon: CalendarCheck,
@@ -35,8 +35,8 @@ const STEPS = [
   },
   {
     icon: CreditCard,
-    title: 'Pay only when happy',
-    body: 'Card on file, charged after sign-off. Or we re-do it. Your call.',
+    title: 'Confirm the finish',
+    body: 'Review the completed areas and raise anything that needs attention before we leave.',
   },
 ]
 
@@ -186,7 +186,7 @@ export default function Process() {
             </div>
             <div className="md:col-span-5">
               <Body variant="body-l" className="text-cream/70 max-w-[44ch]">
-                No phone tag. No "depends on the day". Five steps from price to spotless, and one of them is "we walk you through it before we leave".
+                No phone tag. No "depends on the day". Five steps from quote to clean, including a final walkthrough before we leave.
               </Body>
             </div>
           </div>

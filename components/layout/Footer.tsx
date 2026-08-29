@@ -41,11 +41,11 @@ export default function Footer() {
               </div>
               <Body variant="body-l" className="text-cream/75" measure>
                 Flat-rate cleans across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold
-                Coast. ABN-verified, fully insured, bond-back guaranteed.
+                Coast. Regular homes, move-outs, carpet, upholstery, tile and grout, and leather care.
               </Body>
               <div className="flex flex-wrap items-center gap-3 pt-2">
                 <Button as={Link} href="/book" variant="primary-dark" size="md" data-magnetic>
-                  See my price
+                  Get a Quote
                 </Button>
                 <Button as="a" href={`tel:${BUSINESS.phoneRaw}`} variant="secondary-dark" size="md">
                   {BUSINESS.phone}
@@ -123,16 +123,12 @@ export default function Footer() {
               <span className="font-mono text-cream">{BUSINESS.abn}</span>
             </li>
             <li className="flex flex-col gap-1">
-              <span className="uppercase tracking-[0.12em] text-cream/50">Public Liability</span>
-              <span className="text-cream">{BUSINESS.publicLiability} · {BUSINESS.insurer}</span>
+              <span className="uppercase tracking-[0.12em] text-cream/50">Services</span>
+              <span className="text-cream">Home · Move-out · Specialty</span>
             </li>
             <li className="flex flex-col gap-1">
-              <span className="uppercase tracking-[0.12em] text-cream/50">Police-checked</span>
-              <span className="text-cream">{BUSINESS.policeCheck}</span>
-            </li>
-            <li className="flex flex-col gap-1">
-              <span className="uppercase tracking-[0.12em] text-cream/50">NDIS Provider</span>
-              <span className="font-mono text-cream">{BUSINESS.ndisProvider}</span>
+              <span className="uppercase tracking-[0.12em] text-cream/50">Coverage</span>
+              <span className="text-cream">Six cities</span>
             </li>
             <li className="flex flex-col gap-1">
               <span className="uppercase tracking-[0.12em] text-cream/50">Rating</span>

@@ -105,7 +105,6 @@ export const TILE_GROUT_MATRIX = [
   { area: '11-25', label: '11–25 m²', price: 199 },
   { area: '26-50', label: '26–50 m²', price: 349 },
   { area: '51-100', label: '51–100 m²', price: 549 },
-  { area: 'sealing', label: 'Grout sealing (add-on)', price: 4 },
 ]
 
 export const PRICING_TABS = [

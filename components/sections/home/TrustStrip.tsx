@@ -1,10 +1,9 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ShieldCheck, BadgeCheck, FileBadge, Users, Star } from 'lucide-react'
+import { BadgeCheck, FileBadge, MapPin, Star, Users } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import { BUSINESS } from '@/content/navigation'
-import { CountUp } from '@/components/motion/CountUp'
 
 const PILLS = [
   {
@@ -14,31 +13,24 @@ const PILLS = [
     mono: true,
   },
   {
-    icon: ShieldCheck,
-    label: 'Public Liability',
-    value: `${BUSINESS.publicLiability} · ${BUSINESS.insurer}`,
-  },
-  {
     icon: Users,
-    label: 'Cleaners',
-    value: BUSINESS.policeCheck,
+    label: 'Services',
+    value: 'Home, move-out, carpet, upholstery',
   },
   {
     icon: FileBadge,
-    label: 'NDIS Provider',
-    value: BUSINESS.ndisProvider,
-    mono: true,
+    label: 'Pricing',
+    value: 'GST included',
+  },
+  {
+    icon: MapPin,
+    label: 'Coverage',
+    value: 'Six Australian cities',
   },
   {
     icon: Star,
-    label: 'Rating',
-    valueNode: (
-      <span className="inline-flex items-baseline gap-1.5">
-        <span className="text-olive font-semibold">{BUSINESS.rating}★</span>
-        <CountUp to={BUSINESS.reviewCount} className="text-charcoal" />
-        <span className="text-charcoal/75 text-[13px]">reviews</span>
-      </span>
-    ),
+    label: 'Reviews',
+    value: 'Current site samples',
   },
 ] as const
 

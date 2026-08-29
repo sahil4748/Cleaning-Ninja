@@ -36,13 +36,13 @@ export default function CoverageArea() {
                 </Eyebrow>
                 <Heading as="h2" id="coverage-heading" variant="display-xl" balance>
                   <SplitText>We come to you.</SplitText>{' '}
-                  <span className="text-olive"><SplitText>Six cities, 200+ suburbs.</SplitText></span>
+                  <span className="text-olive"><SplitText>Six cities.</SplitText></span>
                 </Heading>
               </Stack>
             </div>
             <div className="md:col-span-5">
               <Body variant="body-l" className="text-charcoal/80 max-w-[44ch]">
-                From Bondi to Burleigh, Carlton to Cottesloe — Cleaning Ninja teams operate in every major Australian metro. Pick your city for local pricing, suburb pages, and the cleaners who work near you.
+                Cleaning Ninja lists service pages for Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Pick your city for suburb pages and local pricing.
               </Body>
             </div>
           </div>

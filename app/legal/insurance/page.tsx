@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Download, ShieldCheck, FileCheck, Award } from 'lucide-react'
+import { Download, FileCheck, ShieldCheck } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import { LegalLayout } from '../LegalLayout'
 import { BUSINESS } from '@/content/navigation'
 
 export const metadata: Metadata = {
   title: 'Insurance & Compliance',
-  description: `Cleaning Ninja insurance and compliance documentation. ${BUSINESS.publicLiability} public liability through ${BUSINESS.insurer}. Certificates of currency downloadable.`,
+  description: 'Cleaning Ninja insurance and compliance documentation page. Final certificates should be verified before launch.',
   alternates: { canonical: '/legal/insurance' },
 }
 
@@ -15,7 +15,7 @@ export default function InsurancePage() {
   return (
     <LegalLayout
       title="Insurance & Compliance"
-      intro="Cleaning Ninja is fully insured for residential, commercial and short-stay cleaning across every Australian state we operate in. Documentation is downloadable below."
+      intro="Cleaning Ninja compliance documentation is listed here for review. Final certificate details should be verified before launch."
       updated="1 May 2026"
       current="insurance"
     >
@@ -23,27 +23,21 @@ export default function InsurancePage() {
         {[
           {
             icon: ShieldCheck,
-            title: 'Public Liability',
-            value: BUSINESS.publicLiability,
-            note: `Held through ${BUSINESS.insurer}. Policy renewed annually. Certificate of currency available on request and downloadable below.`,
+            title: 'Insurance documentation',
+            value: 'To verify',
+            note: 'Certificate details should be confirmed before this page is used for customer-facing launch claims.',
           },
           {
             icon: FileCheck,
             title: 'Workers Compensation',
-            value: 'All states',
-            note: 'icare NSW, WorkSafe VIC, WorkCover QLD, WorkCover WA, ReturnToWorkSA. Every cleaner is covered for workplace injury.',
+            value: 'To verify',
+            note: 'State coverage and policy details should be confirmed before publication.',
           },
           {
-            icon: Award,
-            title: 'NDIS Provider',
-            value: `Provider ${BUSINESS.ndisProvider}`,
-            note: 'Registered under support item 01_020_0120_1_1 (Household Tasks). Plan-managed and self-managed both supported.',
-          },
-          {
-            icon: ShieldCheck,
-            title: 'Police checks',
-            value: '100% national',
-            note: 'Every cleaner holds a current National Police Check via the Australian Federal Police. Renewed annually.',
+            icon: FileCheck,
+            title: 'Service documents',
+            value: 'On request',
+            note: 'Supporting documents should be supplied by the operations team after verification.',
           },
         ].map((item) => {
           const Icon = item.icon
@@ -76,10 +70,9 @@ export default function InsurancePage() {
 
       <div className="not-prose space-y-3">
         {[
-          { label: 'Certificate of Currency — Public Liability', file: 'public-liability-COC.pdf' },
-          { label: 'Certificate of Currency — Workers Compensation', file: 'workers-comp-COC.pdf' },
-          { label: 'NDIS Registration Statement', file: 'ndis-registration.pdf' },
-          { label: 'Police Check Verification Letter', file: 'police-check-process.pdf' },
+          { label: 'Insurance certificate', file: 'insurance-certificate.pdf' },
+          { label: 'Workers compensation certificate', file: 'workers-comp-certificate.pdf' },
+          { label: 'Service compliance document', file: 'service-compliance.pdf' },
         ].map((doc) => (
           <a
             key={doc.file}
@@ -98,15 +91,14 @@ export default function InsurancePage() {
       </div>
 
       <p className="italic text-charcoal/75 mt-2 text-[14px]">
-        PDFs are placeholders pending final document review — link targets will go live before the certified launch. Email {BUSINESS.email} if you need a copy in the meantime; we send the formal certificate within one business day.
+        PDFs are placeholders pending final document review. Email {BUSINESS.email} if you need a copy in the meantime.
       </p>
 
-      <h2 className="text-[24px] font-semibold pt-4">Insurer details</h2>
+      <h2 className="text-[24px] font-semibold pt-4">Insurance details</h2>
       <ul className="list-disc pl-6 space-y-2">
-        <li><strong>Public Liability</strong>: {BUSINESS.insurer}, policy renewed annually.</li>
-        <li><strong>Cover amount</strong>: {BUSINESS.publicLiability} per occurrence.</li>
-        <li><strong>Excess</strong>: $500 per claim.</li>
-        <li><strong>Brokers</strong>: Available on request.</li>
+        <li>Policy details should be verified before launch.</li>
+        <li>Certificate files should link to final approved documents.</li>
+        <li>Any cover amount should be added only after confirmation.</li>
       </ul>
 
       <h2 className="text-[24px] font-semibold pt-4">Reporting a claim</h2>

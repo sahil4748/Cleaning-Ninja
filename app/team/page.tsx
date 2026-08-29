@@ -16,7 +16,7 @@ import { TeamGrid } from './TeamGrid'
 export const metadata: Metadata = {
   title: 'Meet the Cleaning Ninja Team — Named Cleaners, Six Cities',
   description:
-    'Every Cleaning Ninja has a name, a face, and a suburb. Browse our roster of police-checked cleaners across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast.',
+    'Browse the Cleaning Ninja team roster across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast.',
   keywords: [
     'cleaning ninja team',
     'professional cleaners australia',
@@ -77,11 +77,9 @@ export default function TeamPage() {
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                Every Ninja on this page has a name, a face, a suburb, and years
-                of service. None of them are subcontractors. All of them are
-                nationally police-checked. Most have a specialty — bond cleans,
-                fabric care, NDIS — and most have a strong opinion about how to
-                clean a wool rug. Pick one. Book them.
+                This page shows the people behind the service: names, cities,
+                specialties, and languages spoken. Use it to understand the
+                roster before you choose a preferred cleaner in the booking flow.
               </Body>
               <div className="mt-8 flex flex-wrap gap-8">
                 {[
@@ -134,9 +132,8 @@ export default function TeamPage() {
                   Could your name <span className="text-olive-soft italic">be on this page?</span>
                 </Heading>
                 <Body variant="body-l" className="text-cream/70 max-w-2xl">
-                  We're hiring across all six cities. Above-award pay, full
-                  insurance, paid training, and the work that you'd put your
-                  name on. No subbie contracts.
+                  We're hiring across all six cities. Send your details, city,
+                  experience, and the kind of cleaning work you want to take on.
                 </Body>
                 <div className="pt-4">
                   <Button as={Link} href="/careers" variant="primary-dark" size="lg">

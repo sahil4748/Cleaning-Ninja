@@ -35,7 +35,7 @@ export async function generateMetadata({
 
   return {
     title: `Cleaning Services ${city.city} — ${city.bondTerm}, Carpet, Regular Clean`,
-    description: `Local ${city.city} cleaning team. ${city.bondTerm} from $${city.benchmarkPrice}, regular cleans from $${REGULAR_CLEAN_MATRIX[0].prices[city.slug]}, carpet steam from $49/room. ${city.cleansCompleted.toLocaleString()}+ cleans completed across ${city.suburbs.length} suburbs.`,
+    description: `${city.city} cleaning services. ${city.bondTerm} from $${city.benchmarkPrice}, regular cleans from $${REGULAR_CLEAN_MATRIX[0].prices[city.slug]}, carpet steam from $49/room. Service pages for ${city.suburbs.length} listed suburbs.`,
     keywords: [
       `cleaning ${city.city.toLowerCase()}`,
       `${city.bondTerm.toLowerCase()} ${city.city.toLowerCase()}`,
@@ -125,25 +125,18 @@ export default async function CityPage({
                 className="text-charcoal/75 !text-[17px] sm:!text-[19px] leading-relaxed"
                 measure
               >
-                {city.blurb} Every Ninja on the {city.city} roster lives in the
-                metro and works from your local team — no travel surcharges, no
-                strangers from out of town.
+                {city.blurb} Choose a listed suburb to see available service
+                options and pricing for {city.city}.
               </Body>
 
               <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6">
                 <div>
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
-                    {city.cleansCompleted.toLocaleString()}
-                  </div>
-                  <Caption className="text-charcoal/75 mt-1">
-                    Cleans completed
-                  </Caption>
-                </div>
-                <div>
-                  <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
                     {city.suburbs.length}
                   </div>
-                  <Caption className="text-charcoal/75 mt-1">Suburbs covered</Caption>
+                  <Caption className="text-charcoal/75 mt-1">
+                    Listed suburbs
+                  </Caption>
                 </div>
                 <div>
                   <div className="font-display text-[32px] sm:text-[36px] font-bold text-charcoal tracking-tight tabular-nums">
@@ -158,7 +151,7 @@ export default async function CityPage({
                     {cityTeam.length || 1}
                   </div>
                   <Caption className="text-charcoal/75 mt-1">
-                    Named Ninjas on the {city.city} roster
+                    Team members shown
                   </Caption>
                 </div>
               </div>
@@ -195,9 +188,8 @@ export default async function CityPage({
                 Top {city.suburbs.length} {city.city} suburbs.
               </Heading>
               <Body variant="body" className="text-charcoal/75" measure>
-                Each suburb has its own dedicated page with local pricing notes
-                and the named Ninja assigned to that area. Tap any suburb to
-                see who'll be cleaning your place.
+                Each listed suburb has a page with service options and pricing
+                for the selected city.
               </Body>
             </div>
           </FadeUp>
@@ -237,9 +229,9 @@ export default async function CityPage({
                     Local rates. <span className="text-olive italic">No phone runaround.</span>
                   </Heading>
                   <Body variant="body" className="text-charcoal/75">
-                    {city.city} prices reflect local wages, insurance and
-                    supplies. Every figure here is GST-included and is the price
-                    on the booking. See the full pricing matrix for all
+                    {city.city} prices are shown from the current pricing
+                    matrix. Every figure here is GST-included and appears in
+                    the booking summary. See the full pricing matrix for all
                     property sizes.
                   </Body>
                   <div className="pt-3">
@@ -262,7 +254,7 @@ export default async function CityPage({
                 {
                   label: `${city.bondTerm} (3BR/2BA)`,
                   price: eolRow?.prices[city.slug] ?? city.benchmarkPrice,
-                  note: '72-hour re-clean guarantee',
+                  note: 'Room-by-room checklist',
                   href: '/services/end-of-lease-cleaning',
                 },
                 {
@@ -307,17 +299,17 @@ export default async function CityPage({
               {
                 icon: ShieldCheck,
                 title: 'Local accountability',
-                body: `Every ${city.city} Ninja is on payroll, lives in the metro, and is nationally police-checked. Trained on REI${city.state === 'QLD' ? 'Q' : city.state === 'NSW' ? 'NSW' : city.state === 'VIC' ? 'V' : city.state === 'WA' ? 'WA' : 'SA'} compliant exit standards.`,
+                body: `${city.city} bookings use the same service descriptions and pricing rules shown across the site.`,
               },
               {
                 icon: Clock,
                 title: 'On-time guarantee',
-                body: `Booking window of 60 minutes. If we're late we cover the first $30 of the clean. Same-day SMS confirmation.`,
+                body: 'Choose your preferred date and time in the booking flow. The summary shows your selected details before you submit.',
               },
               {
                 icon: MapPin,
                 title: `Real ${city.city} coverage`,
-                body: `${city.suburbs.length} suburbs at last count. No "minimum job" surcharge — same rate at $${regRow?.prices[city.slug]} whether you're in ${city.suburbs[0]} or ${city.suburbs[city.suburbs.length - 1]}.`,
+                body: `${city.suburbs.length} listed suburbs link to the same city pricing and service options.`,
               },
             ].map((item) => {
               const Icon = item.icon
@@ -449,7 +441,7 @@ export default async function CityPage({
                   <span className="text-olive-soft italic">Pick your Ninja.</span>
                 </Heading>
                 <Body variant="body-l" className="text-cream/70 max-w-2xl">
-                  90 seconds, SMS confirmation, no quote runaround.
+                  90 seconds, clear summary, no quote runaround.
                 </Body>
                 <div className="pt-4">
                   <Button

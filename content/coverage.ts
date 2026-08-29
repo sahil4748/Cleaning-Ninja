@@ -33,7 +33,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'NSW',
     bondTerm: 'End of lease',
     blurb:
-      'Inner-west terraces, eastern-suburb apartments, North-Shore family homes — and everything in between.',
+      'Regular home cleaning, move-out cleaning, and specialty services across listed Sydney suburbs.',
     suburbs: [
       'Bondi',
       'Surry Hills',
@@ -57,7 +57,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'VIC',
     bondTerm: 'End of lease',
     blurb:
-      'Period workers\' cottages, CBD apartments, beachside Brighton homes. The inner city to the bay.',
+      'Regular home cleaning, move-out cleaning, and specialty services across listed Melbourne suburbs.',
     suburbs: [
       'Carlton',
       'Fitzroy',
@@ -81,7 +81,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'QLD',
     bondTerm: 'Bond clean',
     blurb:
-      'Queenslanders in West End, riverside apartments in Newstead, family homes in The Gap.',
+      'Regular home cleaning, bond cleaning, and specialty services across listed Brisbane suburbs.',
     suburbs: [
       'New Farm',
       'Paddington',
@@ -105,7 +105,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'WA',
     bondTerm: 'Vacate clean',
     blurb:
-      'Cottesloe seaside, Subiaco terraces, and family suburbs from Joondalup to Fremantle.',
+      'Regular home cleaning, vacate cleaning, and specialty services across listed Perth suburbs.',
     suburbs: [
       'Cottesloe',
       'Subiaco',
@@ -129,7 +129,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'SA',
     bondTerm: 'End of lease',
     blurb:
-      'Heritage cottages in North Adelaide, beachside Glenelg homes, modern Norwood townhouses.',
+      'Regular home cleaning, move-out cleaning, and specialty services across listed Adelaide suburbs.',
     suburbs: [
       'North Adelaide',
       'Glenelg',
@@ -153,7 +153,7 @@ export const COVERAGE: CoverageRegion[] = [
     state: 'QLD',
     bondTerm: 'Bond clean',
     blurb:
-      'Beachside towers, hinterland homes, and holiday lets from Coolangatta to Main Beach.',
+      'Regular home cleaning, bond cleaning, and specialty services across listed Gold Coast suburbs.',
     suburbs: [
       'Burleigh Heads',
       'Mermaid Beach',

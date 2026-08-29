@@ -13,14 +13,14 @@ const index = SERVICES.findIndex((s) => s.slug === SLUG)
 export const metadata: Metadata = {
   title: 'Tile & Grout Cleaning Australia — From $99',
   description:
-    'High-pressure rotary extraction for tile and grout, with optional penetrating sealer. Porcelain, ceramic, stone — method matched to the surface. No acid on stone. From $9/m². Six cities.',
+    'Tile and grout cleaning for kitchens, bathrooms, laundries and living areas. Surface assessment, grout-line cleaning, rinse and final check. From $9/m². Six cities.',
   keywords: [
     'tile cleaning sydney',
     'grout cleaning melbourne',
     'tile and grout brisbane',
     'tile restoration perth',
     'porcelain tile cleaning',
-    'grout sealing',
+    'grout cleaning',
     'travertine cleaning',
   ],
   alternates: { canonical: '/services/tile-grout-cleaning' },
@@ -47,7 +47,7 @@ export default function TileGroutCleaningPage() {
         simplePricing={TILE_GROUT_MATRIX.map((r) => ({
           label: r.label,
           price: r.price,
-          unit: r.area === 'sealing' ? '/m²' : undefined,
+          unit: undefined,
         }))}
         pricingMatrixLabel="By area. Same rate, six cities."
       />

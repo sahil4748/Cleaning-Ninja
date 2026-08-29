@@ -13,19 +13,18 @@ import Button from '@/components/ui/Button'
 import { FadeUp } from '@/components/motion/FadeUp'
 import { Stagger } from '@/components/motion/Stagger'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS } from '@/content/navigation'
 import { breadcrumbSchema } from '@/lib/schema'
 
 export const metadata: Metadata = {
   title: 'About Cleaning Ninja — Named Cleaners, Six Cities, One Standard',
   description:
-    'Cleaning Ninja is a national residential cleaning service founded on a simple promise: every Ninja has a name, a face, and lives in the city they service. No subcontractors, no roving vans, no surprise charges.',
+    'Cleaning Ninja is a residential and specialty cleaning service across six Australian cities, with flat-rate pricing and simple online booking.',
   keywords: [
     'about cleaning ninja',
     'australian cleaning company',
     'national cleaning service',
     'ndis cleaning provider',
-    'police checked cleaners',
+    'professional cleaners',
   ],
   alternates: { canonical: '/about' },
 }
@@ -38,8 +37,8 @@ const PILLARS = [
   },
   {
     icon: ShieldCheck,
-    title: 'Fully insured',
-    body: `${BUSINESS.publicLiability} Public Liability through ${BUSINESS.insurer}. Workers compensation in every state we operate. Certificate of currency available on /legal/insurance.`,
+    title: 'Clear before we clean',
+    body: 'We confirm the service, property size, suburb, date, and price before the booking is submitted.',
   },
   {
     icon: MapPin,
@@ -97,7 +96,7 @@ export default function AboutPage() {
                 variant="display-l"
                 className="mt-4 mb-6 tracking-tight text-charcoal leading-none !text-[44px] sm:!text-[56px] lg:!text-[68px]"
               >
-                Spotless. On time. <span className="text-olive italic">Bond back.</span>
+                Flat-rate cleaning. <span className="text-olive italic">Simple booking.</span>
               </Heading>
               <Body
                 variant="body-l"
@@ -129,31 +128,29 @@ export default function AboutPage() {
                     variant="h2"
                     className="tracking-tight text-charcoal"
                   >
-                    Started in 2019. <span className="text-olive italic">From one bond clean.</span>
+                  Built around clear scope. <span className="text-olive italic">Before work starts.</span>
                   </Heading>
                 </Stack>
               </FadeUp>
             </div>
             <div className="lg:col-span-7 space-y-6">
               <Body variant="body-l" className="text-charcoal/75" measure>
-                Saima Imtiyaz started Cleaning Ninja after losing $1,800 of her
-                own bond to a property manager who flagged a smudge on a window
-                track. The cleaner had insisted the job was finished. There were
-                no photos, no checklist, no comeback. Saima decided to build the
-                cleaning company she'd wanted to hire.
+                Cleaning Ninja is built around a simple service idea: customers
+                should know what they are booking, what it costs, and which
+                cleaning service is being provided before anyone arrives.
               </Body>
               <Body variant="body" className="text-charcoal/75" measure>
-                Six years on, we run a roster of named, vetted, police-checked
-                cleaners across Sydney, Melbourne, Brisbane, Perth, Adelaide and
-                the Gold Coast. Every booking gets a photo report. Every end-of-lease
-                clean carries a written 72-hour re-clean guarantee. Every price on
-                the site is the price you pay. No subcontractors, no surprises.
+                The site publishes prices for regular home cleaning, move-out
+                cleaning, carpet, upholstery, tile and grout, and leather care
+                across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold
+                Coast. Each booking asks for the service, city, property size,
+                date, and contact details.
               </Body>
               <Body variant="body" className="text-charcoal/75" measure>
-                We are now an NDIS-registered provider (provider {BUSINESS.ndisProvider}),
-                cover {BUSINESS.publicLiability} in public liability through{' '}
-                {BUSINESS.insurer}, and have processed {BUSINESS.reviewCount.toLocaleString()}+
-                verified reviews. Still a Saima-and-team operation. Still answering the phone.
+                Our content standard is the same as our service standard: keep
+                the claim plain, keep the scope visible, and avoid surprises.
+                If a booking needs special handling, the team confirms the scope
+                before accepting the job.
               </Body>
             </div>
           </div>

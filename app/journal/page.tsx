@@ -17,7 +17,7 @@ import { breadcrumbSchema } from '@/lib/schema'
 export const metadata: Metadata = {
   title: 'The Cleaning Ninja Journal — Bond, NDIS, Eco, Pricing',
   description:
-    'Plain-English articles on residential cleaning in Australia: bond-back rules, NDIS support codes, eco-product science, fair pricing, fabric care. Updated regularly.',
+    'Plain-English articles on residential cleaning in Australia: move-out cleaning, pricing, product choices, support cleaning, short-stays and fabric care.',
   keywords: [
     'cleaning blog australia',
     'bond cleaning guide',
@@ -81,9 +81,9 @@ export default function JournalPage() {
                 measure
               >
                 Long-form notes on the things we get asked all the time —
-                bond-back rules by state, NDIS support codes, what "eco-friendly"
-                actually means in practice, and the real cost of an end-of-lease
-                clean in 2026.
+                move-out cleaning, pricing, product choices, support cleaning,
+                short-stays, fabric care, and the real cost of an end-of-lease
+                clean.
               </Body>
             </div>
           </FadeUp>

@@ -47,18 +47,17 @@ const INCLUSIONS: Record<TabId, { included: string[]; excluded: string[] }> = {
   },
   eol: {
     included: [
-      'REIQ / REINSW / REIV checklist',
+      'Room-by-room move-out checklist',
       'Oven deep clean (inside, racks, trays)',
       'Range hood degrease + filter',
       'All cupboards inside + out',
       'Bathrooms — full sanitation top to bottom',
       'Skirting, tracks, blinds, windowsills',
       'Carpet steam (where included on booking)',
-      'Date-stamped photo documentation',
-      '72-hour re-clean if PM flags anything',
+      'Final walkthrough',
     ],
     excluded: [
-      'Bond-back guarantee assumes property is empty',
+      'Cleaning after furniture or belongings are moved back in',
       'Mould remediation (separate quote)',
       'Garden / external area',
       'Repainting touch-ups',
@@ -70,9 +69,9 @@ const INCLUSIONS: Record<TabId, { included: string[]; excluded: string[] }> = {
       'Pre-vacuum',
       'Pre-conditioner + dwell',
       'Spot stain pre-treatment',
-      'Hot-water extraction at 90°C',
+      'Hot-water extraction where suitable',
       'pH-neutral rinse',
-      'Speed-dry fans',
+      'Final grooming',
     ],
     excluded: [
       'Permanent dye stains (ink, hair dye)',
@@ -115,7 +114,7 @@ const INCLUSIONS: Record<TabId, { included: string[]; excluded: string[] }> = {
       'pH-balanced surface clean',
       'Deep clean on textured areas',
       'Conditioner application',
-      'Protective top-coat',
+      'Final wipe-down',
     ],
     excluded: [
       'Re-dyeing',
@@ -206,7 +205,7 @@ export function PricingMatrices() {
                       { type: '3-seater', label: 'Leather 3-seater', price: 289 },
                       { type: 'sectional', label: 'Leather sectional', price: 389 },
                       { type: 'conditioning', label: 'Conditioning only', price: 99 },
-                      { type: 'topcoat', label: 'Protective top-coat', price: 79 },
+                      { type: 'final-care', label: 'Final leather care', price: 79 },
                     ]
             ).map((row) => (
               <li
@@ -226,7 +225,7 @@ export function PricingMatrices() {
       )}
 
       <Caption className="mt-3 text-charcoal/75">
-        Prices include GST. Cleans run by a named, police-checked Ninja from your local team.
+        Prices include GST. The booking summary shows the selected service, city, and property size.
       </Caption>
 
       {/* What's included / excluded */}
@@ -272,7 +271,7 @@ export function PricingMatrices() {
           variant="primary-light"
           size="lg"
         >
-          Book this clean
+          Get a Quote
           <ArrowRight className="h-4 w-4 ml-1" />
         </Button>
         <Button

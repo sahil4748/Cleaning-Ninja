@@ -47,7 +47,7 @@ export default function MobileStickyCta() {
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-olive focus-visible:ring-offset-2 focus-visible:ring-offset-charcoal',
         )}
       >
-        Build My Quote
+        Get a Quote
       </Link>
     </div>
   )

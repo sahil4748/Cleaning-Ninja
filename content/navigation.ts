@@ -57,10 +57,7 @@ export const BUSINESS = {
   phone: '1300 NINJAS',
   phoneRaw: '1300646527',
   email: 'hello@cleaningninja.com.au',
-  publicLiability: '$20M',
-  insurer: 'Allianz Australia',
   ndisProvider: '401 234 567',
-  policeCheck: '100% nationally police-checked',
   rating: 4.9,
   reviewCount: 1247,
 }

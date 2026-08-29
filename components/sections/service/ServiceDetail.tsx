@@ -13,7 +13,6 @@ import { FadeUp } from '@/components/motion/FadeUp'
 import { Stagger } from '@/components/motion/Stagger'
 import { Service } from '@/content/services'
 import { COVERAGE } from '@/content/coverage'
-import { BUSINESS } from '@/content/navigation'
 import { PriceRow } from '@/content/pricing'
 
 /**
@@ -141,7 +140,7 @@ export default function ServiceDetail({
                       variant="primary-light"
                       size="lg"
                     >
-                      Book this clean
+                      Get a Quote
                       <ArrowRight className="h-4 w-4 ml-1" />
                     </Button>
                     <Button as={Link} href="/pricing" variant="secondary-light" size="lg">
@@ -294,7 +293,7 @@ export default function ServiceDetail({
                         href={`/book?service=${service.slug}`}
                         variant="primary-light"
                       >
-                        Get instant quote
+                        Get a Quote
                         <ArrowRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
@@ -343,8 +342,8 @@ export default function ServiceDetail({
                     </table>
                   </div>
                   <Caption className="mt-3 text-charcoal/75 font-body">
-                    Prices include GST. Cleans run by a named, police-checked
-                    Ninja from your local team.
+                    Prices include GST. Your booking summary shows the service,
+                    city, property size, and selected time.
                   </Caption>
                 </FadeUp>
               </div>
@@ -370,8 +369,8 @@ export default function ServiceDetail({
                     </Heading>
                     <Body variant="body" className="text-charcoal/75">
                       Pricing is set by the unit (room, seater, square metre)
-                      — same rate across all six cities. Add-ons (sealing,
-                      stain treatment) priced separately and quoted upfront.
+                      — same rate across all six cities. Extra scope is quoted
+                      upfront before work begins.
                     </Body>
                     <div className="pt-3">
                       <Button
@@ -379,7 +378,7 @@ export default function ServiceDetail({
                         href={`/book?service=${service.slug}`}
                         variant="primary-light"
                       >
-                        Get instant quote
+                        Get a Quote
                         <ArrowRight className="h-4 w-4 ml-1" />
                       </Button>
                     </div>
@@ -443,7 +442,7 @@ export default function ServiceDetail({
                     Considered care, <span className="text-olive-soft italic">honest pricing.</span>
                   </Heading>
                   <Body variant="body-l" className="text-cream/70">
-                    Every {service.name.toLowerCase()} is performed by a named, police-checked Ninja from your local team. ABN-verified, ${BUSINESS.publicLiability} Public Liability cover, REIQ / REINSW / REIV trained.
+                    Every {service.name.toLowerCase()} starts with a clear scope, an agreed price, and a cleaner assigned to the booking. We keep the service simple: confirm the work, complete the clean, and check the finish before we leave.
                   </Body>
                 </Stack>
               </FadeUp>
@@ -453,8 +452,8 @@ export default function ServiceDetail({
                 {[
                   {
                     icon: ShieldCheck,
-                    title: 'Bond-back guaranteed',
-                    desc: "If your property manager flags anything on the inspection, we return within 72 hours and re-clean — no charge, no negotiation.",
+                    title: 'Checklist-based',
+                    desc: 'Move-out and detailed cleans follow a room-by-room checklist so the important items are visible before work starts.',
                   },
                   {
                     icon: Clock,
@@ -468,8 +467,8 @@ export default function ServiceDetail({
                   },
                   {
                     icon: ShieldCheck,
-                    title: `${BUSINESS.publicLiability} insured`,
-                    desc: `${BUSINESS.publicLiability} Public Liability through ${BUSINESS.insurer}. Certificate of Currency downloadable on /legal/insurance.`,
+                    title: 'Straightforward support',
+                    desc: 'Need a hand before or after the booking? Contact the team with your reference and service details.',
                   },
                 ].map((item) => {
                   const Icon = item.icon
@@ -567,9 +566,9 @@ export default function ServiceDetail({
                   className="text-charcoal/80 max-w-2xl"
                   measure
                 >
-                  Pick a date, a property size, and a Ninja. We confirm by SMS,
-                  show up on time, and document the clean with date-stamped
-                  photos. From ${service.fromPrice}.
+                  Pick a date, property size, and preferred cleaner. The booking
+                  summary shows the price and service details before you submit.
+                  From ${service.fromPrice}.
                 </Body>
                 <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
                   <Button
@@ -578,7 +577,7 @@ export default function ServiceDetail({
                     variant="primary-light"
                     size="lg"
                   >
-                    Book now
+                    Get a Quote
                     <ArrowRight className="h-4 w-4 ml-1" />
                   </Button>
                   <Button as={Link} href="/services" variant="secondary-light" size="lg">
