@@ -1,7 +1,9 @@
 'use client'
 
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { useEffect, useRef, useState } from 'react'
-import { useInView, useReducedMotion } from 'framer-motion'
+import { useInView } from 'framer-motion'
 
 interface CountUpProps {
   to: number
@@ -31,7 +33,7 @@ export function CountUp({
   // created a bottom deadzone that left fold-edge stats stuck at zero.
   const inView = useInView(ref, { once: true, margin: '0px 0px -80px 0px' })
   const reduced = useReducedMotion()
-  const [value, setValue] = useState(reduced ? to : 0)
+  const [value, setValue] = useState(0)
 
   useEffect(() => {
     if (!inView || reduced) {

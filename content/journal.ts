@@ -1,3 +1,4 @@
+/** PLACEHOLDER: Articles and authors. Visual preview only; prohibited as verified business truth. Production release is blocked. */
 /**
  * Cleaning Ninja — journal articles.
  *

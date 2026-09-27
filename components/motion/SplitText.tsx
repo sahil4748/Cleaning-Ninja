@@ -1,7 +1,9 @@
 'use client'
 
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { ReactNode, useMemo } from 'react'
-import { motion, useReducedMotion, Variants } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 interface SplitTextProps {

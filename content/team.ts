@@ -1,3 +1,4 @@
+/** PLACEHOLDER: Staff identities, biographies and stock portraits. Visual preview only; prohibited as verified business truth. Production release is blocked. */
 /**
  * Cleaning Ninja — named cleaner roster.
  *

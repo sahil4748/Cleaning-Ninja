@@ -1,3 +1,4 @@
+import { serviceMetadata } from '@/lib/platform/metadata'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServiceDetail from '@/components/sections/service/ServiceDetail'
@@ -9,20 +10,7 @@ const SLUG = 'leather-cleaning'
 const service = SERVICES.find((s) => s.slug === SLUG)
 const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
-export const metadata: Metadata = {
-  title: 'Leather Cleaning & Conditioning — From $149',
-  description:
-    'pH-balanced cleaning, deep conditioning, and protective top-coat for aniline, semi-aniline and pigmented leather. Manufacturer-safe products. Six cities, named cleaners.',
-  keywords: [
-    'leather cleaning sydney',
-    'leather sofa cleaning melbourne',
-    'leather restoration brisbane',
-    'leather conditioning perth',
-    'aniline leather cleaning',
-    'leather couch repair',
-  ],
-  alternates: { canonical: '/services/leather-cleaning' },
-}
+export const metadata: Metadata = serviceMetadata(SLUG)
 
 export default function LeatherCleaningPage() {
   if (!service) notFound()

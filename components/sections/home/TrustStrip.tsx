@@ -8,8 +8,8 @@ import { BUSINESS } from '@/content/navigation'
 const PILLS = [
   {
     icon: BadgeCheck,
-    label: 'ABN verified',
-    value: BUSINESS.abn,
+    label: 'Business',
+    value: BUSINESS.name,
     mono: true,
   },
   {

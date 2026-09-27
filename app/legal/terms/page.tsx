@@ -18,7 +18,7 @@ export default function TermsPage() {
     >
       <h2 className="text-[24px] font-semibold pt-4">1. The agreement</h2>
       <p>
-        By booking a service through Cleaning Ninja (ABN {BUSINESS.abn}), you
+        By booking a service through Cleaning Ninja, you
         agree to these terms. The agreement is between you (the "Customer")
         and Cleaning Ninja. If you book on behalf of someone else, you confirm
         you have their authority and they accept these terms.
@@ -76,9 +76,7 @@ export default function TermsPage() {
 
       <h2 className="text-[24px] font-semibold pt-4">7. NDIS bookings</h2>
       <p>
-        We are a registered NDIS provider ({BUSINESS.ndisProvider}) under
-        support item 01_020_0120_1_1 (Household Tasks). Plan-managed and
-        self-managed plans are supported. We invoice the plan directly.
+        Contact us to discuss your cleaning requirements. NDIS arrangements must be checked before proceeding.
       </p>
 
       <h2 className="text-[24px] font-semibold pt-4">8. Disputes</h2>

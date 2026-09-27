@@ -1,3 +1,7 @@
+import { SERVICE_CATALOGUE } from './service-catalogue'
+import { COMMUNICATION } from './features'
+import { BUSINESS_TRUTH } from './business-truth'
+
 /**
  * Cleaning Ninja — site navigation.
  *
@@ -18,13 +22,7 @@ export const PRIMARY_NAV: NavItem[] = [
   { label: 'About', href: '/about' },
 ]
 
-export const FOOTER_SERVICES: NavItem[] = [
-  { label: 'End-of-Lease', href: '/services/end-of-lease-cleaning' },
-  { label: 'Carpet Steam', href: '/services/carpet-cleaning' },
-  { label: 'Upholstery', href: '/services/upholstery-cleaning' },
-  { label: 'Tile & Grout', href: '/services/tile-grout-cleaning' },
-  { label: 'Leather Care', href: '/services/leather-cleaning' },
-]
+export const FOOTER_SERVICES: NavItem[] = SERVICE_CATALOGUE.filter(service => service.category === 'primary').map(service => ({ label: service.shortName, href: service.href }))
 
 export const FOOTER_AREAS: NavItem[] = [
   { label: 'Sydney', href: '/service-areas/sydney' },
@@ -51,13 +49,14 @@ export const FOOTER_LEGAL: NavItem[] = [
 
 /** Business identity, surfaced everywhere trust matters. */
 export const BUSINESS = {
-  name: 'Cleaning Ninja',
+  name: BUSINESS_TRUTH.name,
   tagline: 'Your Mess, Our Mission!',
-  abn: '12 345 678 901',
-  phone: '1300 NINJAS',
-  phoneRaw: '1300646527',
-  email: 'hello@cleaningninja.com.au',
-  ndisProvider: '401 234 567',
-  rating: 4.9,
-  reviewCount: 1247,
+  abn: '', // PENDING; omit from public output
+  phone: 'Contact us',
+  phoneRaw: COMMUNICATION.phone.href?.replace('tel:', '') ?? '',
+  email: BUSINESS_TRUTH.email,
+  ndisProvider: '', // PENDING; omit from public output
+  // PLACEHOLDER ratings: visual prototype only; never business truth/schema.
+  rating: null,
+  reviewCount: null,
 }

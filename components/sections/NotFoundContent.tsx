@@ -1,8 +1,10 @@
 'use client'
 
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { motion, useReducedMotion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, RotateCcw, Home, Sparkles } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Stack from '@/components/ui/Stack'

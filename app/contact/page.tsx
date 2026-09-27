@@ -1,3 +1,4 @@
+import { COMMERCIAL_DIRECTION } from '@/content/business-truth'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone, Mail, FileText, Clock, MapPin } from 'lucide-react'
@@ -17,17 +18,17 @@ import { ContactForm } from './ContactForm'
 
 export const metadata: Metadata = {
   title: 'Contact Cleaning Ninja — Phone, Email, City Offices',
-  description: `Speak to the Cleaning Ninja team. ${BUSINESS.phone}, ${BUSINESS.email}, ABN ${BUSINESS.abn}.`,
+  description: `Speak to the Cleaning Ninja team. Email ${BUSINESS.email}.`,
   alternates: { canonical: '/contact' },
 }
 
 const CITY_HOURS = [
-  { city: 'Sydney', hours: 'Service enquiries', phone: '02 8000 0001' },
-  { city: 'Melbourne', hours: 'Service enquiries', phone: '03 9000 0002' },
-  { city: 'Brisbane', hours: 'Service enquiries', phone: '07 3000 0003' },
-  { city: 'Perth', hours: 'Service enquiries', phone: '08 6000 0004' },
-  { city: 'Adelaide', hours: 'Service enquiries', phone: '08 7000 0005' },
-  { city: 'Gold Coast', hours: 'Service enquiries', phone: '07 5000 0006' },
+  { city: 'Sydney', hours: 'Service enquiries', phone: 'Email enquiries' },
+  { city: 'Melbourne', hours: 'Service enquiries', phone: 'Email enquiries' },
+  { city: 'Brisbane', hours: 'Service enquiries', phone: 'Email enquiries' },
+  { city: 'Perth', hours: 'Service enquiries', phone: 'Email enquiries' },
+  { city: 'Adelaide', hours: 'Service enquiries', phone: 'Email enquiries' },
+  { city: 'Gold Coast', hours: 'Service enquiries', phone: 'Email enquiries' },
 ]
 
 export default function ContactPage() {
@@ -97,10 +98,10 @@ export default function ContactPage() {
             {[
               {
                 icon: Phone,
-                label: 'Phone',
+                label: BUSINESS.phoneRaw ? 'Phone' : 'Contact',
                 value: BUSINESS.phone,
-                href: `tel:${BUSINESS.phoneRaw}`,
-                note: 'Main contact number',
+                href: BUSINESS.phoneRaw ? `tel:${BUSINESS.phoneRaw}` : `mailto:${BUSINESS.email}`,
+                note: 'Email enquiries',
               },
               {
                 icon: Mail,
@@ -111,15 +112,15 @@ export default function ContactPage() {
               },
               {
                 icon: FileText,
-                label: 'ABN',
-                value: BUSINESS.abn,
-                href: `https://abr.business.gov.au/ABN/View?id=${BUSINESS.abn.replace(/\s/g, '')}`,
-                note: 'Verified on the ABR',
+                label: 'Business',
+                value: BUSINESS.name,
+                href: `mailto:${BUSINESS.email}`,
+                note: 'Cleaning Ninja',
               },
               {
                 icon: Clock,
                 label: 'Response time',
-                value: 'Enquiry received',
+                value: `Usually ${COMMERCIAL_DIRECTION.followUpHours.min}–${COMMERCIAL_DIRECTION.followUpHours.max} hours`,
                 href: '/contact',
                 note: 'Use /book for quote requests',
               },
@@ -190,7 +191,7 @@ export default function ContactPage() {
                         </Caption>
                       </div>
                       <a
-                        href={`tel:${c.phone.replace(/\s/g, '')}`}
+                        href={`mailto:${BUSINESS.email}`}
                         className="font-body text-[13px] font-semibold text-charcoal hover:text-olive transition-colors tabular-nums"
                       >
                         {c.phone}
@@ -199,9 +200,7 @@ export default function ContactPage() {
                   ))}
                 </ul>
                 <p className="mt-6 text-[13px] font-body text-charcoal/75 leading-relaxed">
-                  These city numbers are currently listed as contact placeholders
-                  and should be verified before launch. Use the main 1300 number
-                  or email for customer enquiries.
+                  Please email us for service enquiries and to check coverage.
                 </p>
               </FadeUp>
             </div>

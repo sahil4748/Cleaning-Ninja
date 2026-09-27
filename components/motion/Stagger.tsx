@@ -1,7 +1,9 @@
 'use client'
 
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import { Children, ReactNode, isValidElement, cloneElement } from 'react'
-import { motion, useReducedMotion, type HTMLMotionProps } from 'framer-motion'
+import { motion, type HTMLMotionProps } from 'framer-motion'
 
 interface StaggerProps extends Omit<HTMLMotionProps<'div'>, 'initial' | 'whileInView' | 'viewport' | 'transition' | 'variants'> {
   /** Gap between each child animation, in seconds. Default: 0.08. */

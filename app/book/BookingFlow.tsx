@@ -1,5 +1,7 @@
 'use client'
 
+import { LEAD_UNAVAILABLE_MESSAGE } from '@/lib/platform/lead-client'
+import { calendarDate, parseCalendarDate } from '@/lib/calendar-date'
 import { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -102,7 +104,7 @@ export function BookingFlow({ defaults }: BookingFlowProps) {
   const [step, setStep] = useState(1)
   const [state, setState] = useState<BookingState>(() => initialState(defaults))
   const [submitting, setSubmitting] = useState(false)
-  const [reference, setReference] = useState<string | null>(null)
+  const [submissionError, setSubmissionError] = useState('')
 
   // Auto-advance: if a service slug was provided in the URL, skip to step 2.
   useEffect(() => {
@@ -175,15 +177,8 @@ export function BookingFlow({ defaults }: BookingFlowProps) {
 
   const submit = async () => {
     setSubmitting(true)
-    await new Promise((r) => setTimeout(r, 800))
-    const ref = `CN-${Math.random().toString(36).slice(2, 8).toUpperCase()}`
-    setReference(ref)
+    setSubmissionError(LEAD_UNAVAILABLE_MESSAGE)
     setSubmitting(false)
-  }
-
-  // Success screen.
-  if (reference) {
-    return <SuccessScreen reference={reference} state={state} price={estimatedPrice} />
   }
 
   return (
@@ -296,11 +291,12 @@ export function BookingFlow({ defaults }: BookingFlowProps) {
               onClick={submit}
               disabled={submitting || !canProceed}
             >
-              {submitting ? 'Booking...' : 'Confirm booking'}
+              {submitting ? 'Sending...' : 'Request a quote'}
               <Check className="h-4 w-4 ml-1" />
             </Button>
           )}
         </div>
+        {submissionError && <p role="alert">{submissionError}</p>}
       </div>
 
       {/* Sidebar */}
@@ -583,7 +579,7 @@ function DateStep({
   const pickDate = (day: number) => {
     const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), day)
     if (d < today) return
-    onDate(d.toISOString().slice(0, 10))
+    onDate(calendarDate(d))
   }
 
   const navigateMonth = (delta: number) => {
@@ -599,8 +595,7 @@ function DateStep({
         Pick a date and time.
       </h2>
       <p className="font-body text-[16px] text-charcoal/75 mb-8 leading-relaxed">
-        Same-day bookings still possible — just call us. For online booking, choose any
-        date from tomorrow.
+        Choose a preferred date and time. This is a request, not confirmed availability.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
@@ -646,9 +641,9 @@ function DateStep({
               const day = i + 1
               const d = new Date(viewMonth.getFullYear(), viewMonth.getMonth(), day)
               const isPast = d < today
-              const dStr = d.toISOString().slice(0, 10)
+              const dStr = calendarDate(d)
               const selected = date === dStr
-              const isToday = dStr === today.toISOString().slice(0, 10)
+              const isToday = dStr === calendarDate(today)
 
               return (
                 <button
@@ -700,7 +695,7 @@ function DateStep({
           {date && time ? (
             <p className="mt-4 inline-flex items-center gap-1.5 font-body text-[13px] text-olive">
               <Check className="h-3.5 w-3.5" />
-              {new Date(date).toLocaleDateString('en-AU', {
+              {parseCalendarDate(date).toLocaleDateString('en-AU', {
                 weekday: 'long',
                 day: 'numeric',
                 month: 'long',
@@ -900,7 +895,7 @@ function SummaryStep({
           {
             label: 'Date and time',
             value: state.date
-              ? `${new Date(state.date).toLocaleDateString('en-AU', {
+              ? `${parseCalendarDate(state.date).toLocaleDateString('en-AU', {
                   weekday: 'long',
                   day: 'numeric',
                   month: 'long',
@@ -1000,7 +995,7 @@ function BookingSummary({
           <div className="flex items-start gap-2.5">
             <CalendarIcon className="h-4 w-4 text-olive flex-shrink-0 mt-0.5" />
             <span>
-              {new Date(state.date).toLocaleDateString('en-AU', {
+              {parseCalendarDate(state.date).toLocaleDateString('en-AU', {
                 day: 'numeric',
                 month: 'short',
               })}
@@ -1040,116 +1035,14 @@ function BookingSummary({
       </div>
 
       <p className="font-body text-[12px] text-charcoal/75 leading-relaxed pt-3 border-t border-border">
-        Need a hand? Ring{' '}
+        Need a hand?{' '}
         <a
-          href={`tel:${BUSINESS.phoneRaw}`}
+          href={BUSINESS.phoneRaw ? `tel:${BUSINESS.phoneRaw}` : `mailto:${BUSINESS.email}`}
           className="text-olive underline decoration-olive-deep"
         >
           {BUSINESS.phone}
         </a>
       </p>
     </div>
-  )
-}
-
-/* --------------------------- SUCCESS --------------------------- */
-function SuccessScreen({
-  reference,
-  state,
-  price,
-}: {
-  reference: string
-  state: BookingState
-  price: number
-}) {
-  const service = ALL_SERVICES.find((s) => s.slug === state.serviceSlug)
-  const city = COVERAGE.find((c) => c.slug === state.city)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="max-w-2xl mx-auto border border-olive bg-cream rounded-[4px] p-8 sm:p-12 text-center"
-    >
-      <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-olive-pale mb-6">
-        <CheckCircle className="h-8 w-8 text-olive-deep" />
-      </div>
-      <Eyebrow tone="champagne" withRule>
-        Booking request received
-      </Eyebrow>
-      <h2 className="font-display font-semibold text-[36px] sm:text-[44px] text-charcoal tracking-tight mt-4 mb-4 leading-tight">
-        Thanks. We have your request.
-      </h2>
-      <p className="font-body text-[16px] text-charcoal/75 leading-relaxed max-w-md mx-auto">
-        We have recorded the contact details for <strong>{state.phone}</strong>{' '}
-        and <strong>{state.email}</strong>. Keep the reference below for any
-        follow-up with the team.
-      </p>
-
-      <div className="mt-8 border border-border bg-surface-muted/40 rounded-[4px] p-5">
-        <Caption className="font-body text-charcoal/75 uppercase tracking-widest mb-1">
-          Booking reference
-        </Caption>
-        <p className="font-display font-bold text-[28px] text-charcoal tracking-tight tabular-nums">
-          {reference}
-        </p>
-      </div>
-
-      <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-left">
-        {[
-          { label: 'Service', value: service?.name },
-          { label: 'Total', value: `$${price}` },
-          {
-            label: 'Date',
-            value: state.date
-              ? new Date(state.date).toLocaleDateString('en-AU', {
-                  weekday: 'long',
-                  day: 'numeric',
-                  month: 'long',
-                })
-              : '—',
-          },
-          { label: 'Time', value: state.time },
-          {
-            label: 'Address',
-            value: `${state.address}, ${state.suburb}, ${city?.city ?? ''}`,
-          },
-          {
-            label: 'Cleaner',
-            value: state.cleanerId === 'any' ? 'Auto-assigned' : TEAM.find((t) => t.id === state.cleanerId)?.name,
-          },
-        ].map((row) => (
-          <div key={row.label}>
-            <Caption className="font-body text-charcoal/75 uppercase tracking-widest">
-              {row.label}
-            </Caption>
-            <p className="font-display text-[15px] text-charcoal mt-0.5">
-              {row.value}
-            </p>
-          </div>
-        ))}
-      </dl>
-
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-        <Button as={Link} href="/" variant="primary-light">
-          Back to home
-        </Button>
-        <Button as={Link} href="/journal" variant="secondary-light">
-          Read the journal
-        </Button>
-      </div>
-
-      <p className="mt-8 font-body text-[12px] text-charcoal/75 leading-relaxed">
-        Need to make changes? Ring{' '}
-        <a
-          href={`tel:${BUSINESS.phoneRaw}`}
-          className="text-olive underline decoration-olive-deep"
-        >
-          {BUSINESS.phone}
-        </a>{' '}
-        or quote <strong>{reference}</strong> in any email.
-      </p>
-    </motion.div>
   )
 }

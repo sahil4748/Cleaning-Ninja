@@ -47,7 +47,7 @@ export default function Footer() {
                 <Button as={Link} href="/book" variant="primary-dark" size="md" data-magnetic>
                   Get a Quote
                 </Button>
-                <Button as="a" href={`tel:${BUSINESS.phoneRaw}`} variant="secondary-dark" size="md">
+                <Button as="a" href={BUSINESS.phoneRaw ? `tel:${BUSINESS.phoneRaw}` : `mailto:${BUSINESS.email}`} variant="secondary-dark" size="md">
                   {BUSINESS.phone}
                 </Button>
               </div>
@@ -119,8 +119,8 @@ export default function Footer() {
         <div className="border-t border-border-dark py-8">
           <ul className="grid grid-cols-2 gap-3 text-[12px] text-cream/70 sm:grid-cols-3 md:grid-cols-5">
             <li className="flex flex-col gap-1">
-              <span className="font-mono text-cream/50 uppercase tracking-[0.12em]">ABN</span>
-              <span className="font-mono text-cream">{BUSINESS.abn}</span>
+              <span className="font-mono text-cream/50 uppercase tracking-[0.12em]">Business</span>
+              <span className="font-mono text-cream">{BUSINESS.name}</span>
             </li>
             <li className="flex flex-col gap-1">
               <span className="uppercase tracking-[0.12em] text-cream/50">Services</span>
@@ -130,10 +130,7 @@ export default function Footer() {
               <span className="uppercase tracking-[0.12em] text-cream/50">Coverage</span>
               <span className="text-cream">Six cities</span>
             </li>
-            <li className="flex flex-col gap-1">
-              <span className="uppercase tracking-[0.12em] text-cream/50">Rating</span>
-              <span className="text-cream">{BUSINESS.rating}★ · {BUSINESS.reviewCount.toLocaleString('en-AU')} reviews</span>
-            </li>
+
           </ul>
         </div>
 

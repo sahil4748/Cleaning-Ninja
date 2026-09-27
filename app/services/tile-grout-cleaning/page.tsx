@@ -1,3 +1,4 @@
+import { serviceMetadata } from '@/lib/platform/metadata'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServiceDetail from '@/components/sections/service/ServiceDetail'
@@ -10,21 +11,7 @@ const SLUG = 'tile-grout-cleaning'
 const service = SERVICES.find((s) => s.slug === SLUG)
 const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
-export const metadata: Metadata = {
-  title: 'Tile & Grout Cleaning Australia — From $99',
-  description:
-    'Tile and grout cleaning for kitchens, bathrooms, laundries and living areas. Surface assessment, grout-line cleaning, rinse and final check. From $9/m². Six cities.',
-  keywords: [
-    'tile cleaning sydney',
-    'grout cleaning melbourne',
-    'tile and grout brisbane',
-    'tile restoration perth',
-    'porcelain tile cleaning',
-    'grout cleaning',
-    'travertine cleaning',
-  ],
-  alternates: { canonical: '/services/tile-grout-cleaning' },
-}
+export const metadata: Metadata = serviceMetadata(SLUG)
 
 export default function TileGroutCleaningPage() {
   if (!service) notFound()

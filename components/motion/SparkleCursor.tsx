@@ -39,7 +39,7 @@ export function SparkleCursor() {
   useEffect(() => {
     if (typeof window === 'undefined') return
 
-    const supportsHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    const supportsHover = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)').matches
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     if (!supportsHover || reducedMotion) return
 

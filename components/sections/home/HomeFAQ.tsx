@@ -17,25 +17,9 @@ import { FAQS } from '@/content/faq'
  * HomeFAQ — 8 questions with FAQPage JSON-LD schema for featured snippets.
  */
 export default function HomeFAQ() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQS.map((f) => ({
-      '@type': 'Question',
-      name: f.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: f.answer,
-      },
-    })),
-  }
-
+  // FAQ copy remains a prototype; no business-truth schema output.
   return (
     <Section surface="cream" spacing="default" aria-labelledby="faq-heading" className="relative">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
       <Container width="wide">
         <FadeUp>
           <div className="mb-14 grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-16">

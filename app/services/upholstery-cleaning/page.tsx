@@ -1,3 +1,4 @@
+import { serviceMetadata } from '@/lib/platform/metadata'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServiceDetail from '@/components/sections/service/ServiceDetail'
@@ -10,21 +11,7 @@ const SLUG = 'upholstery-cleaning'
 const service = SERVICES.find((s) => s.slug === SLUG)
 const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
-export const metadata: Metadata = {
-  title: 'Sofa & Upholstery Cleaning Australia — From $89',
-  description:
-    'Upholstery cleaning for sofas, armchairs, dining chairs and mattresses. Fabric check first, careful testing, and 3-seater pricing from $129 across six cities.',
-  keywords: [
-    'sofa cleaning sydney',
-    'upholstery cleaning melbourne',
-    'lounge cleaning brisbane',
-    'mattress cleaning perth',
-    'fabric sofa cleaning',
-    'boucle cleaning',
-    'velvet upholstery clean',
-  ],
-  alternates: { canonical: '/services/upholstery-cleaning' },
-}
+export const metadata: Metadata = serviceMetadata(SLUG)
 
 export default function UpholsteryCleaningPage() {
   if (!service) notFound()

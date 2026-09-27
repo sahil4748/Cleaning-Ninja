@@ -1,3 +1,4 @@
+import { serviceMetadata } from '@/lib/platform/metadata'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import ServiceDetail from '@/components/sections/service/ServiceDetail'
@@ -10,22 +11,7 @@ const SLUG = 'carpet-cleaning'
 const service = SERVICES.find((s) => s.slug === SLUG)
 const index = SERVICES.findIndex((s) => s.slug === SLUG)
 
-export const metadata: Metadata = {
-  title: 'Carpet Steam Cleaning Australia — From $49/room',
-  description:
-    'Carpet steam cleaning across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Fibre check, spot pre-treatment and flat-rate $49 per room pricing.',
-  keywords: [
-    'carpet cleaning sydney',
-    'carpet steam cleaning melbourne',
-    'carpet cleaning brisbane',
-    'carpet cleaning perth',
-    'carpet steam clean adelaide',
-    'carpet cleaning gold coast',
-    'hot water extraction',
-    'pet stain treatment',
-  ],
-  alternates: { canonical: '/services/carpet-cleaning' },
-}
+export const metadata: Metadata = serviceMetadata(SLUG)
 
 export default function CarpetCleaningPage() {
   if (!service) notFound()

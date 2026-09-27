@@ -1,7 +1,9 @@
 'use client'
 
+import { useReducedMotion } from '@/lib/use-reduced-motion'
+
 import Link from 'next/link'
-import { motion, useReducedMotion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ArrowRight, PlayCircle } from 'lucide-react'
 import Container from '@/components/ui/Container'
 import Button from '@/components/ui/Button'
@@ -9,7 +11,6 @@ import Eyebrow from '@/components/ui/Eyebrow'
 import Heading from '@/components/ui/Heading'
 import Body from '@/components/ui/Body'
 import { SplitText } from '@/components/motion/SplitText'
-import { CountUp } from '@/components/motion/CountUp'
 import { HeroCanvas } from './HeroCanvas'
 import { BUSINESS } from '@/content/navigation'
 
@@ -111,13 +112,9 @@ export default function Hero() {
               className="mt-12 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-charcoal/75 lg:mt-16"
             >
               <div className="flex items-center gap-2">
-                <span className="font-mono text-charcoal text-[12px] tracking-[0.08em]">ABN {BUSINESS.abn}</span>
+                <span className="font-mono text-charcoal text-[12px] tracking-[0.08em]">{BUSINESS.name}</span>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-olive">{BUSINESS.rating}★</span>
-                <CountUp to={BUSINESS.reviewCount} className="font-semibold text-charcoal" />
-                <span>Google reviews</span>
-              </div>
+
             </motion.div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 'use client'
 
+import { FEATURES } from '@/content/features'
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Star, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
@@ -15,7 +16,7 @@ import { CountUp } from '@/components/motion/CountUp'
 import { REVIEWS, reviewStats } from '@/content/reviews'
 import { cn } from '@/lib/utils'
 
-export default function Reviews() {
+function ReviewsContent() {
   const stats = reviewStats()
   const [page, setPage] = useState(0)
   const cardsPerPage = 3
@@ -154,3 +155,5 @@ export default function Reviews() {
     </Section>
   )
 }
+
+export default function Reviews() { return FEATURES.reviews ? <ReviewsContent /> : null }

@@ -90,9 +90,9 @@ export default function FinalCta() {
                     Get a Quote
                     <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </Button>
-                  <Button as="a" href={`tel:${BUSINESS.phoneRaw}`} variant="secondary-dark" size="lg" data-magnetic>
+                  <Button as="a" href={BUSINESS.phoneRaw ? `tel:${BUSINESS.phoneRaw}` : `mailto:${BUSINESS.email}`} variant="secondary-dark" size="lg" data-magnetic>
                     <Phone className="h-4 w-4" />
-                    Or call {BUSINESS.phone}
+                    {BUSINESS.phoneRaw ? `Or call ${BUSINESS.phone}` : 'Email us'}
                   </Button>
                 </Cluster>
 

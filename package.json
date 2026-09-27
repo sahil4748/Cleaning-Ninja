@@ -7,14 +7,17 @@
     "dev": "next dev -p 8001",
     "build": "next build",
     "start": "next start -p 8001",
-    "lint": "next lint",
+    "lint": "eslint . --max-warnings 70",
     "check:content": "tsx scripts/check-banned-content.ts",
-    "prebuild": "npm run check:content",
-    "test:e2e": "playwright test"
+    "prebuild": "npm run check:content && tsx scripts/check-release.ts",
+    "test:e2e": "playwright test",
+    "typecheck": "next typegen && tsc --noEmit --incremental false",
+    "check:release": "tsx scripts/check-release.ts --release",
+    "test:unit": "tsx --test tests/unit/*.test.ts"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
-    "@hookform/resolvers": "^3.10.0",
+    "@hookform/resolvers": "^5.2.2",
     "@lottiefiles/dotlottie-react": "^0.13.0",
     "@tailwindcss/postcss": "^4.1.15",
     "@types/node": "^24.9.1",
@@ -27,6 +30,7 @@
     "lenis": "^1.1.18",
     "lucide-react": "^0.546.0",
     "next": "^16.0.0",
+    "pg": "^8.23.0",
     "postcss": "^8.5.6",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
@@ -38,7 +42,11 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "@playwright/test": "^1.60.0",
+    "@types/pg": "^8.23.1",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.4",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.7.1",
     "tsx": "^4.19.2"

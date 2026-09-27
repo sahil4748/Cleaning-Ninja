@@ -1,3 +1,4 @@
+import { FEATURES } from '@/content/features'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Star } from 'lucide-react'
@@ -29,6 +30,7 @@ export const metadata: Metadata = {
 }
 
 export default function ReviewsPage() {
+  if (!FEATURES.reviews) return <main><Container><h1>Customer reviews</h1><p>Verified customer reviews will appear here when available.</p></Container></main>
   const stats = reviewStats()
   const fiveStarCount = REVIEWS.filter((review) => review.rating === 5).length
 

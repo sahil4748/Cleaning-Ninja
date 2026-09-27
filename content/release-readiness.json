@@ -1,0 +1,11 @@
+{
+  "status": "PREVIEW_ONLY",
+  "blockers": [
+    "Verified review evidence is unavailable; review publication remains disabled",
+    "Unverified staff, job imagery, editorial, prices and remaining public claims require removal or verification",
+    "Durable lead and notification architecture is implemented; production database, authenticated sender, recovery scheduler and delivery verification remain unconfigured or unverified",
+    "Phone, legal terms, privacy policy, ABN and NDIS treatment require launch review",
+    "Canonical ownership/equity and city/suburb SEO eligibility require verification",
+    "Homepage quality gate and explicit production approval are outstanding"
+  ]
+}

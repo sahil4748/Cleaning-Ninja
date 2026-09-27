@@ -43,9 +43,9 @@ export const FAQS: FaqItem[] = [
       'NDIS and support-cleaning requests can be sent through the contact form. The team will confirm the booking requirements before accepting the job.',
   },
   {
-    question: 'What\'s your ABN?',
+    question: 'How do I contact Cleaning Ninja?',
     answer:
-      'ABN 12 345 678 901. Verified live against the Australian Business Register — you can check it yourself at abr.business.gov.au.',
+      'Email contact@cleaningninja.co with your service requirements and suburb.',
   },
   {
     question: 'Do you clean Airbnb / short-stays?',

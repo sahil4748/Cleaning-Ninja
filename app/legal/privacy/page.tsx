@@ -19,7 +19,7 @@ export default function PrivacyPage() {
     >
       <h2 className="text-[24px] font-semibold pt-4">1. Who we are</h2>
       <p>
-        Cleaning Ninja (ABN {BUSINESS.abn}) operates a residential cleaning
+        Cleaning Ninja operates a residential cleaning
         service across Sydney, Melbourne, Brisbane, Perth, Adelaide and the
         Gold Coast. References to "we", "us" and "our" mean Cleaning Ninja and
         any related entity acting on our behalf (e.g. franchise operators or
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
 
       <h2 className="text-[24px] font-semibold pt-4">9. Contact</h2>
       <p>
-        Privacy Officer · Cleaning Ninja · ABN {BUSINESS.abn} · email{' '}
+        Privacy Officer · Cleaning Ninja · email{' '}
         <a className="text-olive underline decoration-olive-deep" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>.
       </p>
 
