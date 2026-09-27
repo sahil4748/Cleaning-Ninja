@@ -1,0 +1,104 @@
+import { test, expect } from '@playwright/test'
+
+const preview = process.env.H03_PREVIEW === '1'
+for (const mode of ['raw', 'retimed']) {
+  for (const [width, height] of [[1366, 768], [1440, 900], [1728, 1000], [1920, 1080]]) {
+    test(`H-03 ${mode} ${width}x${height}`, async ({ page }) => {
+      test.skip(!preview, 'Development-only motion comparison')
+      await page.setViewportSize({ width, height })
+      const errors: string[] = []
+      page.on('pageerror', error => errors.push(error.message))
+      await page.goto(`/?hero-motion=${mode}&ninja-cut=1`)
+      await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' })
+      await page.evaluate(() => document.fonts.ready)
+      const video = page.locator('.h03-motion')
+      await expect(video).toHaveAttribute('data-ready', 'true')
+      const initialBox = await page.locator('.home-hero').boundingBox()
+      const info = await video.evaluate((v: HTMLVideoElement) => {
+        v.pause()
+        return { duration: v.duration, width: v.videoWidth, height: v.videoHeight, muted: v.muted, inline: v.playsInline, loop: v.loop, controls: v.controls, preload: v.preload }
+      })
+      expect(info).toMatchObject({ width: 1920, height: 1080, muted: true, inline: true, loop: false, controls: false, preload: 'none' })
+      await expect(page.locator('.home-hero .ninja-media')).toHaveAttribute('data-cut-preview', 'false')
+      for (const time of [0, 1, 2.5, 4, 5]) {
+        await video.evaluate(async (v: HTMLVideoElement, t) => {
+          if (v.currentTime === t) return
+          await new Promise<void>(resolve => { v.addEventListener('seeked', () => resolve(), { once: true }); v.currentTime = t })
+        }, time)
+        expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
+        for (const selector of ['.home-header', '.home-hero h1', '.home-hero-description', '.h01-quote']) {
+          await expect(page.locator(selector)).toBeInViewport({ ratio: 1 })
+        }
+        expect(await page.locator('.home-hero').boundingBox()).toEqual(initialBox)
+        if (width === 1440 || time === 5) {
+          await page.screenshot({ path: `docs/execution/h03-screenshots/${mode}-${width}-${time === 5 ? 'end' : time === 0 ? 'start' : time === 2.5 ? 'middle' : `${time}s`}.png` })
+        }
+      }
+      console.log('H03', JSON.stringify({ mode, viewport: { width, height }, hero: initialBox, video: info }))
+      expect(errors).toEqual([])
+    })
+  }
+}
+
+test('H-03 production stays static, including comparison queries', async ({ page }) => {
+  test.skip(preview)
+  await page.goto('/?hero-motion=retimed&ninja-cut=1')
+  await expect(page.locator('.home-hero img')).toBeVisible()
+  await expect(page.locator('.h03-motion')).toHaveCount(0)
+})
+
+for (const kind of ['mobile', 'reduced', 'default', 'save-data', 'blocked', 'failed'] as const) {
+  test(`H-03 ${kind} fallback`, async ({ page }) => {
+    test.skip(!preview)
+    const requests: string[] = []
+    page.on('request', r => { if (r.url().includes('.mp4')) requests.push(r.url()) })
+    await page.setViewportSize({ width: kind === 'mobile' ? 390 : 1440, height: 900 })
+    if (kind === 'reduced') await page.emulateMedia({ reducedMotion: 'reduce' })
+    if (kind === 'save-data') await page.addInitScript(() => Object.defineProperty(navigator, 'connection', { value: { saveData: true } }))
+    if (kind === 'blocked') await page.addInitScript(() => { HTMLMediaElement.prototype.play = () => Promise.reject(new DOMException('Blocked', 'NotAllowedError')) })
+    if (kind === 'failed') await page.route('**/*.mp4', route => route.abort())
+    await page.goto(kind === 'default' ? '/' : '/?hero-motion=raw')
+    await page.locator('.home-hero img').evaluate((e: HTMLImageElement) => e.decode())
+    if (kind === 'blocked' || kind === 'failed') {
+      await expect(page.locator('.h03-motion')).toHaveCount(1)
+      await expect(page.locator('.h03-motion')).toHaveCSS('opacity', '0')
+    } else {
+      await expect(page.locator('.h03-motion')).toHaveCount(0)
+      expect(requests).toEqual([])
+    }
+    await expect(page.locator('.home-hero img')).toBeVisible()
+    if (kind === 'blocked') {
+      await page.evaluate(() => document.fonts.ready)
+      await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' })
+      await page.screenshot({ path: 'docs/execution/h03-screenshots/h01-fallback-1440.png' })
+    }
+  })
+}
+
+test('H-03 plays once, preserves poster while loading, responds to reduced motion', async ({ page }) => {
+  test.skip(!preview)
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.addInitScript(() => {
+    (window as Window & { h03CLS?: number }).h03CLS = 0
+    new PerformanceObserver(list => {
+      for (const entry of list.getEntries()) {
+        const shift = entry as PerformanceEntry & { hadRecentInput: boolean; value: number }
+        const metrics = window as Window & { h03CLS?: number }
+        if (!shift.hadRecentInput) metrics.h03CLS = (metrics.h03CLS ?? 0) + shift.value
+      }
+    }).observe({ type: 'layout-shift', buffered: true })
+  })
+  await page.route('**/*.mp4', async route => {
+    await expect(page.locator('.home-hero img')).toBeVisible()
+    expect(await page.locator('.home-hero img').evaluate((e: HTMLImageElement) => e.complete && e.naturalWidth > 0)).toBe(true)
+    await route.continue()
+  })
+  await page.goto('/?hero-motion=retimed')
+  await expect(page.locator('.h03-motion')).toHaveAttribute('data-ready', 'true')
+  await expect.poll(() => page.locator('.h03-motion').evaluate((v: HTMLVideoElement) => v.ended), { timeout: 10000 }).toBe(true)
+  await expect(page.locator('.h03-motion')).toHaveCSS('opacity', '1')
+  console.log('H03_SAMPLED_CLS', await page.evaluate(() => (window as Window & { h03CLS?: number }).h03CLS))
+  await page.emulateMedia({ reducedMotion: 'reduce' })
+  await expect(page.locator('.h03-motion')).toHaveCount(0)
+  await expect(page.locator('.home-hero img')).toBeVisible()
+})

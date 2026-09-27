@@ -46,3 +46,6 @@ build*.log
 /test-results/
 /tsconfig.tsbuildinfo
 .imgcheck/
+
+# Local-only stabilization archive; inventory and hashes are committed.
+/.local-evidence/

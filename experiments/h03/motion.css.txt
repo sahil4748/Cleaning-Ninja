@@ -1,0 +1,3 @@
+.home-hero-h01 .h03-motion { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; opacity: 0; pointer-events: none; }
+.home-hero-h01 .h03-motion[data-ready="true"] { opacity: 1; }
+@media (max-width: 1199px), (prefers-reduced-motion: reduce) { .home-hero-h01 .h03-motion { display: none; } }

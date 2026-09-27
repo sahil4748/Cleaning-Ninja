@@ -1,0 +1,4 @@
+import { defineConfig } from '@playwright/test'
+// Run only against the task-owned development server on port 8136, with
+// lead/email credentials disabled. Production coverage uses playwright.config.ts.
+export default defineConfig({ testDir: './tests', testMatch: 'h03-checkpoint.spec.ts', timeout: 60000, workers: 2, reporter: 'list', use: { baseURL: 'http://127.0.0.1:8136', browserName: 'chromium' } })
