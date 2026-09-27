@@ -1,13 +1,8 @@
+import { SITE_URL } from '@/lib/site-config'
 import type { Metadata } from 'next'
 import { Plus_Jakarta_Sans, Inter } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
-import MobileStickyCta from '@/components/layout/MobileStickyCta'
-import { MotionProvider } from '@/components/motion/MotionProvider'
-import { LenisProvider } from '@/components/motion/LenisProvider'
-import { SparkleCursor } from '@/components/motion/SparkleCursor'
-import { PageLoader } from '@/components/motion/PageLoader'
+import SiteShell from '@/components/layout/SiteShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { organizationSchema } from '@/lib/schema'
 
@@ -34,7 +29,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cleaningninja.com.au'),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Cleaning Ninja — Flat-Rate Cleaning Services',
     template: '%s | Cleaning Ninja',
@@ -61,7 +56,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_AU',
-    url: 'https://cleaningninja.com.au',
+    url: SITE_URL,
     siteName: 'Cleaning Ninja',
     title: 'Cleaning Ninja — Flat-Rate Cleaning Services',
     description:
@@ -83,8 +78,8 @@ export const metadata: Metadata = {
     images: ['/og-image.png'],
   },
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
   },
 }
 
@@ -97,16 +92,7 @@ export default function RootLayout({
     <html lang="en-AU" className={`${display.variable} ${inter.variable}`}>
       <body className="bg-cream text-charcoal font-body antialiased">
         <JsonLd data={organizationSchema()} />
-        <MotionProvider>
-          <LenisProvider>
-            <PageLoader />
-            <SparkleCursor />
-            <Header />
-            <main className="pt-16 lg:pt-20 pb-24 lg:pb-0">{children}</main>
-            <Footer />
-            <MobileStickyCta />
-          </LenisProvider>
-        </MotionProvider>
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   )
