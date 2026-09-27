@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test'
 
 test.describe('Cleaning Ninja — Booking Flow E2E Suite', () => {
 
-  test('successfully progress through all 7 steps of booking flow and submit', async ({ page }) => {
+  test('progress through the existing prototype without claiming durable acceptance', async ({ page }) => {
     // Navigate to the booking page
     await page.goto('/book')
 
@@ -73,7 +73,7 @@ test.describe('Cleaning Ninja — Booking Flow E2E Suite', () => {
     await page.getByLabel('Email').fill('jane@example.com')
     await page.getByLabel('Phone').fill('0412345678')
     await page.getByLabel('Property address').fill('123 George St, Sydney')
-    await page.locator('textarea').fill('Access code is 1234.')
+    await page.locator('textarea').fill('Synthetic test request only.')
     
     await expect(continueBtn).toBeEnabled()
     await continueBtn.click()
@@ -89,18 +89,14 @@ test.describe('Cleaning Ninja — Booking Flow E2E Suite', () => {
     await expect(summaryDl).toContainText('123 George St, Sydney')
     
     // Click "Confirm booking"
-    const confirmBtn = page.getByRole('button', { name: 'Confirm booking' })
+    const confirmBtn = page.getByRole('button', { name: 'Request a quote' })
     await expect(confirmBtn).toBeEnabled()
     await confirmBtn.click()
 
-    // --- SUCCESS SCREEN ---
-    await expect(page.locator('text=You\'re booked in.')).toBeVisible({ timeout: 10000 })
-    
-    // Check reference code format CN-XXXXXX
-    const refCode = page.locator('p.font-display.font-bold.text-\\[28px\\]')
-    await expect(refCode).toBeVisible()
-    const refValue = await refCode.innerText()
-    expect(refValue).toMatch(/^CN-[A-Z0-9]+$/)
+    // No fake booking confirmation/reference may be produced.
+    await expect(page.getByRole('alert').filter({ hasText: 'Your request has not been sent.' })).toContainText('Your request has not been sent.')
+    await expect(summaryDl).toContainText('Jane Doe')
+    await expect(page.getByText(/CN-[A-Z0-9]{6}/)).toHaveCount(0)
   })
 
   test('correctly prefills fields using query parameters', async ({ page }) => {

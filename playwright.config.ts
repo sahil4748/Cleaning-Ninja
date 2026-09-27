@@ -5,6 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './tests',
+  testMatch: '**/*.spec.ts',
   /* Individual test timeout */
   timeout: 60000,
   /* Run tests in files in parallel */
@@ -16,11 +17,11 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/reporters */
-  reporter: 'html',
+  reporter: [['list'], ['html', { open: 'never' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:8001',
+    baseURL: 'http://127.0.0.1:8136',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
@@ -36,9 +37,11 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run start',
-    url: 'http://localhost:8001',
-    reuseExistingServer: !process.env.CI,
+    command: 'npx next start -p 8136 -H 127.0.0.1',
+    // Automated browser checks must never access a real database or email provider.
+    env: { LEAD_DATABASE_URL: '', RESEND_API_KEY: '', LEAD_EMAIL_FROM: '', LEAD_WORKER_SECRET: '', LEAD_RATE_LIMIT_SECRET: '' },
+    url: 'http://127.0.0.1:8136',
+    reuseExistingServer: false,
     timeout: 120 * 1000,
   },
 });

@@ -1,0 +1,51 @@
+import { test, expect } from '@playwright/test'
+
+test('canonical package context reaches the real fail-closed API without clearing input', async ({ page }) => {
+  await page.goto('/')
+  await page.getByRole('button', { name: 'Enquire about package' }).first().click()
+  await page.getByLabel('Suburb/address (required)').fill('Test suburb')
+  await page.getByLabel('Name (required)').fill('Test Customer')
+  await page.getByLabel('Phone (required)').fill('0400000000')
+  const request = page.waitForRequest(request => request.url().endsWith('/api/quote') && request.method() === 'POST')
+  const response = page.waitForResponse(response => response.url().endsWith('/api/quote'))
+  await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
+  const payload = (await request).postDataJSON()
+  expect(payload.leadSource).toBe('package')
+  expect(payload.package).toBe('3-bedroom-carpet')
+  expect(payload.service).toBe('carpet-cleaning')
+  expect(payload.sourcePage).toBe('/')
+  expect(payload.consent.granted).toBe(true)
+  expect((await response).status()).toBe(503)
+  await expect(page.getByLabel('Name (required)')).toHaveValue('Test Customer')
+  await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText("wasn't sent")
+  expect(await page.evaluate(() => ({ local: localStorage.length, session: sessionStorage.length }))).toEqual({ local: 0, session: 0 })
+})
+
+test('review and contact configuration suppress unverified proof', async ({ page }) => {
+  await page.goto('/reviews')
+  await expect(page.getByRole('heading', { name: 'Customer reviews', exact: true })).toBeVisible()
+  await expect(page.getByText('Verified customer reviews will appear here when available.')).toBeVisible()
+  await expect(page.locator('a[href^="tel:"]')).toHaveCount(0)
+  await expect(page.getByText('1,247')).toHaveCount(0)
+})
+
+test('unchanged retry keeps its key and accepted receipt disables duplicate submission', async ({ page }) => {
+  await page.goto('/')
+  await page.getByLabel('Suburb/address (required)').fill('Test suburb')
+  await page.getByLabel('Name (required)').fill('Synthetic Customer')
+  await page.getByLabel('Phone (required)').fill('0400000000')
+  const keys: string[] = []
+  await page.route('**/api/quote', async route => {
+    keys.push(route.request().headers()['idempotency-key'])
+    await route.fulfill({ status: keys.length === 1 ? 503 : 201, contentType: 'application/json', body: keys.length === 1 ? '{"status":"unavailable"}' : '{"status":"accepted","durableId":"synthetic-durable-test-reference"}' })
+  })
+  const button = page.getByRole('button', { name: 'Request a Quote', exact: true })
+  await button.click()
+  await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText('Your details remain in the form.')
+  await button.click()
+  await expect(page.getByRole('button', { name: 'Request received' })).toBeDisabled()
+  expect(keys[0]).toBeTruthy()
+  expect(keys[1]).toBe(keys[0])
+  await expect(page.getByRole('form').getByRole('status')).toContainText('Your quote request has been sent to Cleaning Ninja.')
+  await expect(page.getByRole('form').getByRole('status')).toContainText('not a confirmed booking')
+})
