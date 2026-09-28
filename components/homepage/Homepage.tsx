@@ -2,13 +2,25 @@
 
 import { COMMUNICATION, FEATURES } from '@/content/features'
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 import { ArrowDown, ArrowLeft, ArrowRight, ArrowUpRight, MapPin } from 'lucide-react'
 import { approvedHomepageReviews, homeServices, homepageFaq, packages } from '@/content/homepage'
 import HomeHeader, { Brand } from './HomeHeader'
 import QuoteForm, { type QuoteContext } from './QuoteForm'
 import NinjaMedia from './NinjaMedia'
 import HomeStickyQuote from './HomeStickyQuote'
+import HeroDesignLab, { type HeroDesign } from './HeroDesignLab'
+
+function subscribeHeroDesign(update: () => void) {
+  window.addEventListener('popstate', update)
+  return () => window.removeEventListener('popstate', update)
+}
+function readHeroDesign(): HeroDesign | null {
+  if (process.env.NODE_ENV !== 'development') return null
+  const design = new URLSearchParams(window.location.search).get('hero-design')
+  return design === 'a' || design === 'b' || design === 'c' || design === 'd' ? design : null
+}
+const serverHeroDesign = () => null
 
 function Proof() {
   if (!FEATURES.reviews || !approvedHomepageReviews.length) return null
@@ -16,6 +28,7 @@ function Proof() {
 }
 
 export default function Homepage() {
+  const heroDesign = useSyncExternalStore(subscribeHeroDesign, readHeroDesign, serverHeroDesign)
   const [context, setContext] = useState<QuoteContext>({ service: '', suburb: '', packageName: '' })
   const [activeService, setActiveService] = useState(0)
   const rail = useRef<HTMLDivElement>(null)
@@ -34,10 +47,10 @@ export default function Homepage() {
     requestAnimationFrame(() => document.getElementById('quote-service')?.focus({ preventScroll: true }))
   }
   const service = homeServices[activeService]
-  return <div className="home-prototype">
+  return <div className="home-prototype" data-hero-design={heroDesign ?? undefined}>
     <HomeHeader />
     <main id="home-main" tabIndex={-1}>
-      <section className="home-hero home-hero-h01" aria-labelledby="hero-title">
+      {heroDesign ? <HeroDesignLab direction={heroDesign} /> : <section className="home-hero home-hero-h01" aria-labelledby="hero-title">
         <NinjaMedia hero />
         <div className="home-hero-copy"><p className="home-eyebrow">CLEANING NINJA</p>
           <h1 id="hero-title">Bring your space<br />back to <em>calm.</em></h1>
@@ -45,7 +58,7 @@ export default function Homepage() {
           <a href="#quote" className="home-button h01-quote">Get a Quote<ArrowUpRight size={18} /></a>
         </div>
         <div className="home-hero-bottom"><span>A LITTLE LESS NOISE. A LITTLE MORE LIFE.</span><a href="#packages" aria-label="Explore selected packages"><ArrowDown size={20} /></a><span className="home-media-caption">Illustrative interior</span></div>
-      </section>
+      </section>}
       <section id="packages" className="home-section home-packages" aria-labelledby="packages-title">
         <div className="home-section-heading"><div><p className="home-eyebrow">01 / A PLACE TO START</p><h2 id="packages-title">Selected Packages</h2></div><div className="home-section-intro"><p>A few familiar spaces.<br />One simple starting point.</p><div className="home-rail-controls"><button className="home-icon-button" aria-label="Previous packages" onClick={() => rail.current?.scrollBy({ left: -rail.current.clientWidth * 0.7, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })}><ArrowLeft size={20} /></button><button className="home-icon-button" aria-label="Next packages" onClick={() => rail.current?.scrollBy({ left: rail.current.clientWidth * 0.7, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' })}><ArrowRight size={20} /></button></div></div></div>
         <div ref={rail} className="home-package-rail" tabIndex={0} role="region" aria-label="Selected packages, scroll for more">
@@ -70,7 +83,7 @@ export default function Homepage() {
       <section id="quote" className="home-section home-quote" aria-labelledby="quote-title"><div className="home-quote-intro"><p className="home-eyebrow">06 / YOUR RESET STARTS HERE</p><h2 id="quote-title">Tell us about<br /><em>your space.</em></h2><p>Just the essentials.<br />One form. A clearer starting point.</p><a className="home-email" href={COMMUNICATION.email.href}>{COMMUNICATION.email.address}</a></div><QuoteForm context={context} onChange={setContext} /></section>
       <section className="home-final" aria-labelledby="final-title"><p className="home-eyebrow">CLEANING NINJA · BRISBANE</p><h2 id="final-title">Come home to <em>calm.</em></h2><a href="#quote" className="home-button home-button-light">Get a Quote<ArrowUpRight size={18} /></a></section>
     </main>
-    <HomeStickyQuote />
+    <HomeStickyQuote key={heroDesign ?? 'default'} />
     <footer className="home-footer"><Brand /><p>A little less noise.<br />A little more life.</p><nav aria-label="Footer navigation"><a href="#services">Services</a><a href="#quote">Get a Quote</a><a href={COMMUNICATION.email.href}>Email us</a><a href="/legal/privacy">Privacy</a><a href="/legal/terms">Terms</a></nav><div className="home-footer-bottom"><span>© {new Date().getFullYear()} Cleaning Ninja</span><span>BRISBANE, AUSTRALIA</span></div></footer>
   </div>
 }

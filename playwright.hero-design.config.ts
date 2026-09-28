@@ -1,0 +1,13 @@
+import { defineConfig } from '@playwright/test'
+process.env.HERO_DESIGN_DEVELOPMENT = '1'
+
+export default defineConfig({
+  testDir: './tests', testMatch: 'hero-design.spec.ts', timeout: 60000,
+  workers: 1, reporter: 'list',
+  use: { baseURL: 'http://127.0.0.1:8136', browserName: 'chromium' },
+  webServer: {
+    command: 'node_modules/.bin/next dev -p 8136 -H 127.0.0.1',
+    url: 'http://127.0.0.1:8136', reuseExistingServer: false, timeout: 120000,
+    env: { LEAD_DATABASE_URL: '', RESEND_API_KEY: '', LEAD_EMAIL_FROM: '', LEAD_WORKER_SECRET: '', LEAD_RATE_LIMIT_SECRET: '' },
+  },
+})

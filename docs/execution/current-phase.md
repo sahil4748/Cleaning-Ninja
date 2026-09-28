@@ -1,5 +1,41 @@
 # Current phase
 
+D Desktop Direction Checkpoint · 2026-09-28 · `rebuild-2026`.
+
+**DESKTOP — OWNER-APPROVED:** D — Precision with Expression is locked as the current static art-direction foundation, including the completed one-row desktop header refinement. This is direction approval, not production activation or deployment approval.
+
+**MOBILE — NOT FINALLY APPROVED:** H-02/D mobile typography and layout are retained only as a working baseline. The owner reports that the mobile hero, especially at an iPhone 16-class viewport, is not yet visually/cinematically strong enough. A dedicated iPhone/mobile art-direction sprint and separate H-02 media/composition review remain required. Passing browser checks does not establish visual approval.
+
+**CINEMATIC / DEFAULT:** H-03 masked desktop remains preserved but inactive in production; no H-03 changes. H-04 has not been generated. Default remains H-01 desktop static + H-02 mobile static. Design routes A/B/C/D remain opt-in and development-only.
+
+Owner authorises one logical checkpoint commit and normal push to `origin rebuild-2026` after scope review, typecheck, lint, unit tests, production build and focused hero-design regression checks. This supersedes the earlier no-commit restrictions only for this checkpoint. No mobile redesign, source-media changes, Higgsfield, lower-page work, production D activation, deployment or merge. [Checkpoint scope and validation](d-hero-checkpoint-report.md). Stop after the D Hero Checkpoint Report.
+
+## Previous micro-refinement pass
+
+D Hero Micro-refinement · 2026-09-28 · `rebuild-2026`.
+
+Owner decision: D is the lead hero direction; the two-row desktop navigation is rejected. Correct the desktop overlay to one line while preserving D's core composition, typography, copy, CTA family and independent mobile treatment. No new direction or return to A/B/C. The existing logo remains intact.
+
+Deliverable: [D Hero Micro-refinement Report](d-micro-refinement/report.md), refined desktop/mobile captures and D-only before/after sheets. Development-only `?hero-design=d`; default unchanged. No commit, H-01/H-02 edits, H-03 work, lower-page work, Higgsfield, deployment or merge. Recommendation is readiness for owner approval, not approval itself. Stop at the report.
+
+## Previous synthesis pass
+
+Hero Synthesis Pass · 2026-09-28 · `rebuild-2026`.
+
+The owner confirms none of A/B/C is final and authorises one synthesis: D — Precision with Expression, development-only at `?hero-design=d`. B supplies architectural structure, A expressive authority, C image breathing room. The natural two-line headline, independent H-02 composition and integrated overlay header are the focus. Existing logo assets remain intact; the ivory backing is assessed as a future brand constraint.
+
+Deliverable: [Hero Synthesis Report](hero-synthesis/report.md), D desktop/mobile captures and A/B/D sheets. No default activation or final approval. No commit, source-media changes, H-03 work, lower-homepage redesign, Higgsfield, deployment or merge. Stop at the report.
+
+## Previous art direction pass
+
+Hero Art Direction Laboratory · 2026-09-28 · `rebuild-2026`.
+
+The fresh owner brief authorises exactly three development-only hero compositions using approved H-01/H-02 media and locked copy. This supersedes the prior typography/layout stop for this bounded sprint. Production/default remains unchanged. H-03 is preserved, with no production activation or playback changes. No source-media edits, generation, lower-homepage redesign, dependencies, deployment, merge or commit.
+
+Deliverable: [Hero Art Direction Report](hero-art-direction/report.md), with desktop/mobile comparison sheets, six primary captures, responsive findings and technical checks. Direction B is recommended for owner review only; no visual approval is recorded. Stop after the report.
+
+## Previous phase
+
 H-03 Masked Composition Checkpoint · 2026-09-28 · `rebuild-2026`.
 
 The owner confirms the refined H-03 masked composition has passed the current owner/technical visual gate. Preserve the approved development experiment, its exact mask geometry, route/tests and reports in one commit and push normally to `origin rebuild-2026`. This authorisation supersedes the prior no-commit stop for this checkpoint only.

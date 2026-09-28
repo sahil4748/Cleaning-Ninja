@@ -2,6 +2,8 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
+Latest hero gate (2026-09-28): **desktop D is the owner-approved static art-direction foundation; mobile H-02/D is NOT finally approved** and remains a working baseline pending dedicated iPhone/mobile review. See the desktop direction checkpoint entry below. Earlier media preservation approvals and technical checks do not override this distinction.
+
 ## Classification
 
 - VERIFIED: explicit evidence or previously established owner facts, with source and scope.
@@ -96,3 +98,31 @@ OWNER-APPROVED bounded continuation: refine only raw H-03 plinth/hearth/lower-re
 ## H-03 masked composition checkpoint — owner update 2026-09-28
 
 OWNER-APPROVED: the refined H-03 masked composition has passed the current owner/technical visual gate. Preserve the exact final lower-return geometry, development-only experiment, route/tests and reports in ONE checkpoint commit, then push normally to `origin rebuild-2026`. This supersedes the prior no-commit restriction for this bounded checkpoint. H-01 desktop/H-02 mobile remain production/default stills; no public H-03 MP4 or production query activation. No redesign, typography/layout change, autoplay/LCP work, Ninja Cut animation, Higgsfield, new media/H-04, deployment or merge. Stop after the checkpoint report; visual approval does not authorise production motion or release.
+
+## Hero art direction laboratory — owner update 2026-09-28
+
+OWNER-APPROVED scope, not visual approval: create exactly three development-only hero compositions via `?hero-design=a`, `b`, and `c`: Editorial Monument, Architectural Precision, Quiet Cinema. Refine only hero typography, composition and initial header/CTA treatment using existing Instrument Serif/Manrope and approved H-01/H-02 stills. Wording is locked to the owner's brief. Compose desktop/mobile independently and provide the requested capture matrix, comparisons and critique.
+
+H-01/H-02 remain the default; H-03 stays preserved and inactive in production. No source-image changes, media generation, Higgsfield, lower-homepage work, dependencies, canvas/WebGL, deployment, merge or commit. No direction is approved or selected. Stop at the [Hero Art Direction Report](../execution/hero-art-direction/report.md); owner review is the next gate.
+
+## Hero synthesis — owner update 2026-09-28
+
+OWNER-APPROVED continuation scope: none of A/B/C is final. Use B's structure, A's typographic authority and C's image breathing room to create only D — Precision with Expression at development-only `?hero-design=d`. Prefer the natural two-line headline. Refine hero, support, CTA and overlay header only; preserve logo assets and assess their ivory backing separately. A/B/C may remain as comparisons. Deliver D captures, A/B/D sheets, responsive validation and a synthesis report.
+
+No visual approval or default activation; no commit, media/source changes, H-03 work, Higgsfield, lower-page redesign, deployment or merge. A future Brand Lockup Sprint is a recommendation only and is not authorised for execution here. Stop at the [Hero Synthesis Report](../execution/hero-synthesis/report.md).
+
+## D hero micro-refinement — owner update 2026-09-28
+
+OWNER-APPROVED direction: D is now the lead hero composition. Preserve its natural two-line headline, upright Instrument Serif, stepped alignment, support hierarchy, CTA family, architectural balance and independent mobile composition. The two-row desktop navigation is REJECTED. Correct it to one coherent horizontal row in the bright ceiling area, retaining all controls and a secondary header quote action. Logo assets remain unchanged; their ivory backing remains a future brand constraint.
+
+Bounded scope: refine D only at `?hero-design=d`, validate the eight requested sizes, and provide D-only before/after evidence and a [Micro-refinement Report](../execution/d-micro-refinement/report.md). No return to A/B/C, new concept, commit, default activation, H-01/H-02 change, H-03 work, Higgsfield, lower-page work, deployment or merge. Lead-direction status does not constitute final static composition approval. Stop at the report.
+
+## D desktop direction checkpoint — owner update 2026-09-28
+
+**DESKTOP — OWNER-APPROVED:** D — Precision with Expression is approved and locked as the current STATIC ART-DIRECTION FOUNDATION after the one-row desktop header micro-refinement. No production D activation is authorised.
+
+**MOBILE — PENDING, NOT FINALLY APPROVED:** retain D mobile typography/layout only as a working baseline. The owner explicitly reports insufficient visual/cinematic strength, especially at an iPhone 16-class viewport. H-02 mobile media/composition requires a separate owner/art-direction review and dedicated mobile sprint. Prior mobile preservation, pixel equality and responsive checks are technical evidence, not final mobile visual approval.
+
+**CINEMATIC:** H-03 masked desktop remains preserved but inactive in production; its implementation is unchanged. H-04 has not been generated. Production/default remains H-01 desktop static and H-02 mobile static; hero-design routes remain opt-in and development-only.
+
+OWNER-APPROVED checkpoint action: review and preserve only the Hero Art Direction Lab, D synthesis, desktop header refinement and associated tests/reports/documentation in one logical commit, then push normally to `origin rebuild-2026`. This supersedes prior no-commit restrictions for this checkpoint only. No H-02/H-03 edits, H-04 generation, Higgsfield, lower-page work, deployment or merge. Stop at the D Hero Checkpoint Report; the mobile sprint is not performed here.
