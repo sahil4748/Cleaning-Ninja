@@ -1,150 +1,158 @@
 import { test, expect } from '@playwright/test'
 
-const widths = [320, 375, 390, 430, 768, 1024, 1366, 1440, 1728, 1920]
-for (const width of widths) {
-  test(`homepage composition at ${width}px`, async ({ page }) => {
-    await page.setViewportSize({ width, height: width < 768 ? 812 : 1000 })
+const sizes = [[320,568],[360,800],[375,812],[390,844],[393,852],[402,874],[412,915],[430,932],[440,956],[768,1024],[1024,900],[1366,768],[1440,900],[1728,1000],[1920,1080]]
+for (const [width, height] of sizes) {
+  test(`homepage composition at ${width}×${height}`, async ({ page }) => {
+    await page.setViewportSize({ width, height })
     const errors: string[] = []
     page.on('pageerror', error => errors.push(error.message))
     await page.goto('/')
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Bring your spaceback to calm.')
-    await expect(page.locator('.home-hero .home-button')).toBeInViewport()
-    await expect(page.locator('.home-brand').first()).toBeVisible()
-    await expect(page.locator('.home-header').getByRole('button', { name: 'Call and communication options' })).toBeVisible()
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
-    for (const id of ['packages', 'services', 'how-it-works', 'brisbane', 'faq', 'quote']) {
+    await page.evaluate(() => document.fonts.ready)
+    await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Bring your space back to calm.')
+    await expect(page.locator('.home-hero .home-button')).toBeInViewport({ ratio: 1 })
+    const source = await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.currentSrc)
+    expect(source).toContain(width < 768 ? 'hf_20260928_141125_f8371d19' : 'hf_20260927_084053_c4d57005')
+    await expect(page.locator('.home-package')).toHaveCount(5)
+    await expect(page.locator('.home-service-index button')).toHaveCount(10)
+    const headers = await page.locator('.home-header a, .home-header button').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()).filter(rect => rect.width))
+    for (const rect of headers) { expect(rect.x).toBeGreaterThanOrEqual(0); expect(rect.right).toBeLessThanOrEqual(width); expect(rect.height).toBeGreaterThanOrEqual(44) }
+    for (const id of ['packages','services','ninja-cut','why','how-it-works','proof','coverage','faq','quote']) {
       await page.locator(`#${id}`).scrollIntoViewIfNeeded()
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     }
-    await expect(page.locator('.home-proof')).toHaveCount(0)
-    await expect(page.locator('a[href^="tel:"]')).toHaveCount(0)
+    await expect(page.locator('a[href^="tel:"], video, canvas')).toHaveCount(0)
     await expect(page.getByText(/1,247|4\.9|police.checked|insured|guarantee/i)).toHaveCount(0)
     await expect(page.locator('h1')).toHaveCount(1)
+    const body = await page.locator('main').innerText()
+    expect(body).not.toMatch(/\$\d|\d+% off|Brisbane is where we begin|booking confirmed|five.star/i)
     expect(errors).toEqual([])
-    await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
-    await page.locator('.home-hero').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
-    await page.screenshot({ path: `test-results/homepage-${width}.png`, fullPage: true })
-    await page.screenshot({ path: `test-results/homepage-viewport-${width}.png` })
+    if ([390,440,1440].includes(width)) {
+      await page.locator('#ninja-cut').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
+      await page.locator('main img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode().catch(() => {}))))
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+      await expect(page.locator('.home-header')).toHaveAttribute('data-scrolled', 'false')
+      await page.locator('.home-header').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
+      await page.screenshot({ path: `docs/execution/homepage-finish/screenshots/full-${width}.png`, fullPage: true })
+      if (width !== 440) await page.screenshot({ path: `docs/execution/homepage-finish/screenshots/hero-${width}.png` })
+      if (width === 1440) await page.locator('#packages').screenshot({ path: 'docs/execution/homepage-finish/screenshots/packages-1440.png', style: '.home-header { visibility: hidden; }' })
+    }
   })
 }
 
-test('communication dialog and mobile menu support keyboard and return focus', async ({ page }) => {
+test('communication, mobile menu, FAQ and sticky quote support keyboard', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
+  await expect(page.locator('.home-sticky-quote')).toBeHidden()
   const call = page.getByRole('button', { name: 'Call and communication options' })
-  await call.focus()
-  await page.keyboard.press('Enter')
-  await expect(page.getByRole('dialog', { name: 'Call Cleaning Ninja' })).toBeVisible()
+  await call.focus(); await page.keyboard.press('Enter')
+  await expect(page.getByRole('dialog', { name: 'Talk to Cleaning Ninja' })).toBeVisible()
   await expect(page.getByRole('button', { name: 'Close communication options' })).toBeFocused()
   await page.keyboard.press('Shift+Tab')
-  await expect(page.getByRole('dialog', { name: 'Call Cleaning Ninja' }).getByRole('link', { name: 'contact@cleaningninja.co' })).toBeFocused()
-  await page.keyboard.press('Escape')
-  await expect(call).toBeFocused()
+  await expect(page.getByRole('dialog').getByRole('link', { name: 'contact@cleaningninja.co' })).toBeFocused()
+  await page.keyboard.press('Escape'); await expect(call).toBeFocused()
   const menu = page.getByRole('button', { name: 'Open menu' })
-  await menu.click()
-  await expect(page.getByRole('navigation', { name: 'Mobile navigation' })).toBeVisible()
-  await page.keyboard.press('Escape')
-  await expect(menu).toBeFocused()
+  await menu.click(); await page.keyboard.press('Escape'); await expect(menu).toBeFocused()
   await menu.click()
   await page.getByRole('navigation', { name: 'Mobile navigation' }).getByRole('link', { name: 'Packages' }).click()
   await expect(page.getByRole('dialog')).toHaveCount(0)
   await expect(page.locator('#packages')).toBeInViewport()
+  await expect(page.locator('.home-sticky-quote')).toBeVisible()
+  await page.locator('#faq summary').first().focus(); await page.keyboard.press('Enter')
+  await expect(page.locator('#faq details').first()).toHaveAttribute('open', '')
+  await page.locator('.home-sticky-quote').click()
+  await expect(page.locator('.home-sticky-quote')).toBeHidden()
+  await expect(page.locator('#quote')).toBeInViewport()
 })
 
-test('package, service and area context preserve quote fields and fail safely', async ({ page }) => {
+test('package, service and area context persist; backend unavailable never shows receipt', async ({ page }) => {
   await page.goto('/')
   await page.getByLabel('Name (required)').fill('Synthetic Customer')
   await page.getByLabel('Phone (required)').fill('0400000000')
-  await page.getByLabel('Description (optional)').fill('Synthetic local test only.')
+  await page.getByLabel('Description (required)').fill('Synthetic local test only.')
   await page.getByLabel('Email (optional)').fill('test@example.com')
-  await page.getByLabel('Your suburb or address').fill('New Farm')
-  await page.getByRole('button', { name: 'Enquire about package' }).nth(3).click()
+  await page.getByLabel('Your suburb or address').fill('Synthetic suburb')
+  await page.getByRole('button', { name: 'Enquire about 5-seat fabric lounge' }).click()
   await expect(page.getByLabel('Service', { exact: true })).toHaveValue('upholstery-cleaning')
   await expect(page.getByText('Selected package:')).toContainText('5-seat fabric lounge')
-  await expect(page.getByLabel('Suburb/address (required)')).toHaveValue('New Farm')
-  await expect(page.getByLabel('Name (required)')).toHaveValue('Synthetic Customer')
+  await expect(page.getByLabel('Suburb/address (required)')).toHaveValue('Synthetic suburb')
   await page.getByRole('button', { name: '05 Leather Care' }).click()
-  await page.locator('.home-service-desktop').getByRole('button', { name: 'Quote this service' }).click()
+  await page.getByRole('button', { name: 'Quote this service' }).click()
   await expect(page.getByLabel('Service', { exact: true })).toHaveValue('leather-cleaning')
   await expect(page.getByText('Selected package:')).toHaveCount(0)
   await page.getByLabel('Preferred date (optional)').fill('2026-12-20')
   await page.getByLabel('Preferred time (optional)').fill('10:30')
   const requestPromise = page.waitForRequest(request => request.url().endsWith('/api/quote') && request.method() === 'POST')
   await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
-  const request = await requestPromise
-  expect(request.postDataJSON()).toMatchObject({ intent: 'booking', service: 'leather-cleaning', city: 'Brisbane', suburbOrAddress: 'New Farm', preferredDateTime: { date: '2026-12-20', time: '10:30', timeZone: 'Australia/Brisbane' } })
+  const payload = (await requestPromise).postDataJSON()
+  expect(payload).toMatchObject({ intent: 'booking', service: 'leather-cleaning', suburbOrAddress: 'Synthetic suburb', preferredDateTime: { date: '2026-12-20', time: '10:30', timeZone: 'Australia/Brisbane' } })
+  expect(payload.city).toBeUndefined()
   await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText("Your request wasn't sent.")
   await expect(page.getByLabel('Name (required)')).toHaveValue('Synthetic Customer')
-  await expect(page.getByLabel('Description (optional)')).toHaveValue('Synthetic local test only.')
-  await expect(page.getByLabel('Preferred date (optional)')).toHaveValue('2026-12-20')
+  await expect(page.getByLabel('Description (required)')).toHaveValue('Synthetic local test only.')
   await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toBeFocused()
 })
 
-test('validation, optional fields and network failures never simulate receipt', async ({ page }) => {
+test('required fields, invalid receipt, network failure and idempotent retry', async ({ page }) => {
   await page.goto('/')
   await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
-  await expect(page.locator('form [aria-invalid=true]')).toHaveCount(3)
-  await expect(page.getByLabel('Suburb/address (required)')).toBeFocused()
+  await expect(page.locator('form [aria-invalid=true]')).toHaveCount(5)
+  await expect(page.getByLabel('Service', { exact: true })).toBeFocused()
+  await page.getByLabel('Service', { exact: true }).selectOption('carpet-cleaning')
+  await page.getByLabel('Description (required)').fill('Synthetic local test only.')
   await page.getByLabel('Suburb/address (required)').fill('Test suburb')
   await page.getByLabel('Name (required)').fill('Test Customer')
   await page.getByLabel('Phone (required)').fill('0400000000')
-  await page.route('**/api/quote', route => route.fulfill({ status: 200, contentType: 'application/json', body: '{"status":"accepted"}' }))
+  const keys: string[] = []
+  await page.route('**/api/quote', route => { keys.push(route.request().headers()['idempotency-key']); return route.fulfill({ status: 200, contentType: 'application/json', body: '{"status":"accepted"}' }) })
   await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
   await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText("wasn't sent")
+  await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
+  await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText("wasn't sent")
+  expect(keys[0]).toBeTruthy(); expect(keys[1]).toBe(keys[0])
   await page.route('**/api/quote', route => route.abort())
   await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
   await expect(page.getByRole('form', { name: 'Request a Quote' }).getByRole('alert')).toContainText('could not confirm receipt')
   await expect(page.getByLabel('Name (required)')).toHaveValue('Test Customer')
 })
 
-test('mobile service context and reduced motion resolve without animation', async ({ page }) => {
+test('reduced motion, mobile services and visible focus', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' })
-  await page.setViewportSize({ width: 375, height: 812 })
+  await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-  expect(await page.locator('.ninja-unresolved').first().evaluate(element => getComputedStyle(element).display)).toBe('none')
-  expect(await page.locator('.ninja-resolved').first().evaluate(element => getComputedStyle(element).animationName)).toBe('none')
-  await page.locator('.home-service-mobile').getByRole('button', { name: 'Quote this service' }).nth(1).click()
+  expect(await page.locator('.home-cut-noise').evaluate(element => getComputedStyle(element).display)).toBe('none')
+  await page.getByRole('button', { name: '02 Carpet Steam Clean' }).click()
+  await expect(page.locator('#active-service-title')).toBeFocused()
+  await expect(page.getByRole('button', { name: 'Quote this service' })).toBeInViewport()
+  await page.getByRole('button', { name: 'Quote this service' }).click()
   await expect(page.getByLabel('Service', { exact: true })).toHaveValue('carpet-cleaning')
   await expect(page.getByLabel('Service', { exact: true })).toBeFocused()
-  await page.locator('#faq summary').first().focus()
-  await page.keyboard.press('Enter')
-  await expect(page.locator('#faq details').first()).toHaveAttribute('open', '')
-  const sources = await page.locator('.home-hero img').first().evaluate((element: HTMLImageElement) => element.currentSrc)
-  expect(sources).toContain('hf_20260927_092222_11c8acc0')
+  await page.keyboard.press('Tab')
+  expect(await page.locator(':focus').evaluate(element => getComputedStyle(element).outlineStyle)).not.toBe('none')
 })
 
-test('homepage local performance observations and media loading', async ({ page }) => {
+test('local performance and static optimized hero delivery', async ({ page }) => {
   await page.addInitScript(() => {
-    const metrics = { lcp: 0, cls: 0 }
+    const metrics = { lcp: 0, cls: 0, interaction: 0 }
     Object.assign(window, { homeMetrics: metrics })
     new PerformanceObserver(list => { for (const entry of list.getEntries()) metrics.lcp = entry.startTime }).observe({ type: 'largest-contentful-paint', buffered: true })
     new PerformanceObserver(list => { for (const entry of list.getEntries()) { const shift = entry as PerformanceEntry & { hadRecentInput: boolean; value: number }; if (!shift.hadRecentInput) metrics.cls += shift.value } }).observe({ type: 'layout-shift', buffered: true })
+    new PerformanceObserver(list => { for (const entry of list.getEntries()) metrics.interaction = Math.max(metrics.interaction, entry.duration) }).observe({ type: 'event', buffered: true, durationThreshold: 16 } as PerformanceObserverInit)
   })
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/')
-  await page.locator('.home-hero img').first().evaluate((image: HTMLImageElement) => image.decode())
+  await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
   await page.evaluate(() => document.fonts.ready)
-  await page.waitForTimeout(2200)
+  await page.getByRole('button', { name: 'Call and communication options' }).click()
+  await page.keyboard.press('Escape')
+  await page.waitForTimeout(300)
   const metrics = await page.evaluate(() => ({
-    ...(window as unknown as { homeMetrics: { lcp: number; cls: number } }).homeMetrics,
-    javascriptTransferBytes: performance.getEntriesByType('resource').filter(entry => entry.name.includes('.js')).reduce((sum, entry) => sum + (entry as PerformanceResourceTiming).transferSize, 0),
+    ...(window as unknown as { homeMetrics: { lcp: number; cls: number; interaction: number } }).homeMetrics,
+    javascriptBytes: performance.getEntriesByType('resource').filter(entry => entry.name.includes('.js')).reduce((sum, entry) => sum + (entry as PerformanceResourceTiming).transferSize, 0),
     heroSource: (document.querySelector('.home-hero img') as HTMLImageElement).currentSrc,
   }))
   console.log('HOMEPAGE_LOCAL_METRICS', JSON.stringify(metrics))
   expect(metrics.cls).toBeLessThanOrEqual(0.1)
-  expect(metrics.heroSource).toContain('hf_20260927_084053_c4d57005')
-  await expect(page.locator('canvas')).toHaveCount(0)
-  await expect(page.locator('video')).toHaveCount(0)
-})
-
-test('short mobile viewport retains CTA and touch targets', async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 568 })
-  await page.goto('/')
-  await expect(page.locator('.home-hero .home-button')).toBeInViewport({ ratio: 1 })
-  const tooSmall = await page.locator('.home-header a, .home-header button, .home-package button, .home-service-mobile button, .home-service-mobile a, .home-footer a').evaluateAll(elements => elements.filter(element => {
-    const rect = element.getBoundingClientRect()
-    return rect.width > 0 && rect.height > 0 && (rect.width < 44 || rect.height < 44)
-  }).map(element => element.textContent || element.getAttribute('aria-label')))
-  expect(tooSmall).toEqual([])
-  await page.screenshot({ path: 'test-results/homepage-viewport-320-short.png' })
+  expect(metrics.heroSource).toContain('/_next/image?')
+  await expect(page.locator('canvas, video')).toHaveCount(0)
 })

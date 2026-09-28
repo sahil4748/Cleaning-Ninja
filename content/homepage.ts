@@ -7,7 +7,7 @@ export const packages = FEATURES.packages ? PACKAGES.filter(item => item.enabled
 export const homepageFaq = [
   ['How do I get a quote?', 'Choose a service or package, then share your suburb and a few details in the form below. Pricing and scope are discussed as part of your quote.'],
   ['Can I request a preferred date?', 'Yes. Add a preferred date and time to your enquiry. This is a request, not a confirmed booking or an indication of availability.'],
-  ['Do you service my Brisbane suburb?', 'Enter your suburb or address with your request so coverage can be checked. A Brisbane location does not automatically confirm service eligibility.'],
+  ['Do you service my area?', 'Cleaning Ninja serves major Australian cities. Enter your suburb or address with your request so coverage for your location can be checked.'],
   ['Are package prices fixed?', 'The selected packages are starting points for your enquiry. Pricing, inclusions and suitability need to be confirmed in your quote.'],
 ]
 // No placeholder review content is imported. Publish only after evidence approval.

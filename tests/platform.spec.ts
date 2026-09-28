@@ -2,10 +2,11 @@ import { test, expect } from '@playwright/test'
 
 test('canonical package context reaches the real fail-closed API without clearing input', async ({ page }) => {
   await page.goto('/')
-  await page.getByRole('button', { name: 'Enquire about package' }).first().click()
+  await page.getByRole('button', { name: 'Enquire about 3-bedroom carpet' }).first().click()
   await page.getByLabel('Suburb/address (required)').fill('Test suburb')
   await page.getByLabel('Name (required)').fill('Test Customer')
   await page.getByLabel('Phone (required)').fill('0400000000')
+  await page.getByLabel('Description (required)').fill('Synthetic local platform test.')
   const request = page.waitForRequest(request => request.url().endsWith('/api/quote') && request.method() === 'POST')
   const response = page.waitForResponse(response => response.url().endsWith('/api/quote'))
   await page.getByRole('button', { name: 'Request a Quote', exact: true }).click()
@@ -34,6 +35,8 @@ test('unchanged retry keeps its key and accepted receipt disables duplicate subm
   await page.getByLabel('Suburb/address (required)').fill('Test suburb')
   await page.getByLabel('Name (required)').fill('Synthetic Customer')
   await page.getByLabel('Phone (required)').fill('0400000000')
+  await page.getByLabel('Service', { exact: true }).selectOption('carpet-cleaning')
+  await page.getByLabel('Description (required)').fill('Synthetic local platform test.')
   const keys: string[] = []
   await page.route('**/api/quote', async route => {
     keys.push(route.request().headers()['idempotency-key'])

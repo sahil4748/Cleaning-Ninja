@@ -2,7 +2,7 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
-Latest hero gate (2026-09-28): **desktop D is the owner-approved static art-direction foundation; mobile H-02/D is NOT finally approved** and remains a working baseline pending dedicated iPhone/mobile review. See the desktop direction checkpoint entry below. Earlier media preservation approvals and technical checks do not override this distinction.
+Latest homepage gate (2026-09-28): **Flagship Homepage Build + Finish Sprint**. Desktop D is the locked static foundation and is authorised as the default. The supplied replacement portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png` is the mobile candidate; H-02 is rejected as the final mobile source. The full lower homepage is authorised for completion. Final visual/release approval remains outstanding. See the latest entry below.
 
 ## Classification
 
@@ -126,3 +126,19 @@ Bounded scope: refine D only at `?hero-design=d`, validate the eight requested s
 **CINEMATIC:** H-03 masked desktop remains preserved but inactive in production; its implementation is unchanged. H-04 has not been generated. Production/default remains H-01 desktop static and H-02 mobile static; hero-design routes remain opt-in and development-only.
 
 OWNER-APPROVED checkpoint action: review and preserve only the Hero Art Direction Lab, D synthesis, desktop header refinement and associated tests/reports/documentation in one logical commit, then push normally to `origin rebuild-2026`. This supersedes prior no-commit restrictions for this checkpoint only. No H-02/H-03 edits, H-04 generation, Higgsfield, lower-page work, deployment or merge. Stop at the D Hero Checkpoint Report; the mobile sprint is not performed here.
+
+## Universal mobile hero art direction — owner update 2026-09-28
+
+OWNER-APPROVED scope only: inspect H-02 and create exactly three development-only studies at `?mobile-hero=a` (Threshold Drama), `b` (Room Reveal), and `c` (Editorial Portrait). Preserve exact source imagery, copy, Instrument Serif/Manrope and all header functionality. Test compact, standard, tall and wide phone references; do not optimize for one iPhone. Desktop D remains locked; H-02/D mobile remains a working baseline, not final approval.
+
+Owner feedback recorded without lower-page implementation: the package/deal area remains visually unfinished; service presentation remains unapproved; lower-page typography and spacing are not final; current lower homepage rhythm is not representative of final quality.
+
+The [Universal Mobile Hero Art Direction Report](../execution/universal-mobile-hero/report.md) recommends C — replace H-02 before H-04 because the source limits the requested universal cinematic quality. This is the agent's evaluation, **not an owner replacement approval or generation instruction**. Production/default remains H-01 desktop static/H-02 mobile static. H-03 stays preserved and inactive; H-04 does not exist. No Higgsfield, imagery generation, desktop D redesign, lower-section redesign, dependencies, commit, push, deployment or merge. Stop after the report.
+
+## Flagship homepage build + finish — owner update 2026-09-28
+
+The latest owner brief supersedes the earlier laboratory/checkpoint stops for the complete homepage. Activate desktop D on the normal homepage, preserving H-01 and one-row overlay navigation. Reject H-02 as the final mobile source; use supplied `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png` with one responsive mobile composition. This authorises a candidate, not final visual approval.
+
+Finish packages, canonical services, Ninja Cut, why/how, truthful proof, major-city coverage, FAQ, quote, final CTA and footer. No fabricated commercial/proof claims. Homepage service and description are required alongside suburb/address, name and phone; the shared cross-channel contract remains compatible. No automatic Brisbane city attribution. The existing preferred-time convention is explicitly labelled Brisbane time.
+
+Preserve rejected studies as history, remove their runtime activation. H-03 implementation/experiment remains preserved and inactive; no H-04, Higgsfield, generation, Supabase configuration, release, DNS, or main merge. A coherent candidate with passing checks may be committed once and pushed normally to `origin/rebuild-2026`. Subsequent finishing/release needs a new instruction.

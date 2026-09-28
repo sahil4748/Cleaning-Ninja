@@ -1,7 +1,7 @@
 export const MEDIA = {
   hero: {
     desktop: { poster: '/homepage/hf_20260927_084053_c4d57005-0833-4641-8846-09f8f6cd3cb8.png', video: null as string | null },
-    mobile: { poster: '/homepage/hf_20260927_092222_11c8acc0-5d6c-4011-8c6e-e296ed798105.png', video: null as string | null },
+    mobile: { poster: '/homepage/hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png', video: null as string | null },
   },
   images: {
     interior: '/homepage/hero-desktop.jpg', mobileInterior: '/homepage/hero-mobile.jpg',

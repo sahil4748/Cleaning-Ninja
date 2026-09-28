@@ -4,9 +4,9 @@ import { COMMUNICATION } from '@/content/features'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
-import { Menu, Phone, X, ArrowUpRight } from 'lucide-react'
+import { Menu, MessageCircle, X, ArrowUpRight } from 'lucide-react'
 
-const links = [['Services', '#services'], ['Packages', '#packages'], ['How It Works', '#how-it-works'], ['Brisbane / Areas', '#brisbane'], ['FAQ', '#faq']]
+const links = [['Services', '#services'], ['Packages', '#packages'], ['How It Works', '#how-it-works'], ['Service Areas', '#coverage'], ['FAQ', '#faq']]
 
 export function Brand() {
   return <Link href="/" className="home-brand" aria-label="Cleaning Ninja home">
@@ -40,7 +40,7 @@ export default function HomeHeader() {
       <Brand />
       <nav aria-label="Main navigation" className="home-desktop-nav">{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
       <div className="home-header-actions">
-        <button className="home-icon-button" aria-label="Call and communication options" aria-haspopup="dialog" onClick={() => call.current?.showModal()}><Phone size={19} /></button>
+        <button className="home-icon-button" aria-label="Call and communication options" aria-haspopup="dialog" onClick={() => call.current?.showModal()}><MessageCircle size={19} /></button>
         <a href="#quote" className="home-button home-header-quote"><span className="home-quote-long">Get a Quote</span><span className="home-quote-short">Get Quote</span><ArrowUpRight size={16} /></a>
         <button className="home-icon-button home-menu-trigger" aria-label="Open menu" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><Menu size={21} /></button>
       </div>
@@ -48,9 +48,8 @@ export default function HomeHeader() {
     <dialog onKeyDown={trapDialogFocus} ref={call} className="home-dialog home-call-sheet" aria-labelledby="call-title" onClick={event => { if (event.target === event.currentTarget) call.current?.close() }}>
       <div className="home-dialog-inner">
         <button autoFocus className="home-icon-button home-dialog-close" aria-label="Close communication options" onClick={() => call.current?.close()}><X /></button>
-        <p className="home-eyebrow">LET’S TALK</p><h2 id="call-title">Call Cleaning Ninja</h2>
-        <p>{COMMUNICATION.phone.href ? <a href={COMMUNICATION.phone.href}>Call Cleaning Ninja</a> : 'Phone calling will be available here when our number is published.'}</p>
-        <ul className="home-communication-options"><li>AI Voice <span>{COMMUNICATION.aiVoice.status}</span></li><li>Request a callback <span>{COMMUNICATION.callback.status}</span></li></ul>
+        <p className="home-eyebrow">LET’S TALK</p><h2 id="call-title">Talk to Cleaning Ninja</h2>
+        <p>{COMMUNICATION.phone.href ? <a href={COMMUNICATION.phone.href}>Call Cleaning Ninja</a> : 'Tell us what you need through our quote form or email us directly.'}</p>
         <a href="#quote" className="home-button" onClick={() => call.current?.close()}>Get a Quote <ArrowUpRight size={16} /></a>
         <a className="home-email" href={COMMUNICATION.email.href}>{COMMUNICATION.email.address}</a>
       </div>

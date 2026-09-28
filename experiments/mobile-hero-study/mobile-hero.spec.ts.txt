@@ -1,0 +1,205 @@
+import { test, expect, type Page } from '@playwright/test'
+import { mkdir, writeFile } from 'node:fs/promises'
+
+const development = process.env.MOBILE_HERO_DEVELOPMENT === '1'
+const evidence = '.local-evidence/universal-mobile-hero'
+const sizes = [[320, 568], [360, 800], [365, 780], [375, 667], [375, 812], [390, 844], [393, 852], [402, 874], [412, 915], [415, 880], [430, 932], [440, 956]]
+const studies = ['a', 'b', 'c']
+
+async function ready(page: Page, query: string) {
+  await page.goto(`/${query}`)
+  await expect(page.locator('.hero-lab')).toBeVisible()
+  await page.evaluate(() => document.fonts.ready)
+  await page.locator('.hero-lab img').evaluate((image: HTMLImageElement) => image.decode())
+  await page.locator('.home-header img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode())))
+  await page.addStyleTag({ content: 'nextjs-portal { display: none !important; }' })
+}
+
+async function geometry(page: Page, width: number, height: number) {
+  const selectors = ['.home-header .home-brand', '.home-header-actions > button:first-child', '.home-header-quote', '.home-menu-trigger', '.lab-eyebrow', '.lab-title', '.lab-description', '.lab-quote']
+  const boxes = await Promise.all(selectors.map(async selector => {
+    const element = page.locator(selector)
+    await expect(element).toBeInViewport({ ratio: .999 })
+    return (await element.boundingBox())!
+  }))
+  for (const [index, box] of boxes.entries()) {
+    expect(box.x).toBeGreaterThanOrEqual(0)
+    expect(box.y).toBeGreaterThanOrEqual(0)
+    expect(box.x + box.width).toBeLessThanOrEqual(width + .5)
+    expect(box.y + box.height).toBeLessThanOrEqual(height + .5)
+    if (index < 4 || index === 7) expect(box.height).toBeGreaterThanOrEqual(44)
+    for (const other of boxes.slice(index + 1)) {
+      expect(box.x < other.x + other.width && box.x + box.width > other.x && box.y < other.y + other.height && box.y + box.height > other.y).toBe(false)
+    }
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width)
+  expect(boxes[6].y - boxes[5].y - boxes[5].height).toBeGreaterThanOrEqual(16)
+  expect(boxes[7].y - boxes[6].y - boxes[6].height).toBeGreaterThanOrEqual(16)
+  return Object.fromEntries(selectors.map((selector, index) => [selector, boxes[index]]))
+}
+
+test.describe('mobile hero development laboratory', () => {
+  test.skip(!development, 'Use the isolated development config')
+  for (const study of studies) {
+    for (const [width, height] of sizes) {
+      test(`${study}: ${width}×${height}`, async ({ page }) => {
+        const errors: string[] = []
+        const motion: string[] = []
+        page.on('pageerror', error => errors.push(error.message))
+        page.on('console', message => { if (message.type() === 'error') errors.push(message.text()) })
+        page.on('request', request => { if (/api\/dev\/h03|\.mp4/.test(request.url())) motion.push(request.url()) })
+        await page.setViewportSize({ width, height })
+        await ready(page, `?mobile-hero=${study}&hero-design=a&hero-motion=masked&ninja-cut=1`)
+        await expect(page.locator('.home-prototype')).toHaveAttribute('data-mobile-hero', study)
+        await expect(page.locator('.home-prototype')).toHaveAttribute('data-hero-design', 'd')
+        await expect(page.locator('h1')).toHaveText('Bring your space back to calm.')
+        await expect(page.locator('.lab-eyebrow')).toHaveText('CLEANING NINJA')
+        await expect(page.locator('.lab-description')).toHaveText('Cleaning services across major Australian cities, with a simple quote-first process.')
+        expect((await page.locator('.lab-line').allTextContents()).map(line => line.trim())).toEqual(['Bring your space', 'back to calm.'])
+        const boxes = await geometry(page, width, height)
+        await expect(page.locator('.home-sticky-quote')).toBeHidden()
+        await expect(page.locator('.hero-lab video, .hero-lab .ninja-shade, .hero-lab [data-preview]')).toHaveCount(0)
+        const media = await page.locator('.hero-lab img').evaluate((image: HTMLImageElement) => ({ src: image.currentSrc, fit: getComputedStyle(image).objectFit, position: getComputedStyle(image).objectPosition, transform: getComputedStyle(image).transform, filter: getComputedStyle(image).filter }))
+        expect(media.src).toContain('hf_20260927_092222_11c8acc0')
+        expect(media.filter).toBe('none')
+        expect(errors).toEqual([])
+        expect(motion).toEqual([])
+        await mkdir(evidence, { recursive: true })
+        await page.screenshot({ path: `${evidence}/${study}-${width}x${height}.png` })
+        await writeFile(`${evidence}/${study}-${width}x${height}.json`, JSON.stringify({ study, width, height, boxes, media, errors, motion }, null, 2))
+      })
+    }
+
+    test(`${study}: short viewport, family boundaries and synthetic safe area`, async ({ page }) => {
+      // Boundary pairs plus short browser viewports. Resizing is not real toolbar emulation.
+      for (const [width, height] of [[320, 480], [320, 520], [359, 780], [360, 780], [393, 700], [393, 701], [409, 880], [410, 880], [393, 740], [393, 852]]) {
+        await page.setViewportSize({ width, height })
+        await ready(page, `?mobile-hero=${study}`)
+        await geometry(page, width, height)
+      }
+      await page.setViewportSize({ width: 393, height: 740 })
+      await page.locator('[data-mobile-hero]').evaluate(element => {
+        (element as HTMLElement).style.cssText = '--mobile-safe-top: 47px; --mobile-safe-bottom: 34px; --mobile-safe-left: 16px; --mobile-safe-right: 16px'
+      })
+      await geometry(page, 393, 740)
+      const brand = (await page.locator('.home-header .home-brand').boundingBox())!
+      expect(brand.y).toBeGreaterThanOrEqual(47)
+      expect(brand.x).toBeGreaterThanOrEqual(16)
+      await page.screenshot({ path: `${evidence}/${study}-synthetic-safe-area.png` })
+    })
+
+    test(`${study}: mobile controls, keyboard, quote anchors and reduced motion`, async ({ page }) => {
+      await page.setViewportSize({ width: 320, height: 568 })
+      await page.emulateMedia({ reducedMotion: 'reduce' })
+      await ready(page, `?mobile-hero=${study}`)
+      await page.getByRole('button', { name: 'Call and communication options' }).tap()
+      await expect(page.getByRole('dialog', { name: 'Call Cleaning Ninja' })).toBeVisible()
+      await page.getByRole('button', { name: 'Close communication options' }).tap()
+      await page.getByRole('button', { name: 'Open menu' }).tap()
+      await expect(page.getByRole('navigation', { name: 'Mobile navigation' })).toBeVisible()
+      await page.keyboard.press('Escape')
+      await expect(page.getByRole('button', { name: 'Open menu' })).toBeFocused()
+      await page.locator('.lab-quote').focus()
+      await expect(page.locator('.lab-quote')).toBeFocused()
+      await page.keyboard.press('Enter')
+      await expect(page).toHaveURL(/#quote$/)
+      await expect(page.locator('#quote')).toBeInViewport()
+      await expect(page.locator('.home-header')).toHaveAttribute('data-scrolled', 'true')
+      await expect(page.locator('.home-sticky-quote')).toBeHidden()
+      await page.evaluate(() => { history.replaceState(null, '', location.pathname + location.search); window.scrollTo(0, 0) })
+      await expect(page.locator('.home-header')).toHaveAttribute('data-scrolled', 'false')
+      await page.locator('.home-header-quote').tap()
+      await expect(page).toHaveURL(/#quote$/)
+      await expect(page.locator('#quote')).toBeInViewport()
+    })
+  }
+
+  test('desktop and tablet are pixel-identical to locked D on every study', async ({ page }) => {
+    for (const [width, height] of [[768, 1024], [1366, 768], [1440, 900], [1920, 1080]]) {
+      await page.setViewportSize({ width, height })
+      await ready(page, '?hero-design=d')
+      await page.waitForTimeout(250)
+      const baseline = await page.screenshot()
+      for (const study of studies) {
+        await ready(page, `?mobile-hero=${study}`)
+        await page.waitForTimeout(250)
+        expect((await page.screenshot()).equals(baseline)).toBe(true)
+      }
+    }
+  })
+
+  test('default, invalid queries and lower sections remain unchanged', async ({ page }) => {
+    await page.setViewportSize({ width: 393, height: 852 })
+    await page.goto('/')
+    await expect(page.locator('.home-hero-copy')).toBeVisible()
+    await page.evaluate(() => document.fonts.ready)
+    await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
+    await page.locator('.home-header img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode())))
+    await page.addStyleTag({ content: 'nextjs-portal {display:none!important}' })
+    await page.waitForTimeout(250)
+    // Compare DOM, exact geometry and computed presentation. Repeated navigation
+    // changes the incumbent logo's cached raster and eight rounded-border pixels.
+    async function incumbent() {
+      return page.locator('.home-header, .home-header *, .home-hero, .home-hero *').evaluateAll(elements => elements.map(element => {
+        const style = getComputedStyle(element)
+        return { html: element.outerHTML, box: element.getBoundingClientRect().toJSON(),
+          presentation: ['fontFamily', 'fontSize', 'color', 'backgroundColor', 'padding', 'margin', 'objectFit', 'objectPosition', 'transform'].map(property => style[property as keyof CSSStyleDeclaration]) }
+      }))
+    }
+    const baseline = await incumbent()
+    await page.screenshot({ path: `${evidence}/default.png` })
+    async function lowerMarkup() {
+      return page.locator('main > section:not(.home-hero)').evaluateAll(elements => elements.map(element => {
+        const clone = element.cloneNode(true) as HTMLElement
+        // Screenshot caret suppression leaves empty style attributes on inputs.
+        clone.querySelectorAll('[style=""]').forEach(node => node.removeAttribute('style'))
+        return clone.innerHTML
+      }))
+    }
+    const lower = await lowerMarkup()
+    await page.goto('/?mobile-hero=invalid')
+    await expect(page.locator('.hero-lab')).toHaveCount(0)
+    await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
+    await page.evaluate(() => document.fonts.ready)
+    await page.locator('.home-header img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode())))
+    await page.addStyleTag({ content: 'nextjs-portal {display:none!important}' })
+    await page.waitForTimeout(250)
+    expect(JSON.stringify(await incumbent()) === JSON.stringify(baseline)).toBe(true)
+    await page.screenshot({ path: `${evidence}/invalid.png` })
+    for (const study of studies) {
+      await ready(page, `?mobile-hero=${study}`)
+      const current = await lowerMarkup()
+      expect(JSON.stringify(current) === JSON.stringify(lower)).toBe(true)
+    }
+  })
+
+  test('controlled media-fit comparisons on the same B study', async ({ page }) => {
+    await page.setViewportSize({ width: 393, height: 852 })
+    await ready(page, '?mobile-hero=b')
+    const fits = [
+      ['center-cover', 'object-fit:cover;object-position:50% 50%;transform:none'],
+      ['right-cover', 'object-fit:cover;object-position:100% 50%;transform:none'],
+      ['contain', 'object-fit:contain;object-position:100% 50%;transform:none'],
+      ['zoom-right', 'object-fit:cover;object-position:100% 50%;transform:scale(1.14);transform-origin:right 72%'],
+      ['translated', 'object-fit:cover;object-position:100% 50%;transform:translateY(-3%) scale(1.14);transform-origin:right 72%'],
+    ]
+    for (const [name, style] of fits) {
+      await page.locator('.hero-lab img').evaluate((image, value) => image.setAttribute('style', value), style)
+      await page.screenshot({ path: `${evidence}/fit-${name}.png` })
+    }
+    // A shorter media plane trades a seam and reduced full-screen depth for less cover crop.
+    await page.locator('.hero-lab img').evaluate(image => image.setAttribute('style', 'object-fit:cover;object-position:100% 50%;transform:none'))
+    await page.locator('.hero-lab .ninja-media').evaluate(media => media.setAttribute('style', 'top:auto;height:84%;bottom:0'))
+    await page.screenshot({ path: `${evidence}/fit-shorter-plane.png` })
+  })
+})
+
+test('production ignores all mobile hero queries', async ({ page }) => {
+  test.skip(development, 'Production gate uses the ordinary production server config')
+  await page.setViewportSize({ width: 393, height: 852 })
+  for (const study of studies) {
+    await page.goto(`/?mobile-hero=${study}`)
+    await expect(page.locator('.home-hero-copy')).toBeVisible()
+    await expect(page.locator('[data-mobile-hero], .hero-lab')).toHaveCount(0)
+  }
+})

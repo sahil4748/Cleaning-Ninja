@@ -31,13 +31,15 @@ export default function QuoteForm({ context, onChange }: { context: QuoteContext
       schemaVersion: 1, leadSource: context.packageName ? 'package' : 'homepage', sourcePage: '/',
       package: PACKAGES.find(item => item.name === context.packageName)?.id,
       consent: { purpose: 'enquiry-contact', granted: true, noticeVersion: 'enquiry-2026-09-27' }, channel: 'website', intent: date ? 'booking' : 'quote',
-      service: context.service, city: BUSINESS_CONFIG.primaryMarket ?? undefined, suburbOrAddress: context.suburb,
+      service: context.service, suburbOrAddress: context.suburb,
       description,
       name: data.get('name'), phone: data.get('phone'), email: data.get('email'),
       ...(date ? { preferredDateTime: { date, ...(time ? { time } : {}), timeZone: 'Australia/Brisbane' } } : {}),
     })
     const nextErrors: Record<string, string> = {}
     if (!parsed.success) for (const issue of parsed.error.issues) nextErrors[issue.path[0] === 'preferredDateTime' ? 'date' : issue.path[0] as string] = issue.message
+    if (!context.service) nextErrors.service = 'Choose a service.'
+    if (!description.trim()) nextErrors.description = 'Tell us what you need.'
     if (time && !date) nextErrors.date = 'Add a preferred date with your time.'
     setErrors(nextErrors)
     setStatus('')
@@ -74,9 +76,9 @@ export default function QuoteForm({ context, onChange }: { context: QuoteContext
     {context.packageName && <div className="home-selected-package" role="status"><span>Selected package: <strong>{context.packageName}</strong></span><button type="button" onClick={() => onChange({ ...context, packageName: '' })}>Remove package</button></div>}
     <div hidden aria-hidden="true"><label>Website<input name="website" tabIndex={-1} autoComplete="off" /></label></div>
     <div className="home-form-grid">
-      <label htmlFor="quote-service">Service<select aria-label="Service" id="quote-service" name="service" value={context.service} onChange={event => onChange({ ...context, service: event.target.value, packageName: '' })}><option value="">Help me choose</option>{homeServices.map(service => <option key={service.slug} value={service.slug}>{service.name}</option>)}</select></label>
+      <label htmlFor="quote-service">Service <span>(required)</span><select required {...fieldProps('service')} aria-label="Service" id="quote-service" name="service" value={context.service} onChange={event => onChange({ ...context, service: event.target.value, packageName: '' })}><option value="">Choose a service</option>{homeServices.map(service => <option key={service.slug} value={service.slug}>{service.name}</option>)}</select>{error('service')}</label>
       <label htmlFor="quote-suburb">Suburb/address <span>(required)</span><input id="quote-suburb" name="suburbOrAddress" autoComplete="street-address" maxLength={300} required value={context.suburb} onChange={event => onChange({ ...context, suburb: event.target.value })} {...fieldProps('suburbOrAddress')} />{error('suburbOrAddress')}</label>
-      <label className="home-field-wide" htmlFor="quote-description">Description <span>(optional)</span><textarea id="quote-description" name="description" rows={3} maxLength={2800} placeholder="Tell us a little about your space and what you need." {...fieldProps('description')} />{error('description')}</label>
+      <label className="home-field-wide" htmlFor="quote-description">Description <span>(required)</span><textarea id="quote-description" name="description" required rows={3} maxLength={2800} placeholder="Tell us a little about your space and what you need." {...fieldProps('description')} />{error('description')}</label>
       <label htmlFor="quote-name">Name <span>(required)</span><input id="quote-name" name="name" autoComplete="name" maxLength={120} required {...fieldProps('name')} />{error('name')}</label>
       <label htmlFor="quote-phone">Phone <span>(required)</span><input id="quote-phone" name="phone" type="tel" autoComplete="tel" maxLength={30} required {...fieldProps('phone')} />{error('phone')}</label>
       <label className="home-field-wide" htmlFor="quote-email">Email <span>(optional)</span><input id="quote-email" name="email" type="email" autoComplete="email" maxLength={254} {...fieldProps('email')} />{error('email')}</label>

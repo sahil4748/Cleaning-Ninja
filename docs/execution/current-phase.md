@@ -1,5 +1,15 @@
 # Current phase
 
+Flagship Homepage Build + Finish Sprint · 2026-09-28 · `rebuild-2026`.
+
+The owner authorises the complete local homepage candidate, activating locked desktop D/H-01 and replacement mobile source `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png` without query parameters. Finish all eleven homepage sections and validate responsive behavior, factual copy, accessibility, performance and existing lead capture. Required homepage fields: service, suburb/address, description, name and phone.
+
+No deployment, main merge, Supabase configuration, Higgsfield, H-04 generation or H-03 production motion. H-03 remains a preserved development experiment. Historical H-02 A/B/C studies are archived outside runtime; their [report](universal-mobile-hero/report.md) remains historical evidence.
+
+A coherent candidate with passing checks may be committed once and pushed normally to `origin/rebuild-2026`. Stop after the [Homepage Finish Report](homepage-finish/report.md). Final visual approval, cinematic integration and operational activation remain separate gates.
+
+## Previous checkpoints — historical authority only
+
 D Desktop Direction Checkpoint · 2026-09-28 · `rebuild-2026`.
 
 **DESKTOP — OWNER-APPROVED:** D — Precision with Expression is locked as the current static art-direction foundation, including the completed one-row desktop header refinement. This is direction approval, not production activation or deployment approval.

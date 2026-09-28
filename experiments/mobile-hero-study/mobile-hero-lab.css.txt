@@ -1,0 +1,115 @@
+/* Exactly three development-only H-02 studies. The query gate lives in Homepage.
+   Reuse D's semantic content; every visual override ends below the H-01 boundary. */
+@media (max-width: 767px) {
+  .home-prototype[data-mobile-hero] {
+    --mobile-safe-top: env(safe-area-inset-top, 0px);
+    --mobile-safe-bottom: env(safe-area-inset-bottom, 0px);
+    --mobile-safe-left: env(safe-area-inset-left, 0px);
+    --mobile-safe-right: env(safe-area-inset-right, 0px);
+  }
+  .home-prototype[data-mobile-hero] .hero-lab {
+    --mobile-inset: clamp(20px, 5.1vw, 32px);
+    --mobile-type: clamp(36px, 11.8vw, 64px);
+    --mobile-title-top: clamp(128px, 23svh, 232px);
+    --mobile-step: .34em;
+    height: 100svh;
+    min-height: max(480px, calc(440px + var(--mobile-safe-top) + var(--mobile-safe-bottom)));
+    max-height: none;
+    padding: 0;
+  }
+  .home-prototype[data-mobile-hero] .hero-lab .ninja-media img {
+    object-fit: cover; object-position: 100% 50%;
+    transform: none; filter: none;
+  }
+  .home-prototype[data-mobile-hero] .lab-eyebrow {
+    left: var(--mobile-inset); top: calc(var(--mobile-title-top) - 36px + var(--mobile-safe-top));
+    font-size: 10px; letter-spacing: .18em; text-shadow: none;
+  }
+  .home-prototype[data-mobile-hero] .lab-title {
+    top: calc(var(--mobile-title-top) + var(--mobile-safe-top)); left: var(--mobile-inset);
+    margin: 0; font-size: var(--mobile-type); line-height: 1.04;
+    letter-spacing: -.028em; text-shadow: none;
+  }
+  .home-prototype[data-mobile-hero] .lab-line-2 { padding-left: var(--mobile-step); }
+  .home-prototype[data-mobile-hero] .lab-details {
+    top: calc(var(--mobile-title-top) + var(--mobile-safe-top) + var(--mobile-type) * 2.08 + 32px);
+    left: calc(var(--mobile-inset) + var(--mobile-type) * .34);
+    width: min(53vw, 264px); gap: 28px;
+  }
+  .home-prototype[data-mobile-hero] .lab-description {
+    width: 100%; max-width: none; font-size: 14px; line-height: 1.65;
+    text-shadow: none;
+  }
+  .home-prototype[data-mobile-hero] .lab-quote {
+    width: min(100%, 190px); min-height: 52px; padding: 14px 16px;
+    gap: 12px; align-self: flex-start;
+  }
+
+  /* Shared mobile controls: actual hit areas stay 44px, all four functions remain.
+     The logo's source and existing crop are unchanged; no scaled hit targets. */
+  [data-mobile-hero] .home-header,
+  [data-mobile-hero] .home-header[data-scrolled="false"] {
+    height: calc(76px + var(--mobile-safe-top));
+    padding-top: var(--mobile-safe-top);
+    padding-left: max(8px, var(--mobile-safe-left));
+    padding-right: max(8px, var(--mobile-safe-right));
+    gap: 8px;
+  }
+  [data-mobile-hero] .home-header .home-brand,
+  [data-mobile-hero] .home-header[data-scrolled="false"] .home-brand {
+    transform: none; min-height: 44px; padding: 4px;
+  }
+  [data-mobile-hero] .home-header-actions { gap: clamp(4px, calc(5vw - 16px), 6px); }
+  [data-mobile-hero] .home-header .home-header-quote {
+    min-height: 44px; padding-inline: 10px; white-space: nowrap;
+  }
+
+  /* A / Threshold Drama uses the shared 23svh title register above: full-height
+     image, right-registered doorway and stepped text on the dark wall. */
+
+  /* B / Room Reveal: a controlled 14% enlargement anchored to the right/bottom.
+     The source's room gains width; foreground and ceiling pay for that reveal. */
+  .home-prototype[data-mobile-hero="b"] .hero-lab {
+    --mobile-title-top: clamp(132px, 21svh, 208px);
+    --mobile-type: clamp(36px, 11.3vw, 61px);
+    --mobile-step: 0em;
+  }
+  .home-prototype[data-mobile-hero="b"] .hero-lab .ninja-media img {
+    transform: scale(1.14); transform-origin: right 72%;
+  }
+  .home-prototype[data-mobile-hero="b"] .lab-details {
+    left: var(--mobile-inset); width: min(49vw, 250px); gap: 28px;
+  }
+
+  /* C / Editorial Portrait: the title occupies the upper register; service/action
+     sits at the lower left, leaving an uninterrupted interval through the image. */
+  .home-prototype[data-mobile-hero="c"] .hero-lab {
+    --mobile-title-top: clamp(128px, 18svh, 184px);
+    --mobile-type: clamp(36px, 12.2vw, 66px);
+    --mobile-step: .48em;
+  }
+  .home-prototype[data-mobile-hero="c"] .lab-details {
+    top: auto; bottom: calc(clamp(48px, calc(24svh - 120px), 128px) + var(--mobile-safe-bottom));
+    left: var(--mobile-inset); width: min(52vw, 260px); gap: 24px;
+  }
+
+  /* Compression follows available composition space, not a named device.
+     Short phones bring C's two registers together; narrower ones limit the step. */
+  @media (max-width: 359px), (max-height: 700px) {
+    .home-prototype[data-mobile-hero] .hero-lab {
+      --mobile-type: clamp(36px, 11.3vw, 48px);
+      --mobile-step: .24em;
+    }
+    .home-prototype[data-mobile-hero] .lab-details {
+      left: var(--mobile-inset); top: calc(var(--mobile-title-top) + var(--mobile-safe-top) + var(--mobile-type) * 2.08 + 24px);
+      bottom: auto; width: 56vw; gap: 20px;
+    }
+    .home-prototype[data-mobile-hero] .lab-description { font-size: 13px; line-height: 1.6; }
+    .home-prototype[data-mobile-hero] .lab-quote { min-height: 48px; padding: 12px 14px; }
+    .home-prototype[data-mobile-hero="c"] .lab-details { top: auto; bottom: calc(clamp(48px, calc(24svh - 120px), 128px) + var(--mobile-safe-bottom)); }
+  }
+  @media (min-width: 410px) and (min-height: 701px) {
+    .home-prototype[data-mobile-hero] .lab-details { gap: 32px; }
+    .home-prototype[data-mobile-hero="c"] .lab-details { gap: 24px; }
+  }
+}
