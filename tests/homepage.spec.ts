@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test'
 
-const sizes = [[320,568],[360,800],[375,812],[390,844],[393,852],[402,874],[412,915],[430,932],[440,956],[768,1024],[1024,900],[1366,768],[1440,900],[1728,1000],[1920,1080]]
+const sizes = [[320,568],[360,800],[375,812],[390,844],[393,852],[402,874],[412,915],[430,932],[440,956],[768,1024],[1024,768],[1366,768],[1440,900],[1728,1000],[1920,1080]]
 for (const [width, height] of sizes) {
   test(`homepage composition at ${width}×${height}`, async ({ page }) => {
     await page.setViewportSize({ width, height })
@@ -14,7 +14,7 @@ for (const [width, height] of sizes) {
     const source = await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.currentSrc)
     expect(source).toContain(width < 768 ? 'hf_20260928_141125_f8371d19' : 'hf_20260927_084053_c4d57005')
     await expect(page.locator('.home-package')).toHaveCount(5)
-    await expect(page.locator('.home-service-index button')).toHaveCount(10)
+    await expect(page.locator('.home-service-trigger')).toHaveCount(10)
     const headers = await page.locator('.home-header a, .home-header button').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()).filter(rect => rect.width))
     for (const rect of headers) { expect(rect.x).toBeGreaterThanOrEqual(0); expect(rect.right).toBeLessThanOrEqual(width); expect(rect.height).toBeGreaterThanOrEqual(44) }
     for (const id of ['packages','services','ninja-cut','why','how-it-works','proof','coverage','faq','quote']) {
@@ -27,15 +27,21 @@ for (const [width, height] of sizes) {
     const body = await page.locator('main').innerText()
     expect(body).not.toMatch(/\$\d|\d+% off|Brisbane is where we begin|booking confirmed|five.star/i)
     expect(errors).toEqual([])
-    if ([390,440,1440].includes(width)) {
+    if ([390,1440].includes(width)) {
       await page.locator('#ninja-cut').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
       await page.locator('main img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode().catch(() => {}))))
       await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
       await expect(page.locator('.home-header')).toHaveAttribute('data-scrolled', 'false')
       await page.locator('.home-header').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
-      await page.screenshot({ path: `docs/execution/homepage-finish/screenshots/full-${width}.png`, fullPage: true })
-      if (width !== 440) await page.screenshot({ path: `docs/execution/homepage-finish/screenshots/hero-${width}.png` })
-      if (width === 1440) await page.locator('#packages').screenshot({ path: 'docs/execution/homepage-finish/screenshots/packages-1440.png', style: '.home-header { visibility: hidden; }' })
+      await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/full-${width}.png`, fullPage: true })
+      if (width !== 440) await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/hero-${width}.png` })
+      if (width === 1440) {
+        for (const [first, last, name] of [['#packages', '#services', 'packages-services'], ['#quote', '.home-footer', 'quote-finale']]) {
+          const start = await page.locator(first).boundingBox()
+          const end = await page.locator(last).boundingBox()
+          await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/${name}-1440.png`, fullPage: true, clip: { x: 0, y: start!.y, width, height: end!.y + end!.height - start!.y }, style: '.home-header { visibility: hidden; }' })
+        }
+      }
     }
   })
 }
@@ -155,4 +161,19 @@ test('local performance and static optimized hero delivery', async ({ page }) =>
   expect(metrics.cls).toBeLessThanOrEqual(0.1)
   expect(metrics.heroSource).toContain('/_next/image?')
   await expect(page.locator('canvas, video')).toHaveCount(0)
+})
+
+
+test('service index responds to desktop hover and keyboard with a single media-free plane', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 })
+  await page.goto('/')
+  await page.getByRole('button', { name: '07 Window Cleaning' }).hover()
+  await expect(page.locator('#active-service-title')).toHaveText('Window Cleaning')
+  await page.getByRole('button', { name: '10 Regular Home Clean' }).focus()
+  await page.keyboard.press('Enter')
+  await expect(page.locator('#active-service-title')).toHaveText('Regular Home Clean')
+  await expect(page.locator('#active-service')).toHaveCount(1)
+  await expect(page.locator('#packages img, #services img, #ninja-cut img')).toHaveCount(0)
+  await page.getByRole('button', { name: 'Quote this service' }).click()
+  await expect(page.getByLabel('Service', { exact: true })).toHaveValue('regular-home')
 })

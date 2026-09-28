@@ -1,5 +1,13 @@
 # Current phase
 
+Homepage Visual Rescue + Final Art Direction Pass · 2026-09-29 · `rebuild-2026` · base `a40180a`.
+
+The prior homepage is visually rejected. The current owner brief authorises one visual composition pass while preserving desktop D/H-01, the replacement mobile still and all canonical content/lead architecture. Editorial package ledger, interactive service index, architectural Cut, compressed explanatory content and a continuous deep olive finale. No deployment, merge, Higgsfield, new media, H-03 activation or H-04.
+
+After one internal correction pass and passing required checks, one commit and normal branch push are authorised. Stop at the [Homepage Visual Rescue Report](homepage-visual-rescue/report.md); owner visual approval and cinematic integration remain subsequent gates.
+
+## Previous phase — historical authority
+
 Flagship Homepage Build + Finish Sprint · 2026-09-28 · `rebuild-2026`.
 
 The owner authorises the complete local homepage candidate, activating locked desktop D/H-01 and replacement mobile source `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png` without query parameters. Finish all eleven homepage sections and validate responsive behavior, factual copy, accessibility, performance and existing lead capture. Required homepage fields: service, suburb/address, description, name and phone.

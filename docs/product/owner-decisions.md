@@ -142,3 +142,9 @@ The latest owner brief supersedes the earlier laboratory/checkpoint stops for th
 Finish packages, canonical services, Ninja Cut, why/how, truthful proof, major-city coverage, FAQ, quote, final CTA and footer. No fabricated commercial/proof claims. Homepage service and description are required alongside suburb/address, name and phone; the shared cross-channel contract remains compatible. No automatic Brisbane city attribution. The existing preferred-time convention is explicitly labelled Brisbane time.
 
 Preserve rejected studies as history, remove their runtime activation. H-03 implementation/experiment remains preserved and inactive; no H-04, Higgsfield, generation, Supabase configuration, release, DNS, or main merge. A coherent candidate with passing checks may be committed once and pushed normally to `origin/rebuild-2026`. Subsequent finishing/release needs a new instruction.
+
+## Homepage visual rescue — owner update 2026-09-29
+
+The owner rejects the previous complete homepage visually and explicitly authorises one decisive visual composition pass from `a40180a` on `rebuild-2026`. Preserve desktop D/H-01, the replacement portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png`, canonical facts, service/package data, lead contracts, prefills, routing, accessibility and tests. Recompose packages as an editorial ledger, services as an interactive index, a restrained architectural Ninja Cut, compressed why/how/confidence, and a continuous deep conversion finale. No new media, Higgsfield, active H-03, H-04, backend rebuild, deployment or merge.
+
+One internal visual correction pass and the requested responsive/functional checks are authorised. If coherent and passing, create one commit named `feat: complete flagship homepage visual direction` and push `rebuild-2026`. Stop after the [Homepage Visual Rescue Report](../execution/homepage-visual-rescue/report.md). Recommendation is not owner visual/release approval.
