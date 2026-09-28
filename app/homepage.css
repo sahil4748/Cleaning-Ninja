@@ -429,3 +429,22 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   .home-hero-h01 .home-hero-description { max-width: 260px; }
 }
+
+/* H-03 salvage: opt-in development video, aligned to the H-01 source plane.
+   The static threshold and oblique plinth remain underneath the inverse mask.
+   Lower return: (59.3%,81%) -> (54.8%,88.15%) -> (43.5%,100%).
+   This retains the base/contact shadow over the displaced moving hearth edge. */
+.home-hero-h01 .h03-masked {
+  position: absolute; left: 50%; top: 50%; width: 100%; height: auto;
+  aspect-ratio: 5504 / 3072; max-width: none; transform: translate(-50%, -50%);
+  object-fit: fill; opacity: 0; pointer-events: none;
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%201000%20558.14%22%3E%3Cdefs%3E%3Cfilter%20id%3D%22f%22%20x%3D%22-5%25%22%20y%3D%22-5%25%22%20width%3D%22110%25%22%20height%3D%22110%25%22%3E%3CfeGaussianBlur%20stdDeviation%3D%221.2%22/%3E%3C/filter%3E%3C/defs%3E%3Cpath%20fill%3D%22white%22%20filter%3D%22url%28%23f%29%22%20d%3D%22M363%20-20%20H1020%20V580%20H435%20V558.14%20L548%20492%20L593%20452.09%20V378.42%20L363%20410.79%20Z%22/%3E%3C/svg%3E");
+  mask-size: 100% 100%; mask-repeat: no-repeat;
+}
+.home-hero-h01 .h03-masked[data-ready="true"] { opacity: 1; }
+@media (min-width: 1400px) and (max-width: 1500px) and (min-height: 850px) and (max-height: 950px) {
+  .home-hero-h01 .h03-masked { width: max(100%, 179.166667svh); }
+}
+@media (max-width: 1199px), (prefers-reduced-motion: reduce) {
+  .home-hero-h01 .h03-masked { display: none; }
+}

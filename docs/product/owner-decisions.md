@@ -84,3 +84,15 @@ OWNER-APPROVED bounded evaluation: integrate the exact supplied H-03 desktop vid
 ## Repository stabilization — owner update 2026-09-27
 
 Owner explicitly authorises preservation, cleanup, logical commits and push of `rebuild-2026`. H-01 desktop and H-02 mobile static assets/integration are approved for preservation; no general homepage or release approval is implied. H-03 raw and retimed experiments are not approved production media. Preserve useful evidence outside production assets and avoid unnecessary Git binary history. No redesign, generation, H-04, deployment or main merge. Stop at Repository Stabilization Report. This update supersedes earlier checkpoint stop instructions only for this task.
+
+## H-03 masked salvage — owner update 2026-09-28
+
+OWNER-APPROVED bounded development experiment: composite the exact approved H-01 still with archived raw H-03 through a fixed architectural CSS mask; compare the existing retime only after readability is protected. This supersedes the stabilization stop only for this evaluation. H-01/H-02 remain production/default stills; mobile/tablet, reduced-motion and Save-Data remain static. No new media, Higgsfield, H-04, animated Ninja Cut, redesign, deployment or merge. Results and interaction-start/LCP tradeoff: `docs/execution/h03-masked-salvage-report.md`. Recommendation B is an evaluation, not owner visual approval. Stop at that report.
+
+## H-03 lower-mask refinement — owner update 2026-09-28
+
+OWNER-APPROVED bounded continuation: refine only raw H-03 plinth/hearth/lower-return CSS mask geometry. Preserve the successful threshold, DOM/header/CTA, restrained feathering and current interaction-start behavior. No retime work, new media, Higgsfield, H-04, Cut animation, redesign, autoplay/LCP solution, deployment, merge or commit. [Refinement report](../execution/h03-mask-refinement-report.md) recommends A for owner visual review; this does not record owner composition approval. Stop after that report.
+
+## H-03 masked composition checkpoint — owner update 2026-09-28
+
+OWNER-APPROVED: the refined H-03 masked composition has passed the current owner/technical visual gate. Preserve the exact final lower-return geometry, development-only experiment, route/tests and reports in ONE checkpoint commit, then push normally to `origin rebuild-2026`. This supersedes the prior no-commit restriction for this bounded checkpoint. H-01 desktop/H-02 mobile remain production/default stills; no public H-03 MP4 or production query activation. No redesign, typography/layout change, autoplay/LCP work, Ninja Cut animation, Higgsfield, new media/H-04, deployment or merge. Stop after the checkpoint report; visual approval does not authorise production motion or release.
