@@ -164,7 +164,7 @@ test('local performance and static optimized hero delivery', async ({ page }) =>
 })
 
 
-test('service index responds to desktop hover and keyboard with a single media-free plane', async ({ page }) => {
+test('service index responds to desktop hover and keyboard with a single illustrated plane', async ({ page }) => {
   await page.setViewportSize({ width: 1440, height: 900 })
   await page.goto('/')
   await page.getByRole('button', { name: '07 Window Cleaning' }).hover()
@@ -173,7 +173,9 @@ test('service index responds to desktop hover and keyboard with a single media-f
   await page.keyboard.press('Enter')
   await expect(page.locator('#active-service-title')).toHaveText('Regular Home Clean')
   await expect(page.locator('#active-service')).toHaveCount(1)
-  await expect(page.locator('#packages img, #services img, #ninja-cut img')).toHaveCount(0)
+  await expect(page.locator('#packages img')).toHaveCount(5)
+  await expect(page.locator('#services img')).toHaveCount(1)
+  await expect(page.locator('#ninja-cut img')).toHaveCount(0)
   await page.getByRole('button', { name: 'Quote this service' }).click()
   await expect(page.getByLabel('Service', { exact: true })).toHaveValue('regular-home')
 })

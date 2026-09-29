@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { COMMUNICATION, FEATURES } from '@/content/features'
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
@@ -47,7 +48,7 @@ export default function Homepage() {
           <div className="home-handoff"><span>A CONSIDERED START</span><span>SPACE / MATERIAL / EVERYDAY</span></div>
           <div className="home-package-heading"><h2 id="packages-title">Selected <em>packages.</em></h2><p>Useful starting points.<br />A quote shaped around your space.</p></div>
           <div className="home-package-index">{packages.map((item, index) => <article className="home-package" key={item.id}>
-            <span className="home-index-number" aria-hidden="true">0{index + 1}</span><div><h3>{item.name}</h3><p>{item.detail}</p></div>
+            <span className="home-index-number" aria-hidden="true">0{index + 1}</span><div className="home-package-photo"><Image src={item.image} alt="" width={1280} height={1600} sizes="(max-width: 767px) calc(100vw - 48px), 22vw" /></div><div className="home-package-copy"><h3>{item.name}</h3><p>{item.detail}</p></div>
             <button aria-label={`Enquire about ${item.name}`} onClick={() => select(item.service, item.name)}><span>Enquire</span><ArrowUpRight size={24} aria-hidden="true" /></button>
           </article>)}</div>
           <p className="home-small-note">Pricing, inclusions and suitability confirmed on enquiry.</p>

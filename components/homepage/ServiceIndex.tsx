@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
 import { homeServices } from '@/content/homepage'
@@ -23,7 +24,7 @@ export default function ServiceIndex({ onQuote }: { onQuote: (service: string) =
           <span>{String(index + 1).padStart(2, '0')}</span>{service.name}<ArrowUpRight size={18} aria-hidden="true" />
         </button>
         {active === index && <div id="active-service" className="home-service-feature">
-          <span className="home-service-folio" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div className="home-service-photo"><Image key={service.image} src={service.image} alt="" fill sizes="(max-width: 767px) calc(100vw - 96px), 36vw" /></div>
           <div className="home-service-caption">
             <p className="home-kicker">THE SERVICE INDEX / {String(index + 1).padStart(2, '0')}</p>
             <h3 id="active-service-title" tabIndex={-1}>{service.name}</h3>

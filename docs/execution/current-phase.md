@@ -1,5 +1,11 @@
 # Current phase
 
+Locked execution step B — approved media integration · 2026-09-29 · `rebuild-2026`, baseline `6d0cff5`.
+
+Integrate exact H-04 mobile video, locked P-01–P-05 package images, and service imagery traced to feedback-preview commit `7124dda`. Preserve desktop cinematic media, homepage composition, copy, quote contracts and completed Supabase milestone. Verify responsive/fallback behavior, build and rendered homepage; commit the bounded result. No generation, deployment, push, merge, DNS or environment configuration changes. See [Step B evidence and asset mapping](step-b-media/report.md).
+
+## Previous phase — historical authority
+
 Final Cinematic Integration Sprint · 2026-09-29 · `rebuild-2026` · approved static base `779c265`.
 
 The owner locks the static homepage and authorises raw H-03 production integration through the refined architectural mask, autonomous poster-first loading, a restrained mobile still settle, and related hero/signature Cut motion. H-04 is blocked and optional. Preserve structure, typography, colours, packages/services, all copy and lead architecture.

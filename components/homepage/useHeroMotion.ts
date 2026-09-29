@@ -14,8 +14,8 @@ export default function useHeroMotion() {
     let disposed = false
     let presented = false
     let visible = false
-    let attempted = false
-    let mobileSettled = false
+    const attempted = new Set<string>()
+    let device: 'desktop' | 'mobile' | undefined
     let video: HTMLVideoElement | undefined
     let stopTimer: ReturnType<typeof setTimeout> | undefined
     let frame: number | undefined
@@ -37,25 +37,25 @@ export default function useHeroMotion() {
     const fail = () => { remove(); root.dataset.cinema = 'poster' }
     const play = () => {
       if (!video || video.ended || video.currentTime >= 4.8) return
-      void video.play().catch(fail)
+      const current = video
+      void current.play().catch(() => { if (video === current) fail() })
     }
     const sync = () => {
       const constrained = connection?.saveData || /(^|-)2g$/.test(connection?.effectiveType ?? '')
       if (disposed) return
-      if (reduced.matches || constrained || !desktop.matches) remove()
+      const target = phone.matches ? 'mobile' : desktop.matches ? 'desktop' : undefined
+      if (reduced.matches || constrained || target !== device) remove()
+      device = target
       if (reduced.matches || constrained) { delete root.dataset.settle; return }
       if (!presented || !visible || document.hidden) { stop(); return }
-      if (phone.matches && !mobileSettled) {
-        mobileSettled = true
-        root.dataset.settle = 'true'
-      }
-      // Tablet deliberately stays on its H-01 still. H-04 remains an empty slot.
-      if (!desktop.matches || !CSS.supports('width', '1cqh') || !CSS.supports('mask-image', 'linear-gradient(black, transparent)')) return
+      // Portrait motion only on phones; tablet keeps the existing H-01 still.
+      if (!device) return
+      if (device === 'desktop' && (!CSS.supports('width', '1cqh') || !CSS.supports('mask-image', 'linear-gradient(black, transparent)'))) return
       if (video) { play(); return }
-      if (attempted) return
-      attempted = true
+      if (attempted.has(device)) return
+      attempted.add(device)
       video = document.createElement('video')
-      video.className = 'h03-motion h03-masked'
+      video.className = device === 'mobile' ? 'h04-motion' : 'h03-motion h03-masked'
       video.muted = true
       video.defaultMuted = true
       video.playsInline = true
@@ -63,10 +63,11 @@ export default function useHeroMotion() {
       video.poster = poster.currentSrc
       video.setAttribute('aria-hidden', 'true')
       video.tabIndex = -1
-      video.addEventListener('error', fail)
+      const current = video
+      video.addEventListener('error', () => { if (video === current) fail() })
       video.addEventListener('playing', () => {
         const reveal = () => {
-          if (!video || disposed) return
+          if (video !== current || disposed) return
           video.dataset.ready = 'true'
           root.dataset.cinema = 'playing'
         }
@@ -76,7 +77,7 @@ export default function useHeroMotion() {
         clearTimeout(stopTimer)
         stopTimer = setTimeout(() => { stop(); root.dataset.cinema = 'calm' }, Math.max(0, 4800 - (video?.currentTime ?? 0) * 1000))
       })
-      video.src = heroMedia('desktop').video!
+      video.src = heroMedia(device).video!
       root.append(video)
       root.dataset.cinema = 'loading'
       play()

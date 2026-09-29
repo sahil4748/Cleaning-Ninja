@@ -1,6 +1,6 @@
 # Cleaning Ninja 2026 — repository instructions
 
-Work only on `rebuild-2026`. Current Repository Stabilization + Checkpoint permits the audit, cleanup, verification, commits and branch push described in docs/execution/current-phase.md and the owner brief dated 2026-09-27. Do not reopen creative strategy, redesign internal pages, repair unrelated code, deploy, merge to main, change DNS/email, add WebGL, or use Higgsfield.
+Work only on `rebuild-2026`. Current scope: locked execution step B, approved H-04/package/service media integration and responsive verification; see docs/execution/current-phase.md. Preserve completed Supabase work, desktop cinematic baseline, content and architecture. Do not redesign internal pages, regenerate imagery, deploy, push, merge to main, or change DNS/email/environment configuration.
 
 ## Baseline and authority
 
@@ -24,4 +24,4 @@ Next.js App Router, TypeScript, npm lockfile. Runtime version is not pinned. Run
 
 For library/framework/SDK/API/CLI/cloud documentation, use Context7: first resolve-library-id (unless exact ID supplied), then query-docs scoped to one concept. Prefer exact/version matches and authoritative sources. Do not use it for general code review or business-logic analysis.
 
-Stop after the Repository Stabilization Report. Subsequent internal-page work, media generation or release requires a new instruction.
+Stop after the Step B integration report and commit. Subsequent internal-page work or release requires a new instruction.
