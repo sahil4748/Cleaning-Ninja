@@ -1,100 +1,68 @@
-import type { Metadata } from 'next'
-import { LegalLayout } from '../LegalLayout'
-import { BUSINESS } from '@/content/navigation'
-
+import type { Metadata } from "next";
+import LegalPage from "@/components/homepage/prototype/LegalPage";
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-  description: `How Cleaning Ninja collects, uses, stores and protects your personal information under the Australian Privacy Principles.`,
-  alternates: { canonical: '/legal/privacy' },
-  robots: { index: true, follow: true },
-}
-
+  title: "Privacy Policy — Prototype Draft",
+  description:
+    "Information about the Cleaning Ninja frontend prototype and its draft privacy approach.",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "/legal/privacy" },
+};
 export default function PrivacyPage() {
   return (
-    <LegalLayout
-      title="Privacy Policy"
-      intro="This policy explains how Cleaning Ninja collects, uses, holds and discloses your personal information in accordance with the Privacy Act 1988 (Cth) and the Australian Privacy Principles."
-      updated="1 May 2026"
-      current="privacy"
+    <LegalPage
+      title="Your privacy matters."
+      intro="This original draft explains the current prototype and the information a Cleaning Ninja enquiry may involve. It needs a business-practices review before the live website launches."
     >
-      <h2 className="text-[24px] font-semibold pt-4">1. Who we are</h2>
+      <h2>This prototype</h2>
       <p>
-        Cleaning Ninja operates a residential cleaning
-        service across Sydney, Melbourne, Brisbane, Perth, Adelaide and the
-        Gold Coast. References to "we", "us" and "our" mean Cleaning Ninja and
-        any related entity acting on our behalf (e.g. franchise operators or
-        contracted sub-processors).
+        The quote form on this homepage is a demonstration. It validates your
+        entries and shows an on-screen summary. It does not send those entries
+        to Cleaning Ninja, create a booking or store them in a customer
+        database. Use example details while reviewing it. Refreshing or leaving
+        the page clears its in-page form state.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">2. What we collect</h2>
-      <p>We collect the following categories of personal information:</p>
-      <ul className="list-disc pl-6 space-y-2">
-        <li><strong>Identity</strong>: name, address, phone number, email, date of birth (only if required for an NDIS booking).</li>
-        <li><strong>Service detail</strong>: property type, suburb, scope of work, access instructions, photos taken during the clean.</li>
-        <li><strong>Payment</strong>: payment details only where required to complete a booking.</li>
-        <li><strong>Device data</strong>: IP address, browser, pages viewed (analytics only — see §7).</li>
-      </ul>
-
-      <h2 className="text-[24px] font-semibold pt-4">3. How we use it</h2>
+      <h2>Information in an enquiry</h2>
       <p>
-        Your information is used to: deliver the cleaning service, route the
-        correct cleaner to your property, communicate booking details, process
-        payment, communicate booking details, respond to
-        enquiries and complaints, and improve our service. We do not sell
-        personal information to third parties.
+        A working enquiry service may need your name, phone number, email
+        address, suburb or property address, the cleaning service requested and
+        details about the space. Please avoid entering sensitive personal
+        information that is not needed to discuss the clean.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">4. Who we share with</h2>
-      <p>We share information only with:</p>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>The named cleaner assigned to your booking.</li>
-        <li>Service providers needed to operate bookings, communications, payments, or support.</li>
-        <li>Plan managers (NDIS only, at your direction).</li>
-        <li>Law-enforcement or government authorities where legally required.</li>
-      </ul>
-
-      <h2 className="text-[24px] font-semibold pt-4">5. Storage and security</h2>
+      <h2>Contacting us directly</h2>
       <p>
-        We store data on AWS infrastructure in the Sydney (ap-southeast-2)
-        region. Access is restricted by role-based permissions, two-factor
-        authentication, and audit logging. We retain booking records for seven
-        years (Australian Taxation Office requirement) and delete other
-        personal data on request.
+        If you choose to email{" "}
+        <a href="mailto:contact@cleaningninja.co">contact@cleaningninja.co</a>,
+        your email is handled outside this demonstration form. It may include
+        the information you choose to provide so Cleaning Ninja can respond to
+        your enquiry.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">6. Your rights</h2>
+      <h2>Before the live service launches</h2>
       <p>
-        You can request access to, correction of, or deletion of your personal
-        information at any time. Email <a className="text-olive underline decoration-olive-deep" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>{' '}
-        with your full name and address; we respond within 30 days. You can
-        also lodge a complaint with the Office of the Australian Information
-        Commissioner (oaic.gov.au).
+        The final policy must identify how enquiries are collected and used, the
+        providers that receive them, storage locations and any overseas
+        handling, retention periods, security practices and relevant analytics
+        or cookies. Those operational details are not represented as verified in
+        this draft.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">7. Cookies and analytics</h2>
+      <h2>Questions, access and corrections</h2>
       <p>
-        Our website uses essential cookies (for session and authentication)
-        and Google Analytics for aggregate usage statistics. We do not run
-        advertising trackers. Decline cookies in your browser settings if you
-        prefer; the booking flow will continue to function.
+        Contact{" "}
+        <a href="mailto:contact@cleaningninja.co">contact@cleaningninja.co</a>{" "}
+        to ask about information you have sent directly, request a correction or
+        raise a privacy concern. Explain your concern and a suitable way to
+        reply. Do not send identity documents unless they are specifically
+        needed and a safe process has been agreed.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">8. Changes to this policy</h2>
+      <h2>More information</h2>
       <p>
-        We may update this policy from time to time. Material changes will be
-        communicated via the email address on your account.
+        The{" "}
+        <a href="https://www.oaic.gov.au/privacy/your-privacy-rights/your-personal-information/what-is-a-privacy-policy">
+          Office of the Australian Information Commissioner
+        </a>{" "}
+        explains privacy policies and privacy rights in Australia. This draft
+        does not claim that every operational or legal requirement has been
+        verified.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">9. Contact</h2>
-      <p>
-        Privacy Officer · Cleaning Ninja · email{' '}
-        <a className="text-olive underline decoration-olive-deep" href={`mailto:${BUSINESS.email}`}>{BUSINESS.email}</a>.
-      </p>
-
-      <p className="italic text-charcoal/75 pt-4 border-t border-border">
-        Placeholder copy — these terms are honest, plain-English drafts pending
-        a formal legal review before launch.
-      </p>
-    </LegalLayout>
-  )
+    </LegalPage>
+  );
 }

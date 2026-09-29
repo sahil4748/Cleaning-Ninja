@@ -1,103 +1,69 @@
-import type { Metadata } from 'next'
-import { LegalLayout } from '../LegalLayout'
-import { BUSINESS } from '@/content/navigation'
-
+import type { Metadata } from "next";
+import LegalPage from "@/components/homepage/prototype/LegalPage";
 export const metadata: Metadata = {
-  title: 'Terms of Service',
-  description: 'The booking, cancellation, payment and guarantee terms for all Cleaning Ninja services.',
-  alternates: { canonical: '/legal/terms' },
-}
-
+  title: "Terms & Offer Conditions — Prototype Draft",
+  description:
+    "Draft terms and demonstration offer conditions for the Cleaning Ninja frontend prototype.",
+  robots: { index: false, follow: false },
+  alternates: { canonical: "/legal/terms" },
+};
 export default function TermsPage() {
   return (
-    <LegalLayout
-      title="Terms of Service"
-      intro="These terms govern your use of cleaningninja.com.au and any cleaning service you book through us."
-      updated="1 May 2026"
-      current="terms"
+    <LegalPage
+      title="Clear from the start."
+      intro="These are prototype terms for design review. Live prices, offer rules and service terms need Cleaning Ninja’s approval before customers can rely on them."
     >
-      <h2 className="text-[24px] font-semibold pt-4">1. The agreement</h2>
+      <h2>Using this prototype</h2>
       <p>
-        By booking a service through Cleaning Ninja, you
-        agree to these terms. The agreement is between you (the "Customer")
-        and Cleaning Ninja. If you book on behalf of someone else, you confirm
-        you have their authority and they accept these terms.
+        This website demonstrates a proposed Cleaning Ninja experience. The
+        phone number 123456789 is a placeholder. The quote form does not send an
+        enquiry, accept a payment or confirm a booking. Photographs and
+        generated films are illustrative; they are not evidence of completed
+        customer work.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">2. Pricing and payment</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>Quotes displayed on the website are real booking prices and include GST.</li>
-        <li>Payment terms are confirmed with the customer before work begins.</li>
-        <li>For recurring bookings, payment timing is confirmed when the recurring schedule is accepted.</li>
-        <li>If the scope changes on arrival (e.g. larger property than booked), we will call you before proceeding. You may decline.</li>
-      </ul>
-
-      <h2 className="text-[24px] font-semibold pt-4">3. Cancellation and rescheduling</h2>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>24+ hours before booking: no fee.</li>
-        <li>Inside 24 hours: 50% of the booking total.</li>
-        <li>Same-day cancellation or no-access at the booked time: 100% of the booking total.</li>
-        <li>Rescheduling 24+ hours ahead: free, subject to availability.</li>
-      </ul>
-
-      <h2 className="text-[24px] font-semibold pt-4">4. End-of-lease follow-up</h2>
+      <h2>Prices and special offers</h2>
       <p>
-        For end-of-lease cleans, if your property manager notifies us within
-        seven (7) days of the clean that the property failed inspection on a
-        cleaning issue, contact us with the inspection notes and supporting
-        photos. We will review the issue against the booked scope. This assumes:
+        The package prices, inclusions and “up to 30%” promotion are examples,
+        not current offers. No comparison price or guaranteed saving is
+        asserted. A live promotion must have approved reference prices,
+        eligibility, validity dates and exclusions before publication.
       </p>
-      <ul className="list-disc pl-6 space-y-2">
-        <li>The property was substantially empty when we cleaned it.</li>
-        <li>The flagged issue is on the documented checklist (we provide a copy of every checklist used).</li>
-        <li>The issue was not introduced by you or another party after our clean.</li>
-        <li>Carpet steam was included in the original booking (where carpets are flagged).</li>
-      </ul>
+      <h2>Agreeing the scope</h2>
       <p>
-        Mould, structural damage, pest infestations, paint touch-ups, and items
-        outside the cleaning checklist are outside the standard scope.
+        A service quote should identify the work, relevant dimensions or item
+        quantities, material and condition, access requirements, additional
+        charges and tax treatment. Extra rooms, stairs, oversized items or
+        specialist treatments may require a separate assessment. Confirm the
+        full scope before accepting a quote.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">5. Limitation of liability</h2>
+      <h2>Quotes and bookings</h2>
       <p>
-        Our liability for damage caused during a clean is limited to the
-        replacement value of the affected item, subject to the terms confirmed
-        for the booking. We are not liable for: pre-existing damage,
-        cosmetic wear, items not declared as fragile or valuable, or
-        consequential losses.
+        A request for a free quote is not a booking. A requested date is not
+        confirmed availability. Service arrangements, the final price and
+        payment terms should be agreed separately with Cleaning Ninja before
+        work begins.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">6. Access and safety</h2>
+      <h2>Cleaning outcomes</h2>
       <p>
-        You must provide safe and lawful access to the property. We reserve
-        the right to refuse work in conditions that pose health or safety
-        risks to our team (biohazards, structural risks, hostile occupants).
+        Results and drying times vary with the material, condition, previous
+        treatments, ventilation and weather. This prototype does not guarantee
+        complete stain removal, a fixed drying time or a bond refund. Raise
+        delicate materials and problem areas when discussing the quote.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">7. NDIS bookings</h2>
+      <h2>Changes or cancellations</h2>
       <p>
-        Contact us to discuss your cleaning requirements. NDIS arrangements must be checked before proceeding.
+        Contact Cleaning Ninja to discuss changes to an agreed service. Any
+        cancellation, rescheduling, access or payment conditions should be
+        supplied before the booking is confirmed. This draft does not introduce
+        a cancellation fee.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">8. Disputes</h2>
+      <h2>Consumer rights and questions</h2>
       <p>
-        Disputes should be raised by email to {BUSINESS.email}. If unresolved
-        within 30 days, the matter may be referred to the relevant
-        State/Territory consumer affairs body (e.g. NSW Fair Trading, Consumer
-        Affairs Victoria).
+        Nothing in this draft is intended to exclude rights that cannot lawfully
+        be excluded under Australian consumer law. Questions about a quote or
+        proposed service can be sent to{" "}
+        <a href="mailto:contact@cleaningninja.co">contact@cleaningninja.co</a>.
       </p>
-
-      <h2 className="text-[24px] font-semibold pt-4">9. Governing law</h2>
-      <p>
-        These terms are governed by the laws of New South Wales, Australia,
-        and the parties submit to the non-exclusive jurisdiction of its courts.
-      </p>
-
-      <p className="italic text-charcoal/75 pt-4 border-t border-border">
-        Placeholder draft — these terms are honest, plain-English summaries pending
-        formal legal review by our solicitors before the certified launch. The
-        commercial commitments are subject to final legal review before launch.
-      </p>
-    </LegalLayout>
-  )
+    </LegalPage>
+  );
 }

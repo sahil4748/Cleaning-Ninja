@@ -1,6 +1,7 @@
 # Cleaning Ninja 2026 — repository instructions
 
-Work only on `rebuild-2026`. Current scope: owner-requested homepage correction, one section at a time, starting with header/hero; see docs/execution/current-phase.md. Preserve completed Supabase work, approved source assets and lead architecture. Latest owner feedback supersedes the previous visual composition lock. Do not redesign internal pages, regenerate imagery, deploy, push, merge to main, or change DNS/email/environment configuration.
+Work only on `rebuild-2026`. Current scope: complete owner-authorised frontend prototype with new branding, cinematic media, sample offers/prices, placeholder phone 123456789 and original legal drafts. See docs/execution/complete-prototype/report.md. Preserve the backend, lead APIs and Supabase work. No deployment, push, merge, DNS/email/environment changes.
+
 
 ## Baseline and authority
 
@@ -12,7 +13,7 @@ Work only on `rebuild-2026`. Current scope: owner-requested homepage correction,
 
 ## Product rules
 
-Established operating business; flagship rebuild. IMMACULATE TRANSITION: visual noise → precision → calm. Premium, cinematic, clean, warm, calm, precise, memorable, conversion-focused. Preserve/refine olive identity. Mobile is independently composed. Homepage is the first major approval gate. No Higgsfield generation before storyboard/layout approval and fresh authorization.
+Established operating business; flagship rebuild. IMMACULATE TRANSITION: visual noise → precision → calm. Premium, cinematic, clean, warm, calm, precise, memorable, conversion-focused. Preserve/refine olive identity. Mobile is independently composed. Homepage is the first major approval gate. The owner grants media-production discretion for this prototype; use a concrete shot plan and cost preflight, then verify generated assets. Further production stays within the stated scope.
 
 ## Evidence and safety
 
@@ -24,4 +25,4 @@ Next.js App Router, TypeScript, npm lockfile. Runtime version is not pinned. Run
 
 For library/framework/SDK/API/CLI/cloud documentation, use Context7: first resolve-library-id (unless exact ID supplied), then query-docs scoped to one concept. Prefer exact/version matches and authoritative sources. Do not use it for general code review or business-logic analysis.
 
-Work in bounded homepage checkpoints. Internal-page work or release still requires a new instruction.
+The active instruction authorises the complete homepage and matching privacy/terms frontend. Other internal pages and production release remain outside scope.

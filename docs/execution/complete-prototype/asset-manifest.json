@@ -1,0 +1,32 @@
+[
+  {
+    "path": "public/homepage/prototype/carpet-film-mobile.mp4",
+    "bytes": 1208899,
+    "sha256": "ce5b0f35a234b145339ee9c8e0a0486eb7e442c2f73ee160ca26508856bd3344"
+  },
+  {
+    "path": "public/homepage/prototype/carpet-film-desktop.jpg",
+    "bytes": 87915,
+    "sha256": "580b658808f15b0727d9f25547c08cc5c43e5ef0235a785742578f959b27427c"
+  },
+  {
+    "path": "public/homepage/prototype/commercial.webp",
+    "bytes": 295832,
+    "sha256": "a803b35e0a386e48ad3be7f4cbb79d092bf639b07fd1f85ae584cd704f33600f"
+  },
+  {
+    "path": "public/homepage/prototype/ninja-mark.svg",
+    "bytes": 331,
+    "sha256": "498932322420955d579a872440c25c49cef7cb6b00fada004cf23b0ddcab9153"
+  },
+  {
+    "path": "public/homepage/prototype/carpet-film-desktop.mp4",
+    "bytes": 1693593,
+    "sha256": "17c54790ec468a18954bbf10c6be64728b899a2d78ca7899573f506ca1f848a4"
+  },
+  {
+    "path": "public/homepage/prototype/carpet-film-mobile.jpg",
+    "bytes": 74478,
+    "sha256": "a7bdfa0c645567d175fb23558853c8c79e2d44b353eee25759eaab06b985edd3"
+  }
+]

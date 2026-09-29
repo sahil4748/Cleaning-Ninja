@@ -57,3 +57,7 @@ No classification establishes genuine customer reviews, staff identity, registry
 ### H-02 owner correction — 2026-09-27
 
 C03 scope override: owner confirms service across major Australian cities, with Brisbane the primary/strongest market rather than an exclusive area. The exact hero sentence in owner-decisions.md is OWNER-APPROVED. Specific six-city/60-suburb eligibility and “Australia-wide” coverage remain PENDING; this correction does not approve either claim.
+
+### Complete frontend prototype — 2026-09-29
+
+The owner explicitly authorised placeholder phone 123456789, sample numerical prices and a discount-led frontend prototype. These are PLACEHOLDER design content, not verified operating facts. Homepage prototype data is isolated in `content/homepage-prototype.ts`; canonical business data and structured pricing remain unchanged. The up-to-30% promotion, package prices/inclusions, proposed service scope and original draft legal pages require business approval before launch. The prototype form displays a demo confirmation without sending or persisting an enquiry. Release remains blocked and pages remain noindex. This limited prototype exception supersedes the earlier prohibition on placeholder telephone links only within this frontend demo.

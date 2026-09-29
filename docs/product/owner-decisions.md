@@ -2,7 +2,7 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
-Latest homepage gate (2026-09-29): owner rejected Step B visuals and requested sequential homepage corrections, Australian cleaning references, carpet-first hierarchy, clearer package offers and commercial services. First correction is header/hero; see docs/execution/hero-refinement/report.md. Earlier composition locks are superseded only within this new scope; business-truth and production boundaries remain.
+Latest homepage gate (2026-09-29): complete prototype authorised, including original logo design, Higgsfield generation, clear service/value copy, example pricing, up-to-30% promotional presentation, repeated free-quote actions, commercial services and placeholder phone 123456789. All examples remain explicitly marked; competitor facts and policies are not business verification. Backend changes are deferred. See docs/execution/complete-prototype/report.md.
 
 ## Classification
 

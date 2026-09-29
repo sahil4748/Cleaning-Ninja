@@ -1,5 +1,9 @@
 # Current phase
 
+Complete frontend prototype — 2026-09-29. Owner grants creative freedom, media generation, identity redesign and a complete single-pass homepage. Prototype phone 123456789, sample prices and discounts are explicitly requested. Build the customer-facing experience while leaving the backend and production untouched. See [prototype report](complete-prototype/report.md). This supersedes earlier composition, generation and sequential-checkpoint restrictions within this frontend scope.
+
+## Previous phase — historical authority
+
 Homepage correction, one section at a time — 2026-09-29. The owner rejected Step B visuals and requested Australian references, carpet-first hierarchy, clearer offers, commercial services and a stronger cinematic presentation. First checkpoint: header/hero and direct onward navigation; see [correction report](hero-refinement/report.md). Previous composition locks are superseded only within this new request. No production or backend changes.
 
 ## Previous phase — historical authority
