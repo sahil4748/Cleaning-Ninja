@@ -1,13 +1,12 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import { Outfit, Manrope } from "next/font/google";
 import { ArrowUpRight } from "lucide-react";
 import Brand from "./Brand";
 import "./prototype.css";
-const serif = Instrument_Serif({
+import "../immersive/immersive.css";
+const serif = Outfit({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
   variable: "--home-serif",
   display: "swap",
 });
@@ -26,7 +25,9 @@ export default function LegalPage({
   children: ReactNode;
 }) {
   return (
-    <div className={`${serif.variable} ${sans.variable} cn-site cn-legal-page`}>
+    <div
+      className={`${serif.variable} ${sans.variable} cn-site cn-immersive cn-legal-page`}
+    >
       <header className="cn-header">
         <Brand />
         <Link className="cn-button" href="/#quote">

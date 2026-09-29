@@ -9,17 +9,21 @@ import {
   MessageSquareText,
 } from "lucide-react";
 import Header from "./prototype/Header";
-import Hero from "./prototype/Hero";
+import SpatialHero from "./immersive/SpatialHero";
+import Journey from "./immersive/Journey";
+import SurfaceExplorer from "./immersive/SurfaceExplorer";
+import { useImmersiveMotion } from "./immersive/useImmersiveMotion";
 import Footer from "./prototype/Footer";
 import SupportingSections from "./prototype/SupportingSections";
 import Offers, { type QuoteSelection } from "./prototype/Offers";
-import Services from "./prototype/Services";
-import Film from "./prototype/Film";
+
 import Quote from "./prototype/Quote";
 import { prototypeContact } from "@/content/homepage-prototype";
 import "./prototype/prototype.css";
+import "./immersive/immersive.css";
 
 export default function Homepage() {
+  useImmersiveMotion();
   const [selection, setSelection] = useState<QuoteSelection>({
     service: "",
     packageName: "",
@@ -62,10 +66,10 @@ export default function Homepage() {
     );
   }
   return (
-    <div className="cn-site">
+    <div className="cn-site cn-immersive">
       <Header />
       <main id="main-content" tabIndex={-1}>
-        <Hero />
+        <SpatialHero onSelect={select} />
         <div className="cn-value-strip">
           {[
             [Layers3, "Care for every material"],
@@ -82,18 +86,19 @@ export default function Homepage() {
             );
           })}
         </div>
+        <Journey />
+        <SurfaceExplorer onSelect={select} />
         <Offers onSelect={select} />
-        <Film />
-        <Services onSelect={select} />
         <SupportingSections onSelect={select} />
         <Quote selection={selection} onSelection={setSelection} />
-        <section className="cn-final-line">
-          <p>
-            A fresh start feels <em>good.</em>
-          </p>
-          <a href="#quote" aria-label="Get a Free Quote">
-            <ArrowUpRight size={40} />
+        <section className="im-ending">
+          <p>A little less to do. A lot more to enjoy.</p>
+          <a href="#quote">
+            Let’s make room. <ArrowUpRight size={36} />
           </a>
+          <div className="im-ending-word" aria-hidden="true">
+            fresh starts here.
+          </div>
         </section>
       </main>
       <Footer />

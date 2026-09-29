@@ -2,7 +2,7 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
-Latest homepage gate (2026-09-29): complete prototype authorised, including original logo design, Higgsfield generation, clear service/value copy, example pricing, up-to-30% promotional presentation, repeated free-quote actions, commercial services and placeholder phone 123456789. All examples remain explicitly marked; competitor facts and policies are not business verification. Backend changes are deferred. See docs/execution/complete-prototype/report.md.
+Latest homepage gate (2026-09-29): full frontend creative authority including identity replacement, real 3D/depth and interactive scroll storytelling. The previous prototype and logo are not visually approved. Blue Sky is a service/content completeness reference only. Sample pricing, discount presentation, phone 123456789 and original legal drafts remain prototype-only; no competitor facts become business verification. Backend remains deferred. See docs/execution/immersive-homepage/report.md.
 
 ## Classification
 

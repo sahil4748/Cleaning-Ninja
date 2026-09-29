@@ -1,0 +1,1947 @@
+/* The fresh-start world: soft architecture, bold type, circular cuts, tactile controls. */
+.cn-immersive {
+  --cn-paper: #f2f1e9;
+  --cn-cream: #e8e9db;
+  --cn-ink: #243328;
+  --cn-olive: #374c36;
+  --cn-lime: #d9ed97;
+  --cn-muted: #626958;
+  --cn-line: #cdd2c0;
+  --cn-gutter: clamp(22px, 4vw, 80px);
+  font-size: 15px;
+}
+.cn-immersive h1,
+.cn-immersive h2 {
+  font-family: var(--home-serif), sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.96;
+}
+.cn-immersive h2 {
+  font-size: clamp(50px, 6.2vw, 100px);
+}
+.cn-immersive em {
+  font-family: inherit;
+  font-style: normal;
+  font-weight: inherit;
+  color: #7e9063;
+}
+.cn-immersive .cn-button {
+  border-radius: 100px;
+  background: var(--cn-ink);
+  color: var(--cn-paper);
+  min-height: 54px;
+  padding: 16px 26px;
+  gap: 28px;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+}
+.cn-immersive .cn-button:hover {
+  background: #567045;
+  transform: translateY(-2px);
+}
+.cn-immersive .cn-button svg {
+  transition: transform 0.25s;
+}
+.cn-immersive .cn-button:hover svg {
+  transform: rotate(45deg);
+}
+.cn-immersive .cn-button-lime {
+  background: var(--cn-lime);
+  color: var(--cn-ink);
+}
+.cn-immersive .cn-brand {
+  gap: 9px;
+  min-width: 146px;
+  color: var(--cn-ink);
+}
+.cn-immersive .cn-brand > svg {
+  width: 43px;
+  height: 43px;
+  transform: rotate(-12deg);
+}
+.cn-immersive .cn-brand > span {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+.cn-immersive .cn-brand > span > span {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 36px;
+  font-weight: 650;
+  letter-spacing: -0.07em;
+  line-height: 0.92;
+}
+.cn-immersive .cn-brand-dot {
+  color: inherit;
+}
+.cn-immersive .cn-brand-light {
+  color: var(--cn-lime);
+}
+.cn-immersive .cn-brand-light svg {
+  --cn-paper: #243328;
+}
+.cn-immersive .cn-offer-strip {
+  height: 28px;
+  font-size: 9px;
+  background: var(--cn-ink);
+  color: #eff5df;
+  padding-inline: var(--cn-gutter);
+}
+.cn-immersive .cn-header {
+  height: 88px;
+  padding-inline: var(--cn-gutter);
+  background: #f2f1e9f5;
+  border-bottom: 1px solid #24332815;
+  backdrop-filter: blur(18px);
+  gap: 28px;
+}
+.cn-immersive .cn-header > nav {
+  gap: 26px;
+}
+.cn-immersive .cn-header > nav a {
+  font-size: 12px;
+}
+.cn-immersive .cn-header-quote {
+  min-height: 44px;
+  font-size: 11px;
+  padding: 12px 20px;
+  gap: 18px;
+}
+.cn-immersive .cn-header-actions {
+  gap: 22px;
+}
+.cn-immersive .cn-header-phone {
+  font-size: 12px;
+}
+.cn-immersive .cn-menu {
+  border-radius: 28px 0 0 28px;
+}
+.cn-immersive .cn-menu nav a {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.cn-immersive .cn-value-strip {
+  background: var(--cn-ink);
+  color: #e8efd9;
+  border: 0;
+  border-radius: 0;
+  padding: 25px var(--cn-gutter);
+  justify-content: space-between;
+  font-size: 12px;
+}
+.im-hero {
+  position: relative;
+  padding: 32px var(--cn-gutter) 0;
+  background:
+    radial-gradient(ellipse at 70% 46%, #e0e3d0, transparent 63%),
+    var(--cn-paper);
+}
+.im-hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+.im-hero-eyebrow > span:last-child {
+  margin-left: auto;
+}
+.im-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 100%;
+  background: #61774e;
+}
+.im-hero-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  gap: 24px;
+  padding: 24px 0 0;
+  pointer-events: none;
+}
+.im-hero h1 {
+  font-size: clamp(76px, 9.5vw, 160px);
+  line-height: 0.91;
+  max-width: 1000px;
+  color: var(--cn-ink);
+  font-weight: 500;
+}
+.im-hero h1 > span {
+  color: #778660;
+}
+.im-hero-intro {
+  max-width: 280px;
+  margin: 0 4vw 8px 0;
+  pointer-events: auto;
+}
+.im-hero-intro > p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.im-hero-intro .cn-button {
+  font-size: 12px;
+}
+.im-text-action {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  font-size: 11px;
+  margin: 18px 20px 0;
+  width: max-content;
+}
+.im-world {
+  height: clamp(390px, 43vw, 660px);
+  margin-top: -8px;
+  position: relative;
+  isolation: isolate;
+}
+.im-world-word {
+  position: absolute;
+  z-index: -1;
+  font-family: var(--home-serif), sans-serif;
+  font-size: clamp(190px, 28vw, 460px);
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  color: #d8deca;
+  left: 10%;
+  top: 8%;
+  user-select: none;
+}
+.im-room-canvas {
+  position: absolute;
+  inset: -8% 0;
+  width: 100%;
+  height: 113%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.7s;
+  touch-action: pan-y;
+}
+.im-world[data-ready="true"] .im-room-canvas {
+  opacity: 1;
+}
+.im-room-fallback {
+  position: absolute;
+  inset: 5% 26% 8%;
+  overflow: hidden;
+  border-radius: 45% 45% 36% 36%;
+  z-index: 0;
+  transition: opacity 0.5s;
+}
+.im-room-fallback img {
+  object-fit: cover;
+}
+.im-world[data-ready="true"] .im-room-fallback {
+  opacity: 0;
+}
+.im-world:has(canvas[data-lost="true"]) .im-room-fallback {
+  opacity: 1;
+}
+.im-world canvas[data-lost="true"] {
+  opacity: 0;
+}
+.im-world-caption {
+  position: absolute;
+  left: 0;
+  top: 32%;
+  font-size: 12px;
+  line-height: 1.6;
+  z-index: 2;
+  pointer-events: none;
+}
+.im-world-caption > span:first-child {
+  display: block;
+  font-family: var(--home-serif), sans-serif;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  max-width: 150px;
+}
+.im-room-hint {
+  display: block;
+  margin-top: 24px;
+  font-size: 10px;
+  color: var(--cn-muted);
+  max-width: 110px;
+}
+.im-room-tools {
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+.im-room-tools button {
+  border: 1px solid #c5cbb6;
+  background: #f2f1e9dd;
+  border-radius: 30px;
+  padding: 12px 18px;
+  font-size: 11px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  min-height: 44px;
+}
+.im-round-offer {
+  position: absolute;
+  right: 1vw;
+  top: 25%;
+  width: 154px;
+  height: 190px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 80px;
+  background: var(--cn-lime);
+  transform: rotate(8deg);
+  z-index: 3;
+  transition: transform 0.4s;
+  box-shadow: 0 16px 50px #6c785015;
+}
+.im-round-offer:hover {
+  transform: rotate(-3deg) translateY(-4px);
+}
+.im-round-offer > span {
+  text-align: center;
+  font-size: 10px;
+  line-height: 1.35;
+}
+.im-round-offer strong {
+  font-size: 62px;
+  font-family: var(--home-serif), sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.08em;
+  font-weight: 500;
+}
+.im-round-offer strong span {
+  font-size: 27px;
+}
+.im-round-offer small {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+.im-round-offer > svg {
+  margin-top: 10px;
+}
+.im-room-selector {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--cn-line);
+  border-bottom: 1px solid var(--cn-line);
+  position: relative;
+  z-index: 3;
+}
+.im-room-tabs {
+  display: flex;
+  flex: 1;
+}
+.im-room-tabs button {
+  background: none;
+  border: 0;
+  border-right: 1px solid var(--cn-line);
+  padding: 23px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  flex: 1;
+  white-space: nowrap;
+  transition: background 0.25s;
+}
+.im-room-tabs button > span {
+  font-size: 9px;
+  color: var(--cn-muted);
+}
+.im-room-tabs button > svg {
+  margin-left: auto;
+}
+.im-room-tabs button[aria-pressed="true"] {
+  background: #e4e8d5;
+}
+.im-room-detail {
+  padding: 15px 24px;
+  min-width: 28%;
+  font-size: 11px;
+}
+.im-room-detail button {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 0;
+  background: none;
+  padding: 6px 0;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  min-height: 32px;
+}
+.im-hero-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9px;
+  gap: 12px;
+  padding: 23px 0;
+}
+.im-hero-foot a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+/* One short, native-scroll chapter. No scroll hijacking; content remains visible without JS. */
+.im-journey {
+  height: 180svh;
+  background: #e7eadc;
+  position: relative;
+}
+.im-journey-stage {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+}
+.im-portal {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.im-portal-intro {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--cn-ink);
+}
+.im-journey[data-motion="true"] .im-portal-intro {
+  display: flex;
+}
+.im-portal-intro > p {
+  font-size: 12px;
+  margin-bottom: 30px;
+}
+.im-portal-intro h2 {
+  font-size: clamp(84px, 12vw, 200px);
+  letter-spacing: -0.07em;
+  mix-blend-mode: normal;
+}
+.im-portal-intro h2 span {
+  color: #dcecaa;
+  text-shadow: 0 2px 25px #17251655;
+}
+.im-portal-intro > svg {
+  margin-top: 32px;
+}
+.cn-immersive .cn-film {
+  height: 100%;
+  min-height: 0;
+}
+.cn-immersive .cn-film-copy {
+  left: var(--cn-gutter);
+  bottom: 17%;
+  right: var(--cn-gutter);
+}
+.cn-immersive .cn-film-copy h2 {
+  font-size: clamp(62px, 8.5vw, 136px);
+  line-height: 0.94;
+  max-width: 1100px;
+}
+.cn-immersive .cn-film-copy em {
+  color: #e4ecce;
+}
+.cn-immersive .cn-film-copy .cn-label {
+  margin-bottom: 28px;
+}
+.cn-immersive .cn-film-controls {
+  bottom: 32px;
+}
+.cn-immersive .cn-film-controls button {
+  border-radius: 30px;
+}
+.cn-immersive .cn-film:after {
+  background: linear-gradient(0deg, #101e15c9, transparent 90%);
+}
+.im-services {
+  padding: 96px 0 64px;
+  background: var(--cn-paper);
+}
+.im-section-top {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--cn-gutter);
+  font-size: 11px;
+  margin-bottom: 34px;
+}
+.im-section-top > span {
+  color: var(--cn-muted);
+  font-size: 10px;
+}
+.im-service-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 var(--cn-gutter);
+  margin-bottom: 48px;
+}
+.im-service-title h2 {
+  font-size: clamp(70px, 10.5vw, 170px);
+}
+.im-service-title h2 span {
+  color: #829265;
+}
+.im-service-title > div {
+  padding: 0 6vw 6px 0;
+}
+.im-service-title p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.im-rail-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+.im-rail-controls button {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--cn-line);
+  border-radius: 50%;
+  background: none;
+  display: grid;
+  place-items: center;
+  transition: background 0.25s;
+}
+.im-rail-controls button:hover {
+  background: var(--cn-lime);
+}
+.im-service-rail {
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 16px var(--cn-gutter) 24px;
+  scroll-padding-left: var(--cn-gutter);
+}
+.im-service-rail::-webkit-scrollbar {
+  display: none;
+}
+.im-surface-card {
+  flex: 0 0 35%;
+  height: 500px;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+  border-radius: 180px 180px 28px 28px;
+  background: var(--cn-cream);
+  text-align: left;
+  scroll-snap-align: start;
+  transition:
+    border-radius 0.5s,
+    transform 0.5s;
+  isolation: isolate;
+  padding: 32px;
+}
+.im-surface-card:nth-child(2n) {
+  border-radius: 28px 28px 180px 180px;
+}
+.im-surface-card[aria-pressed="true"] {
+  outline: 2px solid var(--cn-olive);
+  outline-offset: 6px;
+}
+.im-surface-card:hover {
+  transform: translateY(-8px);
+}
+.im-surface-card img {
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+.im-surface-card:hover img {
+  transform: scale(1.05);
+}
+.im-surface-card:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, #122015b3, transparent 65%);
+  z-index: 1;
+  pointer-events: none;
+}
+.im-surface-number {
+  position: absolute;
+  top: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-size: 10px;
+  background: var(--cn-paper);
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+}
+.im-surface-name {
+  position: absolute;
+  bottom: 35px;
+  left: 30px;
+  right: 30px;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  font-family: var(--home-serif), sans-serif;
+  font-size: clamp(28px, 3vw, 46px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.im-surface-name > span {
+  height: 42px;
+  width: 42px;
+  border: 1px solid #ffffff75;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+.im-surface-card:nth-child(2n) .im-surface-name {
+  bottom: 78px;
+  text-align: center;
+  flex-direction: column;
+  gap: 12px;
+}
+.im-service-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  margin: 8px var(--cn-gutter) 0;
+  padding: 35px 0;
+  border-bottom: 1px solid var(--cn-line);
+  min-height: 200px;
+}
+.im-detail-count {
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--cn-muted);
+}
+.im-service-detail h3 {
+  font-size: 26px;
+  font-family: var(--home-serif), sans-serif;
+  margin: 6px 0 10px;
+}
+.im-service-detail p {
+  font-size: 13px;
+  max-width: 530px;
+}
+.im-service-detail > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 22px;
+}
+.im-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.im-tags > span {
+  font-size: 10px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--cn-line);
+}
+.im-more-services {
+  display: flex;
+  gap: 50px;
+  padding: 32px var(--cn-gutter);
+}
+.im-more-services > p {
+  font-size: 13px;
+  white-space: nowrap;
+  padding-top: 10px;
+}
+.im-more-services > div {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.im-more-services button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: none;
+  border: 1px solid var(--cn-line);
+  border-radius: 30px;
+  padding: 12px 16px;
+  font-size: 11px;
+  min-height: 44px;
+}
+.im-more-services button:hover {
+  background: var(--cn-cream);
+}
+/* Offers as one tactile ticket, with a clear information hierarchy. */
+.cn-immersive .cn-offers {
+  background: #e4e8d5;
+  border-radius: 70px 70px 0 0;
+  padding-top: 90px;
+}
+.cn-immersive .cn-section-heading {
+  align-items: flex-end;
+  gap: 28px;
+}
+.cn-immersive .cn-section-heading > p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+.cn-immersive .cn-section-heading h2 {
+  font-size: clamp(54px, 6.5vw, 104px);
+}
+.cn-immersive .cn-label {
+  font-size: 9px;
+  letter-spacing: 0.12em;
+}
+.cn-immersive .cn-offer-tabs {
+  border: 0;
+  gap: 8px;
+  margin-top: 40px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  padding: 5px 0;
+}
+.cn-immersive .cn-offer-tabs button {
+  border: 1px solid #bcc5ab;
+  border-radius: 28px;
+  padding: 13px 24px;
+  min-height: 46px;
+  font-size: 12px;
+}
+.cn-immersive .cn-offer-tabs button[aria-pressed="true"] {
+  background: var(--cn-ink);
+  color: var(--cn-paper);
+}
+.cn-immersive .cn-offer-feature {
+  border-radius: 32px;
+  overflow: hidden;
+  background: var(--cn-paper);
+  min-height: 570px;
+  grid-template-columns: 1fr 1fr;
+  box-shadow: 0 25px 60px #334c3010;
+}
+.cn-immersive .cn-offer-photo {
+  min-height: 570px;
+  overflow: hidden;
+}
+.cn-immersive .cn-offer-photo img {
+  transition: transform 0.8s;
+}
+.cn-immersive .cn-offer-feature:hover .cn-offer-photo img {
+  transform: scale(1.035);
+}
+.cn-immersive .cn-discount {
+  top: 28px;
+  left: 28px;
+  border-radius: 60px;
+  transform: rotate(-10deg);
+  height: 115px;
+  width: 92px;
+  justify-content: center;
+  background: var(--cn-lime);
+}
+.cn-immersive .cn-image-caption {
+  font-family: var(--home-serif), sans-serif;
+  font-style: normal;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
+  max-width: 270px;
+  bottom: 35px;
+  left: 35px;
+}
+.cn-immersive .cn-offer-copy {
+  background: none;
+  padding: 42px 48px 28px;
+  border-left: 1px dashed #c5cbb6;
+}
+.cn-immersive .cn-offer-copy h3 {
+  font-family: var(--home-serif), sans-serif;
+  font-size: clamp(34px, 3.5vw, 54px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.02;
+}
+.cn-immersive .cn-price {
+  margin: 24px 0 20px;
+}
+.cn-immersive .cn-price strong {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 66px;
+  letter-spacing: -0.065em;
+  font-weight: 500;
+}
+.cn-immersive .cn-inclusions {
+  font-size: 12px;
+  margin-bottom: 24px;
+  gap: 10px;
+}
+.cn-immersive .cn-offer-copy > .cn-button {
+  width: 100%;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.cn-immersive .cn-offer-details {
+  font-size: 10px;
+  margin-top: 12px;
+}
+.cn-immersive .cn-offer-controls {
+  margin-top: 14px;
+}
+.cn-immersive .cn-offer-controls button {
+  border-radius: 50%;
+}
+.cn-immersive .cn-offer-footnote {
+  max-width: 800px;
+  font-size: 10px;
+  line-height: 1.7;
+}
+/* Commercial is a panoramic photograph with an inset olive panel. */
+.cn-immersive .cn-commercial {
+  display: block;
+  position: relative;
+  min-height: 790px;
+  padding: 80px var(--cn-gutter);
+  isolation: isolate;
+  overflow: hidden;
+}
+.cn-immersive .cn-commercial-image {
+  position: absolute;
+  inset: 0;
+  min-height: 0;
+  z-index: -1;
+}
+.cn-immersive .cn-commercial-image img {
+  object-position: center;
+  object-fit: cover;
+}
+.cn-immersive .cn-commercial:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #18281820;
+  z-index: -1;
+}
+.cn-immersive .cn-commercial-copy {
+  width: min(580px, 49%);
+  margin-left: auto;
+  background: #263c2eee;
+  border-radius: 200px 200px 32px 32px;
+  backdrop-filter: blur(15px);
+  padding: 90px 54px 48px;
+  min-height: 600px;
+  text-align: center;
+  color: #f2f1e9;
+}
+.cn-immersive .cn-commercial-copy h2 {
+  font-size: clamp(52px, 5.5vw, 80px);
+}
+.cn-immersive .cn-commercial-copy em {
+  color: #d9ed97;
+}
+.cn-immersive .cn-commercial-copy > p:not(.cn-label) {
+  font-size: 12px;
+  max-width: 370px;
+  margin: 24px auto;
+}
+.cn-immersive .cn-commercial-types {
+  gap: 11px;
+  align-items: center;
+  font-size: 11px;
+  margin-bottom: 24px;
+}
+.cn-immersive .cn-commercial-copy .cn-button {
+  font-size: 12px;
+}
+.cn-immersive .cn-commercial-note {
+  font-size: 9px;
+  margin-top: 16px;
+}
+.cn-immersive .cn-approach {
+  background: var(--cn-paper);
+  padding-block: 100px 85px;
+}
+.cn-immersive .cn-approach h2 {
+  font-size: clamp(52px, 6vw, 92px);
+}
+.cn-immersive .cn-steps {
+  gap: 20px;
+  margin-top: 55px;
+}
+.cn-immersive .cn-steps li {
+  padding: 34px;
+  border: 0;
+  background: #e8ecdd;
+  border-radius: 32px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+.cn-immersive .cn-steps li:nth-child(2) {
+  background: #d9e3c5;
+}
+.cn-immersive .cn-steps li:nth-child(3) {
+  background: #cad9b5;
+}
+.cn-immersive .cn-steps li > span {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 52px;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.cn-immersive .cn-steps h3 {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 26px;
+  margin-top: 34px;
+  max-width: 260px;
+}
+.cn-immersive .cn-steps p {
+  font-size: 12px;
+  line-height: 1.75;
+  margin-top: 15px;
+}
+.cn-immersive .cn-coverage {
+  margin: 0 var(--cn-gutter);
+  border-radius: 32px;
+  padding: 30px 40px;
+  background: var(--cn-lime);
+  border: 0;
+}
+.cn-immersive .cn-coverage h2 {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 28px;
+  letter-spacing: -0.05em;
+}
+.cn-immersive .cn-coverage p {
+  font-size: 11px;
+}
+.cn-immersive .cn-coverage a {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.cn-immersive .cn-faq {
+  padding-block: 100px;
+  gap: 80px;
+}
+.cn-immersive .cn-faq h2 {
+  font-size: clamp(66px, 7vw, 100px);
+}
+.cn-immersive .cn-faq summary {
+  font-size: 13px;
+  padding-block: 22px;
+}
+.cn-immersive .cn-faq summary span {
+  background: #e5e9da;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.cn-immersive .cn-faq details p {
+  font-size: 12px;
+}
+.cn-immersive .cn-quote {
+  background: #dfe7cc;
+  border-radius: 70px 70px 0 0;
+  padding-block: 85px;
+  gap: 70px;
+}
+.cn-immersive .cn-quote-intro h2 {
+  font-size: clamp(64px, 6.5vw, 100px);
+}
+.cn-immersive .cn-quote-intro > p {
+  font-size: 13px;
+}
+.cn-immersive .cn-form-panel {
+  border-radius: 32px;
+  background: #f8f8f0;
+  padding: 40px;
+}
+.cn-immersive .cn-form-panel h3 {
+  font-family: var(--home-serif), sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+}
+.cn-immersive .cn-form-panel input,
+.cn-immersive .cn-form-panel select,
+.cn-immersive .cn-form-panel textarea {
+  border: 1px solid #cbd1be;
+  border-radius: 12px;
+  background: #f5f6ee;
+}
+.cn-immersive .cn-form-panel label {
+  font-size: 11px;
+}
+.cn-immersive .cn-form-panel .cn-button {
+  width: 100%;
+  justify-content: space-between;
+}
+.im-ending {
+  background: var(--cn-ink);
+  color: var(--cn-paper);
+  padding: 80px var(--cn-gutter) 0;
+  overflow: hidden;
+}
+.im-ending > p {
+  font-size: 12px;
+}
+.im-ending > a {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: max-content;
+  max-width: 100%;
+  font-family: var(--home-serif), sans-serif;
+  font-size: clamp(42px, 6.5vw, 110px);
+  letter-spacing: -0.06em;
+  line-height: 1.1;
+  padding: 25px 0;
+  color: var(--cn-lime);
+}
+.im-ending-word {
+  font-family: var(--home-serif), sans-serif;
+  font-size: clamp(100px, 20vw, 340px);
+  line-height: 1.05;
+  letter-spacing: -0.07em;
+  white-space: nowrap;
+  margin: 20px 0 -20px;
+  color: #7b9364;
+  user-select: none;
+}
+.cn-immersive .cn-footer {
+  background: var(--cn-ink);
+  border-top: 1px solid #ffffff25;
+  padding-top: 50px;
+  color: var(--cn-paper);
+}
+.cn-immersive .cn-footer-heading {
+  font-family: var(--home-serif), sans-serif;
+}
+.cn-immersive .cn-sticky {
+  background: #f2f1e9f0;
+  backdrop-filter: blur(16px);
+}
+.cn-immersive .cn-sticky > a:last-child {
+  border-radius: 30px;
+  background: var(--cn-ink);
+}
+.cn-immersive .cn-legal h1 {
+  font-size: clamp(50px, 8vw, 100px);
+}
+@media (min-width: 1600px) {
+  .im-world {
+    height: 620px;
+  }
+  .im-hero-intro {
+    margin-right: 10vw;
+  }
+  .im-world-caption {
+    left: 3vw;
+  }
+  .im-round-offer {
+    right: 5vw;
+  }
+  .im-room-canvas {
+    height: 120%;
+    inset: -15% 0;
+  }
+  .im-hero-heading {
+    padding-top: 38px;
+  }
+  .im-surface-card {
+    height: 600px;
+  }
+}
+@media (max-width: 1199px) {
+  .cn-immersive .cn-header {
+    height: 78px;
+  }
+  .cn-immersive .cn-header > nav {
+    display: none;
+  }
+  .im-hero h1 {
+    font-size: 10vw;
+  }
+  .im-hero-intro {
+    margin-right: 0;
+  }
+  .im-hero-intro > p {
+    font-size: 12px;
+  }
+  .im-world {
+    height: 460px;
+  }
+  .im-round-offer {
+    width: 120px;
+    height: 154px;
+  }
+  .im-round-offer strong {
+    font-size: 48px;
+  }
+  .im-world-caption > span:first-child {
+    font-size: 20px;
+  }
+  .im-room-detail {
+    min-width: 25%;
+    padding: 12px 16px;
+  }
+  .im-room-tabs button {
+    padding: 18px 13px;
+    gap: 8px;
+    font-size: 12px;
+  }
+  .im-service-detail {
+    gap: 25px;
+  }
+  .im-surface-card {
+    flex-basis: 40%;
+    height: 440px;
+  }
+  .cn-immersive .cn-offer-copy {
+    padding: 32px;
+  }
+  .cn-immersive .cn-commercial-copy {
+    width: 55%;
+    padding-inline: 35px;
+  }
+  .cn-immersive .cn-commercial {
+    min-height: 760px;
+  }
+  .cn-immersive .cn-steps li {
+    padding: 26px;
+  }
+  .cn-immersive .cn-faq {
+    gap: 45px;
+  }
+  .cn-immersive .cn-quote {
+    gap: 40px;
+  }
+  .cn-immersive .cn-form-panel {
+    padding: 28px;
+  }
+}
+@media (max-width: 900px) and (min-width: 768px) {
+  .im-hero h1 {
+    font-size: 11vw;
+  }
+  .im-hero-intro {
+    max-width: 230px;
+  }
+  .im-world {
+    height: 430px;
+  }
+  .im-world-caption {
+    top: 28%;
+    max-width: 100px;
+  }
+  .im-world-caption > span:first-child {
+    font-size: 18px;
+  }
+  .im-round-offer {
+    right: 0;
+    width: 100px;
+    height: 134px;
+    top: 26%;
+  }
+  .im-round-offer > span {
+    font-size: 8px;
+  }
+  .im-round-offer strong {
+    font-size: 42px;
+  }
+  .im-round-offer > svg {
+    margin-top: 3px;
+  }
+  .im-room-detail {
+    display: none;
+  }
+  .im-surface-card {
+    flex-basis: 46%;
+    height: 430px;
+  }
+  .cn-immersive .cn-offer-feature {
+    grid-template-columns: 1fr 1fr;
+  }
+  .cn-immersive .cn-offer-copy {
+    padding: 28px 24px;
+  }
+  .cn-immersive .cn-offer-copy h3 {
+    font-size: 32px;
+  }
+  .cn-immersive .cn-offer-photo {
+    min-height: 610px;
+  }
+  .cn-immersive .cn-steps {
+    gap: 12px;
+  }
+  .cn-immersive .cn-steps li {
+    padding: 22px;
+  }
+  .cn-immersive .cn-steps h3 {
+    font-size: 22px;
+  }
+  .cn-immersive .cn-commercial-copy {
+    width: 62%;
+  }
+  .cn-immersive .cn-coverage {
+    padding: 28px;
+  }
+  .cn-immersive .cn-coverage h2 {
+    font-size: 24px;
+  }
+  .cn-immersive .cn-quote {
+    gap: 26px;
+  }
+}
+@media (max-width: 767px) {
+  .cn-immersive .cn-header {
+    height: 73px;
+    padding-inline: 20px;
+    gap: 16px;
+  }
+  .cn-immersive .cn-brand {
+    min-width: 112px;
+    gap: 6px;
+  }
+  .cn-immersive .cn-brand > svg {
+    width: 33px;
+    height: 33px;
+  }
+  .cn-immersive .cn-brand > span {
+    font-size: 9px;
+  }
+  .cn-immersive .cn-brand > span > span {
+    font-size: 28px;
+  }
+  .cn-immersive .cn-header-actions {
+    gap: 12px;
+    margin-left: auto;
+  }
+  .cn-immersive .cn-header-phone {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .cn-immersive .cn-header-phone svg {
+    width: 14px;
+  }
+  .cn-immersive .cn-header .cn-header-quote {
+    display: none;
+  }
+  .cn-immersive .cn-offer-strip {
+    height: 26px;
+    font-size: 8px;
+    padding-inline: 20px;
+  }
+  .cn-immersive .cn-menu-button {
+    width: 40px;
+  }
+  .cn-immersive .cn-menu {
+    border-radius: 0;
+  }
+  .cn-immersive .cn-value-strip {
+    font-size: 10px;
+    gap: 16px;
+    padding: 24px;
+  }
+  .cn-immersive .cn-value-strip svg {
+    width: 18px;
+  }
+  .im-hero {
+    padding-top: 23px;
+  }
+  .im-hero-eyebrow {
+    font-size: 9px;
+    gap: 6px;
+  }
+  .im-hero-eyebrow > span:last-child {
+    font-size: 8px;
+  }
+  .im-hero-heading {
+    display: block;
+    padding-top: 24px;
+  }
+  .im-hero h1 {
+    font-size: clamp(65px, 17vw, 120px);
+    line-height: 0.92;
+    letter-spacing: -0.065em;
+  }
+  .im-hero-intro {
+    margin: 20px 0 0;
+    max-width: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .im-hero-intro > p {
+    font-size: 10px;
+    margin: 0;
+    line-height: 1.65;
+    max-width: 160px;
+  }
+  .im-hero-intro .cn-button {
+    font-size: 10px;
+    padding: 14px 17px;
+    gap: 10px;
+    min-height: 46px;
+    white-space: nowrap;
+  }
+  .im-hero-intro .cn-button svg {
+    width: 16px;
+  }
+  .im-text-action {
+    display: none;
+  }
+  .im-world {
+    height: 350px;
+    margin-top: 3px;
+    margin-inline: -22px;
+  }
+  .im-room-canvas {
+    inset: -6% 0;
+    width: 100%;
+    height: 112%;
+  }
+  .im-world-word {
+    font-size: 53vw;
+    left: 3%;
+    top: 25%;
+  }
+  .im-room-fallback {
+    inset: 10% 16% 8%;
+  }
+  .im-world-caption {
+    left: 24px;
+    top: 18%;
+    max-width: 100px;
+  }
+  .im-world-caption > span:first-child {
+    display: none;
+  }
+  .im-room-hint {
+    font-size: 8px;
+    max-width: 65px;
+    margin: 0;
+  }
+  .im-round-offer {
+    right: 20px;
+    top: 12px;
+    width: 84px;
+    height: 106px;
+    transform: rotate(10deg);
+    box-shadow: none;
+  }
+  .im-round-offer > span {
+    font-size: 7px;
+    line-height: 1.2;
+  }
+  .im-round-offer strong {
+    font-size: 36px;
+    line-height: 1;
+  }
+  .im-round-offer strong span {
+    font-size: 17px;
+  }
+  .im-round-offer small {
+    font-size: 6px;
+  }
+  .im-round-offer > svg {
+    width: 13px;
+    height: 13px;
+    margin-top: 4px;
+  }
+  .im-room-tools {
+    bottom: 0;
+  }
+  .im-room-tools button {
+    font-size: 9px;
+    padding: 10px 14px;
+    min-height: 40px;
+    gap: 7px;
+  }
+  .im-room-tools svg {
+    width: 14px;
+  }
+  .im-room-selector {
+    display: block;
+    margin-top: 16px;
+  }
+  .im-room-tabs button {
+    font-size: 11px;
+    padding: 14px 8px;
+    gap: 6px;
+    justify-content: center;
+    min-height: 48px;
+  }
+  .im-room-tabs button > span {
+    display: none;
+  }
+  .im-room-tabs button > svg {
+    width: 13px;
+    margin-left: 0;
+  }
+  .im-room-tabs button:last-child {
+    border-right: 0;
+  }
+  .im-room-detail {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-top: 1px solid var(--cn-line);
+    font-size: 9px;
+    gap: 14px;
+  }
+  .im-room-detail button {
+    white-space: nowrap;
+    font-size: 9px;
+    min-height: 36px;
+  }
+  .im-hero-foot {
+    padding: 18px 0;
+    font-size: 8px;
+  }
+  .im-hero-foot > span:last-child {
+    display: none;
+  }
+  .im-hero-foot a {
+    gap: 8px;
+  }
+  .im-hero-foot svg {
+    width: 12px;
+  }
+  .im-journey {
+    height: 150svh;
+  }
+  .im-journey-stage {
+    height: 100svh;
+  }
+  .im-portal-intro h2 {
+    font-size: 20vw;
+    letter-spacing: -0.065em;
+  }
+  .im-portal-intro > p {
+    font-size: 10px;
+    max-width: 220px;
+    margin-bottom: 24px;
+  }
+  .cn-immersive .cn-film {
+    aspect-ratio: auto;
+    padding-bottom: calc(164px + env(safe-area-inset-bottom));
+  }
+  .cn-immersive .cn-film-copy {
+    bottom: 18%;
+    left: 24px;
+    right: 24px;
+  }
+  .cn-immersive .cn-film-copy h2 {
+    font-size: clamp(47px, 12vw, 78px);
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+  .cn-immersive .cn-film-copy .cn-label {
+    font-size: 8px;
+    max-width: 220px;
+    margin-bottom: 20px;
+  }
+  .cn-immersive .cn-film-copy .cn-text-link {
+    font-size: 11px;
+  }
+  .cn-immersive .cn-film-controls {
+    bottom: calc(88px + env(safe-area-inset-bottom));
+    font-size: 8px;
+  }
+  .cn-immersive .cn-film-status {
+    bottom: calc(140px + env(safe-area-inset-bottom));
+  }
+  .cn-immersive .cn-film-controls button {
+    font-size: 9px;
+  }
+  .im-services {
+    padding: 58px 0 30px;
+  }
+  .im-section-top {
+    font-size: 9px;
+    margin-bottom: 24px;
+  }
+  .im-section-top > span {
+    display: none;
+  }
+  .im-service-title {
+    margin-bottom: 28px;
+    align-items: flex-end;
+    gap: 20px;
+  }
+  .im-service-title h2 {
+    font-size: 23vw;
+  }
+  .im-service-title > div {
+    padding: 0;
+    max-width: 145px;
+  }
+  .im-service-title p {
+    font-size: 9px;
+    line-height: 1.6;
+  }
+  .im-rail-controls {
+    margin-top: 16px;
+  }
+  .im-rail-controls button {
+    height: 40px;
+    width: 40px;
+  }
+  .im-rail-controls svg {
+    width: 18px;
+  }
+  .im-service-rail {
+    gap: 16px;
+    padding-block: 10px 20px;
+  }
+  .im-surface-card {
+    flex-basis: 81%;
+    height: 420px;
+    border-radius: 145px 145px 24px 24px;
+  }
+  .im-surface-card:nth-child(2n) {
+    border-radius: 24px 24px 145px 145px;
+  }
+  .im-surface-name {
+    font-size: 34px;
+    left: 25px;
+    right: 25px;
+    bottom: 32px;
+  }
+  .im-surface-number {
+    top: 30px;
+  }
+  .im-service-detail {
+    display: block;
+    padding: 20px 0 25px;
+    min-height: 0;
+  }
+  .im-service-detail h3 {
+    font-size: 26px;
+  }
+  .im-service-detail p {
+    font-size: 11px;
+    line-height: 1.75;
+  }
+  .im-service-detail > div:last-child {
+    align-items: flex-start;
+    margin-top: 22px;
+    gap: 20px;
+  }
+  .im-tags > span {
+    font-size: 9px;
+  }
+  .im-service-detail .cn-button {
+    font-size: 11px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .im-more-services {
+    display: block;
+    padding-block: 26px;
+  }
+  .im-more-services > p {
+    padding: 0 0 15px;
+  }
+  .im-more-services > div {
+    gap: 7px;
+  }
+  .im-more-services button {
+    font-size: 9px;
+    padding: 10px 12px;
+    min-height: 40px;
+  }
+  .cn-immersive .cn-offers {
+    border-radius: 38px 38px 0 0;
+    padding-top: 55px;
+    padding-bottom: 50px;
+  }
+  .cn-immersive .cn-section-heading h2 {
+    font-size: clamp(43px, 11.5vw, 70px);
+    letter-spacing: -0.055em;
+  }
+  .cn-immersive .cn-section-heading > p {
+    font-size: 11px;
+    line-height: 1.65;
+    margin-top: 20px;
+  }
+  .cn-immersive .cn-section-heading {
+    display: block;
+  }
+  .cn-immersive .cn-label {
+    font-size: 8px;
+  }
+  .cn-immersive .cn-offer-tabs {
+    margin-top: 25px;
+    margin-bottom: 18px;
+    gap: 6px;
+  }
+  .cn-immersive .cn-offer-tabs button {
+    padding: 11px 17px;
+    font-size: 10px;
+    min-height: 42px;
+  }
+  .cn-immersive .cn-offer-feature {
+    display: block;
+    border-radius: 25px;
+    min-height: 0;
+  }
+  .cn-immersive .cn-offer-photo {
+    min-height: 0;
+    height: 310px;
+  }
+  .cn-immersive .cn-discount {
+    top: 20px;
+    left: 20px;
+    height: 98px;
+    width: 77px;
+    font-size: 8px;
+  }
+  .cn-immersive .cn-image-caption {
+    font-size: 28px;
+    left: 25px;
+    bottom: 25px;
+    max-width: 210px;
+  }
+  .cn-immersive .cn-offer-copy {
+    padding: 28px 24px 22px;
+    border: 0;
+  }
+  .cn-immersive .cn-offer-copy h3 {
+    font-size: 38px;
+    line-height: 1.03;
+  }
+  .cn-immersive .cn-price {
+    margin: 20px 0;
+  }
+  .cn-immersive .cn-price strong {
+    font-size: 62px;
+  }
+  .cn-immersive .cn-inclusions {
+    font-size: 11px;
+    gap: 10px;
+  }
+  .cn-immersive .cn-offer-copy > .cn-button {
+    font-size: 11px;
+  }
+  .cn-immersive .cn-offer-footnote {
+    font-size: 8px;
+    line-height: 1.7;
+    margin-top: 22px;
+  }
+  .cn-immersive .cn-commercial {
+    padding: 290px 22px 30px;
+    min-height: 0;
+  }
+  .cn-immersive .cn-commercial-copy {
+    width: 100%;
+    padding: 65px 28px 35px;
+    border-radius: 160px 160px 25px 25px;
+    min-height: 0;
+  }
+  .cn-immersive .cn-commercial-copy h2 {
+    font-size: 54px;
+  }
+  .cn-immersive .cn-commercial-copy > p:not(.cn-label) {
+    font-size: 11px;
+  }
+  .cn-immersive .cn-commercial-types {
+    font-size: 10px;
+    align-items: flex-start;
+    max-width: 240px;
+    margin: 24px auto;
+  }
+  .cn-immersive .cn-commercial-copy .cn-button {
+    font-size: 11px;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .cn-immersive .cn-commercial-note {
+    font-size: 8px;
+  }
+  .cn-immersive .cn-commercial-image img {
+    object-position: 30% center;
+  }
+  .cn-immersive .cn-commercial-image {
+    height: 100%;
+  }
+  .cn-immersive .cn-approach {
+    padding-block: 58px;
+  }
+  .cn-immersive .cn-approach .cn-section-heading > a {
+    margin-top: 24px;
+    font-size: 12px;
+  }
+  .cn-immersive .cn-steps {
+    display: block;
+    margin-top: 32px;
+  }
+  .cn-immersive .cn-steps li {
+    margin-bottom: 14px;
+    min-height: 240px;
+    padding: 28px;
+    border-radius: 24px;
+    position: sticky;
+    top: 90px;
+  }
+  .cn-immersive .cn-steps li:nth-child(2) {
+    top: 106px;
+  }
+  .cn-immersive .cn-steps li:nth-child(3) {
+    top: 122px;
+  }
+  .cn-immersive .cn-steps li > span {
+    font-size: 42px;
+  }
+  .cn-immersive .cn-steps h3 {
+    font-size: 26px;
+    margin-top: 24px;
+  }
+  .cn-immersive .cn-steps p {
+    font-size: 11px;
+    margin-top: 12px;
+  }
+  .cn-immersive .cn-coverage {
+    padding: 28px 24px;
+    border-radius: 24px;
+    gap: 17px;
+  }
+  .cn-immersive .cn-coverage h2 {
+    font-size: 28px;
+    max-width: 240px;
+  }
+  .cn-immersive .cn-coverage p {
+    font-size: 10px;
+  }
+  .cn-immersive .cn-coverage a {
+    font-size: 11px;
+  }
+  .cn-immersive .cn-faq {
+    padding-block: 65px;
+    gap: 35px;
+  }
+  .cn-immersive .cn-faq h2 {
+    font-size: 64px;
+  }
+  .cn-immersive .cn-faq summary {
+    font-size: 11px;
+    padding: 18px 0;
+  }
+  .cn-immersive .cn-faq details p {
+    font-size: 11px;
+  }
+  .cn-immersive .cn-quote {
+    border-radius: 38px 38px 0 0;
+    padding-block: 55px;
+    gap: 36px;
+  }
+  .cn-immersive .cn-quote-intro h2 {
+    font-size: 57px;
+  }
+  .cn-immersive .cn-quote-intro > p {
+    font-size: 12px;
+  }
+  .cn-immersive .cn-form-panel {
+    padding: 28px 22px;
+    border-radius: 25px;
+  }
+  .cn-immersive .cn-form-panel h3 {
+    font-size: 30px;
+  }
+  .cn-immersive .cn-form-panel .cn-button {
+    font-size: 12px;
+  }
+  .im-ending {
+    padding-top: 50px;
+  }
+  .im-ending > p {
+    font-size: 10px;
+  }
+  .im-ending > a {
+    font-size: 11vw;
+    gap: 18px;
+  }
+  .im-ending > a svg {
+    width: 28px;
+  }
+  .im-ending-word {
+    font-size: 26vw;
+    margin: 10px 0 -5px;
+  }
+  .cn-immersive .cn-footer {
+    padding-top: 35px;
+  }
+  .cn-immersive .cn-legal .cn-button {
+    font-size: 10px;
+    padding: 13px 17px;
+    gap: 12px;
+  }
+}
+@media (max-width: 359px) {
+  .im-hero-intro {
+    align-items: flex-start;
+    gap: 9px;
+  }
+  .im-hero-intro > p {
+    font-size: 9px;
+  }
+  .im-hero-intro .cn-button {
+    font-size: 9px;
+    padding: 12px;
+    gap: 6px;
+  }
+  .im-world {
+    height: 300px;
+  }
+  .im-hero h1 {
+    font-size: 62px;
+  }
+  .im-round-offer {
+    width: 73px;
+    height: 93px;
+    right: 15px;
+  }
+  .im-room-hint {
+    max-width: 55px;
+    font-size: 7px;
+  }
+  .im-surface-card {
+    height: 365px;
+  }
+  .im-service-title p {
+    font-size: 8px;
+  }
+  .cn-immersive .cn-header-phone {
+    font-size: 9px;
+  }
+  .cn-immersive .cn-header-actions {
+    gap: 6px;
+  }
+  .cn-immersive .cn-commercial-copy h2 {
+    font-size: 46px;
+  }
+  .cn-immersive .cn-quote-intro h2 {
+    font-size: 49px;
+  }
+  .cn-immersive .cn-offer-copy h3 {
+    font-size: 33px;
+  }
+  .im-service-detail .cn-button {
+    min-height: 50px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .im-journey {
+    height: 85svh;
+  }
+  .im-journey-stage {
+    height: 85svh;
+    position: relative;
+  }
+  .im-portal-intro {
+    display: none !important;
+  }
+  .cn-immersive .cn-steps li {
+    position: static;
+  }
+  .cn-immersive * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  .im-room-canvas {
+    transition: none;
+  }
+}
+.im-room-tools {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+}
+.im-room-tools .im-pause-scene {
+  padding: 12px;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+}
+.im-journey:not([data-motion="true"]) {
+  height: 100svh;
+}
+@media (max-width: 767px) {
+  .im-room-tools .im-pause-scene {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .im-journey:not([data-motion="true"]) {
+    height: 85svh;
+  }
+}
+/* Keep the complete room and its controls in the first desktop view. */
+@media (min-width: 901px) {
+  .im-hero h1 {
+    font-size: clamp(76px, 8.3vw, 144px);
+  }
+  .im-world {
+    height: clamp(380px, 30vw, 490px);
+    margin-top: -16px;
+  }
+  .im-room-canvas {
+    inset: -8% 0;
+    height: 113%;
+  }
+}
+@media (max-width: 767px) {
+  .im-hero h1 {
+    font-size: clamp(44px, 14vw, 108px);
+    white-space: nowrap;
+  }
+  .im-hero-intro > p {
+    font-size: 10px;
+    max-width: 155px;
+  }
+  .im-hero-intro {
+    gap: 12px;
+  }
+}
+.im-room-fallback picture,
+.im-room-fallback img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

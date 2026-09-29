@@ -1,3 +1,7 @@
+## Current phase — immersive frontend experience · 2026-09-29
+
+Full creative authority granted for a new identity, typography, 3D/depth and scroll storytelling. Blue Sky is a content-completeness reference only. Implement one direction, preserve truthful prototype labels and quote access, verify mobile/desktop/fallbacks. The prior logo is not approved. No backend/production changes. See [immersive checkpoint](immersive-homepage/report.md).
+
 # Current phase
 
 Complete frontend prototype — 2026-09-29. Owner grants creative freedom, media generation, identity redesign and a complete single-pass homepage. Prototype phone 123456789, sample prices and discounts are explicitly requested. Build the customer-facing experience while leaving the backend and production untouched. See [prototype report](complete-prototype/report.md). This supersedes earlier composition, generation and sequential-checkpoint restrictions within this frontend scope.

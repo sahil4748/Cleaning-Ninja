@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Manrope } from "next/font/google";
+import { Outfit, Manrope } from "next/font/google";
 import Homepage from "@/components/homepage/Homepage";
 
-const serif = Instrument_Serif({
+const serif = Outfit({
   subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
   variable: "--home-serif",
   display: "swap",
 });

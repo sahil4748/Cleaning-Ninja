@@ -5,12 +5,22 @@ const sources = {
   desktop: "/homepage/prototype/carpet-film-desktop.mp4",
   mobile: "/homepage/prototype/carpet-film-mobile.mp4",
 };
-export default function Film() {
+export default function Film({
+  autoplayAllowed = true,
+}: {
+  autoplayAllowed?: boolean;
+}) {
   const root = useRef<HTMLElement>(null);
   const video = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
+  const allowAutoplay = useRef(autoplayAllowed);
+  const syncPlayback = useRef<() => void>(() => {});
+  useEffect(() => {
+    allowAutoplay.current = autoplayAllowed;
+    syncPlayback.current();
+  }, [autoplayAllowed]);
   useEffect(() => {
     const element = video.current!;
     const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -24,7 +34,12 @@ export default function Film() {
     let attempted = false;
     let disposed = false;
     const sync = () => {
-      if (reduced.matches || document.hidden || !visible) {
+      if (
+        !allowAutoplay.current ||
+        reduced.matches ||
+        document.hidden ||
+        !visible
+      ) {
         element.pause();
         return;
       }
@@ -58,12 +73,14 @@ export default function Film() {
       },
       { threshold: 0.25 },
     );
+    syncPlayback.current = sync;
     observer.observe(root.current!);
     reduced.addEventListener("change", sync);
     mobile.addEventListener("change", resize);
     document.addEventListener("visibilitychange", sync);
     return () => {
       disposed = true;
+      syncPlayback.current = () => {};
       observer.disconnect();
       reduced.removeEventListener("change", sync);
       mobile.removeEventListener("change", resize);
@@ -75,8 +92,9 @@ export default function Film() {
   }, []);
   function toggle() {
     const element = video.current!;
-    if (!element.paused) {
+    if (playing) {
       element.pause();
+      setPlaying(false);
       return;
     }
     if (!element.getAttribute("src"))
