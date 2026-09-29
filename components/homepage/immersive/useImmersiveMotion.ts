@@ -11,11 +11,12 @@ export function useImmersiveMotion() {
         const mm = gsap.matchMedia();
         mm.add("(prefers-reduced-motion: no-preference)", () => {
           const ctx = gsap.context(() => {
-            gsap.to(".im-world-word", {
-              xPercent: -12,
+            gsap.to(".cn-photo-media", {
+              yPercent: 16,
+              scale: 1.06,
               ease: "none",
               scrollTrigger: {
-                trigger: ".im-hero",
+                trigger: ".cn-photo-hero",
                 start: "top top",
                 end: "bottom top",
                 scrub: 1,

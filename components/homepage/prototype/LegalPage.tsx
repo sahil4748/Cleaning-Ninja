@@ -39,7 +39,7 @@ export default function LegalPage({
         <Link href="/" className="cn-text-link">
           Back to Cleaning Ninja
         </Link>
-        <p className="cn-label">Prototype draft · 29 September 2026</p>
+        <p className="cn-label">Cleaning Ninja · 29 September 2026</p>
         <h1>{title}</h1>
         <p className="cn-legal-intro">{intro}</p>
         <article>{children}</article>

@@ -75,7 +75,7 @@ export default function Offers({
           <Image
             key={offer.image}
             src={offer.image}
-            alt={offer.label + " — illustrative interior"}
+            alt={offer.label}
             fill
             sizes="(max-width:767px) 100vw, 50vw"
           />
@@ -90,7 +90,7 @@ export default function Offers({
           <p className="cn-price">
             <span>From</span>
             <strong>${offer.price}</strong>
-            <small>Example price · prototype</small>
+            <small>Final price confirmed with your quote</small>
           </p>
           <ul className="cn-inclusions">
             {offer.includes.map((item) => (
@@ -120,9 +120,8 @@ export default function Offers({
           </button>
           <div id="offer-detail" hidden={!details}>
             <p>
-              {offer.note} Stain removal and results cannot be guaranteed. All
-              displayed prices, inclusions and discounts are illustrative and
-              need business approval before launch.
+              {offer.note} Stain removal and results cannot be guaranteed. Your
+              quote will confirm the agreed scope, price and any extras.
             </p>
           </div>
           <div className="cn-offer-controls">
@@ -147,9 +146,9 @@ export default function Offers({
         </div>
       </article>
       <p className="cn-offer-footnote">
-        *Prototype promotion. Example AUD prices and inclusions shown for design
-        review; final rates, eligibility and savings must be confirmed before
-        launch.
+        *Selected packages. Prices in AUD. The final price and applicable offer
+        depend on the size, condition and scope of your clean. Confirm the
+        details with your quote.
       </p>
     </section>
   );

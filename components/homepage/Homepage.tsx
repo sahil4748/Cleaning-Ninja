@@ -9,7 +9,7 @@ import {
   MessageSquareText,
 } from "lucide-react";
 import Header from "./prototype/Header";
-import SpatialHero from "./immersive/SpatialHero";
+import PhotographicHero from "./immersive/PhotographicHero";
 import Journey from "./immersive/Journey";
 import SurfaceExplorer from "./immersive/SurfaceExplorer";
 import { useImmersiveMotion } from "./immersive/useImmersiveMotion";
@@ -21,6 +21,7 @@ import Quote from "./prototype/Quote";
 import { prototypeContact } from "@/content/homepage-prototype";
 import "./prototype/prototype.css";
 import "./immersive/immersive.css";
+import "./immersive/photographic.css";
 
 export default function Homepage() {
   useImmersiveMotion();
@@ -66,10 +67,10 @@ export default function Homepage() {
     );
   }
   return (
-    <div className="cn-site cn-immersive">
+    <div className="cn-site cn-immersive cn-cinematic">
       <Header />
       <main id="main-content" tabIndex={-1}>
-        <SpatialHero onSelect={select} />
+        <PhotographicHero onSelect={select} />
         <div className="cn-value-strip">
           {[
             [Layers3, "Care for every material"],
@@ -103,10 +104,7 @@ export default function Homepage() {
       </main>
       <Footer />
       <div className="cn-sticky" hidden={!showSticky}>
-        <a
-          href={prototypeContact.href}
-          aria-label="Call 123456789, prototype number"
-        >
+        <a href={prototypeContact.href} aria-label="Call 123456789">
           <Phone size={19} />
           Call us
         </a>

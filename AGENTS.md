@@ -1,6 +1,6 @@
 # Cleaning Ninja 2026 — repository instructions
 
-Work only on `rebuild-2026`. Current scope: complete owner-authorised frontend prototype with new branding, cinematic media, sample offers/prices, placeholder phone 123456789 and original legal drafts. Latest direction: immersive spatial homepage and coherent new identity; the earlier logo/layout are not approved. See docs/execution/immersive-homepage/report.md. Preserve the backend, lead APIs and Supabase work. No deployment, push, merge, DNS/email/environment changes.
+Work only on `rebuild-2026`. Current scope: complete owner-authorised frontend prototype with new branding, cinematic media, sample offers/prices, placeholder phone 123456789 and original legal drafts. Latest direction: photographic hero; retain the Make room for living scroll-to-film reveal. The owner rejected the 3D room and asked to remove internal prototype/illustrative labels from all customer-facing UI. These presentation changes do not verify sample business data. See docs/execution/photographic-homepage/report.md. Preserve the backend, lead APIs and Supabase work. No deployment, push, merge, DNS/email/environment changes.
 
 
 ## Baseline and authority

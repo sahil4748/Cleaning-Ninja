@@ -25,7 +25,26 @@ export default function Quote({
     return () => cancelAnimationFrame(frame);
   }, [selection]);
   const [phoneError, setPhoneError] = useState("");
-  const [summary, setSummary] = useState({ name: "", suburb: "" });
+  const [summary, setSummary] = useState({
+    name: "",
+    suburb: "",
+    phone: "",
+    email: "",
+    details: "",
+  });
+  const emailBody = [
+    "Hello Cleaning Ninja, I'd like a free quote.",
+    `Service: ${selection.service}`,
+    selection.packageName ? `Package: ${selection.packageName}` : "",
+    `Name: ${summary.name}`,
+    `Suburb or postcode: ${summary.suburb}`,
+    `Phone: ${summary.phone}`,
+    summary.email ? `Email: ${summary.email}` : "",
+    summary.details ? `Details: ${summary.details}` : "",
+  ]
+    .filter(Boolean)
+    .join("\n");
+  const enquiryHref = `mailto:${prototypeContact.email}?subject=${encodeURIComponent(`Cleaning quote — ${selection.service}`)}&body=${encodeURIComponent(emailBody)}`;
   const status = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (done) status.current?.focus();
@@ -47,6 +66,9 @@ export default function Quote({
     setSummary({
       name: String(data.get("name")),
       suburb: String(data.get("suburb")),
+      phone: String(data.get("phone")),
+      email: String(data.get("email") ?? ""),
+      details: String(data.get("details") ?? ""),
     });
     setDone(true);
   }
@@ -78,29 +100,36 @@ export default function Quote({
         <a className="cn-email" href={`mailto:${prototypeContact.email}`}>
           {prototypeContact.email}
         </a>
-        <p className="cn-demo-note">
-          Frontend prototype. The phone is a placeholder and this form previews
-          an enquiry without sending it.
-        </p>
       </div>
       <div className="cn-form-panel">
         {done && (
           <div
-            className="cn-quote-success"
+            className="cn-quote-success cn-enquiry-review"
             role="status"
             ref={status}
             tabIndex={-1}
           >
             <Check size={32} />
-            <h3>Your quote preview is ready.</h3>
+            <h3>Your enquiry, ready to send.</h3>
             <p>
               Thanks, {summary.name}. Your {selection.service.toLowerCase()}{" "}
-              enquiry for {summary.suburb} is ready to review.
+              enquiry for {summary.suburb} is ready.
             </p>
             {selection.packageName && <p>Package: {selection.packageName}</p>}
-            <p className="cn-demo-note">
-              Demo only: nothing has been sent and no booking has been made.
+            <div className="cn-enquiry-summary">
+              <p>
+                {summary.name} · {summary.phone}
+              </p>
+              {summary.email && <p>{summary.email}</p>}
+              {summary.details && <p>{summary.details}</p>}
+            </div>
+            <p className="cn-enquiry-instruction">
+              Open your email app to send these details to Cleaning Ninja. Your
+              enquiry has not been sent yet.
             </p>
+            <a className="cn-button" href={enquiryHref}>
+              Send by email <ArrowUpRight size={18} />
+            </a>
             <button className="cn-button" onClick={() => setDone(false)}>
               Edit my enquiry
               <ArrowUpRight size={18} />
@@ -110,8 +139,7 @@ export default function Quote({
         <form hidden={done} onSubmit={submit} aria-label="Get a Free Quote">
           <noscript>
             <p>
-              Enable JavaScript to preview the quote form, or use the email
-              link.
+              Enable JavaScript to use the quote form, or use the email link.
             </p>
           </noscript>
           <div className="cn-form-heading">
@@ -222,7 +250,7 @@ export default function Quote({
             <ArrowUpRight size={18} />
           </button>
           <p className="cn-form-privacy">
-            By enquiring, you agree to contact about your request.{" "}
+            Next, review your enquiry and send it by email.{" "}
             <a href="/legal/privacy">Privacy policy</a>.
           </p>
         </form>

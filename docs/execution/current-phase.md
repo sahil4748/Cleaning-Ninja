@@ -1,3 +1,7 @@
+## Current phase — photographic home feeling · 2026-09-29
+
+The owner rejects the CAD-like room hero, retains the Make room for living aperture and grants creative authority for a photographic customer-facing experience. Remove internal review labels from the UI; keep sample-data classification, noindex and release gates internally. Enquiries prepare an email for the visitor to review and send; no fabricated receipt. See [photographic checkpoint](photographic-homepage/report.md).
+
 ## Current phase — immersive frontend experience · 2026-09-29
 
 Full creative authority granted for a new identity, typography, 3D/depth and scroll storytelling. Blue Sky is a content-completeness reference only. Implement one direction, preserve truthful prototype labels and quote access, verify mobile/desktop/fallbacks. The prior logo is not approved. No backend/production changes. See [immersive checkpoint](immersive-homepage/report.md).

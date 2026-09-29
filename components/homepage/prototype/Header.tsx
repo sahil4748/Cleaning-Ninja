@@ -1,5 +1,5 @@
 "use client";
-import { useRef, type KeyboardEvent } from "react";
+import { useEffect, useRef, useState, type KeyboardEvent } from "react";
 import { ArrowUpRight, Menu, Phone, X } from "lucide-react";
 import Brand from "./Brand";
 import { prototypeContact } from "@/content/homepage-prototype";
@@ -11,6 +11,13 @@ const links = [
 ];
 export default function Header() {
   const menu = useRef<HTMLDialogElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 40);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
   function trap(event: KeyboardEvent<HTMLDialogElement>) {
     if (event.key !== "Tab") return;
     const elements =
@@ -31,13 +38,13 @@ export default function Header() {
         Skip to content
       </a>
       <div className="cn-offer-strip">
-        <span>Prototype · sample offers & phone</span>
+        <span>A fresh start, from the floor up.</span>
         <a href="#packages">
           A little more value. <strong>Up to 30% off selected packages*</strong>
           <ArrowUpRight size={14} />
         </a>
       </div>
-      <header className="cn-header">
+      <header className="cn-header" data-scrolled={scrolled}>
         <Brand />
         <nav aria-label="Main navigation">
           {links.map(([name, href]) => (
@@ -50,7 +57,7 @@ export default function Header() {
           <a
             className="cn-header-phone"
             href={prototypeContact.href}
-            aria-label="Call 123456789, prototype number"
+            aria-label="Call 123456789"
           >
             <Phone size={18} />
             <span>{prototypeContact.phone}</span>
@@ -112,7 +119,7 @@ export default function Header() {
           <a className="cn-menu-phone" href={prototypeContact.href}>
             <Phone size={18} />
             {prototypeContact.phone}
-            <small>Prototype number</small>
+            <small>Let’s talk clean.</small>
           </a>
         </div>
       </dialog>

@@ -17,7 +17,7 @@ export default function SupportingSections({
         <div className="cn-commercial-image">
           <Image
             src="/homepage/prototype/commercial.webp"
-            alt="Illustrative interior for a commercial cleaning enquiry"
+            alt="A light-filled commercial workspace"
             fill
             sizes="(max-width:767px) 100vw, 50vw"
           />

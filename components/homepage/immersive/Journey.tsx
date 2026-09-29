@@ -26,7 +26,7 @@ export default function Journey() {
             },
           });
           timeline.fromTo(
-            el.querySelector(".im-portal"),
+            el.querySelectorAll(".im-portal, .im-portal-contrast"),
             { clipPath: "inset(18% 32% round 48%)" },
             {
               clipPath: "inset(0% 0% round 0%)",
@@ -37,8 +37,8 @@ export default function Journey() {
           );
           timeline.fromTo(
             el.querySelector(".im-portal-intro"),
-            { y: 0, opacity: 1 },
-            { y: -120, opacity: 0, duration: 0.35 },
+            { opacity: 1 },
+            { opacity: 0, duration: 0.35 },
             0,
           );
           timeline.fromTo(
@@ -69,11 +69,20 @@ export default function Journey() {
       <div className="im-journey-stage">
         <div className="im-portal-intro">
           <p>Less to think about. More to come home to.</p>
-          <h2>
-            Make room
-            <br />
-            for <span>living.</span>
-          </h2>
+          <div className="im-portal-title">
+            <h2>
+              Make room
+              <br />
+              for <span>living.</span>
+            </h2>
+          </div>
+          <div className="im-portal-contrast" aria-hidden="true">
+            <div className="im-portal-heading">
+              Make room
+              <br />
+              for <span>living.</span>
+            </div>
+          </div>
           <ArrowDown size={28} />
         </div>
         <div className="im-portal">

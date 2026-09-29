@@ -4,6 +4,10 @@
 
 Latest homepage gate (2026-09-29): full frontend creative authority including identity replacement, real 3D/depth and interactive scroll storytelling. The previous prototype and logo are not visually approved. Blue Sky is a service/content completeness reference only. Sample pricing, discount presentation, phone 123456789 and original legal drafts remain prototype-only; no competitor facts become business verification. Backend remains deferred. See docs/execution/immersive-homepage/report.md.
 
+## Latest visual decision — 2026-09-29
+
+Replace the 3D room with photographic imagery. Preserve and refine the Make room for living aperture-to-video moment. Remove prototype, illustrative and demo language from customer-facing pages. This explicit presentation instruction supersedes previous UI-label requirements; it does not verify the sample phone, rates, discount basis, operational policies or availability. Keep canonical business truth, noindex and production release restrictions. The frontend enquiry action now prepares a user-controlled email, without claiming delivery.
+
 ## Classification
 
 - VERIFIED: explicit evidence or previously established owner facts, with source and scope.

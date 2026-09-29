@@ -145,7 +145,7 @@ export const prototypeFaq = [
   ],
   [
     "How do the package offers work?",
-    "Choose a package as a starting point. Room dimensions, material, condition, access and additional areas can change the scope. Prices and the up-to-30% promotion on this prototype are demonstration examples, not live offers.",
+    "Choose a package as a starting point. Room dimensions, material, condition, access and additional areas can change the scope. Ask us to confirm the applicable offer and final price with your quote.",
   ],
   [
     "Can I combine carpets, rugs and upholstery?",
@@ -157,7 +157,7 @@ export const prototypeFaq = [
   ],
   [
     "How long will carpets take to dry?",
-    "Drying varies with the carpet, cleaning method, ventilation and weather. Ask for advice specific to your space before the clean; this prototype does not promise a fixed drying time.",
+    "Drying varies with the carpet, cleaning method, ventilation and weather. Ask for advice specific to your space before the clean.",
   ],
   [
     "Can every stain be removed?",

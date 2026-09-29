@@ -76,7 +76,7 @@ export default function SurfaceExplorer({
           >
             <Image
               src={s.image}
-              alt={`${s.name} — illustrative interior`}
+              alt={s.name}
               fill
               sizes="(max-width:767px) 82vw, 36vw"
             />

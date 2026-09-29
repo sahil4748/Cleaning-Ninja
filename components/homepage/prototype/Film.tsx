@@ -51,9 +51,14 @@ export default function Film({
         return;
       attempted = true;
       element.src = mobile.matches ? sources.mobile : sources.desktop;
-      void element.play().catch(() => {
+      void element.play().catch((error: unknown) => {
         if (!disposed) {
           setPlaying(false);
+          if (
+            error instanceof DOMException &&
+            ["AbortError", "NotAllowedError"].includes(error.name)
+          )
+            return;
           setFailed(true);
         }
       });
@@ -103,7 +108,10 @@ export default function Film({
         : sources.desktop;
     if (element.ended || element.currentTime >= 4.9) element.currentTime = 0;
     setFailed(false);
-    void element.play().catch(() => setFailed(true));
+    void element.play().catch((error: unknown) => {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setFailed(true);
+    });
   }
   return (
     <section ref={root} className="cn-film" aria-labelledby="film-title">
@@ -114,7 +122,7 @@ export default function Film({
         />
         <img
           src="/homepage/prototype/carpet-film-desktop.jpg"
-          alt="Illustrative carpet cleaning in a warm living room"
+          alt="Carpet cleaning in a warm living room"
           loading="lazy"
           width={1920}
           height={1080}
@@ -153,7 +161,7 @@ export default function Film({
         </a>
       </div>
       <div className="cn-film-controls">
-        <span>Illustrative brand film · 5 seconds</span>
+        <span>Care you can feel.</span>
         <button
           aria-label={playing ? "Pause cleaning film" : "Play cleaning film"}
           onClick={toggle}

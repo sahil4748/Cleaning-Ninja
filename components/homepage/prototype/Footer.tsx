@@ -41,7 +41,7 @@ export default function Footer() {
           <a href="/legal/privacy">Privacy policy</a>
           <a href="/legal/terms">Terms & offer conditions</a>
         </div>
-        <span>Prototype · illustrative imagery, prices & phone</span>
+        <span>A little less to do. A lot more to enjoy.</span>
       </div>
     </footer>
   );

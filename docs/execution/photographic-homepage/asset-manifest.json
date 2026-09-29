@@ -1,0 +1,41 @@
+{
+  "new_media_generations": 0,
+  "assets": [
+    {
+      "purpose": "Desktop hero",
+      "path": "public/homepage/hf_20260927_084053_c4d57005-0833-4641-8846-09f8f6cd3cb8.png",
+      "bytes": 22743529,
+      "sha256": "5c7871e1b311271575ad1e7b483044e9f47fb350a15852e052f203316b923cff"
+    },
+    {
+      "purpose": "Mobile hero",
+      "path": "public/homepage/hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png",
+      "bytes": 23896424,
+      "sha256": "c102ae44bb051d0f9e6bdd8d72333c0dbd76a548fddab2d512abb2120e58ab14"
+    },
+    {
+      "purpose": "Desktop reveal film",
+      "path": "public/homepage/prototype/carpet-film-desktop.mp4",
+      "bytes": 1693593,
+      "sha256": "17c54790ec468a18954bbf10c6be64728b899a2d78ca7899573f506ca1f848a4"
+    },
+    {
+      "purpose": "Mobile reveal film",
+      "path": "public/homepage/prototype/carpet-film-mobile.mp4",
+      "bytes": 1208899,
+      "sha256": "ce5b0f35a234b145339ee9c8e0a0486eb7e442c2f73ee160ca26508856bd3344"
+    },
+    {
+      "purpose": "Desktop film poster",
+      "path": "public/homepage/prototype/carpet-film-desktop.jpg",
+      "bytes": 87915,
+      "sha256": "580b658808f15b0727d9f25547c08cc5c43e5ef0235a785742578f959b27427c"
+    },
+    {
+      "purpose": "Mobile film poster",
+      "path": "public/homepage/prototype/carpet-film-mobile.jpg",
+      "bytes": 74478,
+      "sha256": "a7bdfa0c645567d175fb23558853c8c79e2d44b353eee25759eaab06b985edd3"
+    }
+  ]
+}

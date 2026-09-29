@@ -61,3 +61,7 @@ C03 scope override: owner confirms service across major Australian cities, with 
 ### Complete frontend prototype — 2026-09-29
 
 The owner explicitly authorised placeholder phone 123456789, sample numerical prices and a discount-led frontend prototype. These are PLACEHOLDER design content, not verified operating facts. Homepage prototype data is isolated in `content/homepage-prototype.ts`; canonical business data and structured pricing remain unchanged. The up-to-30% promotion, package prices/inclusions, proposed service scope and original draft legal pages require business approval before launch. The prototype form displays a demo confirmation without sending or persisting an enquiry. Release remains blocked and pages remain noindex. This limited prototype exception supersedes the earlier prohibition on placeholder telephone links only within this frontend demo.
+
+### Photographic presentation — 2026-09-29
+
+The owner requested customer-facing presentation without internal review labels. Those labels are removed from the active homepage, related legal pages, metadata and accessible text. Placeholder phone 123456789, starting prices, package inclusions and discount basis remain unverified design content in the isolated homepage module; no new factual schema or backend offers are created. Business and legal approval still block publication. Form completion prepares an email draft, states that the enquiry is not yet sent and opens the visitor's email app only on a separate Send by email click. No message was sent during implementation or tests.
