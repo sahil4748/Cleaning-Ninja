@@ -85,7 +85,7 @@ test('package portraits and feedback service images load and keep quote prefills
     await expect(image).toHaveAttribute('loading', 'lazy')
     expect(await image.getAttribute('src')).toContain(`p-0${i + 1}`)
   }
-  const sources = ['hero-desktop.jpg', 'carpet.jpg', 'hero-mobile.jpg', 'tile.jpg', 'leather.jpg']
+  const sources = ['carpet.jpg', 'hero-desktop.jpg', 'hero-mobile.jpg', 'tile.jpg', 'leather.jpg']
   for (let i = 0; i < 10; i++) {
     await page.locator('.home-service-trigger').nth(i).click()
     const image = page.locator('.home-service-photo img')

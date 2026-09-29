@@ -1,5 +1,9 @@
 # Current phase
 
+Homepage correction, one section at a time — 2026-09-29. The owner rejected Step B visuals and requested Australian references, carpet-first hierarchy, clearer offers, commercial services and a stronger cinematic presentation. First checkpoint: header/hero and direct onward navigation; see [correction report](hero-refinement/report.md). Previous composition locks are superseded only within this new request. No production or backend changes.
+
+## Previous phase — historical authority
+
 Locked execution step B — approved media integration · 2026-09-29 · `rebuild-2026`, baseline `6d0cff5`.
 
 Integrate exact H-04 mobile video, locked P-01–P-05 package images, and service imagery traced to feedback-preview commit `7124dda`. Preserve desktop cinematic media, homepage composition, copy, quote contracts and completed Supabase milestone. Verify responsive/fallback behavior, build and rendered homepage; commit the bounded result. No generation, deployment, push, merge, DNS or environment configuration changes. See [Step B evidence and asset mapping](step-b-media/report.md).

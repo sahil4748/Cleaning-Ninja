@@ -39,13 +39,12 @@ export default function Homepage() {
     document.getElementById('quote')?.scrollIntoView({ behavior: 'instant' })
     requestAnimationFrame(() => document.getElementById('quote-service')?.focus({ preventScroll: true }))
   }
-  return <div className="home-prototype home-candidate" data-hero-design="d">
+  return <div className="home-prototype home-candidate" data-hero-design="service-led">
     <HomeHeader />
     <main id="home-main" tabIndex={-1}>
       <HomepageHero />
       <div className="home-editorial-body">
         <section id="packages" className="home-section home-packages" aria-labelledby="packages-title">
-          <div className="home-handoff"><span>A CONSIDERED START</span><span>SPACE / MATERIAL / EVERYDAY</span></div>
           <div className="home-package-heading"><h2 id="packages-title">Selected <em>packages.</em></h2><p>Useful starting points.<br />A quote shaped around your space.</p></div>
           <div className="home-package-index">{packages.map((item, index) => <article className="home-package" key={item.id}>
             <span className="home-index-number" aria-hidden="true">0{index + 1}</span><div className="home-package-photo"><Image src={item.image} alt="" width={1280} height={1600} sizes="(max-width: 767px) calc(100vw - 48px), 22vw" /></div><div className="home-package-copy"><h3>{item.name}</h3><p>{item.detail}</p></div>

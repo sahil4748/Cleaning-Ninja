@@ -2,7 +2,7 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
-Latest homepage gate (2026-09-29): **Final Cinematic Integration Sprint**. Static homepage `779c265` is locked, including desktop D/H-01 and replacement mobile portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png`. Bounded cinematic integration and conditional commit/push are authorised; deployment and release approval remain separate. See the latest entry below.
+Latest homepage gate (2026-09-29): owner rejected Step B visuals and requested sequential homepage corrections, Australian cleaning references, carpet-first hierarchy, clearer package offers and commercial services. First correction is header/hero; see docs/execution/hero-refinement/report.md. Earlier composition locks are superseded only within this new scope; business-truth and production boundaries remain.
 
 ## Classification
 

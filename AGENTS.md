@@ -1,6 +1,6 @@
 # Cleaning Ninja 2026 — repository instructions
 
-Work only on `rebuild-2026`. Current scope: locked execution step B, approved H-04/package/service media integration and responsive verification; see docs/execution/current-phase.md. Preserve completed Supabase work, desktop cinematic baseline, content and architecture. Do not redesign internal pages, regenerate imagery, deploy, push, merge to main, or change DNS/email/environment configuration.
+Work only on `rebuild-2026`. Current scope: owner-requested homepage correction, one section at a time, starting with header/hero; see docs/execution/current-phase.md. Preserve completed Supabase work, approved source assets and lead architecture. Latest owner feedback supersedes the previous visual composition lock. Do not redesign internal pages, regenerate imagery, deploy, push, merge to main, or change DNS/email/environment configuration.
 
 ## Baseline and authority
 
@@ -24,4 +24,4 @@ Next.js App Router, TypeScript, npm lockfile. Runtime version is not pinned. Run
 
 For library/framework/SDK/API/CLI/cloud documentation, use Context7: first resolve-library-id (unless exact ID supplied), then query-docs scoped to one concept. Prefer exact/version matches and authoritative sources. Do not use it for general code review or business-logic analysis.
 
-Stop after the Step B integration report and commit. Subsequent internal-page work or release requires a new instruction.
+Work in bounded homepage checkpoints. Internal-page work or release still requires a new instruction.

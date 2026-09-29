@@ -2,7 +2,7 @@ import { SERVICE_CATALOGUE } from './service-catalogue'
 import { PACKAGES } from './packages'
 import { resolveMedia } from './media'
 import { FEATURES } from './features'
-export const homeServices = SERVICE_CATALOGUE.filter(service => service.enabled).map(service => ({ ...service, image: resolveMedia(service.cardMediaKey) }))
+export const homeServices = SERVICE_CATALOGUE.filter(service => service.enabled).sort((a, b) => Number(b.slug === 'carpet-cleaning') - Number(a.slug === 'carpet-cleaning')).map(service => ({ ...service, image: resolveMedia(service.cardMediaKey) }))
 export const packages = FEATURES.packages ? PACKAGES.filter(item => item.enabled).map(item => ({ ...item, image: resolveMedia(item.mediaKey) })) : []
 export const homepageFaq = [
   ['How do I get a quote?', 'Choose a service or package, then share your suburb and a few details in the form below. Pricing and scope are discussed as part of your quote.'],

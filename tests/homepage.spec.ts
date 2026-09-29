@@ -9,7 +9,7 @@ for (const [width, height] of sizes) {
     await page.goto('/')
     await page.evaluate(() => document.fonts.ready)
     await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
-    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Bring your space back to calm.')
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Cleaner carpets. A fresher home.')
     await expect(page.locator('.home-hero .home-button')).toBeInViewport({ ratio: 1 })
     const source = await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.currentSrc)
     expect(source).toContain(width < 768 ? 'hf_20260928_141125_f8371d19' : 'hf_20260927_084053_c4d57005')
@@ -27,6 +27,10 @@ for (const [width, height] of sizes) {
     const body = await page.locator('main').innerText()
     expect(body).not.toMatch(/\$\d|\d+% off|Brisbane is where we begin|booking confirmed|five.star/i)
     expect(errors).toEqual([])
+    if ([375,390,430,768,1024,1440].includes(width)) {
+      await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
+      await page.screenshot({ path: `test-results/homepage/hero-${width}.png` })
+    }
     if ([390,1440].includes(width)) {
       await page.locator('#ninja-cut').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
       await page.locator('main img').evaluateAll(images => Promise.all(images.map(image => (image as HTMLImageElement).decode().catch(() => {}))))
@@ -127,7 +131,7 @@ test('reduced motion, mobile services and visible focus', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
   expect(await page.locator('.home-cut-noise').evaluate(element => getComputedStyle(element).display)).toBe('none')
-  await page.getByRole('button', { name: '02 Carpet Steam Clean' }).click()
+  await page.getByRole('button', { name: '01 Carpet Steam Clean' }).click()
   await expect(page.locator('#active-service-title')).toBeFocused()
   await expect(page.getByRole('button', { name: 'Quote this service' })).toBeInViewport()
   await page.getByRole('button', { name: 'Quote this service' }).click()

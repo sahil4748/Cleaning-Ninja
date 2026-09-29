@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { mkdir, writeFile } from 'node:fs/promises'
 
 const asset = '/homepage/h03-desktop-3e804515.mp4'
 const evidence = 'test-results/final-cinematic'
@@ -37,7 +37,7 @@ for (const [width, height] of [[1366,768],[1440,900],[1920,1080]]) test(`poster 
   await expect(page.locator('.home-hero .lab-quote')).toBeInViewport({ ratio: 1 })
   await expect(page.locator('.home-hero video')).toHaveCount(1)
   await expect(page.locator('video[data-ready="true"]')).toHaveCount(0)
-  const before = await page.locator('.home-hero h1,.home-hero .lab-details,.home-header').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()))
+  const before = await page.locator('.home-hero h1,.home-hero .hero-message,.home-header').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()))
   if (width === 1440) await page.screenshot({ path: `${evidence}/desktop-initial.png` })
   release()
   await expect(page.locator('video')).toHaveAttribute('data-ready', 'true')
@@ -58,7 +58,7 @@ for (const [width, height] of [[1366,768],[1440,900],[1920,1080]]) test(`poster 
   expect(metrics.resources.find(entry => entry.url.includes('h03-desktop'))!.start).toBeGreaterThan(metrics.load)
   expect(metrics.mediaError).toBeNull()
   expect(errors).toEqual([])
-  expect(await page.locator('.home-hero h1,.home-hero .lab-details,.home-header').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()))).toEqual(before)
+  expect(await page.locator('.home-hero h1,.home-hero .hero-message,.home-header').evaluateAll(elements => elements.map(element => element.getBoundingClientRect().toJSON()))).toEqual(before)
   for (const time of [0,1,2.5,4,4.8]) {
     await page.locator('video').evaluate(async (video: HTMLVideoElement, time) => {
       await new Promise<void>(resolve => { video.addEventListener('seeked', () => resolve(), { once: true }); video.currentTime = time })
@@ -90,16 +90,20 @@ for (const mode of ['reduced','save-data','slow-connection','autoplay-denied','r
   await context.close()
 })
 
-for (const [width,height] of [[320,568],[375,812],[390,844],[440,956],[768,1024],[1024,768],[1366,768],[1440,900],[1728,1000],[1920,1080]]) test(`locked geometry and intentional strategy ${width}`, async ({ page }) => {
+for (const [width,height] of [[320,568],[375,812],[390,844],[440,956],[768,1024],[1024,768],[1366,768],[1440,900],[1728,1000],[1920,1080]]) test(`responsive geometry and intentional strategy ${width}`, async ({ page }) => {
   await page.setViewportSize({ width,height })
   const requests: string[] = []
   page.on('request', request => { if (request.url().includes(asset)) requests.push(request.url()) })
   await page.goto('/')
   await page.evaluate(() => document.fonts.ready)
   await page.locator('.home-hero img').evaluate((image: HTMLImageElement) => image.decode())
-  const boxes = await page.locator('.home-hero,.home-hero h1,.home-hero .lab-details,.home-header').evaluateAll(elements => elements.map(element => ({ class: element.className, box: element.getBoundingClientRect().toJSON() })))
-  const baseline = JSON.parse(await readFile('tests/fixtures/homepage-static-779c265.json', 'utf8'))
-  expect(boxes).toEqual(baseline.find((item: { width: number }) => item.width === width).boxes.slice(0, 4))
+  const hero = (await page.locator('.home-hero').boundingBox())!
+  const title = (await page.locator('.home-hero h1').boundingBox())!
+  const next = (await page.locator('.hero-next').boundingBox())!
+  const header = (await page.locator('.home-header').boundingBox())!
+  expect(title.y).toBeGreaterThanOrEqual(header.y + header.height)
+  expect(next.y + next.height).toBeLessThanOrEqual(hero.y + hero.height + 1)
+  await expect(page.locator('.hero-actions .home-button')).toBeInViewport({ ratio: 1 })
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
   if (width < 1200) {
     await page.waitForTimeout(width < 768 ? 4200 : 1000)
@@ -113,7 +117,7 @@ for (const [width,height] of [[320,568],[375,812],[390,844],[440,956],[768,1024]
   } else {
     await expect(page.locator('video')).toHaveAttribute('data-ready', 'true')
     const plane = await page.locator('video').boundingBox()
-    expect(plane!.width).toBeCloseTo(Math.max(width, height * 5504 / 3072), 1)
+    expect(plane!.width).toBeCloseTo(Math.max(width, hero.height * 5504 / 3072), 1)
     await expect(page.locator('video')).toHaveAttribute('aria-hidden', 'true')
     await expect(page.locator('video')).toHaveAttribute('tabindex', '-1')
     await page.emulateMedia({ reducedMotion: 'reduce' })
