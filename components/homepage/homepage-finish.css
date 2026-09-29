@@ -60,10 +60,20 @@
 .home-signature-copy h2 em { margin-left: 24%; }
 .home-candidate .home-signature-copy > p:last-child { margin: 0 0 40px 60%; font-size: 13px; }
 .home-cut-baseline { position: absolute; z-index: 2; left: var(--home-gutter); right: var(--home-gutter); bottom: 24px; display: flex; justify-content: space-between; border-top: 1px solid #7e896e; padding-top: 16px; font-size: 9px; letter-spacing: .12em; }
-.home-signature:not(.is-resolved) .home-signature-copy { color: var(--home-ivory); }
-.is-resolved .home-cut-noise { animation: home-cut-pass 1.6s cubic-bezier(.22,.7,.18,1) both; }
-.is-resolved .home-signature-copy { transition: color 1.4s; }
-@keyframes home-cut-pass { to { clip-path: inset(0 0 0 100%); } }
+/* Final composition is also the no-JS state. Only the signature surface moves. */
+.home-cut-noise { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  [data-cut-state="waiting"] .home-cut-noise,
+  [data-cut-state="running"] .home-cut-noise { display: flex; }
+  [data-cut-state="waiting"] .home-signature-copy { color: var(--home-ivory); }
+  [data-cut-state="running"] .home-cut-noise { animation: home-cut-pass 1.15s cubic-bezier(.22,.7,.18,1) both; }
+  [data-cut-state="running"] .home-signature-copy { animation: home-cut-ink 1.15s both; }
+}
+@keyframes home-cut-pass {
+  from { clip-path: polygon(0 0,100% 0,100% 100%,0 100%); }
+  to { clip-path: polygon(118% 0,118% 0,100% 100%,100% 100%); }
+}
+@keyframes home-cut-ink { from { color: var(--home-ivory); } to { color: #293323; } }
 .home-candidate .home-journey { display: grid; grid-template-columns: 1fr 1fr; gap: 64px 10%; }
 .home-journey-intro h2 { margin-top: 32px; }
 .home-journey-intro > p:last-child { margin-top: 28px; color: var(--home-muted); font-size: 13px; }
@@ -245,3 +255,19 @@
   .home-candidate .candidate-hero .lab-details { top: calc(var(--d-title-top) + var(--d-type) * 2.06 + 30px); gap: 28px; }
   .home-prototype.home-candidate .candidate-hero .lab-description { font-size: 14px; max-width: 124px; }
 }
+
+/* Cinematic enhancement: the same source plane and refined architectural mask.
+   H-01 and the DOM never leave; a short clipped handoff reveals only the room. */
+.candidate-hero .ninja-media { container-type: size; }
+.home-candidate .candidate-hero .h03-masked { width: max(100%, 179.166667cqh); }
+@media (min-width: 1200px) and (prefers-reduced-motion: no-preference) {
+  .candidate-hero .h03-masked[data-ready="true"] { animation: hero-threshold-cut 650ms cubic-bezier(.22,.7,.18,1) both; }
+}
+@keyframes hero-threshold-cut {
+  from { clip-path: polygon(36.3% 0,36.3% 0,36.3% 100%,36.3% 100%); }
+  to { clip-path: polygon(0 0,118% 0,100% 100%,0 100%); }
+}
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .candidate-hero [data-settle="true"] .ninja-resolved { animation: hero-camera-settle 4s cubic-bezier(.22,.7,.18,1) forwards; transform-origin: 0% 50%; }
+}
+@keyframes hero-camera-settle { from { transform: none; } to { transform: scale(1.006) translateY(-1px); } }

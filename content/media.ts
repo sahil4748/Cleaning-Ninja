@@ -1,6 +1,6 @@
 export const MEDIA = {
   hero: {
-    desktop: { poster: '/homepage/hf_20260927_084053_c4d57005-0833-4641-8846-09f8f6cd3cb8.png', video: null as string | null },
+    desktop: { poster: '/homepage/hf_20260927_084053_c4d57005-0833-4641-8846-09f8f6cd3cb8.png', video: '/homepage/h03-desktop-3e804515.mp4' },
     mobile: { poster: '/homepage/hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png', video: null as string | null },
   },
   images: {

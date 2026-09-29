@@ -21,7 +21,7 @@ for (const [width, height] of sizes) {
       await page.locator(`#${id}`).scrollIntoViewIfNeeded()
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
     }
-    await expect(page.locator('a[href^="tel:"], video, canvas')).toHaveCount(0)
+    await expect(page.locator('a[href^="tel:"], canvas')).toHaveCount(0)
     await expect(page.getByText(/1,247|4\.9|police.checked|insured|guarantee/i)).toHaveCount(0)
     await expect(page.locator('h1')).toHaveCount(1)
     const body = await page.locator('main').innerText()
@@ -33,13 +33,13 @@ for (const [width, height] of sizes) {
       await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }))
       await expect(page.locator('.home-header')).toHaveAttribute('data-scrolled', 'false')
       await page.locator('.home-header').evaluate(element => Promise.all(element.getAnimations({ subtree: true }).map(animation => animation.finished)))
-      await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/full-${width}.png`, fullPage: true })
-      if (width !== 440) await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/hero-${width}.png` })
+      await page.screenshot({ path: `test-results/homepage/full-${width}.png`, fullPage: true })
+      if (width !== 440) await page.screenshot({ path: `test-results/homepage/hero-${width}.png` })
       if (width === 1440) {
         for (const [first, last, name] of [['#packages', '#services', 'packages-services'], ['#quote', '.home-footer', 'quote-finale']]) {
           const start = await page.locator(first).boundingBox()
           const end = await page.locator(last).boundingBox()
-          await page.screenshot({ path: `docs/execution/homepage-visual-rescue/screenshots/${name}-1440.png`, fullPage: true, clip: { x: 0, y: start!.y, width, height: end!.y + end!.height - start!.y }, style: '.home-header { visibility: hidden; }' })
+          await page.screenshot({ path: `test-results/homepage/${name}-1440.png`, fullPage: true, clip: { x: 0, y: start!.y, width, height: end!.y + end!.height - start!.y }, style: '.home-header { visibility: hidden; }' })
         }
       }
     }
@@ -160,7 +160,7 @@ test('local performance and static optimized hero delivery', async ({ page }) =>
   console.log('HOMEPAGE_LOCAL_METRICS', JSON.stringify(metrics))
   expect(metrics.cls).toBeLessThanOrEqual(0.1)
   expect(metrics.heroSource).toContain('/_next/image?')
-  await expect(page.locator('canvas, video')).toHaveCount(0)
+  await expect(page.locator('canvas')).toHaveCount(0)
 })
 
 

@@ -1,15 +1,17 @@
 import { getImageProps } from 'next/image'
 import { ArrowUpRight } from 'lucide-react'
 import { heroMedia } from '@/content/media'
+import useHeroMotion from './useHeroMotion'
 import './hero-design-lab.css'
 
 /** Locked D desktop composition, with an independently composed phone source. */
 export default function HomepageHero() {
+  const media = useHeroMotion()
   const common = { alt: '', sizes: '100vw', loading: 'eager' as const, fetchPriority: 'high' as const }
   const { props: desktop } = getImageProps({ ...common, src: heroMedia('desktop').poster, width: 5504, height: 3072 })
   const { props: mobile } = getImageProps({ ...common, src: heroMedia('mobile').poster, width: 3072, height: 5504 })
   return <section className="home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero" aria-labelledby="hero-title">
-    <div className="ninja-media" aria-hidden="true"><picture className="ninja-resolved">
+    <div ref={media} className="ninja-media" aria-hidden="true" data-media-slots="H-01 H-03 H-04"><picture className="ninja-resolved">
       <source media="(min-width: 768px)" srcSet={desktop.srcSet} sizes="100vw" />
       <img {...mobile} alt="" />
     </picture></div>

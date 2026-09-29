@@ -24,10 +24,11 @@ function Proof() {
 export default function Homepage() {
   const [context, setContext] = useState<QuoteContext>({ service: '', suburb: '', packageName: '' })
   const signature = useRef<HTMLElement>(null)
-  const [cut, setCut] = useState(false)
   useEffect(() => {
+    const section = signature.current!
+    section.dataset.cutState = 'waiting'
     const observer = new IntersectionObserver(entries => {
-      if (entries.some(entry => entry.isIntersecting)) { setCut(true); observer.disconnect() }
+      if (entries.some(entry => entry.isIntersecting)) { section.dataset.cutState = 'running'; observer.disconnect() }
     }, { threshold: 0.25 })
     if (signature.current) observer.observe(signature.current)
     return () => observer.disconnect()
@@ -55,7 +56,7 @@ export default function Homepage() {
           <div className="home-service-heading"><h2 id="services-title">Every space.<br /><em>Its own starting point.</em></h2><p className="home-kicker">TEN SERVICES<br /> SELECT TO EXPLORE ↓</p></div>
           <ServiceIndex onQuote={select} />
         </section>
-        <section ref={signature} id="ninja-cut" className={`home-signature ${cut ? 'is-resolved' : ''}`} aria-labelledby="signature-title">
+        <section ref={signature} id="ninja-cut" className="home-signature is-resolved" aria-labelledby="signature-title">
           <div className="home-cut-architecture" aria-hidden="true"><div className="home-cut-noise"><span>Less.</span><span>Less.</span><span>Less.</span></div><div className="home-cut-plane" /></div>
           <div className="home-signature-copy"><span className="home-kicker">THE NINJA CUT</span><h2 id="signature-title"><span>Less noise.</span><em>More calm.</em></h2><p>A little less noise.<br />A little more room to breathe.</p></div>
           <div className="home-cut-baseline" aria-hidden="true"><span>01 — 02</span><span>A CHANGE OF PACE</span></div>

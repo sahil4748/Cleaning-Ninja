@@ -91,11 +91,12 @@ test('assistant uses canonical sources with tools disabled and no legacy claims'
   assert.equal((await captureAssistantLead(lead)).status, 'unavailable')
   assert.equal(JSON.stringify(assistantKnowledge).includes('fromPrice'), false)
 })
-test('media has independent posters, empty videos and existing fallbacks', () => {
+test('media has independent posters, one production desktop clip and an empty H-04 slot', () => {
   for (const device of ['desktop', 'mobile'] as const) {
-    assert.equal(heroMedia(device).video, null)
     assert.ok(existsSync(`public${heroMedia(device).poster}`))
   }
+  assert.equal(heroMedia('mobile').video, null)
+  assert.ok(existsSync(`public${heroMedia('desktop').video}`))
   assert.notEqual(heroMedia('desktop').poster, heroMedia('mobile').poster)
   assert.equal(resolveMedia('missing'), MEDIA.hero.desktop.poster)
   assert.equal(resolveMedia('__proto__'), MEDIA.hero.desktop.poster)

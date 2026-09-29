@@ -1,0 +1,972 @@
+[
+  {
+    "width": 320,
+    "height": 568,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 76,
+          "top": 0,
+          "right": 320,
+          "bottom": 76,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 568,
+          "top": 0,
+          "right": 320,
+          "bottom": 568,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 20,
+          "y": 111,
+          "width": 181.765625,
+          "height": 72.09375,
+          "top": 111,
+          "right": 201.765625,
+          "bottom": 183.09375,
+          "left": 20
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 20,
+          "y": 203,
+          "width": 150,
+          "height": 190.78125,
+          "top": 203,
+          "right": 170,
+          "bottom": 393.78125,
+          "left": 20
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 568,
+          "width": 320,
+          "height": 1084.6875,
+          "top": 568,
+          "right": 320,
+          "bottom": 1652.6875,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 1652.6875,
+          "width": 320,
+          "height": 1196.9375,
+          "top": 1652.6875,
+          "right": 320,
+          "bottom": 2849.625,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5347.390625,
+          "width": 320,
+          "height": 1637.203125,
+          "top": 5347.390625,
+          "right": 320,
+          "bottom": 6984.59375,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 375,
+    "height": 812,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 84,
+          "top": 0,
+          "right": 375,
+          "bottom": 84,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 375,
+          "height": 812,
+          "top": 0,
+          "right": 375,
+          "bottom": 812,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 24,
+          "y": 110.421875,
+          "width": 210.328125,
+          "height": 83.40625,
+          "top": 110.421875,
+          "right": 234.328125,
+          "bottom": 193.828125,
+          "left": 24
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 24,
+          "y": 217.859375,
+          "width": 170,
+          "height": 204.625,
+          "top": 217.859375,
+          "right": 194,
+          "bottom": 422.484375,
+          "left": 24
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 812,
+          "width": 375,
+          "height": 1150.21875,
+          "top": 812,
+          "right": 375,
+          "bottom": 1962.21875,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 1962.21875,
+          "width": 375,
+          "height": 1122.21875,
+          "top": 1962.21875,
+          "right": 375,
+          "bottom": 3084.4375,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5549.75,
+          "width": 375,
+          "height": 1585.75,
+          "top": 5549.75,
+          "right": 375,
+          "bottom": 7135.5,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 390,
+    "height": 844,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 84,
+          "top": 0,
+          "right": 390,
+          "bottom": 84,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 390,
+          "height": 844,
+          "top": 0,
+          "right": 390,
+          "bottom": 844,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 24,
+          "y": 114.78125,
+          "width": 218.734375,
+          "height": 86.75,
+          "top": 114.78125,
+          "right": 242.734375,
+          "bottom": 201.53125,
+          "left": 24
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 24,
+          "y": 225.546875,
+          "width": 170,
+          "height": 204.625,
+          "top": 225.546875,
+          "right": 194,
+          "bottom": 430.171875,
+          "left": 24
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 844,
+          "width": 390,
+          "height": 1104.265625,
+          "top": 844,
+          "right": 390,
+          "bottom": 1948.265625,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 1948.265625,
+          "width": 390,
+          "height": 1122.21875,
+          "top": 1948.265625,
+          "right": 390,
+          "bottom": 3070.484375,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5541.65625,
+          "width": 390,
+          "height": 1590.75,
+          "top": 5541.65625,
+          "right": 390,
+          "bottom": 7132.40625,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 440,
+    "height": 956,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 84,
+          "top": 0,
+          "right": 440,
+          "bottom": 84,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 440,
+          "height": 956,
+          "top": 0,
+          "right": 440,
+          "bottom": 956,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 24,
+          "y": 143.390625,
+          "width": 246.78125,
+          "height": 97.875,
+          "top": 143.390625,
+          "right": 270.78125,
+          "bottom": 241.265625,
+          "left": 24
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 24,
+          "y": 271.28125,
+          "width": 170,
+          "height": 218.5625,
+          "top": 271.28125,
+          "right": 194,
+          "bottom": 489.84375,
+          "left": 24
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 956,
+          "width": 440,
+          "height": 1121.953125,
+          "top": 956,
+          "right": 440,
+          "bottom": 2077.953125,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 2077.953125,
+          "width": 440,
+          "height": 1122.21875,
+          "top": 2077.953125,
+          "right": 440,
+          "bottom": 3200.171875,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5690.84375,
+          "width": 440,
+          "height": 1570.03125,
+          "top": 5690.84375,
+          "right": 440,
+          "bottom": 7260.875,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 768,
+    "height": 1024,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 768,
+          "height": 80,
+          "top": 0,
+          "right": 768,
+          "bottom": 80,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 80,
+          "width": 768,
+          "height": 620,
+          "top": 80,
+          "right": 768,
+          "bottom": 700,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 32,
+          "y": 230,
+          "width": 241.75,
+          "height": 96.46875,
+          "top": 230,
+          "right": 273.75,
+          "bottom": 326.46875,
+          "left": 32
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 47.921875,
+          "y": 366.5,
+          "width": 282.296875,
+          "height": 166.5,
+          "top": 366.5,
+          "right": 330.21875,
+          "bottom": 533,
+          "left": 47.921875
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 700,
+          "width": 768,
+          "height": 1077.78125,
+          "top": 700,
+          "right": 768,
+          "bottom": 1777.78125,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 1777.78125,
+          "width": 768,
+          "height": 926.5,
+          "top": 1777.78125,
+          "right": 768,
+          "bottom": 2704.28125,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 4947.078125,
+          "width": 768,
+          "height": 1188.765625,
+          "top": 4947.078125,
+          "right": 768,
+          "bottom": 6135.84375,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 1024,
+    "height": 768,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 80,
+          "top": 0,
+          "right": 1024,
+          "bottom": 80,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 80,
+          "width": 1024,
+          "height": 634.875,
+          "top": 80,
+          "right": 1024,
+          "bottom": 714.875,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 32,
+          "y": 230,
+          "width": 322.359375,
+          "height": 128.65625,
+          "top": 230,
+          "right": 354.359375,
+          "bottom": 358.65625,
+          "left": 32
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 53.234375,
+          "y": 398.671875,
+          "width": 387.078125,
+          "height": 141,
+          "top": 398.671875,
+          "right": 440.3125,
+          "bottom": 539.671875,
+          "left": 53.234375
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 714.875,
+          "width": 1024,
+          "height": 1115.375,
+          "top": 714.875,
+          "right": 1024,
+          "bottom": 1830.25,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 1830.25,
+          "width": 1024,
+          "height": 945,
+          "top": 1830.25,
+          "right": 1024,
+          "bottom": 2775.25,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5052.546875,
+          "width": 1024,
+          "height": 1198.671875,
+          "top": 5052.546875,
+          "right": 1024,
+          "bottom": 6251.21875,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 1366,
+    "height": 768,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 104,
+          "top": 0,
+          "right": 1366,
+          "bottom": 104,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1366,
+          "height": 768,
+          "top": 0,
+          "right": 1366,
+          "bottom": 768,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 36.875,
+          "y": 215.03125,
+          "width": 423,
+          "height": 168.8125,
+          "top": 215.03125,
+          "right": 459.875,
+          "bottom": 383.84375,
+          "left": 36.875
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 64.734375,
+          "y": 423.875,
+          "width": 401.71875,
+          "height": 141,
+          "top": 423.875,
+          "right": 466.453125,
+          "bottom": 564.875,
+          "left": 64.734375
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 768,
+          "width": 1366,
+          "height": 1290.09375,
+          "top": 768,
+          "right": 1366,
+          "bottom": 2058.09375,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 2058.09375,
+          "width": 1366,
+          "height": 1022.515625,
+          "top": 2058.09375,
+          "right": 1366,
+          "bottom": 3080.609375,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5583.28125,
+          "width": 1366,
+          "height": 966.59375,
+          "top": 5583.28125,
+          "right": 1366,
+          "bottom": 6549.875,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 1440,
+    "height": 900,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 104,
+          "top": 0,
+          "right": 1440,
+          "bottom": 104,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 900,
+          "top": 0,
+          "right": 1440,
+          "bottom": 900,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 38.875,
+          "y": 252,
+          "width": 445.921875,
+          "height": 177.96875,
+          "top": 252,
+          "right": 484.796875,
+          "bottom": 429.96875,
+          "left": 38.875
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 68.25,
+          "y": 469.96875,
+          "width": 402.8125,
+          "height": 141,
+          "top": 469.96875,
+          "right": 471.0625,
+          "bottom": 610.96875,
+          "left": 68.25
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 900,
+          "width": 1440,
+          "height": 1328.265625,
+          "top": 900,
+          "right": 1440,
+          "bottom": 2228.265625,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 2228.265625,
+          "width": 1440,
+          "height": 1053.8125,
+          "top": 2228.265625,
+          "right": 1440,
+          "bottom": 3282.078125,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 5856.140625,
+          "width": 1440,
+          "height": 972.515625,
+          "top": 5856.140625,
+          "right": 1440,
+          "bottom": 6828.65625,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 1728,
+    "height": 1000,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 104,
+          "top": 0,
+          "right": 1728,
+          "bottom": 104,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1728,
+          "height": 1000,
+          "top": 0,
+          "right": 1728,
+          "bottom": 1000,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 46.640625,
+          "y": 280,
+          "width": 535.09375,
+          "height": 213.59375,
+          "top": 280,
+          "right": 581.734375,
+          "bottom": 493.59375,
+          "left": 46.640625
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 81.90625,
+          "y": 533.578125,
+          "width": 508.625,
+          "height": 141,
+          "top": 533.578125,
+          "right": 590.53125,
+          "bottom": 674.578125,
+          "left": 81.90625
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 1000,
+          "width": 1728,
+          "height": 1471.71875,
+          "top": 1000,
+          "right": 1728,
+          "bottom": 2471.71875,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 2471.71875,
+          "width": 1728,
+          "height": 1147.265625,
+          "top": 2471.71875,
+          "right": 1728,
+          "bottom": 3618.984375,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 6449.390625,
+          "width": 1728,
+          "height": 995.5625,
+          "top": 6449.390625,
+          "right": 1728,
+          "bottom": 7444.953125,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "width": 1920,
+    "height": 1080,
+    "boxes": [
+      {
+        "class": "home-header",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 104,
+          "top": 0,
+          "right": 1920,
+          "bottom": 104,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-hero home-hero-h01 hero-lab hero-lab-d candidate-hero",
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080,
+          "top": 0,
+          "right": 1920,
+          "bottom": 1080,
+          "left": 0
+        }
+      },
+      {
+        "class": "lab-title",
+        "box": {
+          "x": 51.828125,
+          "y": 302.390625,
+          "width": 593.515625,
+          "height": 236.875,
+          "top": 302.390625,
+          "right": 645.34375,
+          "bottom": 539.265625,
+          "left": 51.828125
+        }
+      },
+      {
+        "class": "lab-details",
+        "box": {
+          "x": 90.9375,
+          "y": 579.296875,
+          "width": 575.953125,
+          "height": 141,
+          "top": 579.296875,
+          "right": 666.890625,
+          "bottom": 720.296875,
+          "left": 90.9375
+        }
+      },
+      {
+        "class": "home-section home-packages",
+        "box": {
+          "x": 0,
+          "y": 1080,
+          "width": 1920,
+          "height": 1471.71875,
+          "top": 1080,
+          "right": 1920,
+          "bottom": 2551.71875,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-services",
+        "box": {
+          "x": 0,
+          "y": 2551.71875,
+          "width": 1920,
+          "height": 1153.03125,
+          "top": 2551.71875,
+          "right": 1920,
+          "bottom": 3704.75,
+          "left": 0
+        }
+      },
+      {
+        "class": "home-section home-quote",
+        "box": {
+          "x": 0,
+          "y": 6552.453125,
+          "width": 1920,
+          "height": 1001.328125,
+          "top": 6552.453125,
+          "right": 1920,
+          "bottom": 7553.78125,
+          "left": 0
+        }
+      }
+    ]
+  }
+]

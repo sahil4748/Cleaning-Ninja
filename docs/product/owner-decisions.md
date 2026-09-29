@@ -2,7 +2,7 @@
 
 2026-09-22 · Technical Readiness Sprint · rebuild-2026. This supersedes conflicting foundation unknowns and historic content. Owner approval is not independent verification.
 
-Latest homepage gate (2026-09-28): **Flagship Homepage Build + Finish Sprint**. Desktop D is the locked static foundation and is authorised as the default. The supplied replacement portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png` is the mobile candidate; H-02 is rejected as the final mobile source. The full lower homepage is authorised for completion. Final visual/release approval remains outstanding. See the latest entry below.
+Latest homepage gate (2026-09-29): **Final Cinematic Integration Sprint**. Static homepage `779c265` is locked, including desktop D/H-01 and replacement mobile portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png`. Bounded cinematic integration and conditional commit/push are authorised; deployment and release approval remain separate. See the latest entry below.
 
 ## Classification
 
@@ -148,3 +148,9 @@ Preserve rejected studies as history, remove their runtime activation. H-03 impl
 The owner rejects the previous complete homepage visually and explicitly authorises one decisive visual composition pass from `a40180a` on `rebuild-2026`. Preserve desktop D/H-01, the replacement portrait `hf_20260928_141125_f8371d19-347d-4146-b77d-d6a2fca54758.png`, canonical facts, service/package data, lead contracts, prefills, routing, accessibility and tests. Recompose packages as an editorial ledger, services as an interactive index, a restrained architectural Ninja Cut, compressed why/how/confidence, and a continuous deep conversion finale. No new media, Higgsfield, active H-03, H-04, backend rebuild, deployment or merge.
 
 One internal visual correction pass and the requested responsive/functional checks are authorised. If coherent and passing, create one commit named `feat: complete flagship homepage visual direction` and push `rebuild-2026`. Stop after the [Homepage Visual Rescue Report](../execution/homepage-visual-rescue/report.md). Recommendation is not owner visual/release approval.
+
+## Final cinematic integration — owner update 2026-09-29
+
+OWNER-APPROVED: `779c265` is the locked static homepage baseline, including desktop D/H-01, the replacement mobile portrait, and all lower sections. The final cinematic sprint authorises production-path integration of the verified raw H-03 through the refined architectural mask, autonomous poster-first playback, restrained mobile still motion, and a shared hero/signature Ninja Cut language. This supersedes the earlier development-only/interaction-start restrictions for this bounded work. H-04 is blocked by generation credits and is not required for the site to function.
+
+One commit (`feat: integrate final cinematic homepage motion`) and normal push to `origin/rebuild-2026` are authorised only if composition, lifecycle, reduced motion, static preservation and tests pass. Otherwise preserve the static hero and stop. No redesign, new business claims, Higgsfield/media generation, Supabase/email configuration, deployment or main merge. Stop after the Final Cinematic Integration Report; release approval remains separate.

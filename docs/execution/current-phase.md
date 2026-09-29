@@ -1,5 +1,13 @@
 # Current phase
 
+Final Cinematic Integration Sprint · 2026-09-29 · `rebuild-2026` · approved static base `779c265`.
+
+The owner locks the static homepage and authorises raw H-03 production integration through the refined architectural mask, autonomous poster-first loading, a restrained mobile still settle, and related hero/signature Cut motion. H-04 is blocked and optional. Preserve structure, typography, colours, packages/services, all copy and lead architecture.
+
+Conditional gate: composition, fallback/lifecycle, reduced motion, responsive geometry and required tests must pass before one cinematic commit and normal branch push. Otherwise preserve the static hero. No Higgsfield, generated media, deployment, main merge or operational configuration. Stop at the [Final Cinematic Integration Report](final-cinematic/report.md).
+
+## Previous phase — historical authority
+
 Homepage Visual Rescue + Final Art Direction Pass · 2026-09-29 · `rebuild-2026` · base `a40180a`.
 
 The prior homepage is visually rejected. The current owner brief authorises one visual composition pass while preserving desktop D/H-01, the replacement mobile still and all canonical content/lead architecture. Editorial package ledger, interactive service index, architectural Cut, compressed explanatory content and a continuous deep olive finale. No deployment, merge, Higgsfield, new media, H-03 activation or H-04.
