@@ -15,7 +15,7 @@ import { canTransition } from '../../lib/platform/booking'
 import { leadService, createLeadService, type LeadRecord } from '../../lib/platform/lead-service'
 import { assistantKnowledge, captureAssistantLead, AI_TOOL_PERMISSIONS } from '../../lib/platform/assistant'
 import { serviceMetadata } from '../../lib/platform/metadata'
-const lead = { schemaVersion: 1, channel: 'website', leadSource: 'homepage', intent: 'quote', name: 'Test Customer', phone: '0400000000', suburbOrAddress: 'Test suburb' }
+const lead = { schemaVersion: 1, channel: 'website', leadSource: 'homepage', intent: 'quote', name: 'Test Customer', phone: '0400000000', suburbOrAddress: 'Test suburb', service: 'carpet-cleaning', description: 'Synthetic cleaning enquiry' }
 
 test('catalogue is unique, complete and shared with legacy identities', () => {
   assert.equal(SERVICE_CATALOGUE.length, 10)
@@ -56,7 +56,7 @@ test('safe business defaults never expose a phone or placeholder review', () => 
 })
 test('lead sources, package relationships, consent and trusted timestamps are validated', () => {
   for (const leadSource of LEAD_SOURCES) assert.ok(LeadSchema.safeParse({ ...lead, leadSource }).success)
-  for (const extra of [{ leadSource: 'invented' }, { service: 'invented' }, { package: PACKAGES[0].id }, { createdAt: '2020-01-01' }, { conversationContext: { summary: 'test', consentToStore: false } }, { sourcePage: '//external.example' }]) assert.equal(LeadSchema.safeParse({ ...lead, ...extra }).success, false)
+  for (const extra of [{ leadSource: 'invented' }, { service: 'invented' }, { package: PACKAGES[0].id, service: 'window-cleaning' }, { createdAt: '2020-01-01' }, { conversationContext: { summary: 'test', consentToStore: false } }, { sourcePage: '//external.example' }]) assert.equal(LeadSchema.safeParse({ ...lead, ...extra }).success, false)
   assert.ok(LeadSchema.safeParse({ ...lead, package: PACKAGES[0].id, service: PACKAGES[0].service }).success)
 })
 test('quote requests cannot become confirmed bookings or skip acknowledgement', () => {

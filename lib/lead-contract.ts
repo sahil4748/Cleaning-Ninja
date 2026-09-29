@@ -29,6 +29,10 @@ export const LeadSchema = z.strictObject({
     timeZone: z.enum(['Australia/Brisbane', 'Australia/Sydney', 'Australia/Melbourne', 'Australia/Perth', 'Australia/Adelaide', 'Australia/Darwin', 'Australia/Hobart']),
   }).optional(),
 }).superRefine((lead, ctx) => {
+  if (lead.leadSource === 'homepage' || lead.leadSource === 'package') {
+    if (!lead.service) ctx.addIssue({ code: 'custom', path: ['service'], message: 'Choose a service.' })
+    if (!lead.description) ctx.addIssue({ code: 'custom', path: ['description'], message: 'Tell us what you need.' })
+  }
   if (lead.service && !getService(lead.service)?.quoteEnabled) ctx.addIssue({ code: 'custom', path: ['service'], message: 'Choose an available service.' })
   if (lead.package) {
     const item = getPackage(lead.package)

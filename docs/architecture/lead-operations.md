@@ -1,5 +1,7 @@
 # Durable lead + email operations
 
+Current Supabase migration, runtime choice and outstanding activation evidence: [Supabase activation](../operations/supabase-activation.md). The record below describes the original implementation checkpoint.
+
 2026-09-27 · rebuild-2026. Implementation complete; production activation blocked on configuration and operational checks. Homepage visuals remain UNAPPROVED. No deployment, DNS change, live email or real lead test was performed.
 
 ## Infrastructure and choice

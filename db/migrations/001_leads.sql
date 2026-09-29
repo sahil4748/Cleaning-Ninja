@@ -28,4 +28,9 @@ CREATE INDEX IF NOT EXISTS lead_notifications_due ON lead_notifications(next_att
 CREATE TABLE IF NOT EXISTS lead_rate_limits (
  bucket text PRIMARY KEY, count integer NOT NULL, expires_at timestamptz NOT NULL
 );
+-- Server-only tables: Supabase exposes public through its Data API.
+-- No browser-role policies; the trusted PostgreSQL runtime owns table access.
+ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+ALTER TABLE lead_notifications ENABLE ROW LEVEL SECURITY;
+ALTER TABLE lead_rate_limits ENABLE ROW LEVEL SECURITY;
 COMMIT;
