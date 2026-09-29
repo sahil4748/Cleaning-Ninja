@@ -1,6 +1,6 @@
 # Cleaning Ninja 2026 — repository instructions
 
-Work only on `rebuild-2026`. Current scope: complete owner-authorised frontend prototype with new branding, cinematic media, sample offers/prices, placeholder phone 123456789 and original legal drafts. Latest direction: photographic hero; retain the Make room for living scroll-to-film reveal. The owner rejected the 3D room and asked to remove internal prototype/illustrative labels from all customer-facing UI. These presentation changes do not verify sample business data. See docs/execution/photographic-homepage/report.md. Preserve the backend, lead APIs and Supabase work. No deployment, push, merge, DNS/email/environment changes.
+Work only on `rebuild-2026`. Current scope: owner-authorised complete frontend creative rebuild. Current local candidate: **Room to breathe** in `components/homepage/renewal`, with the new Ninja mark, full photographic hero, olive/beige palette, original desktop and mobile imagery, GSAP fibre-to-room sequence, all eleven reference service categories, five up-to-30%-off quote-priced packages and matching legal pages. The latest request frees all visual/design/asset choices; it is not final visual approval. The customer enquiry prepares a user-controlled email and never claims delivery. See `docs/execution/renewal/report.md`. Preserve backend, lead APIs, Supabase, noindex and production release guards. No deployment, push, merge, DNS/email/environment changes.
 
 
 ## Baseline and authority

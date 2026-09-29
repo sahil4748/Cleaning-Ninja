@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LegalPage from "@/components/homepage/prototype/LegalPage";
+import LegalPage from "@/components/homepage/renewal/LegalPage";
 export const metadata: Metadata = {
   title: "Quotes & Offer Conditions — Cleaning Ninja",
   description:
@@ -13,12 +13,33 @@ export default function TermsPage() {
       title="Clear from the start."
       intro="Choose your clean, confirm the details, then decide what works for you."
     >
-      <h2>Prices and package offers</h2>
+      <h2>Packages and personal quotes</h2>
       <p>
-        Displayed prices are starting prices in Australian dollars. The final
-        quote depends on room or item sizes, material, condition, access and the
-        work required. Ask Cleaning Ninja to confirm the applicable package
-        offer, inclusions, any extras and the total price before proceeding.
+        Your quote is tailored to your space. The final price depends on room or
+        item sizes, material, condition, access and the work required. Ask
+        Cleaning Ninja to confirm the applicable package offer, inclusions, any
+        extras and the total price before proceeding.
+      </p>
+      <h2>Selected package offers</h2>
+      <p>
+        Selected packages offer up to 30% off: three or five bedrooms of carpet,
+        three rugs, a five-seat fabric lounge or a five-seat leather lounge.
+        Offers cannot be combined with other offers or discounts and do not
+        apply to minimum charges. Ask us to confirm the applicable saving and
+        final price in your quote.
+      </p>
+      <p>
+        Carpet, rug and fabric-lounge packages include shampoo pre-treatment,
+        stain treatment, heavy-duty steam cleaning and deodorising. The leather
+        package includes shampoo, conditioning and protective treatment, subject
+        to the type and condition of the leather.
+      </p>
+      <h2>Room and item sizes</h2>
+      <p>
+        Package quoting assumes average bedrooms of 12–14 m², living rooms of
+        16–18 m², hallways of 4 m² and rugs up to 12 m². Larger areas, unusual
+        materials or a change in condition or scope may require a revised quote.
+        Share approximate sizes and any problem areas when enquiring.
       </p>
       <h2>Agreeing the scope</h2>
       <p>

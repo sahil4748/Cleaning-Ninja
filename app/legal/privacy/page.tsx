@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import LegalPage from "@/components/homepage/prototype/LegalPage";
+import LegalPage from "@/components/homepage/renewal/LegalPage";
 export const metadata: Metadata = {
   title: "Privacy — Cleaning Ninja",
   description: "Information about preparing and sending a cleaning enquiry.",

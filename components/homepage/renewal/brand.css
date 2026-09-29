@@ -1,0 +1,32 @@
+.rn-brand.rn-brand--signature[class] {
+  display: inline-flex;
+  width: 204px;
+  max-width: 100%;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0;
+  color: inherit;
+  font-size: 0;
+  line-height: 1;
+  letter-spacing: normal;
+  vertical-align: middle;
+}
+
+.rn-brand.rn-brand--signature > svg.rn-brand-signature {
+  display: block;
+  width: 100%;
+  height: auto;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+@media (max-width: 899px) {
+  .rn-brand.rn-brand--signature[class] {
+    width: clamp(132px, 38vw, 154px);
+  }
+}
+
+.rn-footer .rn-brand.rn-brand--signature[class],
+.rn-legal-footer .rn-brand.rn-brand--signature[class] {
+  width: 204px;
+}

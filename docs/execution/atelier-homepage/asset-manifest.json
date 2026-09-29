@@ -1,0 +1,91 @@
+{
+  "project_id": "76aac562-e439-4e0f-a606-957fabd8e35c",
+  "model": "gpt_image_2_5",
+  "quality": "high",
+  "resolution": "2k",
+  "still_generation_credits": 8.25,
+  "hero_job": "ca7e595d-f424-47d5-8760-928e26479d59",
+  "detail_job": "ab40d151-948c-44be-9da4-8337f7cde200",
+  "hero_video_job": "743d0c95-694b-46a7-bd4f-e8a30006e4d3",
+  "video_estimate_credits": 35,
+  "assets": [
+    {
+      "path": "public/homepage/atelier/detail-fabric.webp",
+      "bytes": 380572,
+      "width": 1400,
+      "height": 1750,
+      "sha256": "5e21ab98b8658475a563c6b47d4e3ee5ff85541020595c3bd582f3a5ba0e9e67"
+    },
+    {
+      "path": "public/homepage/atelier/hero-room-mobile.webp",
+      "bytes": 154912,
+      "width": 960,
+      "height": 1276,
+      "sha256": "9373b281198015d5d7e47db5b40ddbf43420c0e60f11fdff5693c4a88a199c61"
+    },
+    {
+      "path": "public/homepage/atelier/hero-room.webp",
+      "bytes": 408920,
+      "width": 2560,
+      "height": 1448,
+      "sha256": "1fc9abb503f90f386fb169000cc6c49d91be118c0158e4323764c8c2e79bee8f"
+    },
+    {
+      "path": "public/homepage/atelier/service-carpet.webp",
+      "bytes": 207966,
+      "width": 1200,
+      "height": 1500,
+      "sha256": "c3221fb7da3c1c4ff372cc7079eb81fc56f2748e0e089b89a80cfd3534a9e925"
+    },
+    {
+      "path": "public/homepage/atelier/service-commercial.webp",
+      "bytes": 117466,
+      "width": 1200,
+      "height": 904,
+      "sha256": "cb4e5c3dccf2b3bc9ac1d6ab0ee86abc2b80f765f192d982ecbf10b9935c1a55"
+    },
+    {
+      "path": "public/homepage/atelier/service-leather.webp",
+      "bytes": 239890,
+      "width": 1200,
+      "height": 1500,
+      "sha256": "a0e8858b07976ad136bf2fcad4d10d3edf273a283bb685525eb0e06354a42317"
+    },
+    {
+      "path": "public/homepage/atelier/service-upholstery.webp",
+      "bytes": 205900,
+      "width": 1200,
+      "height": 1500,
+      "sha256": "fb324fdefecfd883dfe42937dc7eba4b3ca7bb5eca9a3042b06a7b394e924697"
+    },
+    {
+      "path": "public/homepage/atelier/hero-room.mp4",
+      "bytes": 1305991,
+      "width": 1280,
+      "height": 720,
+      "duration_seconds": 5.04,
+      "fps": 24,
+      "audio": false,
+      "encoding": "H.264 High / yuv420p / MP4 faststart",
+      "sha256": "0e2b85046035f2b6df2221866a412467e305d606b7f5fd701bccb64065914d35"
+    },
+    {
+      "path": "public/homepage/atelier/service-tile.webp",
+      "bytes": 239680,
+      "width": 1200,
+      "height": 1500,
+      "sha256": "73f2989bf0fbd2fe2b0a162e9dc5c6c2f1bbc14ea8009b63e196c1d2961b134c",
+      "generation_job": "2baa36e7-a80e-4f02-8736-3937c9a7ecb7"
+    }
+  ],
+  "estimated_total_generation_credits": 43.25,
+  "submitted_image_jobs": 3,
+  "submitted_video_jobs": 1,
+  "failed_generation_jobs": 0,
+  "review": {
+    "stills": "Passed visual inspection. No visible letter/logo artifacts, natural architecture and textiles; hero negative space composition suitable for copy.",
+    "video": "Passed visual frame review at 0/1/2/3/4.9 seconds for furniture and architecture stability. Camera advances more than prompt requested; recommend play once then hold final frame, not a hard loop. Original poster should load first.",
+    "existing_carpet_film": "Reviewed at 1-second intervals over 5s; usable stable room extraction-wand sequence.",
+    "tile": "Passed inspection: warm limestone tile grid with precise grout, clean honed stone texture and olive branch shadow; matches beige/olive collection."
+  }
+}

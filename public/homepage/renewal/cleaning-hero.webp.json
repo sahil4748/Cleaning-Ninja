@@ -1,0 +1,40 @@
+{
+  "createdAt": "2026-09-29T09:57:28.609Z",
+  "status": "completed",
+  "provider": "Higgsfield",
+  "model": "gpt_image_2_5",
+  "job_id": "5d3a1d9e-cf4f-4e1e-9fe5-601e6a2eb5aa",
+  "project_id": "b6bcbe6e-fa01-41f4-ab22-6e7e1747bad0",
+  "params": {
+    "aspect_ratio": "16:9",
+    "quality": "high",
+    "resolution": "2k",
+    "background": "opaque",
+    "count": 1
+  },
+  "estimated_credits": 2.75,
+  "prompt": "Create one exceptional photorealistic architectural editorial photograph for a premium Australian professional carpet-cleaning website, landscape 16:9. The scene must unmistakably depict actual professional carpet extraction, while feeling like an elevated interiors magazine photographed on location. Wide low camera at about 65 cm above the floor, 35mm lens, convincing natural optical perspective, broad dimensional foreground of tactile plush beige wall-to-wall carpet covering the lower half of the composition. A realistic professional polished stainless steel carpet extraction wand with a broad low metal triangular suction head is in active contact with the carpet, head centered at 60 percent of image width and 72 percent of image height, shaft angled up toward a partial adult technician standing at the extreme right edge. Show a natural hand gripping the upper wand shaft near the right edge, neutral muted olive work trousers, sturdy clean unbranded shoes; crop the person's body naturally out of frame above the waist, absolutely no visible face. Realistic connected flexible hose visible subtly along far right, authentic equipment proportions, no floating equipment, no disconnected hands. The tool is the visual point of action and must remain visible within the central 55 to 70 percent of the frame, because the far right 27 percent will be covered by website interface. The LEFT 55 PERCENT is restrained open SHADED negative space: quiet desaturated olive plaster wall and a broad shadowed beige carpet foreground, minimal objects, no window or strong highlights in this left half, made for large ivory typography to be overlaid later. Background is an elegant lived-in light-olive-and-beige Australian living room, curving cream linen sofa across mid-right background, limewashed walls, pale travertine, restrained olive textiles, softly gathered linen curtains and afternoon light arriving from an unseen far-right window. Dimensional layering from foreground carpet pile through the extraction wand to furniture and architectural space, muted natural warm highlights, deep but luminous olive shadows. Raking afternoon light should reveal carpet fibres near the extraction head. Extremely restrained subtle professional cleaning tracks are acceptable, but no artificial dirty-clean split, no before-and-after diagram, no exaggerated stains. Photographic authenticity and premium tactile material quality, quiet meticulous craftsmanship. No branding, no letters, no logo, no text, no UI, no graphic illustration, no fake steam clouds, no glow, no sparkling particles, no gratuitous lens flares, no neon, no 3D geometry, no plastic rendering. Real professional photography, refined color grade with light olive #b6be94, warm beige #f2efe6 and shadow olive #334338.",
+  "usage": "Editorial generated brand image; not evidence of an actual Cleaning Ninja job",
+  "completedAt": "2026-09-29T09:58:38.953Z",
+  "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_095651_5d3a1d9e-cf4f-4e1e-9fe5-601e6a2eb5aa.png",
+  "source_file": "/Users/arsh/Documents/Codex/2026-09-29/treat-cleaning-ninja-as-a-completely/work/cleaning-hero-source.png",
+  "source_dimensions": {
+    "width": 2688,
+    "height": 1520
+  },
+  "web_file": "public/homepage/renewal/cleaning-hero.webp",
+  "web_dimensions": {
+    "width": 2400,
+    "height": 1357
+  },
+  "web_bytes": 304638,
+  "optimization": {
+    "format": "webp",
+    "quality": 86,
+    "effort": 6,
+    "resize_width": 2400,
+    "crop": false
+  },
+  "review": "Visually inspected. Shaded open olive left half, tactile carpet foreground, realistic extraction-wand contact at approximately 66 percent image width, anatomically plausible hand and right-edge trousers/shoe, no face, no text, no fake steam. Existing hero not replaced.",
+  "web_sha256": "445ba39e4c16c535426494e9fea2496848fb5042b5c9a5d0dcb23747f89a75f8"
+}

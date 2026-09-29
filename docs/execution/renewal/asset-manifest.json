@@ -1,0 +1,226 @@
+{
+  "created": "2026-09-29",
+  "provider": "Higgsfield",
+  "project_id": "b6bcbe6e-fa01-41f4-ab22-6e7e1747bad0",
+  "workspace_id": "a722c2b2-20b3-42e7-ac20-1d0c09ffb7c6",
+  "starting_credits": 839,
+  "ending_credits": 759.75,
+  "actual_credits_spent": 79.25,
+  "authorized_ceiling_credits": 80,
+  "credits_purchased": 0,
+  "notice": "Original AI-generated editorial imagery, not actual Cleaning Ninja customer projects or staff photographs.",
+  "assets": [
+    {
+      "file": "hero.webp",
+      "job": "78f19513-2724-4b27-904b-c39c9654f58d",
+      "dimensions": [
+        2688,
+        1520
+      ],
+      "aspect_ratio": "16:9",
+      "source": "hf_20260929_091201_78f19513-2724-4b27-904b-c39c9654f58d.png",
+      "prompt": "Create one breathtaking photoreal architectural editorial photograph for a premium Australian home-care brand. Widescreen 16:9 composition photographed with a full-frame 35mm lens from very low, close to the tactile floor, with carefully layered foreground, middle ground, and background. A spacious, quietly sophisticated contemporary Australian living room: warm pale beige limewash walls, a deep low natural oatmeal linen sofa in the lower middle-left, one sculptural muted olive velvet armchair on the far right, a very low oval travertine table partly visible right-center, luminous thick pale oatmeal wool carpet across the foreground with detailed plush fibers and discreet vacuum grooming. Architectural arch and floor-to-ceiling glass opening into a softly blurred green courtyard on the right. Soft late-afternoon golden light crosses from right to left and makes long delicate garden shadows on the carpet. Keep the LEFT UPPER HALF a broad, uncluttered, calm soft taupe/beige wall with enough understated shadow for large white headline overlay. Objects should be primarily in the lower half and right side. Cinema still feeling, real interiors photography, warm film grain, elegant earthy muted colors, airy yet sculptural natural contrast, beautifully believable light and rich textiles. Comfort and sanctuary after expert cleaning. Quiet luxury with a lived-in single folded linen throw. Highly intentional asymmetry, no showroom furniture grid. No text, logo, branding, watermarks, people, cleaning tools, sparkles, surreal objects, visible dust or floating particles. This is a commissioned architectural photograph, not a CGI render.",
+      "type": "image",
+      "path": "public/homepage/renewal/hero.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "16:9",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091201_78f19513-2724-4b27-904b-c39c9654f58d.png",
+      "bytes": 570964,
+      "sha256": "6f15123c653d019b15c6c6040a1902c38fec5dfc1bcbc406b75a74316454b922",
+      "prompt_storage": "public/homepage/renewal/hero.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "detail.webp",
+      "job": "5d0f2dd5-1fe0-4345-8bc0-81b4bc8ea463",
+      "dimensions": [
+        1792,
+        2240
+      ],
+      "aspect_ratio": "4:5",
+      "source": "hf_20260929_091201_5d0f2dd5-1fe0-4345-8bc0-81b4bc8ea463.png",
+      "prompt": "Create one exquisite photoreal editorial close-up photograph, portrait 4:5. For a premium Australian cleaning and home-care brand using light olive and beige. Close view of the generously rounded corner and seat edge of an oatmeal linen sofa, impeccably clean, touchable natural weave crisp and beautifully visible. The sofa occupies the top-left two thirds in a strong organic curve; below and right is thick warm beige wool carpet, immaculate dense tuft fibers shown in raking afternoon sunlight. Tiny glimpse of muted olive cushion near upper right edge, softly out of focus. Warm natural sunlight and gentle window shadow create sophisticated contrast and depth. Real tactile material study with medium-format macro photography, shallow depth of field, restrained fine film grain, creamy warm highlights, green-gray shadows. The foreground carpet fibers transition into soft focus nearest camera. Calm, expensive, tranquil. Asymmetric sculptural composition, lots of beautiful texture. No people, hands, tools, text, logo, watermarks, shiny plastic, floating dust, gimmicky sparkle, split screen, collage, or borders. Commissioned interiors magazine photograph, not 3D rendering.",
+      "type": "image",
+      "path": "public/homepage/renewal/detail.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "4:5",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091201_5d0f2dd5-1fe0-4345-8bc0-81b4bc8ea463.png",
+      "bytes": 545736,
+      "sha256": "5ffabe52e51bfecc48c6e1cdf917f999832d8cd23c51503d6377904a9f1d39a8",
+      "prompt_storage": "public/homepage/renewal/detail.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "care.webp",
+      "job": "25280dea-a9aa-4cc4-84f9-78247d977088",
+      "dimensions": [
+        1792,
+        2240
+      ],
+      "aspect_ratio": "4:5",
+      "source": "hf_20260929_091340_25280dea-a9aa-4cc4-84f9-78247d977088.png",
+      "prompt": "One premium editorial photograph for a sophisticated Australian professional home care brand. Vertical portrait 4:5. Intimate close-up of a real adult cleaner's hand gently and expertly guiding a professional transparent upholstery water extraction nozzle over a pale beige natural linen sofa cushion. The tool must be physically convincing: clear triangular extraction head in direct contact with the flat seat fabric, sturdy compact black handle held in the hand, thick black vacuum hose exiting naturally off left frame. One hand only, anatomically correct, arm covered by understated olive-green uniform sleeve. Tool and textile in crisp focus; sofa back softly blurred. Late afternoon natural side light reveals the linen weave and fresh clean fabric. Warm beige, muted olive, gently cinematic shadows, realistic premium commissioned commercial photography. Clean but lived-in room, no visible stains, no comparison line, no theatrical fog or steam. The gesture is caring and meticulous. Strong sculptural cropped composition, only the hand and forearm of the person are visible. No face, logos, words, watermarks, weird anatomy, sparkle, CGI sheen, collage or borders.",
+      "type": "image",
+      "path": "public/homepage/renewal/care.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "4:5",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091340_25280dea-a9aa-4cc4-84f9-78247d977088.png",
+      "bytes": 382326,
+      "sha256": "fdb5de935301541c80598c7403a265cd903b714b69bc0a096046d4e194db5201",
+      "prompt_storage": "public/homepage/renewal/care.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "stone.webp",
+      "job": "73b5553b-e6aa-4cbb-9134-a3785cc3cb45",
+      "dimensions": [
+        1792,
+        2240
+      ],
+      "aspect_ratio": "4:5",
+      "source": "hf_20260929_091342_73b5553b-e6aa-4cbb-9134-a3785cc3cb45.png",
+      "prompt": "One premium editorial architectural photograph for a sophisticated Australian home care brand. Vertical portrait 4:5. An intimate floor-level view of a serene contemporary bathroom with large warm beige limestone tiles and finely defined clean light grout lines. Frame the corner where the elegantly tiled floor meets pale limewash wall and a low stone shower threshold on right. A folded soft muted olive cotton towel rests on the edge of a simple honey-toned oak stool upper left, partially cropped. One subtle brushed bronze fixture far background softly blurred, no busy decor. Diagonal late afternoon sunlight across the beautifully clean tactile stone creates dimensional shadows and shows the natural pores and veins. Timeless Australian coastal architecture, natural imperfect materials, impeccably cared for. Warm filmic color, refined contrast, 50mm architectural editorial lens, realistic surfaces. Floor tile cleanliness is the subject. No people, tools, bottles, plants blocking the floor, text, logos, watermarks, artificial sparkles, dramatic steam, CGI, collage or borders.",
+      "type": "image",
+      "path": "public/homepage/renewal/stone.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "4:5",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091342_73b5553b-e6aa-4cbb-9134-a3785cc3cb45.png",
+      "bytes": 546966,
+      "sha256": "e19bf2d5804f5d4d65b1066170a5d297031af7585ba142b18bc5ca93710dc6b5",
+      "prompt_storage": "public/homepage/renewal/stone.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "leather.webp",
+      "job": "d770664c-edea-4c42-b669-c58530888087",
+      "dimensions": [
+        1792,
+        2240
+      ],
+      "aspect_ratio": "4:5",
+      "source": "hf_20260929_091341_d770664c-edea-4c42-b669-c58530888087.png",
+      "prompt": "One exquisite premium editorial interior photograph, portrait 4:5, for a sophisticated Australian home care brand. A beautifully maintained cognac tan leather lounge armchair with rounded sculptural arms, supple natural leather patina and stitched seams, set on a thick warm beige wool rug in a quiet sunlit room. Chair fills most of the frame with seat, arms and leather grain visible, cropped elegantly but keeping its silhouette recognizable. Background is pale beige limewash with a soft arch shadow, small glimpse of olive-green foliage outside at far upper edge. One low travertine side table partially visible. Afternoon natural side light from right reveals the leather material; cinematic warm highlights and olive-gray shadows. Photography should convey care, longevity, craft and comfort, not luxury product retail. Low camera angle, medium format detail, refined asymmetric composition, tactile realistic surfaces, muted restrained color, fine film grain. No people, hands, labels, text, logos, watermarks, cleaning tools, sparkles, surrealism, exaggerated shine, CGI, collage or borders.",
+      "type": "image",
+      "path": "public/homepage/renewal/leather.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "4:5",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091341_d770664c-edea-4c42-b669-c58530888087.png",
+      "bytes": 421356,
+      "sha256": "be67e46e59b00179e6a604e13a6cb8064df01faecbd7f819fa621a75b824ae59",
+      "prompt_storage": "public/homepage/renewal/leather.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "hero-mobile.webp",
+      "job": "26eef886-2277-49f8-b39a-56aaa13efbac",
+      "dimensions": [
+        1520,
+        2688
+      ],
+      "aspect_ratio": "9:16",
+      "source": "hf_20260929_092201_26eef886-2277-49f8-b39a-56aaa13efbac.png",
+      "prompt": "Create one beautiful premium architectural editorial photograph specifically composed for a mobile website hero. Tall portrait 9:16. An elegant contemporary Australian living room in natural light olive and warm beige. Camera at low carpet level shows beautifully clean plush wool carpet in the bottom foreground, an inviting low oatmeal linen sofa across the lower third, a muted olive armchair partially visible far lower-right, and a low travertine table cropped right. The UPPER HALF must be predominantly an expansive, uncluttered warm beige limewash wall in gentle warm shadow, calm and dark enough for a large ivory heading overlay on the upper left. On the right edge is part of one tall arched garden opening with soft distant olive-green trees and warm sun filtering through, but keep bright windows confined to the far RIGHT EDGE. A single slender leafy branch lightly touches the left edge in the middle of the composition. Afternoon raking sunlight falls on the tactile linen sofa and thick carpet below; tranquil long shadows give dimensional layered depth. Rich believable materials, cinematic warm film grain, expensive architectural magazine photography, quietly lived-in with one relaxed linen throw. Sophisticated asymmetric framing. IMPORTANT: tall vertical photograph, clear calm empty wall top half, sofa and objects stay in lower half. No people, text, typography, logos, watermarks, graphic overlays, dust, floating particles, cleaning equipment, sparkles, CGI, collage, borders. Preserve realistic scale and spatial geometry.",
+      "type": "image",
+      "path": "public/homepage/renewal/hero-mobile.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "quality": "high",
+        "resolution": "2k",
+        "aspect_ratio": "9:16",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_092201_26eef886-2277-49f8-b39a-56aaa13efbac.png",
+      "bytes": 514930,
+      "sha256": "530cbe65214422d1dc4ec05e13aba99bd2af244d979ebe4aad133eb27f6c0ee9",
+      "prompt_storage": "public/homepage/renewal/hero-mobile.webp.json (Impeccable format sidecar)"
+    },
+    {
+      "file": "atmosphere.mp4",
+      "path": "public/homepage/renewal/atmosphere.mp4",
+      "type": "video",
+      "job": "b0b7d21a-6a81-4f9b-be04-8d17696c30dd",
+      "model": "seedance_2_5",
+      "credits": 60,
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "duration_seconds": 5.041666666666667,
+      "fps": 24,
+      "audio": false,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_091314_b0b7d21a-6a81-4f9b-be04-8d17696c30dd.mp4",
+      "params": {
+        "mode": "omni_reference",
+        "aspect_ratio": "16:9",
+        "duration": 5,
+        "resolution": "1080p",
+        "generate_audio": false,
+        "count": 1,
+        "medias": [
+          {
+            "role": "start_image",
+            "value": "78f19513-2724-4b27-904b-c39c9654f58d"
+          }
+        ]
+      },
+      "prompt": "An exceptionally subtle, photoreal architectural atmosphere film, one continuous locked-off shot with NO CUTS, no camera motion. Precisely preserve the reference room, furniture, carpet, textures, colors and composition throughout. Only the tiniest soft movement in the trees visible outside the arched glass doors, barely perceptible corresponding leaf shadows on the beige wall and carpet. The room itself is completely still and the sunlight exposure absolutely constant. Quiet slow afternoon, refined editorial interior cinematography, restful warm beige and light olive. Maintain a calm left upper wall for overlaid website text. No new objects, no people, no dust, no floating particles, no text, no logos, no exaggerated movement, no flicker, no morphing, no focus shift, no zoom, no dolly, no pan. Movement is atmospheric and almost imperceptible. Make the first and last frames as similar as possible for a smooth seamless loop.",
+      "processing": "Original HEVC was transcoded using AVAssetReader/AVAssetWriter to browser-compatible H.264 at 2.4Mbps. The final MP4 has moov before mdat for web fast-start; no audio.",
+      "bytes": 1521521,
+      "sha256": "24aff4adfd17f09e06d4f510fd4736bbb0c8b91f5466a8e72eabbe441435f11a",
+      "codec": "H.264 / avc1 / High profile",
+      "target_bitrate_bps": 2400000,
+      "validation": "Extracted and reviewed frames at 0, 1, 2.5 and 4.7 seconds using AVFoundation; 1920x1080, 24fps, no audio. Browser playback check delegated to the integrating parent agent."
+    },
+    {
+      "file": "cleaning-hero.webp",
+      "job": "5d3a1d9e-cf4f-4e1e-9fe5-601e6a2eb5aa",
+      "dimensions": [
+        2400,
+        1357
+      ],
+      "type": "image",
+      "path": "public/homepage/renewal/cleaning-hero.webp",
+      "model": "gpt_image_2_5",
+      "params": {
+        "aspect_ratio": "16:9",
+        "quality": "high",
+        "resolution": "2k",
+        "background": "opaque",
+        "count": 1
+      },
+      "credits": 2.75,
+      "source_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3Jt4fmAE1y1Oyj5MBLsLkIQBgNY/hf_20260929_095651_5d3a1d9e-cf4f-4e1e-9fe5-601e6a2eb5aa.png",
+      "bytes": 304638,
+      "sha256": "445ba39e4c16c535426494e9fea2496848fb5042b5c9a5d0dcb23747f89a75f8",
+      "prompt_storage": "public/homepage/renewal/cleaning-hero.webp.json",
+      "usage": "Editorial generated brand image; not evidence of an actual Cleaning Ninja job",
+      "prompt": "Create one exceptional photorealistic architectural editorial photograph for a premium Australian professional carpet-cleaning website, landscape 16:9. The scene must unmistakably depict actual professional carpet extraction, while feeling like an elevated interiors magazine photographed on location. Wide low camera at about 65 cm above the floor, 35mm lens, convincing natural optical perspective, broad dimensional foreground of tactile plush beige wall-to-wall carpet covering the lower half of the composition. A realistic professional polished stainless steel carpet extraction wand with a broad low metal triangular suction head is in active contact with the carpet, head centered at 60 percent of image width and 72 percent of image height, shaft angled up toward a partial adult technician standing at the extreme right edge. Show a natural hand gripping the upper wand shaft near the right edge, neutral muted olive work trousers, sturdy clean unbranded shoes; crop the person's body naturally out of frame above the waist, absolutely no visible face. Realistic connected flexible hose visible subtly along far right, authentic equipment proportions, no floating equipment, no disconnected hands. The tool is the visual point of action and must remain visible within the central 55 to 70 percent of the frame, because the far right 27 percent will be covered by website interface. The LEFT 55 PERCENT is restrained open SHADED negative space: quiet desaturated olive plaster wall and a broad shadowed beige carpet foreground, minimal objects, no window or strong highlights in this left half, made for large ivory typography to be overlaid later. Background is an elegant lived-in light-olive-and-beige Australian living room, curving cream linen sofa across mid-right background, limewashed walls, pale travertine, restrained olive textiles, softly gathered linen curtains and afternoon light arriving from an unseen far-right window. Dimensional layering from foreground carpet pile through the extraction wand to furniture and architectural space, muted natural warm highlights, deep but luminous olive shadows. Raking afternoon light should reveal carpet fibres near the extraction head. Extremely restrained subtle professional cleaning tracks are acceptable, but no artificial dirty-clean split, no before-and-after diagram, no exaggerated stains. Photographic authenticity and premium tactile material quality, quiet meticulous craftsmanship. No branding, no letters, no logo, no text, no UI, no graphic illustration, no fake steam clouds, no glow, no sparkling particles, no gratuitous lens flares, no neon, no 3D geometry, no plastic rendering. Real professional photography, refined color grade with light olive #b6be94, warm beige #f2efe6 and shadow olive #334338."
+    }
+  ]
+}

@@ -1,3 +1,11 @@
+## Current phase — service-first commercial opening · 2026-09-29
+
+The owner requests clearer service/offer communication and a prominent Get a Free Quote, with Blue Sky's service categories and commercial content fixed. Active `/` uses the renewal frontend: a solid linen header, folded-N vector identity, new Higgsfield carpet-extraction photograph, an above-fold quote starter, all eleven service categories and five up-to-30%-off offer shortcuts. Services and complete offers precede the cinematic story. Details: [header refinement](renewal/header-refinement.md). Existing noindex, backend and release boundaries remain; enquiries prepare a reviewable email draft. The earlier checkpoints below are historical and do not override this brief.
+
+## Current phase — The Art of the Reset · 2026-09-29
+
+The owner grants complete frontend creative authority and asks for an exceptional cinematic, immersive light olive/beige website. The new local candidate rebuilds identity, typography, media, service/package presentation, scroll storytelling and matching legal pages. Blue Sky supplies a content-completeness reference only. Package enquiries are quote-first; no sample rates, discounts, phone numbers or fabricated proof appear in this candidate. The existing email-review enquiry behavior and backend separation remain. Design is a candidate for owner review, not inferred approval. See [implementation and verification](atelier-homepage/report.md).
+
 ## Current phase — photographic home feeling · 2026-09-29
 
 The owner rejects the CAD-like room hero, retains the Make room for living aperture and grants creative authority for a photographic customer-facing experience. Remove internal review labels from the UI; keep sample-data classification, noindex and release gates internally. Enquiries prepare an email for the visitor to review and send; no fabricated receipt. See [photographic checkpoint](photographic-homepage/report.md).
@@ -97,3 +105,7 @@ Stop after the H-03 Masked Checkpoint Report. The next hero art-direction sprint
 ## Prior repository checkpoint
 
 [Stabilization inventory](repository-stabilization-inventory.md) and [report](repository-stabilization-report.md). Durable lead activation and recovery limits: [lead operations](../architecture/lead-operations.md). Production release blockers and noindex remain in force.
+
+
+## Fresh frontend renewal — 2026-09-29
+The latest owner brief supersedes all prior visual locks and authorises a complete fresh identity, frontend, original media and adoption of Blue Sky service categories/pricing/deals. Active homepage now uses components/homepage/renewal directly from app/page.tsx. Current candidate: Room to breathe. All eleven categories and five current up-to-30% packages are represented. No source dollar prices were published; quotes remain individual. See renewal/report.md. Backend, noindex and release guards remain unchanged.

@@ -1,118 +1,161 @@
 "use client";
-import { useState, useEffect } from "react";
-import {
-  ArrowUpRight,
-  Phone,
-  Layers3,
-  BadgePercent,
-  Building2,
-  MessageSquareText,
-} from "lucide-react";
-import Header from "./prototype/Header";
-import PhotographicHero from "./immersive/PhotographicHero";
-import Journey from "./immersive/Journey";
-import SurfaceExplorer from "./immersive/SurfaceExplorer";
-import { useImmersiveMotion } from "./immersive/useImmersiveMotion";
-import Footer from "./prototype/Footer";
-import SupportingSections from "./prototype/SupportingSections";
-import Offers, { type QuoteSelection } from "./prototype/Offers";
-
-import Quote from "./prototype/Quote";
-import { prototypeContact } from "@/content/homepage-prototype";
-import "./prototype/prototype.css";
-import "./immersive/immersive.css";
-import "./immersive/photographic.css";
-
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import Header from "./atelier/Header";
+import Hero from "./atelier/Hero";
+import Services from "./atelier/Services";
+import Packages from "./atelier/Packages";
+import Supporting from "./atelier/Supporting";
+import Quote from "./atelier/Quote";
+import Cinema from "./atelier/Cinema";
+import { Arrow, Mark } from "./atelier/Primitives";
+import { useAtelierMotion } from "./atelier/useAtelierMotion";
+import type { QuoteSelection } from "./prototype/Offers";
+import "./atelier/atelier.css";
+import "./atelier/supporting.css";
 export default function Homepage() {
-  useImmersiveMotion();
+  const root = useRef<HTMLDivElement>(null);
   const [selection, setSelection] = useState<QuoteSelection>({
     service: "",
     packageName: "",
   });
-  const [showSticky, setShowSticky] = useState(false);
+  const [motion, setMotion] = useState(true);
+  const [sticky, setSticky] = useState(false);
+  useAtelierMotion(root, motion);
   useEffect(() => {
-    const root = document.querySelector(".cn-site")!;
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            observer.unobserve(entry.target);
-          }
-        }),
-      { threshold: 0.08 },
-    );
-    root
-      .querySelectorAll(".cn-reveal")
-      .forEach((element) => observer.observe(element));
-    const update = () => {
-      const quote = document.getElementById("quote")!.getBoundingClientRect();
-      setShowSticky(
-        window.scrollY > 650 &&
-          (quote.top > window.innerHeight || quote.bottom < 0),
-      );
-    };
-    window.addEventListener("scroll", update, { passive: true });
-    update();
+    document.documentElement.dataset.atMotion = motion ? "on" : "off";
     return () => {
+      delete document.documentElement.dataset.atMotion;
+    };
+  }, [motion]);
+  useEffect(() => {
+    const media = matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setMotion(!media.matches);
+    update();
+    media.addEventListener("change", update);
+    const hero = document.querySelector(".at-hero");
+    const quote = document.getElementById("quote");
+    const cinema = document.getElementById("experience");
+    let heroVisible = true;
+    let quoteVisible = false;
+    let cinemaVisible = false;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === hero) heroVisible = entry.isIntersecting;
+          if (entry.target === quote) quoteVisible = entry.isIntersecting;
+          if (entry.target === cinema)
+            cinemaVisible = entry.intersectionRatio > 0.12;
+        });
+        setSticky(!heroVisible && !quoteVisible && !cinemaVisible);
+      },
+      { threshold: [0, 0.12] },
+    );
+    if (hero) observer.observe(hero);
+    if (quote) observer.observe(quote);
+    if (cinema) observer.observe(cinema);
+    return () => {
+      media.removeEventListener("change", update);
       observer.disconnect();
-      window.removeEventListener("scroll", update);
     };
   }, []);
-  function select(next: QuoteSelection) {
-    setSelection(next);
+  function select(value: QuoteSelection) {
+    setSelection(value);
     document.getElementById("quote")?.scrollIntoView({ behavior: "instant" });
     requestAnimationFrame(() =>
-      document.getElementById("cn-service")?.focus({ preventScroll: true }),
+      document.getElementById("at-service")?.focus({ preventScroll: true }),
     );
   }
   return (
-    <div className="cn-site cn-immersive cn-cinematic">
-      <Header />
+    <div className="at-site" data-motion={motion ? "on" : "off"} ref={root}>
+      <Header motion={motion} onMotion={() => setMotion(!motion)} />
       <main id="main-content" tabIndex={-1}>
-        <PhotographicHero onSelect={select} />
-        <div className="cn-value-strip">
-          {[
-            [Layers3, "Care for every material"],
-            [BadgePercent, "Clear package inclusions"],
-            [MessageSquareText, "Free, no-obligation quotes"],
-            [Building2, "Homes & workplaces"],
-          ].map(([Icon, text]) => {
-            const Mark = Icon as typeof Layers3;
-            return (
-              <span key={String(text)}>
-                <Mark size={21} strokeWidth={1.5} />
-                {String(text)}
-              </span>
-            );
-          })}
-        </div>
-        <Journey />
-        <SurfaceExplorer onSelect={select} />
-        <Offers onSelect={select} />
-        <SupportingSections onSelect={select} />
+        <Hero motion={motion} />
+        <section className="at-intro" aria-labelledby="intro-title">
+          <div className="at-intro-aside">
+            <Mark />
+            <span>
+              A home is for living.
+              <br />
+              We take care of the reset.
+            </span>
+          </div>
+          <h2
+            id="intro-title"
+            className="at-word-reveal"
+            aria-label="The muddy paws. The slow Sundays. The beautifully busy everyday. Life leaves its mark. We help you start fresh."
+          >
+            {"The muddy paws. The slow Sundays. The beautifully busy everyday."
+              .split(" ")
+              .map((word, index) => (
+                <span key={index}>{word} </span>
+              ))}
+            <span className="at-intro-last">
+              Life leaves its mark.{" "}
+              <i className="at-inline-photo" aria-hidden="true" />{" "}
+              <em>We help you start fresh.</em>
+            </span>
+          </h2>
+          <div className="at-intro-bottom">
+            <span>Thoughtful cleaning for homes & workplaces.</span>
+            <a href="#services" className="at-text-link">
+              Find your clean <Arrow />
+            </a>
+          </div>
+        </section>
+        <Services onSelect={select} />
+        <Cinema motion={motion} />
+        <Packages onSelect={select} />
+        <Supporting onSelect={select} />
         <Quote selection={selection} onSelection={setSelection} />
-        <section className="im-ending">
-          <p>A little less to do. A lot more to enjoy.</p>
+        <section className="at-finale" aria-labelledby="finale-title">
+          <p>Less on your list. More life in your day.</p>
           <a href="#quote">
-            Let’s make room. <ArrowUpRight size={36} />
+            <h2 id="finale-title">
+              Leave the clean
+              <br />
+              <em>to us.</em>
+            </h2>
+            <span className="at-finale-arrow">
+              <Arrow />
+            </span>
           </a>
-          <div className="im-ending-word" aria-hidden="true">
-            fresh starts here.
+          <div className="at-finale-line">
+            <span>Your space, beautifully considered.</span>
+            <span>Cleaning Ninja · Australia</span>
           </div>
         </section>
       </main>
-      <Footer />
-      <div className="cn-sticky" hidden={!showSticky}>
-        <a href={prototypeContact.href} aria-label="Call 123456789">
-          <Phone size={19} />
-          Call us
-        </a>
-        <a href="#quote">
-          Get a Free Quote
-          <ArrowUpRight size={18} />
-        </a>
-      </div>
+      <footer className="at-footer">
+        <div className="at-footer-top">
+          <Link href="/" className="at-small-brand">
+            <Mark />
+            cleaning ninja
+          </Link>
+          <a href="mailto:contact@cleaningninja.co">
+            contact@cleaningninja.co <Arrow />
+          </a>
+        </div>
+        <div className="at-footer-nav">
+          <span>© {new Date().getFullYear()} Cleaning Ninja</span>
+          <nav aria-label="Footer navigation">
+            <a href="#services">Services</a>
+            <a href="#coverage">Service areas</a>
+            <a href="/legal/privacy">Privacy</a>
+            <a href="/legal/terms">Terms</a>
+          </nav>
+          <a href="#top">Back to the top ↑</a>
+        </div>
+        <div className="at-footer-word" aria-hidden="true">
+          a fresh feeling.
+        </div>
+      </footer>
+      <a href="#quote" className="at-sticky-quote" hidden={!sticky}>
+        Your fresh start{" "}
+        <span>
+          <Arrow />
+        </span>
+      </a>
     </div>
   );
 }
