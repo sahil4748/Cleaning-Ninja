@@ -40,9 +40,9 @@ export default function HomeHeader() {
       <Brand />
       <nav aria-label="Main navigation" className="home-desktop-nav">{links.map(([label, href]) => <a key={href} href={href}>{label}</a>)}</nav>
       <div className="home-header-actions">
-        <button className="home-icon-button" aria-label="Call and communication options" aria-haspopup="dialog" onClick={() => call.current?.showModal()}><MessageCircle size={19} /></button>
+        <button className="home-icon-button" aria-label="Call and communication options" aria-haspopup="dialog" onClick={event => { event.currentTarget.focus({ preventScroll: true }); call.current?.showModal() }}><MessageCircle size={19} /></button>
         <a href="#quote" className="home-button home-header-quote"><span className="home-quote-long">Get a Quote</span><span className="home-quote-short">Get Quote</span><ArrowUpRight size={16} /></a>
-        <button className="home-icon-button home-menu-trigger" aria-label="Open menu" aria-haspopup="dialog" onClick={() => menu.current?.showModal()}><Menu size={21} /></button>
+        <button className="home-icon-button home-menu-trigger" aria-label="Open menu" aria-haspopup="dialog" onClick={event => { event.currentTarget.focus({ preventScroll: true }); menu.current?.showModal() }}><Menu size={21} /></button>
       </div>
     </header>
     <dialog onKeyDown={trapDialogFocus} ref={call} className="home-dialog home-call-sheet" aria-labelledby="call-title" onClick={event => { if (event.target === event.currentTarget) call.current?.close() }}>
