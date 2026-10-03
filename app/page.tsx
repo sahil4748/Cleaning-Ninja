@@ -1,25 +1,26 @@
 import type { Metadata } from "next";
-import { DM_Sans, Cormorant_Garamond } from "next/font/google";
-import Homepage from "@/components/homepage/renewal/Homepage";
+import { Hanken_Grotesk, Instrument_Serif } from "next/font/google";
+import Homepage from "@/components/homepage/restore/Restore";
 
-const sans = DM_Sans({
+const sans = Hanken_Grotesk({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
   variable: "--renewal-sans",
   display: "swap",
 });
-const serif = Cormorant_Garamond({
+const serif = Instrument_Serif({
   subsets: ["latin"],
-  weight: ["400", "500"],
+  weight: "400",
   style: ["normal", "italic"],
   variable: "--renewal-serif",
   display: "swap",
 });
 const description =
-  "A fresh feeling for your home. Carpet, upholstery, rug, leather, tile and commercial cleaning, with selected packages and a free personalised quote.";
+  "Order, restored. Carpet, upholstery, rug, leather, tile and commercial cleaning, with selected packages and a free personalised quote.";
 export const metadata: Metadata = {
   title: { absolute: "Cleaning Ninja — Carpet & Upholstery Cleaning" },
   description,
-  icons: { icon: "/homepage/renewal/ninja-mark.svg" },
+  icons: { icon: "/homepage/restore/mark.svg" },
   robots: { index: false, follow: false },
   alternates: { canonical: "/" },
   openGraph: {
@@ -28,10 +29,10 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/homepage/renewal/cleaning-hero.webp",
-        width: 2400,
-        height: 1357,
-        alt: "Carpet extraction in a sunlit olive and beige living room",
+        url: "/homepage/restore/after-wide.webp",
+        width: 2688,
+        height: 1520,
+        alt: "A calm, sunlit living room, cleaned and resolved",
       },
     ],
   },
@@ -39,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cleaning Ninja — Carpet & Upholstery Cleaning",
     description,
-    images: ["/homepage/renewal/cleaning-hero.webp"],
+    images: ["/homepage/restore/after-wide.webp"],
   },
 };
 export default function HomePage() {

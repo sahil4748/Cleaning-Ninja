@@ -838,6 +838,26 @@ export default function RenewalHomepage() {
             </li>
           </ol>
         </section>
+        <section className="rn-calm" aria-labelledby="calm-title">
+          <Image
+            src={asset + "calm-wide.webp"}
+            alt="An empty, quiet room with timber panelling and sheer curtains in soft light"
+            fill
+            sizes="100vw"
+            className="rn-calm-img"
+          />
+          <div className="rn-calm-copy">
+            <p>QUIET PRECISION</p>
+            <h2 id="calm-title">
+              Bring your space
+              <br />
+              <em>back to calm.</em>
+            </h2>
+            <a href="#quote-start">
+              Get a Quote <Arrow />
+            </a>
+          </div>
+        </section>
         <section className="rn-commercial" aria-labelledby="commercial-title">
           <div className="rn-commercial-photo">
             <Image
@@ -900,6 +920,13 @@ export default function RenewalHomepage() {
           </div>
         </section>
         <section className="rn-finale" aria-labelledby="finale-title">
+          <Image
+            src={asset + "dusk.webp"}
+            alt=""
+            fill
+            sizes="100vw"
+            className="rn-finale-img"
+          />
           <div className="rn-finale-top">
             <span>Less on your list. More life in your day.</span>
             <Mark />
