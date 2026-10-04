@@ -89,8 +89,8 @@ export const metadata: Metadata = {
     images: ['/og-logo-card-1200x630.png'],
   },
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
   },
 }
 

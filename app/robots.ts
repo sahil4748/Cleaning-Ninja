@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
 export default function robots(): MetadataRoute.Robots {
-  // Rebuild is not approved for indexing. No public sitemap advertised yet.
-  return { rules: { userAgent: '*', disallow: '/' } }
+  // Indexing allowed. Legal pages carry their own noindex until they are rewritten; no sitemap advertised yet.
+  return { rules: { userAgent: '*', allow: '/' } }
 }

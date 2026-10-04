@@ -20,7 +20,6 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: "Cleaning Ninja — Carpet & Upholstery Cleaning" },
   description,
-  robots: { index: false, follow: false },
   alternates: { canonical: "/" },
   openGraph: {
     title: "Cleaning Ninja — Carpet & Upholstery Cleaning",
