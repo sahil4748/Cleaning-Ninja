@@ -1,3 +1,4 @@
+import { Logo } from '@/components/brand/Logo'
 import Link from 'next/link'
 import Container from '@/components/ui/Container'
 import Stack from '@/components/ui/Stack'
@@ -25,19 +26,7 @@ export default function Footer() {
           <div className="col-span-2 md:col-span-4">
             <Stack gap="6">
               <div className="flex flex-col gap-4">
-                <span className="inline-flex w-fit rounded-2xl bg-cream p-3 shadow-md">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="/logo-wordmark.png"
-                    alt="Cleaning Ninja"
-                    width={640}
-                    height={640}
-                    className="h-24 w-auto"
-                  />
-                </span>
-                <span className="font-display text-[15px] font-semibold italic tracking-tight text-olive-soft">
-                  {BUSINESS.tagline}
-                </span>
+                <Logo tone="dark" height={56} compact={false} />
               </div>
               <Body variant="body-l" className="text-cream/75" measure>
                 Flat-rate cleans across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold

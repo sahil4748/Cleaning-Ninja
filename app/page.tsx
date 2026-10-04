@@ -20,7 +20,6 @@ const description =
 export const metadata: Metadata = {
   title: { absolute: "Cleaning Ninja — Carpet & Upholstery Cleaning" },
   description,
-  icons: { icon: "/homepage/restore/mark.svg" },
   robots: { index: false, follow: false },
   alternates: { canonical: "/" },
   openGraph: {
@@ -29,10 +28,10 @@ export const metadata: Metadata = {
     url: "/",
     images: [
       {
-        url: "/homepage/restore/after-wide.webp",
-        width: 2688,
-        height: 1520,
-        alt: "A calm, sunlit living room, cleaned and resolved",
+        url: "/og-logo-card-1200x630.png",
+        width: 1200,
+        height: 630,
+        alt: "Cleaning Ninja",
       },
     ],
   },
@@ -40,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cleaning Ninja — Carpet & Upholstery Cleaning",
     description,
-    images: ["/homepage/restore/after-wide.webp"],
+    images: ["/og-logo-card-1200x630.png"],
   },
 };
 export default function HomePage() {

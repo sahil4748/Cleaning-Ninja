@@ -119,6 +119,12 @@ test.describe("mobile 390", () => {
     await instant(page);
     await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.evaluate(() => document.getElementById("services")!.scrollIntoView());
+    const list = await page.locator(".rs-svc-list").boundingBox();
+    expect(list!.width).toBeGreaterThan(390 * 0.85);
+    const first = await page.locator(".rs-group li > button").first().innerText();
+    expect(first).toContain("01");
+    await page.evaluate(() => window.scrollTo(0, 0));
     await page.getByRole("button", { name: "Open menu" }).click();
     await expect(page.locator("#rs-menu")).toBeVisible();
     await page.keyboard.press("Escape");

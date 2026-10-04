@@ -343,3 +343,17 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--color-surface-muted);
   }
 }
+
+/* Cleaning Ninja logo: sizing only. Never recolour, filter or decorate the supplied SVGs. */
+.cn-logo { display: inline-flex; align-items: center; line-height: 0; flex: none; }
+.cn-logo-tone { display: inline-flex; align-items: center; }
+.cn-logo img { height: var(--cn-logo-h, 44px); width: auto; max-width: none; object-fit: contain; display: block; }
+.cn-logo-lockup, .cn-logo-mark { display: none !important; }
+@media (max-width: 479px) {
+  .cn-logo--compact .cn-logo-full { display: none; }
+  .cn-logo--compact .cn-logo-lockup { display: block !important; height: calc(var(--cn-logo-h, 44px) * 0.85); }
+}
+@media (max-width: 359px) {
+  .cn-logo--compact .cn-logo-lockup { display: none !important; }
+  .cn-logo--compact .cn-logo-mark { display: block !important; height: calc(var(--cn-logo-h, 44px) * 0.85); }
+}

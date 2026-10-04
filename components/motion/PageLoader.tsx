@@ -1,5 +1,6 @@
 'use client'
 
+import { Logo } from '@/components/brand/Logo'
 import { useReducedMotion } from '@/lib/use-reduced-motion'
 
 import { useEffect, useState } from 'react'
@@ -53,19 +54,7 @@ export function PageLoader() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.65, 0.05, 0.36, 1] }}
           >
-            <span className="rounded-2xl bg-cream p-3 shadow-xl">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo-mark.png"
-                alt=""
-                width={480}
-                height={394}
-                className="h-20 w-auto sm:h-24"
-              />
-            </span>
-            <span className="font-display font-bold tracking-[-0.03em] text-[clamp(36px,6vw,72px)]">
-              Cleaning <span className="text-olive">Ninja</span>
-            </span>
+            <Logo tone="dark" height={72} compact={false} />
           </motion.div>
         </motion.div>
       )}

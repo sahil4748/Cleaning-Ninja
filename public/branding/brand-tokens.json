@@ -1,0 +1,17 @@
+{
+  "brand": "Cleaning Ninja",
+  "primary": "#06768D",
+  "lightText": "#111111",
+  "darkText": "#F7F4EE",
+  "tagline": "YOUR MESS OUR MISSION",
+  "wordmarkFont": "Lustria",
+  "taglineFont": "Inter",
+  "preferredAssets": {
+    "lightTheme": "/branding/logo-light.svg",
+    "darkTheme": "/branding/logo-dark.svg",
+    "compactLight": "/branding/logo-compact-light.svg",
+    "compactDark": "/branding/logo-compact-dark.svg",
+    "favicon": "/branding/favicon.svg",
+    "mark": "/branding/logo-mark-primary.svg"
+  }
+}

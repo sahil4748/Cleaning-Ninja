@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, Check, Mail } from "lucide-react";
-import { Arrow, Mark, Wordmark } from "./Mark";
+import { Arrow, Wordmark } from "./Mark";
 import RoomStage from "./RoomStage";
 import { services, offers, faqs } from "../renewal/content";
 import QuotePanel from "./QuotePanel";
@@ -71,6 +71,7 @@ const shortInclude: Record<string, string> = {
   "Protective treatment": "Protect",
 };
 
+const orderedServices = groups.flatMap((g) => services.filter((s) => s.group === g.id));
 const clamp = (v: number, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 
 export default function Restore() {
@@ -300,7 +301,7 @@ export default function Restore() {
                 const p = picture[s.id];
                 return (
                   <div key={s.id} className={`rs-fig${s.id === serviceId ? " is-on" : ""}`}>
-                    <Image src={p.src} alt="" fill sizes="(min-width: 900px) 40vw, 0px" style={{ objectPosition: p.pos, transform: p.scale ? `scale(${p.scale})` : undefined, transformOrigin: p.pos }} loading="lazy" />
+                    <Image unoptimized src={p.src} alt="" fill sizes="(min-width: 900px) 40vw, 0px" style={{ objectPosition: p.pos, transform: p.scale ? `scale(${p.scale})` : undefined, transformOrigin: p.pos }} loading="lazy" />
                   </div>
                 );
               })}
@@ -312,7 +313,7 @@ export default function Restore() {
                   <ul>
                     {services.filter((s) => s.group === g.id).map((s) => {
                       const open = s.id === serviceId;
-                      const n = String(services.indexOf(s) + 1).padStart(2, "0");
+                      const n = String(orderedServices.indexOf(s) + 1).padStart(2, "0");
                       const p = picture[s.id];
                       return (
                         <li key={s.id} className={open ? "is-open" : ""}>
@@ -324,7 +325,7 @@ export default function Restore() {
                           <div className="rs-panel" id={`svc-${s.id}`} inert={!open}>
                             <div className="rs-panel-in">
                               <div className="rs-mimg">
-                                <Image src={p.src} alt={p.alt} fill sizes="(max-width: 899px) 90vw, 0px" style={{ objectPosition: p.pos, transform: p.scale ? `scale(${p.scale})` : undefined, transformOrigin: p.pos }} loading="lazy" />
+                                <Image unoptimized src={p.src} alt={p.alt} fill sizes="(max-width: 899px) 90vw, 0px" style={{ objectPosition: p.pos, transform: p.scale ? `scale(${p.scale})` : undefined, transformOrigin: p.pos }} loading="lazy" />
                               </div>
                               <p>{s.description}</p>
                               <ul className="rs-includes">
@@ -374,7 +375,7 @@ export default function Restore() {
               return (
                 <div key={d.id} className={`rs-slide${i === dealIndex ? " is-on" : ""}`} aria-hidden={i !== dealIndex}>
                   <div className="rs-slide-par">
-                    <Image src={art.src} alt={i === dealIndex ? art.alt : ""} fill sizes="(min-width: 900px) 94vw, 100vw" style={{ objectPosition: art.pos }} loading="lazy" />
+                    <Image unoptimized src={art.src} alt={i === dealIndex ? art.alt : ""} fill sizes="(min-width: 900px) 94vw, 100vw" style={{ objectPosition: art.pos }} loading="lazy" />
                   </div>
                 </div>
               );
@@ -413,7 +414,7 @@ export default function Restore() {
                   }}
                 >
                   <span className="rs-thumb">
-                    <Image src={dealArt[d.id].src} alt="" fill sizes="180px" style={{ objectPosition: dealArt[d.id].pos }} loading="lazy" />
+                    <Image unoptimized src={dealArt[d.id].src} alt="" fill sizes="180px" style={{ objectPosition: dealArt[d.id].pos }} loading="lazy" />
                   </span>
                   <span className="rs-thumb-label">{d.title}</span>
                 </button>
@@ -466,7 +467,7 @@ export default function Restore() {
 
       <footer className="rs-footer">
         <div className="rs-footer-top">
-          <Wordmark />
+          <Wordmark tone="dark" />
           <a className="rs-footer-mail" href="mailto:contact@cleaningninja.co"><span className="rs-mail-icon"><Mail size={20} strokeWidth={1.6} aria-hidden /></span>contact@cleaningninja.co</a>
         </div>
         <div className="rs-footer-bottom">
@@ -476,7 +477,6 @@ export default function Restore() {
             <Link href="/legal/terms">Offer conditions</Link>
           </nav>
         </div>
-        <Mark className="rs-footer-bigmark" />
       </footer>
 
       <button className={`rs-sticky${stickyCta ? " is-on" : ""}`} onClick={() => toQuote(selection)} tabIndex={stickyCta ? 0 : -1} aria-hidden={!stickyCta}>

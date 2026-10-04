@@ -305,7 +305,7 @@ export default function QuotePanel({
     <section id="quote" className="rq" aria-labelledby="rn-quote-title">
       <div className="rq-shell">
         <aside className="rq-visual">
-          <Image src="/homepage/restore/quote-room.webp" alt="" fill sizes="(min-width: 900px) 40vw, 100vw" className="rq-photo" loading="lazy" />
+          <Image unoptimized src="/homepage/restore/quote-room.webp" alt="" fill sizes="(min-width: 900px) 40vw, 100vw" className="rq-photo" loading="lazy" />
           <div className="rq-visual-shade" aria-hidden="true" />
           <div className="rq-visual-copy">
             <p className="rs-eyebrow">Free quote</p>

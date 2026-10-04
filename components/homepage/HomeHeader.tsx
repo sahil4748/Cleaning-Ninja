@@ -1,7 +1,7 @@
 'use client'
 
 import { COMMUNICATION } from '@/content/features'
-import Image from 'next/image'
+import { Logo } from '@/components/brand/Logo'
 import Link from 'next/link'
 import { useEffect, useRef, useState, type KeyboardEvent } from 'react'
 import { Menu, MessageCircle, X, ArrowUpRight } from 'lucide-react'
@@ -10,8 +10,7 @@ const links = [['Services', '#services'], ['Packages', '#packages'], ['How It Wo
 
 export function Brand() {
   return <Link href="/" className="home-brand" aria-label="Cleaning Ninja home">
-    <Image className="home-logo-mark" src="/logo-mark.png" alt="" width={480} height={394} />
-    <span className="home-wordmark-window"><Image src="/logo-wordmark.png" alt="Cleaning Ninja" width={640} height={640} /></span>
+    <Logo tone="light" height={44} />
   </Link>
 }
 

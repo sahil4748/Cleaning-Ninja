@@ -1,5 +1,6 @@
 'use client'
 
+import { Logo } from '@/components/brand/Logo'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -42,24 +43,7 @@ export default function Header() {
             data-magnetic
             className="group inline-flex items-center gap-2.5"
           >
-            <span className="grid place-items-center rounded-lg bg-cream p-1 shadow-sm transition-transform duration-200 group-hover:scale-[1.03]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/logo-mark.png"
-                alt="Cleaning Ninja"
-                width={480}
-                height={394}
-                className="h-8 w-auto lg:h-9"
-              />
-            </span>
-            <span className="flex flex-col leading-none">
-              <span className="font-display text-[20px] font-bold leading-none tracking-[-0.02em] text-cream transition-colors duration-200 group-hover:text-olive-soft lg:text-[22px]">
-                Cleaning <span className="text-olive group-hover:text-cream transition-colors duration-200">Ninja</span>
-              </span>
-              <span className="mt-1 hidden font-body text-[10px] font-semibold uppercase tracking-[0.18em] text-cream/80 sm:block">
-                {BUSINESS.tagline}
-              </span>
-            </span>
+            <Logo tone="dark" height={44} />
           </Link>
         </div>
 
