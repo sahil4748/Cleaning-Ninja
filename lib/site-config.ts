@@ -3,7 +3,7 @@ import { BUSINESS_CONFIG } from '@/content/business-config'
  * Target identity is recorded, not activated as a migration or redirect.
  */
 export const SITE_CONFIG = {
-  canonicalOrigin: 'https://cleaningninja.com.au',
+  canonicalOrigin: 'https://cleaningninja.co',
   targetOrigin: `https://${BUSINESS_CONFIG.canonicalDomain}`,
   targetStatus: 'TARGET_PENDING_EQUITY_CHECK',
   indexable: false,

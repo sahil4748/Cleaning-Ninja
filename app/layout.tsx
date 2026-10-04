@@ -31,23 +31,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Cleaning Ninja — Flat-Rate Cleaning Services',
+    default: 'Cleaning Ninja — Carpet & Upholstery Cleaning',
     template: '%s | Cleaning Ninja',
   },
   description:
-    'Flat-rate cleaning services from $129 across Sydney, Melbourne, Brisbane, Perth, Adelaide and the Gold Coast. Regular home cleans, move-out cleaning, carpet, upholstery, tile and grout, and leather care.',
-  keywords: [
-    'cleaning service Australia',
-    'end of lease cleaning Sydney',
-    'bond cleaning Brisbane',
-    'house cleaning Melbourne',
-    'carpet cleaning Perth',
-    'NDIS cleaning provider',
-    'professional cleaners',
-    'Airbnb cleaning Gold Coast',
-    'eco-friendly cleaning Adelaide',
-    'flat rate cleaning',
-  ],
+    'Order, restored. Carpet, upholstery, rug, leather, tile and commercial cleaning, with selected packages and a free personalised quote.',
   manifest: '/site.webmanifest',
   icons: {
     icon: [
@@ -69,23 +57,23 @@ export const metadata: Metadata = {
     locale: 'en_AU',
     url: SITE_URL,
     siteName: 'Cleaning Ninja',
-    title: 'Cleaning Ninja — Flat-Rate Cleaning Services',
+    title: 'Cleaning Ninja — Carpet & Upholstery Cleaning',
     description:
-      'Flat-rate cleaning services from $129 across six Australian cities.',
+      'Order, restored. Carpet, upholstery, rug, leather, tile and commercial cleaning, with selected packages and a free personalised quote.',
     images: [
       {
         url: '/og-logo-card-1200x630.png',
         width: 1200,
         height: 630,
-        alt: 'Cleaning Ninja — Flat-rate cleaning services',
+        alt: 'Cleaning Ninja',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Cleaning Ninja — Flat-Rate Cleaning Services',
+    title: 'Cleaning Ninja — Carpet & Upholstery Cleaning',
     description:
-      'Flat-rate cleaning services from $129 across six Australian cities.',
+      'Order, restored. Carpet, upholstery, rug, leather, tile and commercial cleaning, with selected packages and a free personalised quote.',
     images: ['/og-logo-card-1200x630.png'],
   },
   robots: {

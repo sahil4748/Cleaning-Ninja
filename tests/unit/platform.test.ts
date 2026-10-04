@@ -105,7 +105,7 @@ test('media has independent posters, independent approved desktop and mobile cli
 })
 test('metadata retains canonical strategy and excludes pending locations', () => {
   const metadata = serviceMetadata('carpet-cleaning', { name: 'Unverified suburb', status: 'pending', seoEnabled: true })
-  assert.equal(metadata.alternates?.canonical, 'https://cleaningninja.com.au/services/carpet-cleaning')
+  assert.equal(metadata.alternates?.canonical, 'https://cleaningninja.co/services/carpet-cleaning')
   assert.equal(JSON.stringify(metadata).includes('Unverified suburb'), false)
   assert.equal(JSON.stringify(metadata).includes('$49'), false)
 })

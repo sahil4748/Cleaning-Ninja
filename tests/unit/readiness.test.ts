@@ -53,10 +53,10 @@ test('schema and public truth exclude prototype proof', () => {
     assert.equal(output.includes(forbidden), false, forbidden)
   }
 })
-test('sitemap represents the 93 existing routes without false timestamps or 404 entries', () => {
+test('sitemap lists only the indexable homepage, without false timestamps or 404 entries', () => {
   const entries = sitemap()
-  assert.equal(entries.length, 93)
-  assert.equal(new Set(entries.map(entry => entry.url)).size, 93)
+  assert.equal(entries.length, 1)
+  assert.equal(new Set(entries.map(entry => entry.url)).size, 1)
   assert.ok(entries.every(entry => !entry.lastModified))
   assert.ok(entries.every(entry => !/special-offers|become-a-cleaner/.test(entry.url)))
 })

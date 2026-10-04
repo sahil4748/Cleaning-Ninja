@@ -4,7 +4,15 @@ if (process.env.VERCEL_ENV === 'production' && (readiness.status !== 'APPROVED' 
 }
 
 /** @type {import('next').NextConfig} */
+const retiredRoutes = ['about', 'book', 'careers', 'contact', 'gallery', 'journal', 'our-standard', 'pricing', 'reviews', 'service-areas', 'services', 'team', 'legal/insurance']
 const nextConfig = {
+  // The previous website is retired; its URLs lead to the new homepage.
+  async redirects() {
+    return retiredRoutes.flatMap(route => [
+      { source: `/${route}`, destination: '/', permanent: true },
+      { source: `/${route}/:path*`, destination: '/', permanent: true },
+    ])
+  },
   images: {
     remotePatterns: [
       {

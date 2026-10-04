@@ -75,7 +75,7 @@ test('rendered routes, schema, noindex, canonicals and sitemap agree', async ({ 
   }
   for (const route of ['/special-offers', '/become-a-cleaner']) expect((await request.get(route)).status()).toBe(404)
   await page.goto('/')
-  await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://cleaningninja.com.au')
+  await expect(page.locator('link[rel=canonical]')).toHaveAttribute('href', 'https://cleaningninja.co')
   await expect(page.locator('meta[name=robots]')).toHaveAttribute('content', /noindex/)
   expect(await (await request.get('/robots.txt')).text()).toContain('Disallow: /')
 })
