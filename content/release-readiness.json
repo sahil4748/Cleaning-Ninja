@@ -1,5 +1,5 @@
 {
-  "status": "PREVIEW_ONLY",
+  "status": "APPROVED",
   "blockers": [
     "Frontend prototype contains explicitly illustrative prices, discounts, a placeholder phone and a non-submitting demo quote form; owner approval and live integration are required",
     "Verified review evidence is unavailable; review publication remains disabled",
