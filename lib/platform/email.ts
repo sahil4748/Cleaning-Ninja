@@ -2,13 +2,21 @@ import { getService } from '../../content/service-catalogue'
 import { getPackage } from '../../content/packages'
 import { BUSINESS_CONFIG } from '../../content/business-config'
 import type { LeadRecord } from './lead-service'
-export type EmailMessage = { from: string; to: string[]; reply_to: string; subject: string; text: string }
+export type EmailMessage = { from: string; to: string[]; reply_to: string; subject: string; text: string; html?: string }
 export function leadEmail(record: LeadRecord, reference: string, kind: 'internal' | 'acknowledgement', from: string): EmailMessage {
   const mailbox = BUSINESS_CONFIG.primaryEmail
   const base = { from: `Cleaning Ninja <${from}>`, reply_to: mailbox }
   if (kind === 'acknowledgement') {
     if (!record.email) throw new Error('missing_recipient')
-    return { ...base, to: [record.email], subject: 'We received your Cleaning Ninja quote request', text: `Thank you for contacting Cleaning Ninja. We've received your quote request.\n\nReference: ${reference}\n\nThis is not a confirmed booking. Any preferred date or time is a request only.\n\nYou can contact us at ${mailbox}.` }
+    const first = record.name.trim().split(/\s+/)[0] || 'there'
+    const lines = ['Thanks for contacting Cleaning Ninja.', "We've received your enquiry and a member of our team will review the details and get back to you shortly.",
+      'If you need to add anything in the meantime, you can reply to this email.', 'This is not a confirmed booking until we have spoken with you.']
+    const esc = (v: string) => v.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    const html = `<div style="font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:1.6;color:#1f2a24;max-width:520px">`
+      + `<p>Hi ${esc(first)},</p>${lines.map(l => `<p>${esc(l)}</p>`).join('')}`
+      + `<p style="margin-top:28px"><strong>Cleaning Ninja</strong><br><span style="color:#5b6b60">Your Mess. Our Mission.</span></p></div>`
+    return { ...base, to: [record.email], subject: 'We\u2019ve received your Cleaning Ninja enquiry', html,
+      text: `Hi ${first},\n\n${lines.join('\n\n')}\n\nCleaning Ninja\nYour Mess. Our Mission.` }
   }
   return { ...base, to: [mailbox], subject: `New Cleaning Ninja enquiry — ${reference}`, text: [
     ['Reference', reference], ['Submitted (UTC)', record.createdAt], ['Source', record.leadSource], ['Intent', record.intent],

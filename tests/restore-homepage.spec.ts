@@ -146,3 +146,81 @@ test.describe("reduced motion", () => {
     await expect(page.getByRole("button", { name: /get a free quote/i }).first()).toBeVisible();
   });
 });
+
+test.describe("enquiry submission", () => {
+  test.use({ viewport: { width: 1440, height: 900 } });
+
+  // The endpoint is mocked: no real lead or email is ever created by this test.
+  test("submits through /api/quote once, retries with the same key, never opens mail", async ({ page }) => {
+    const posts: { key: string | undefined; body: Record<string, unknown> }[] = [];
+    let attempts = 0;
+    await page.route("**/api/quote", async (route) => {
+      const request = route.request();
+      posts.push({ key: request.headers()["idempotency-key"], body: request.postDataJSON() });
+      attempts += 1;
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      if (attempts === 1) return route.fulfill({ status: 503, json: { status: "unavailable" } });
+      return route.fulfill({ status: 201, json: { status: "accepted", durableId: "00000000-0000-4000-8000-000000000001" } });
+    });
+    await page.goto("/");
+    await instant(page);
+    await page.evaluate(() => document.getElementById("quote")!.scrollIntoView());
+    await page.locator("#rn-service").click();
+    await page.getByRole("option", { name: "Carpet cleaning" }).click();
+    await page.locator("#rn-name").fill("Synthetic Tester");
+    await page.locator("#rn-phone").fill("0400 000 000");
+    await page.locator("#rn-suburb").fill("Testville 4000");
+    await page.locator("#rn-email").fill("synthetic@example.invalid");
+    const submit = page.locator(".rq-submit");
+    await submit.click();
+    await expect(submit).toBeDisabled();
+    await submit.click({ force: true }).catch(() => undefined);
+    await expect(page.locator(".rq-submit-error")).toContainText(/not been sent|couldn/i);
+    await expect(submit).toBeEnabled();
+    await submit.click();
+    await expect(page.getByRole("heading", { name: /Thank you, Synthetic Tester/ })).toBeVisible();
+    expect(posts).toHaveLength(2);
+    expect(posts[0].key).toMatch(/^[0-9a-f-]{36}$/);
+    expect(posts[1].key).toBe(posts[0].key);
+    expect(posts[1].body).toMatchObject({ name: "Synthetic Tester", email: "synthetic@example.invalid", service: "carpet-cleaning", leadSource: "quote-form" });
+    await expect(page.locator('a[href^="mailto:"][href*="subject="]')).toHaveCount(0);
+  });
+
+  test("thank-you resets to a fresh form after ~4s, or at once on a CTA, with no extra request", async ({ page }) => {
+    let posts = 0;
+    await page.route("**/api/quote", (route) => {
+      posts += 1;
+      return route.fulfill({ status: 201, json: { status: "accepted", durableId: "00000000-0000-4000-8000-000000000002" } });
+    });
+    await page.goto("/");
+    await instant(page);
+    const fill = async () => {
+      await page.evaluate(() => document.getElementById("quote")!.scrollIntoView());
+      await page.locator("#rn-service").click();
+      await page.getByRole("option", { name: "Carpet cleaning" }).click();
+      await page.locator("#rn-name").fill("Synthetic Tester");
+      await page.locator("#rn-phone").fill("0400 000 000");
+      await page.locator("#rn-suburb").fill("Testville 4000");
+      await page.locator(".rq-submit").click();
+      await expect(page.getByRole("heading", { name: /Thank you/ })).toBeVisible();
+    };
+    await fill();
+    await page.waitForTimeout(2500);
+    await expect(page.getByRole("heading", { name: /Thank you/ })).toBeVisible();
+    const y = await page.evaluate(() => window.scrollY);
+    await expect(page.getByRole("heading", { name: /Thank you/ })).toBeHidden({ timeout: 4000 });
+    await expect(page.locator("#rn-name")).toHaveValue("");
+    await expect(page.locator("#rn-service")).toHaveAttribute("data-value", "");
+    expect(Math.abs((await page.evaluate(() => window.scrollY)) - y)).toBeLessThan(2);
+    expect(posts).toBe(1);
+
+    await fill();
+    expect(posts).toBe(2);
+    await page.locator(".rs-nav-cta").click();
+    await expect(page.getByRole("heading", { name: /Thank you/ })).toBeHidden({ timeout: 1000 });
+    await expect(page.locator("#rn-name")).toHaveValue("");
+    await expect(page.locator(".rq-submit")).toBeEnabled();
+    await page.waitForTimeout(4800);
+    expect(posts).toBe(2);
+  });
+});

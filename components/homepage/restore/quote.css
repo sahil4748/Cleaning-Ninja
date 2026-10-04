@@ -67,6 +67,10 @@
 .rq-fine a { color: inherit; text-underline-offset: 3px; }
 
 /* review state */
+.rq-review { transition: opacity 450ms ease; }
+.rq-review.is-leaving { opacity: 0; }
+.rq-card form.is-fresh { animation: rq-fade-in 450ms ease both; }
+@keyframes rq-fade-in { from { opacity: 0; } to { opacity: 1; } }
 .rq-state { display: inline-block; margin: 0 0 18px; padding: 7px 14px; border-radius: 999px; background: rgba(6, 118, 141, 0.09); color: #055a6b; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; }
 .rq-details { margin: 28px 0 0; display: grid; }
 .rq-details > div { display: grid; grid-template-columns: 150px 1fr; gap: 16px; padding: 14px 0; border-top: 1px solid rgba(20, 38, 43, 0.12); }
@@ -89,7 +93,8 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .rq-photo, .rq-chevron, .rq-submit, .rq-control { transition: none; }
-  .rq-list, .rq-error { animation: none; }
+  .rq-list, .rq-error, .rq-card form.is-fresh { animation: none; }
+  .rq-review { transition: none; }
 }
 
 /* desktop: the whole section fits one screen; spacing scales with viewport height */

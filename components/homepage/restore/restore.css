@@ -323,3 +323,6 @@
   .rs-slide-par img, .rs-slide.is-on .rs-slide-par img { animation: none; transform: scale(1.04); }
   .rs-deal-copy > *, .rs-deal-copy h3 span { animation: none; }
 }
+
+/* In-page links land below the fixed nav. */
+.rs .rs-section { scroll-margin-top: 68px; }

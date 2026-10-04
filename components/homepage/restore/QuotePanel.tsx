@@ -4,6 +4,8 @@ import { useEffect, useId, useRef, useState, type FormEvent, type KeyboardEvent 
 import Image from "next/image";
 import { Check, ChevronDown, Mail } from "lucide-react";
 import { services } from "../renewal/content";
+import { submitLead } from "@/lib/platform/lead-client";
+import { getService } from "@/content/service-catalogue";
 import { Arrow } from "./Mark";
 import "./quote.css";
 
@@ -21,7 +23,11 @@ type Fields = {
 };
 type FieldName = keyof Fields | "service";
 type Errors = Partial<Record<FieldName, string>>;
-type Review = Fields & QuoteSelection;
+type Status =
+  | { state: "idle" }
+  | { state: "sending" }
+  | { state: "sent"; name: string }
+  | { state: "error"; message: string };
 
 const contactEmail = "contact@cleaningninja.co";
 const emptyFields: Fields = {
@@ -170,71 +176,103 @@ function ServiceSelect({
   );
 }
 
+const SUCCESS_VISIBLE_MS = 4000;
+const FADE_MS = 450;
+
 export default function QuotePanel({
   selection,
   onSelection,
+  quoteRequest = 0,
 }: {
   selection: QuoteSelection;
   onSelection: (value: QuoteSelection) => void;
+  /** Incremented whenever a CTA asks for the quote form, so a finished enquiry can give way to a fresh one. */
+  quoteRequest?: number;
 }) {
   const [interactive, setInteractive] = useState(false);
   const [fields, setFields] = useState<Fields>(emptyFields);
   const [errors, setErrors] = useState<Errors>({});
-  const [review, setReview] = useState<Review | null>(null);
-  const reviewRef = useRef<HTMLDivElement>(null);
+  const [status, setStatus] = useState<Status>({ state: "idle" });
+  const sending = useRef(false);
+  // One key per distinct enquiry: a retry after a failure re-uses it, so the server can deduplicate.
+  const attempt = useRef<{ signature: string; key: string } | null>(null);
+  const sentRef = useRef<HTMLDivElement>(null);
+  const [leaving, setLeaving] = useState(false);
+  const [fresh, setFresh] = useState(false);
+  const statusRef = useRef(status);
+  useEffect(() => {
+    statusRef.current = status;
+  }, [status]);
+  const handledRequest = useRef(quoteRequest);
   const formRef = useRef<HTMLFormElement>(null);
   const selectedService = services.find(
     (service) =>
       service.id === selection.service || service.name === selection.service,
   );
-  const reviewedServiceName =
-    services.find(
-      (service) =>
-        service.id === review?.service || service.name === review?.service,
-    )?.name ?? review?.service;
-  const reviewing =
-    review !== null &&
-    review.service === selection.service &&
-    review.packageName === selection.packageName;
-
   useEffect(() => {
     const frame = requestAnimationFrame(() => setInteractive(true));
     return () => cancelAnimationFrame(frame);
   }, []);
 
+  const sent = status.state === "sent";
   useEffect(() => {
-    if (reviewing) reviewRef.current?.focus();
-  }, [reviewing]);
+    if (sent) sentRef.current?.focus();
+  }, [sent]);
 
   useEffect(() => {
     if (selection.suburb === undefined) return;
     const suburb = selection.suburb;
     const frame = requestAnimationFrame(() => {
       setFields((current) => ({ ...current, suburb }));
-      setReview(null);
     });
     return () => cancelAnimationFrame(frame);
   }, [selection.suburb]);
 
   function updateField(name: keyof Fields, value: string) {
-    setReview(null);
+    if (status.state === "error") setStatus({ state: "idle" });
     setFields((current) => ({ ...current, [name]: value }));
     if (errors[name])
       setErrors((current) => ({ ...current, [name]: undefined }));
   }
 
-  function editEnquiry() {
-    setReview(null);
-    requestAnimationFrame(() =>
-      formRef.current
-        ?.querySelector<HTMLElement>('[name="service"]')
-        ?.focus({ preventScroll: true }),
-    );
+  /** Local reset only: never touches the network, so it cannot create another lead or email. */
+  function resetForm() {
+    attempt.current = null;
+    setFields(emptyFields);
+    setErrors({});
+    setLeaving(false);
+    setFresh(true);
+    setStatus({ state: "idle" });
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  // Thank-you stays readable, fades, then the section returns to an empty form (no scrolling, no focus move).
+  useEffect(() => {
+    if (!sent) return;
+    let fade = 0;
+    const hold = window.setTimeout(() => {
+      setLeaving(true);
+      fade = window.setTimeout(() => {
+        resetForm();
+        onSelection({ service: "", packageName: "" });
+      }, FADE_MS);
+    }, SUCCESS_VISIBLE_MS);
+    return () => {
+      window.clearTimeout(hold);
+      window.clearTimeout(fade);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sent]);
+
+  // A CTA pressed while the thank-you is showing opens a fresh form straight away, keeping the CTA's selection.
+  useEffect(() => {
+    if (quoteRequest === handledRequest.current) return;
+    handledRequest.current = quoteRequest;
+    if (statusRef.current.state === "sent") resetForm();
+  }, [quoteRequest]);
+
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!interactive) return;
+    if (!interactive || sending.current) return;
     const nextErrors: Errors = {};
     const normalisedPhone = fields.phone.replace(/[\s().-]/g, "");
     if (!selectedService) nextErrors.service = "Choose the service you need.";
@@ -266,32 +304,48 @@ export default function QuotePanel({
       );
       return;
     }
-    setReview({
-      ...selection,
-      name: fields.name.trim(),
+    const name = fields.name.trim();
+    const email = fields.email.trim();
+    const details = fields.details.trim();
+    const description = [
+      `Service: ${selectedService?.name}`,
+      selection.packageName ? `Selected package: ${selection.packageName}` : "",
+      details ? `Details: ${details}` : "",
+    ]
+      .filter(Boolean)
+      .join("\n")
+      .slice(0, 3000);
+    const lead = {
+      schemaVersion: 1 as const,
+      leadSource: "quote-form" as const,
+      channel: "website" as const,
+      intent: "quote" as const,
+      name,
       phone: fields.phone.trim(),
-      suburb: fields.suburb.trim(),
-      email: fields.email.trim(),
-      details: fields.details.trim(),
-    });
+      suburbOrAddress: fields.suburb.trim(),
+      ...(email ? { email } : {}),
+      description,
+      ...(selectedService && getService(selectedService.id)?.quoteEnabled ? { service: selectedService.id } : {}),
+      sourcePage: "/",
+    };
+    const signature = JSON.stringify(lead);
+    if (attempt.current?.signature !== signature) attempt.current = { signature, key: crypto.randomUUID() };
+    sending.current = true;
+    setFresh(false);
+    setStatus({ state: "sending" });
+    try {
+      const result = await submitLead(lead, attempt.current.key);
+      if (result.status === "accepted") {
+        setStatus({ state: "sent", name });
+      } else {
+        setStatus({ state: "error", message: result.message });
+      }
+    } catch {
+      setStatus({ state: "error", message: "We couldn't send your enquiry. Please try again, or email contact@cleaningninja.co." });
+    } finally {
+      sending.current = false;
+    }
   }
-
-  const emailBody = review
-    ? [
-        "Hello Cleaning Ninja, I would like a quote.",
-        "",
-        `Service: ${reviewedServiceName}`,
-        review.packageName ? `Selected package: ${review.packageName}` : "",
-        `Name: ${review.name}`,
-        `Phone: ${review.phone}`,
-        `Suburb or postcode: ${review.suburb}`,
-        review.email ? `Email: ${review.email}` : "",
-        review.details ? `Details: ${review.details}` : "",
-      ]
-        .filter((line, index) => line || index === 1)
-        .join("\n")
-    : "";
-  const emailHref = `mailto:${contactEmail}?subject=${encodeURIComponent(`Cleaning enquiry — ${reviewedServiceName ?? "Your space"}`)}&body=${encodeURIComponent(emailBody)}`;
 
   function errorMessage(name: FieldName) {
     return errors[name] ? (
@@ -321,27 +375,19 @@ export default function QuotePanel({
         </aside>
 
         <div className="rq-card">
-          {reviewing && review && (
-            <div className="rq-review" ref={reviewRef} tabIndex={-1} aria-labelledby="rn-review-title">
-              <p className="rq-state" role="status">Ready for your review · Not sent yet</p>
-              <h3 id="rn-review-title">One last look.</h3>
-              <p className="rq-sub">Here’s your enquiry, {review.name}. Open your email app when you’re ready, then send it to us from there.</p>
-              <dl className="rq-details">
-                <div><dt>Service</dt><dd>{reviewedServiceName}</dd></div>
-                {review.packageName && <div><dt>Package</dt><dd>{review.packageName}</dd></div>}
-                <div><dt>Name</dt><dd>{review.name}</dd></div>
-                <div><dt>Phone</dt><dd>{review.phone}</dd></div>
-                <div><dt>Suburb / postcode</dt><dd>{review.suburb}</dd></div>
-                {review.email && <div><dt>Email</dt><dd>{review.email}</dd></div>}
-                {review.details && <div><dt>Details</dt><dd className="rq-msg">{review.details}</dd></div>}
-              </dl>
-              <a className="rq-submit" href={emailHref}>Send by email <Arrow /></a>
-              <button type="button" className="rq-edit" onClick={editEnquiry}>Edit my enquiry</button>
-              <p className="rq-fine">Nothing has been sent and no booking is confirmed. Your email app will open a draft addressed to {contactEmail}.</p>
+          {status.state === "sent" && (
+            <div className={`rq-review${leaving ? " is-leaving" : ""}`} ref={sentRef} tabIndex={-1} aria-labelledby="rn-sent-title">
+              <p className="rq-state" role="status">Enquiry received</p>
+              <h3 id="rn-sent-title">Thank you, {status.name}.</h3>
+              <p className="rq-sub">
+                We’ve received your enquiry and a member of our team will review the details and get back to you shortly.
+              </p>
+              <button type="button" className="rq-edit" onClick={resetForm}>Send another enquiry</button>
+              <p className="rq-fine">This is an enquiry only. No booking is confirmed until we speak with you.</p>
             </div>
           )}
 
-          <form ref={formRef} hidden={reviewing} onSubmit={submit} noValidate aria-label="Prepare a cleaning quote enquiry">
+          <form ref={formRef} className={fresh ? "is-fresh" : undefined} hidden={sent} onSubmit={submit} noValidate aria-busy={status.state === "sending"} aria-label="Cleaning quote enquiry">
             <div className="rq-head">
               <h3>Your clean starts here.</h3>
               <p className="rq-sub">Quick details only. Email and notes are optional.</p>
@@ -358,7 +404,6 @@ export default function QuotePanel({
                   type="button"
                   aria-label="Remove selected package"
                   onClick={() => {
-                    setReview(null);
                     onSelection({ ...selection, packageName: "" });
                   }}
                 >
@@ -374,7 +419,6 @@ export default function QuotePanel({
                   invalid={Boolean(errors.service)}
                   describedBy={errors.service ? "rn-service-error" : undefined}
                   onChange={(id) => {
-                    setReview(null);
                     onSelection({ service: id, packageName: "" });
                     setErrors((current) => ({ ...current, service: undefined }));
                   }}
@@ -406,7 +450,12 @@ export default function QuotePanel({
                 <textarea id="rn-details" name="details" className="rq-control rq-area" value={fields.details} onChange={(e) => updateField("details", e.target.value)} rows={2} maxLength={3000} placeholder="Rooms, fabrics, problem spots or anything you’d like us to know…" />
               </div>
             </div>
-            <button className="rq-submit" type="submit" disabled={!interactive}>Get a free quote <Arrow /></button>
+            {status.state === "error" && (
+              <p className="rq-error rq-submit-error" role="alert">{status.message}</p>
+            )}
+            <button className="rq-submit" type="submit" disabled={!interactive || status.state === "sending"}>
+              {status.state === "sending" ? "Sending…" : "Get a free quote"} {status.state !== "sending" && <Arrow />}
+            </button>
           </form>
         </div>
       </div>

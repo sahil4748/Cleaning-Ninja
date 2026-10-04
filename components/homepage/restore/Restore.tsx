@@ -84,6 +84,7 @@ export default function Restore() {
   const [pastScene, setPastScene] = useState(false);
   const [quoteVisible, setQuoteVisible] = useState(false);
   const [selection, setSelection] = useState<Selection>({ service: "", packageName: "" });
+  const [quoteRequest, setQuoteRequest] = useState(0);
   const [serviceId, setServiceId] = useState(services[0].id);
   const [offerId, setOfferId] = useState(offers[0].id);
   const deals = [
@@ -214,9 +215,30 @@ export default function Restore() {
 
   const toQuote = useCallback((value: Selection) => {
     setSelection(value);
+    setQuoteRequest((n) => n + 1);
     setMenu(false);
     const instant = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    document.getElementById("quote")?.scrollIntoView({ behavior: instant ? "instant" : "smooth" });
+    // Whole section when it fits the screen; otherwise the form card itself, clear of the fixed nav.
+    const target = () => {
+      const section = document.getElementById("quote");
+      const card = section?.querySelector<HTMLElement>(".rq-card");
+      if (!section || !card) return null;
+      const fits = section.offsetHeight <= window.innerHeight + 1;
+      return Math.max(0, Math.round((fits ? section : card).getBoundingClientRect().top + window.scrollY - (fits ? 0 : 84)));
+    };
+    const first = target();
+    if (first !== null) window.scrollTo({ top: first, behavior: instant ? "instant" : "smooth" });
+    // Layout can shift while a long scroll runs (form swaps, pinned scene): settle once on the real target.
+    let settled = false;
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+      window.removeEventListener("scrollend", settle);
+      const end = target();
+      if (end !== null && Math.abs(window.scrollY - end) > 12) window.scrollTo({ top: end, behavior: "instant" });
+    };
+    window.addEventListener("scrollend", settle, { once: true });
+    window.setTimeout(settle, instant ? 50 : 2200);
     window.setTimeout(() => document.getElementById("rn-service")?.focus({ preventScroll: true }), instant ? 0 : 700);
   }, []);
   const go = (id: string) => {
@@ -461,7 +483,7 @@ export default function Restore() {
 
         {/* CONVERSION */}
         <div className="rs-quote-wrap">
-          <QuotePanel selection={selection} onSelection={setSelection} />
+          <QuotePanel selection={selection} onSelection={setSelection} quoteRequest={quoteRequest} />
         </div>
       </main>
 
