@@ -1,18 +1,17 @@
 "use client";
 
-import { Pause, Play, RotateCcw } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 
 type Props = {
-  mode: "none" | "scroll" | "play";
+  mode: "none" | "play";
   active: boolean;
-  ended: boolean;
   onToggle: () => void;
 };
 
 /** A complete poster remains in place while optional media loads or is unavailable. */
-export default function Film({ mode, active, ended, onToggle }: Props) {
-  const label = mode === "scroll" ? active ? "Pause motion" : "Resume motion" : active ? "Pause film" : ended ? "Replay film" : "Play film";
-  const Icon = active ? Pause : ended ? RotateCcw : Play;
+export default function Film({ mode, active, onToggle }: Props) {
+  const label = active ? "Pause film" : "Play film";
+  const Icon = active ? Pause : Play;
 
   return (
     <>
@@ -23,7 +22,7 @@ export default function Film({ mode, active, ended, onToggle }: Props) {
         </picture>
         <video data-src-desktop="/media/carpet-cleaning/film.mp4"
           data-src-mobile="/media/carpet-cleaning/film-mobile.mp4"
-          muted playsInline preload="none" aria-hidden="true" />
+          muted playsInline loop preload="none" aria-hidden="true" />
       </div>
       {mode !== "none" && <button type="button" className="cp-film-control" onClick={onToggle} aria-label={label}>
         <Icon size={14} aria-hidden="true" /><span>{label}</span>

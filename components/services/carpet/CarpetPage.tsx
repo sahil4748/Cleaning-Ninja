@@ -66,7 +66,7 @@ export default function CarpetPage() {
       <main id="cp-main">
         <div className="cp-opening" ref={opening}>
         <section className="cp-hero" aria-labelledby="cp-title" ref={hero}>
-          <Film mode={motion.mode} active={motion.active} ended={motion.ended} onToggle={motion.toggle} />
+          <Film mode={motion.mode} active={motion.active} onToggle={motion.toggle} />
           <div className="cp-hero-shade" aria-hidden="true" />
           <div className="cp-breadcrumb"><Link href="/" prefetch={false}>Home</Link><span aria-hidden="true">/</span><span>Carpet cleaning</span></div>
           <div className="cp-hero-message">
@@ -79,7 +79,6 @@ export default function CarpetPage() {
             <span className="cp-scroll-copy">Explore the care<span>Offers, methods &amp; a fresh start</span></span>
             <span className="cp-scroll-arrow" aria-hidden="true"><ArrowDown size={23} strokeWidth={1.5} /></span>
           </a>
-          <div className="cp-film-progress" aria-hidden="true"><span /></div>
         </section>
         </div>
 

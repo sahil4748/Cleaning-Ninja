@@ -115,6 +115,11 @@ async function screenshot(page: Page, name: string) {
   await mkdir(dir, { recursive: true });
   await page.screenshot({ path: `${dir}/${name}-hero.png` });
   await page.screenshot({ path: `${dir}/${name}-page.png`, fullPage: true });
+  if (/^(390|768)x/.test(name)) {
+    await scrollImmediately(page, Math.round(page.viewportSize()!.height * .45));
+    await page.screenshot({ path: `${dir}/${name}-transition.png` });
+    await scrollImmediately(page, 0);
+  }
 }
 
 async function offersAnchor(page: Page) {
@@ -172,56 +177,53 @@ test("standalone route preserves content, metadata, media and quote access", asy
   await openQuote(page);
 });
 
-test("native wheel scroll drives decoded film promptly forwards and backwards", async ({ page }, testInfo) => {
+test("autoplaying film and native wheel scrolling transition directly into the offers", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await page.goto(routePath);
-  const opening = page.locator(".cp-opening");
   const video = page.locator(".cp-film video");
-  await expect(opening).toHaveAttribute("data-motion-ready", "true");
-  const layout = await opening.evaluate((element) => {
-    const wrapper = element as HTMLElement;
-    const hero = wrapper.querySelector<HTMLElement>(".cp-hero")!;
-    return { span: wrapper.offsetHeight - hero.offsetHeight, start: wrapper.getBoundingClientRect().top + scrollY - parseFloat(getComputedStyle(hero).top) };
-  });
-  expect(layout.span).toBeGreaterThan(0);
-  expect(layout.span, "Desktop story lasts no more than one extra viewport plus small tolerance").toBeLessThanOrEqual(1100);
-  await expect(video).not.toHaveAttribute("autoplay", /.*/);
-  await expect(video).not.toHaveAttribute("loop", /.*/);
-  const duration = await video.evaluate((element) => (element as HTMLVideoElement).duration);
-  expect(duration).toBeGreaterThan(0);
-  async function atFraction(fraction: number) {
-    await scrollImmediately(page, Math.round(layout.start + layout.span * fraction));
-    await expect.poll(() => video.evaluate((element, target) => {
-      const player = element as HTMLVideoElement;
-      return player.paused && !player.seeking && player.readyState >= 2 && Math.abs(player.currentTime - target) < 0.16;
-    }, (duration - 1 / 30) * fraction), { timeout: 2000, message: "Decoded footage reaches the current scroll position without a long trailing cursor" }).toBe(true);
-    return decodedFrameHash(page);
-  }
-  const start = await atFraction(.08);
+  await expect(page.locator(".cp-opening")).toHaveAttribute("data-motion-ready", "true");
+  await noRunway(page);
+  await expect(video).toHaveJSProperty("muted", true);
+  // Firefox renders the inline attribute without exposing the WebKit IDL property.
+  await expect(video).toHaveAttribute("playsinline", "");
+  await expect(video).toHaveJSProperty("loop", true);
+  await expect(video).toHaveJSProperty("paused", false);
+  await expect.poll(() => video.evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(.1);
+  const initialTime = await video.evaluate((element) => (element as HTMLVideoElement).currentTime);
+  const initialFrame = await decodedFrameHash(page);
+  await expect.poll(() => video.evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(initialTime + .6);
+  expect(await decodedFrameHash(page), "Decoded footage advances while the visitor is stationary").not.toBe(initialFrame);
+  const before = await page.evaluate(() => ({
+    y: scrollY,
+    heroTop: document.querySelector(".cp-hero")!.getBoundingClientRect().top,
+    offersTop: document.querySelector("#cp-offers")!.getBoundingClientRect().top,
+    filmTime: document.querySelector<HTMLVideoElement>(".cp-film video")!.currentTime,
+    clock: performance.now(),
+  }));
   await page.mouse.move(1100, 500);
-  const before = await page.evaluate(() => scrollY);
   const began = Date.now();
-  await page.mouse.wheel(0, Math.round(layout.span * .6));
-  await expect.poll(() => page.evaluate(() => scrollY), { timeout: 1000 }).toBeGreaterThan(before + layout.span * .4);
+  await page.mouse.wheel(0, 280);
+  await expect.poll(() => page.evaluate(() => scrollY), { timeout: 1000 }).toBeGreaterThan(before.y + 200);
   const wheelResponseMs = Date.now() - began;
-  const middle = await atFraction(.65);
-  const reverse = await atFraction(.2);
-  expect(new Set([start, middle, reverse]).size, "Scroll changes actual decoded imagery in both directions").toBe(3);
-  await filmFillsHero(page);
+  const after = await page.evaluate(() => ({
+    y: scrollY,
+    heroTop: document.querySelector(".cp-hero")!.getBoundingClientRect().top,
+    offersTop: document.querySelector("#cp-offers")!.getBoundingClientRect().top,
+    filmTime: document.querySelector<HTMLVideoElement>(".cp-film video")!.currentTime,
+    clock: performance.now(),
+  }));
+  const distance = after.y - before.y;
+  expect(Math.abs((before.heroTop - after.heroTop) - distance), "Hero follows native document movement rather than pinning").toBeLessThanOrEqual(2);
+  expect(Math.abs((before.offersTop - after.offersTop) - distance), "Offers arrive with the same natural scroll movement").toBeLessThanOrEqual(2);
+  expect(after.filmTime - before.filmTime, "Scrolling does not seek the film timeline").toBeLessThanOrEqual((after.clock - before.clock) / 1000 + .2);
+  expect(after.filmTime).toBeGreaterThanOrEqual(before.filmTime);
   await headerQuoteIsInViewport(page);
-  await expect(page.locator(".cp-hero-quote")).toBeVisible();
-  await page.getByRole("button", { name: "Pause motion", exact: true }).click();
-  const paused = await video.evaluate((element) => (element as HTMLVideoElement).currentTime);
-  await scrollImmediately(page, Math.round(layout.span * .55));
-  await expect(video).toHaveJSProperty("currentTime", paused);
-  await page.getByRole("button", { name: "Resume motion", exact: true }).click();
-  await atFraction(.55);
   const dir = `${evidencePath}/${testInfo.project.name}`;
   await mkdir(dir, { recursive: true });
-  await page.screenshot({ path: `${dir}/desktop-film-mid.png` });
+  await page.screenshot({ path: `${dir}/desktop-film-transition.png` });
   await scrollImmediately(page, 0);
   await offersAnchor(page);
-  await writeFile(`${dir}/scroll-metrics.json`, JSON.stringify({ browser: testInfo.project.name, viewport: page.viewportSize(), extraHeroScrollPx: layout.span, wheelResponseMs, note: "Local automated browser sample; not field CWV or physical-device FPS." }, null, 2));
+  await writeFile(`${dir}/scroll-metrics.json`, JSON.stringify({ browser: testInfo.project.name, viewport: page.viewportSize(), extraHeroScrollPx: 0, wheelResponseMs, note: "Local automated browser sample; autoplay advances independently of native page scroll. Not field CWV or physical-device FPS." }, null, 2));
 });
 
 test("responsive portrait and short landscape layouts remain readable and reach the quote", async ({ page }) => {
@@ -233,7 +235,7 @@ test("responsive portrait and short landscape layouts remain readable and reach 
     await filmFillsHero(page);
     await noOverflow(page);
     await headerQuoteIsInViewport(page);
-    if (width < 900 || height < 650) await noRunway(page);
+    await noRunway(page);
     const cta = page.locator(".cp-hero-quote");
     const hero = page.locator(".cp-hero");
     expect(await cta.evaluate((element) => element.getBoundingClientRect().bottom <= element.closest(".cp-hero")!.getBoundingClientRect().bottom + 1), "Hero quote fits within hero even in landscape").toBe(true);
@@ -259,49 +261,136 @@ test("reduced motion, Save Data and slow connections show poster without media r
   await settleImages(page);
   await noRunway(page);
   await expect(page.locator(".cp-film video")).not.toHaveAttribute("src", /.+/);
-  await expect(page.getByRole("button", { name: /^(Play film|Pause motion)$/ })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /^(Play film|Pause film)$/ })).toHaveCount(0);
   await openQuote(page);
+  // Dispose the reduced-motion page before changing emulation; otherwise that
+  // old, now-eligible document can legitimately begin autoplay during this test.
+  await page.goto("about:blank");
   await page.emulateMedia({ reducedMotion: "no-preference" });
-  await page.addInitScript(() => Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: true, effectiveType: "4g" } }));
-  await page.goto(routePath);
+  await page.addInitScript(() => {
+    const slow = new URL(location.href).searchParams.get("qaConnection") === "2g";
+    Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: !slow, effectiveType: slow ? "2g" : "4g" } });
+  });
+  await page.goto(`${routePath}?qaConnection=save-data`);
   await settleImages(page);
   await noRunway(page);
   await expect(page.locator(".cp-film video")).not.toHaveAttribute("src", /.+/);
-  await offersAnchor(page);
+  await page.locator(".cp-scroll-cue").click();
+  await expect(page).toHaveURL(/#cp-offers$/);
   await openQuote(page);
-  await page.addInitScript(() => Object.defineProperty(navigator, "connection", { configurable: true, value: { saveData: false, effectiveType: "2g" } }));
-  await page.goto(routePath);
+  await page.goto(`${routePath}?qaConnection=2g`);
   await settleImages(page);
   await noRunway(page);
   expect(films, "Data preferences avoid film downloads altogether").toEqual([]);
 });
 
-test("small screens load the optional film only after play and can pause it", async ({ page }) => {
+test("small screens autoplay muted film, preserve pause and replace the source on rotation", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  const films: string[] = [];
-  page.on("request", (request) => { if (/\/film(?:-mobile)?\.mp4/.test(request.url())) films.push(request.url()); });
   await page.goto(routePath);
   await settleImages(page);
   await noRunway(page);
-  const play = page.getByRole("button", { name: "Play film", exact: true });
-  await expect(play).toBeVisible();
-  expect(films).toEqual([]);
-  await play.click();
-  await expect(page.locator(".cp-film video")).toHaveAttribute("src", "/media/carpet-cleaning/film-mobile.mp4");
-  await expect.poll(() => page.locator(".cp-film video").evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(.05);
+  const video = page.locator(".cp-film video");
+  await expect(video).toHaveAttribute("src", "/media/carpet-cleaning/film-mobile.mp4");
+  await expect(video).toHaveJSProperty("muted", true);
+  await expect(video).toHaveJSProperty("loop", true);
+  await expect.poll(() => video.evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(.1);
   await page.getByRole("button", { name: "Pause film", exact: true }).click();
-  await expect(page.locator(".cp-film video")).toHaveJSProperty("paused", true);
-  await expect(play).toBeVisible();
-  expect(films.length).toBeGreaterThan(0);
-  await noRunway(page);
+  await expect(video).toHaveJSProperty("paused", true);
+  const pausedTime = await video.evaluate((element) => (element as HTMLVideoElement).currentTime);
+  await scrollImmediately(page, 180);
+  await scrollImmediately(page, 0);
+  await expect(video).toHaveJSProperty("paused", true);
+  await expect(video).toHaveJSProperty("currentTime", pausedTime);
   await page.setViewportSize({ width: 844, height: 390 });
-  await expect(page.locator(".cp-film video")).not.toHaveAttribute("src", /.+/);
-  await expect(page.locator(".cp-film video")).toHaveJSProperty("paused", true);
-  await play.click();
-  await expect(page.locator(".cp-film video")).toHaveAttribute("src", "/media/carpet-cleaning/film.mp4");
+  await expect(video).not.toHaveAttribute("src", /.+/);
+  await expect(video).toHaveJSProperty("paused", true);
+  await page.getByRole("button", { name: "Play film", exact: true }).click();
+  await expect(video).toHaveAttribute("src", "/media/carpet-cleaning/film.mp4");
   await expect(page.getByRole("button", { name: "Pause film", exact: true })).toBeVisible();
+  await expect(video).toHaveJSProperty("paused", false);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(video).toHaveAttribute("src", "/media/carpet-cleaning/film-mobile.mp4");
+  await expect(video).toHaveJSProperty("paused", false);
   await noRunway(page);
   await openQuote(page);
+});
+
+test("blocked autoplay offers manual playback without blocking the page", async ({ page }) => {
+  await page.addInitScript(() => {
+    const play = HTMLMediaElement.prototype.play;
+    Object.defineProperty(window, "qaAllowPlayback", { configurable: true, writable: true, value: false });
+    HTMLMediaElement.prototype.play = function () {
+      if (!(window as unknown as { qaAllowPlayback: boolean }).qaAllowPlayback) {
+        return Promise.reject(new DOMException("Synthetic autoplay policy rejection", "NotAllowedError"));
+      }
+      return play.call(this);
+    };
+  });
+  await page.goto(routePath);
+  await settleImages(page);
+  const video = page.locator(".cp-film video");
+  await expect(video).toHaveAttribute("src", /film\.mp4$/);
+  await expect(video).toHaveJSProperty("paused", true);
+  const play = page.getByRole("button", { name: "Play film", exact: true });
+  await expect(play).toBeVisible();
+  await expect(page.locator(".cp-poster img")).toBeVisible();
+  await noRunway(page);
+  await page.evaluate(() => { (window as unknown as { qaAllowPlayback: boolean }).qaAllowPlayback = true; });
+  await play.click();
+  await expect(video).toHaveJSProperty("paused", false);
+  await expect.poll(() => video.evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(.1);
+  await openQuote(page);
+});
+
+test("autoplay pauses offscreen and when hidden, resumes safely, and honors manual pause", async ({ page }) => {
+  await page.addInitScript(() => {
+    const play = HTMLMediaElement.prototype.play;
+    let first = true;
+    HTMLMediaElement.prototype.play = function () {
+      const attempt = play.call(this);
+      if (!first) return attempt;
+      first = false;
+      // Delay completion of the first native play promise across leaving and
+      // re-entering the hero, then resolve it after the newer attempt succeeds.
+      return attempt.then(() => new Promise<void>((resolve) => {
+        (window as unknown as { qaReleaseInitialPlay?: () => void }).qaReleaseInitialPlay = resolve;
+      }));
+    };
+  });
+  await page.goto(routePath);
+  const video = page.locator(".cp-film video");
+  await expect(video).toHaveJSProperty("paused", false);
+  await expect.poll(() => video.evaluate((element) => (element as HTMLVideoElement).currentTime)).toBeGreaterThan(.1);
+  await openQuote(page);
+  await expect(video).toHaveJSProperty("paused", true);
+  await scrollImmediately(page, 0);
+  await expect(video).toHaveJSProperty("paused", false);
+  await page.evaluate(() => { (window as unknown as { qaReleaseInitialPlay?: () => void }).qaReleaseInitialPlay?.(); });
+  await expect(video).toHaveJSProperty("paused", false);
+  // Headless tabs do not reliably become background tabs. Exercise the actual handler
+  // with deterministic Page Visibility values; offscreen visibility above is real.
+  const visibility = async (hidden: boolean) => page.evaluate((value) => {
+    Object.defineProperty(document, "hidden", { configurable: true, value });
+    Object.defineProperty(document, "visibilityState", { configurable: true, value: value ? "hidden" : "visible" });
+    document.dispatchEvent(new Event("visibilitychange"));
+  }, hidden);
+  await visibility(true);
+  await expect(video).toHaveJSProperty("paused", true);
+  await visibility(false);
+  await expect(video).toHaveJSProperty("paused", false);
+  await page.getByRole("button", { name: "Pause film", exact: true }).click();
+  await expect(video).toHaveJSProperty("paused", true);
+  await openQuote(page);
+  await scrollImmediately(page, 0);
+  await expect(video).toHaveJSProperty("paused", true);
+  await visibility(true);
+  await visibility(false);
+  await expect(video).toHaveJSProperty("paused", true);
+  await expect(page.getByRole("button", { name: "Play film", exact: true })).toBeVisible();
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(video).not.toHaveAttribute("src", /.+/);
+  await expect(page.locator(".cp-film-control")).toHaveCount(0);
+  await noRunway(page);
 });
 
 test("delayed film readiness does not move the quote or offers away from the visitor", async ({ page }) => {
@@ -329,7 +418,7 @@ test("unavailable film retains its poster and all quote interactions", async ({ 
   await settleImages(page);
   await expect.poll(() => attempted).toBe(true);
   await expect(page.locator(".cp-film video")).not.toHaveAttribute("src", /.+/);
-  await expect(page.getByRole("button", { name: /^(Play film|Pause motion)$/ })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: /^(Play film|Pause film)$/ })).toHaveCount(0);
   await expect(page.locator(".cp-poster img")).toBeVisible();
   await expect(page.locator(".cp-film video")).toHaveCSS("opacity", "0");
   await offersAnchor(page);
@@ -397,7 +486,8 @@ test.describe("touch tablet", () => {
     await page.goto(routePath);
     await settleImages(page);
     await noRunway(page);
-    await expect(page.locator(".cp-film video")).not.toHaveAttribute("src", /.+/);
+    await expect(page.locator(".cp-film video")).toHaveAttribute("src", "/media/carpet-cleaning/film.mp4");
+    await expect(page.locator(".cp-film video")).toHaveJSProperty("paused", false);
     await page.locator(".cp-scroll-cue").tap();
     await expect(page).toHaveURL(new RegExp(`${routePath}#cp-offers$`));
     const conditions = page.getByRole("button", { name: "Offer conditions", exact: true });

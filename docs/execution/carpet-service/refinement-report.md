@@ -2,7 +2,17 @@
 
 Scope: finish and refine `/services/carpet-cleaning` on the existing `codex/service-pages` branch. The owner's current request authorises a feature-branch commit and push after QA. Homepage presentation, backend APIs, provider configuration, noindex and release settings are preserved. The pre-existing `.gitignore` edit is outside this commit.
 
-## Changes
+## Latest follow-up: autoplay and cinematic section transition
+
+The owner requested automatic video playback and a smoother transition into the next section. Eligible desktop, tablet and mobile layouts now play the existing muted, inline film automatically and loop it while visible. Scrolling never seeks the movie. Offscreen and hidden documents pause playback, and returning resumes it unless the visitor explicitly paused. Rotation selects the correct landscape/portrait source while preserving that choice. A blocked autoplay attempt leaves a working Play control; reduced motion, Save-Data, slow connections and media failure retain the poster.
+
+All pinned scroll distance is removed. A single passive scroll update drives a small background drift/scale and soft darkening as the rounded offers section rises naturally over the film. The text and quote actions remain ordinary, accessible content. No animation dependency, new asset or backend change was introduced.
+
+The production build, typecheck, full lint (zero errors, 62 existing warnings) and all 23 unit tests passed. All 42 browser scenarios are verified across Chromium, Firefox and WebKit; exact run accounting and fresh performance samples are recorded in the current [QA report](qa-report.md). The unit suite used `node --import tsx --test tests/unit/*.test.ts` because the sandbox blocks the `tsx` CLI's IPC socket; the same test sources and runtime ran successfully.
+
+Playback handling follows [MDN play promise guidance](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play), [Page Visibility guidance](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API), and [WebKit muted inline-video policy](https://webkit.org/blog/6784/new-video-policies-for-ios/), checked through Context7 and official sources. Independent lifecycle review found no blocking issue. Earlier scroll-driven behavior and performance samples below describe commit `4fe7145`, not the current autoplay behavior.
+
+## Previous refinement — changes in 4fe7145
 
 - Desktop hero footage follows native scrolling directly, with one pending seek and no trailing animation clock. Extra hero travel is reduced from 1500–1900px to 640–940px. The title and quote action stay visible, with an explicit pause/resume control.
 - Touch, narrow and short viewports use ordinary page flow. The poster is complete immediately; film download and playback begin only when requested. Reduced motion, Save-Data and slow connections retain the poster.
