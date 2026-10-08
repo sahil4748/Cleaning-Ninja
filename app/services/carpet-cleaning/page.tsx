@@ -1,39 +1,75 @@
-import { serviceMetadata } from '@/lib/platform/metadata'
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import ServiceDetail from '@/components/sections/service/ServiceDetail'
-import { JsonLd } from '@/components/seo/JsonLd'
-import { SERVICES } from '@/content/services'
-import { CARPET_MATRIX } from '@/content/pricing'
-import { housekeepingServiceSchema, breadcrumbSchema } from '@/lib/schema'
+import type { Metadata } from "next";
+import { Hanken_Grotesk, Instrument_Serif } from "next/font/google";
+import CarpetPage from "@/components/services/carpet/CarpetPage";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema } from "@/lib/schema";
+import { SITE_CONFIG, SITE_URL } from "@/lib/site-config";
 
-const SLUG = 'carpet-cleaning'
-const service = SERVICES.find((s) => s.slug === SLUG)
-const index = SERVICES.findIndex((s) => s.slug === SLUG)
+const sans = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--renewal-sans",
+  display: "swap",
+});
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--renewal-serif",
+  display: "swap",
+});
 
-export const metadata: Metadata = serviceMetadata(SLUG)
+const path = "/services/carpet-cleaning";
+const title = "Carpet Cleaning | Cleaning Ninja";
+const description =
+  "Explore professional carpet cleaning, our cleaning process and the benefits of fresh carpets. Request a free personalised quote from Cleaning Ninja.";
+const image = {
+  url: "/media/carpet-cleaning/poster.webp",
+  width: 1920,
+  height: 1080,
+  alt: "Professional carpet cleaning in progress",
+};
+
+export const metadata: Metadata = {
+  title: { absolute: title },
+  description,
+  alternates: { canonical: path },
+  robots: { index: SITE_CONFIG.indexable, follow: SITE_CONFIG.indexable },
+  openGraph: {
+    title,
+    description,
+    url: path,
+    type: "website",
+    images: [image],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: [image.url],
+  },
+};
 
 export default function CarpetCleaningPage() {
-  if (!service) notFound()
-
   return (
-    <>
+    <div className={`${sans.variable} ${serif.variable}`}>
       <JsonLd
         data={[
-          housekeepingServiceSchema(service),
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Carpet Cleaning",
+            description,
+            url: `${SITE_URL}${path}`,
+            provider: { "@id": `${SITE_URL}#organization` },
+          },
           breadcrumbSchema([
-            { name: 'Home', href: '/' },
-            { name: 'Services', href: '/services' },
-            { name: service.name, href: service.href },
+            { name: "Home", href: "/" },
+            { name: "Carpet Cleaning", href: path },
           ]),
         ]}
       />
-      <ServiceDetail
-        service={service}
-        index={index}
-        simplePricing={CARPET_MATRIX.map((r) => ({ label: r.label, price: r.price }))}
-        pricingMatrixLabel="Per room. Same rate, six cities."
-      />
-    </>
-  )
+      <CarpetPage />
+    </div>
+  );
 }

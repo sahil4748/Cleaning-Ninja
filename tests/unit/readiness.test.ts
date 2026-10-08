@@ -2,6 +2,9 @@ import './isolated-environment'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { spawnSync } from 'node:child_process'
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { LeadSchema } from '../../lib/lead-contract'
 import { calendarDate, parseCalendarDate } from '../../lib/calendar-date'
 import { organizationSchema, housekeepingServiceSchema, reviewSchema, localBusinessSchema, articleSchema, faqSchema } from '../../lib/schema'
@@ -70,11 +73,29 @@ test('API rejects invalid payloads and never accepts valid leads without durable
     assert.equal(result.headers.get('cache-control'), 'no-store')
   }
 })
-test('production release guard fails, including direct Next configuration load', () => {
-  const guard = spawnSync(process.execPath, ['--import', 'tsx', 'scripts/check-release.ts', '--release'], { encoding: 'utf8' })
-  assert.equal(guard.status, 1)
-  assert.match(guard.stderr, /Production release blocked/)
-  const nextConfig = spawnSync(process.execPath, ['-e', "require('./next.config.js')"], { env: { ...process.env, VERCEL_ENV: 'production' }, encoding: 'utf8' })
-  assert.notEqual(nextConfig.status, 0)
-  assert.match(nextConfig.stderr, /Production release blocked/)
+test('production guards reject unapproved or blocked fixtures and allow an approved fixture', () => {
+  // Exercise the real guard sources without depending on or modifying release approval.
+  const fixture = mkdtempSync(join(tmpdir(), 'cleaning-ninja-release-'))
+  try {
+    mkdirSync(join(fixture, 'scripts'))
+    mkdirSync(join(fixture, 'content'))
+    writeFileSync(join(fixture, 'scripts/check-release.ts'), readFileSync('scripts/check-release.ts'))
+    writeFileSync(join(fixture, 'next.config.js'), readFileSync('next.config.js'))
+    for (const readiness of [
+      { status: 'PENDING', blockers: [] },
+      { status: 'APPROVED', blockers: ['Fixture release blocker'] },
+      { status: 'APPROVED', blockers: [] },
+    ]) {
+      writeFileSync(join(fixture, 'content/release-readiness.json'), JSON.stringify(readiness))
+      const blocked = readiness.status !== 'APPROVED' || readiness.blockers.length > 0
+      const guard = spawnSync(process.execPath, ['--import', 'tsx', join(fixture, 'scripts/check-release.ts'), '--release'], { encoding: 'utf8' })
+      const nextConfig = spawnSync(process.execPath, ['-e', 'require(process.argv[1])', join(fixture, 'next.config.js')], { env: { ...process.env, VERCEL_ENV: 'production' }, encoding: 'utf8' })
+      for (const result of [guard, nextConfig]) {
+        assert.equal(result.status, blocked ? 1 : 0, result.stderr)
+        if (blocked) assert.match(result.stderr, /Production release blocked/)
+      }
+    }
+  } finally {
+    rmSync(fixture, { recursive: true, force: true })
+  }
 })

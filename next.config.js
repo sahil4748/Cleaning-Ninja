@@ -10,7 +10,12 @@ const nextConfig = {
   async redirects() {
     return retiredRoutes.flatMap(route => [
       { source: `/${route}`, destination: '/', permanent: true },
-      { source: `/${route}/:path*`, destination: '/', permanent: true },
+      {
+        // This service now has its own page; other retired service URLs still redirect.
+        source: route === 'services' ? '/services/:path((?!carpet-cleaning/?$).*)' : `/${route}/:path*`,
+        destination: '/',
+        permanent: true,
+      },
     ])
   },
   images: {
